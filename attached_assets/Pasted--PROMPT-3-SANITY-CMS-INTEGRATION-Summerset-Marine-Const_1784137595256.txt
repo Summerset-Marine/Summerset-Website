@@ -1,0 +1,320 @@
+# PROMPT 3 — SANITY CMS INTEGRATION
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt 2 is confirmed complete
+
+---
+
+The SEO infrastructure is complete. Now build the Sanity CMS integration layer. Do not build any Sanity Studio — only the client-side integration that the React site uses to fetch content.
+
+---
+
+BUILD src/lib/sanity.js:
+
+```javascript
+import { createClient } from '@sanity/client'
+
+export const sanityClient = createClient({
+  projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
+  dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
+  apiVersion: import.meta.env.VITE_SANITY_API_VERSION || '2024-01-01',
+  useCdn: true, // Use CDN for all fetches — fast global delivery
+})
+
+// Build-time fetch (SSG) — used in vite-plugin-ssg getStaticProps equivalents
+export async function sanityFetch(query, params = {}) {
+  return sanityClient.fetch(query, params)
+}
+
+// Live fetch (client-side) — used for blog index, gallery pages, frequently updated content
+export async function sanityLiveFetch(query, params = {}) {
+  return createClient({
+    projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
+    dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
+    apiVersion: import.meta.env.VITE_SANITY_API_VERSION || '2024-01-01',
+    useCdn: false, // Bypass CDN for live fetches
+  }).fetch(query, params)
+}
+```
+
+---
+
+DEFINE ALL SANITY GROQ QUERIES in src/lib/sanity.js as named exports:
+
+```javascript
+// Blog posts — all published, ordered newest first
+export const ALL_BLOG_POSTS_QUERY = `
+  *[_type == "blogPost" && published == true] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    publishedAt,
+    _updatedAt,
+    excerpt,
+    market,
+    lake,
+    "featuredImageUrl": featuredImage.asset->url,
+    "featuredImageAlt": featuredImage.alt,
+    metaTitle,
+    metaDescription
+  }
+`
+
+// Single blog post by slug
+export const BLOG_POST_BY_SLUG_QUERY = `
+  *[_type == "blogPost" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    publishedAt,
+    _updatedAt,
+    body,
+    market,
+    lake,
+    "featuredImageUrl": featuredImage.asset->url,
+    "featuredImageAlt": featuredImage.alt,
+    metaTitle,
+    metaDescription,
+    author
+  }
+`
+
+// All blog post slugs (for SSG route generation)
+export const ALL_BLOG_SLUGS_QUERY = `
+  *[_type == "blogPost" && published == true] { "slug": slug.current }
+`
+
+// Body of water page by lake slug
+export const LAKE_PAGE_QUERY = `
+  *[_type == "lakePageContent" && lakeSlug == $lakeSlug][0] {
+    lakeName,
+    lakeSlug,
+    market,
+    historyText,
+    lakeCharacteristics,
+    metaTitle,
+    metaDescription,
+    "heroImageUrl": heroImage.asset->url,
+    "heroImageAlt": heroImage.alt,
+    "projects": projects[] {
+      title,
+      productType,
+      installYear,
+      caption,
+      "beforeImageUrl": beforeImage.asset->url,
+      "afterImageUrl": afterImage.asset->url,
+      "afterImageAlt": afterImage.alt
+    },
+    "testimonials": testimonials[] {
+      quote,
+      customerName,
+      lakeLabel
+    }
+  }
+`
+
+// Market landing page content by market slug
+export const MARKET_PAGE_QUERY = `
+  *[_type == "marketPage" && marketSlug == $marketSlug][0] {
+    marketName,
+    marketSlug,
+    introText,
+    metaTitle,
+    metaDescription,
+    "heroImageUrl": heroImage.asset->url,
+    "heroImageAlt": heroImage.alt,
+    "featuredProjects": featuredProjects[] {
+      title,
+      lake,
+      productType,
+      "imageUrl": image.asset->url,
+      "imageAlt": image.alt
+    }
+  }
+`
+
+// FAQ entries — all, ordered by category
+export const FAQ_QUERY = `
+  *[_type == "faqEntry"] | order(category asc) {
+    _id,
+    question,
+    answer,
+    category
+  }
+`
+
+// All projects for a given market (gallery pages)
+export const MARKET_PROJECTS_QUERY = `
+  *[_type == "project" && market == $market] | order(installYear desc) {
+    _id,
+    title,
+    lake,
+    productType,
+    installYear,
+    caption,
+    "afterImageUrl": afterImage.asset->url,
+    "afterImageAlt": afterImage.alt
+  }
+`
+
+// All testimonials for a given market
+export const MARKET_TESTIMONIALS_QUERY = `
+  *[_type == "testimonial" && market == $market] {
+    _id,
+    quote,
+    customerName,
+    lakeLabel,
+    productType,
+    starRating
+  }
+`
+
+// Lift Media documents by NetSuite item ID (used to join with NetSuite inventory)
+export const LIFT_MEDIA_QUERY = `
+  *[_type == "liftMedia"] {
+    netsuiteItemId,
+    "photos": photos[] {
+      "url": asset->url,
+      "alt": alt
+    },
+    notes,
+    "marketplaceLinks": marketplaceLinks[] {
+      platform,
+      url
+    }
+  }
+`
+
+// Team members for About page
+export const TEAM_QUERY = `
+  *[_type == "teamMember"] | order(order asc) {
+    _id,
+    name,
+    title,
+    bio,
+    "photoUrl": photo.asset->url,
+    "photoAlt": photo.alt
+  }
+`
+```
+
+---
+
+BUILD src/api/netsuite-webhook.js — WEBHOOK HANDLER:
+
+This Express route receives POST requests from NetSuite when inventory changes. It validates the webhook secret, then updates src/data/inventory-cache.json with the new inventory data.
+
+```javascript
+import fs from 'fs'
+import path from 'path'
+import crypto from 'crypto'
+
+const CACHE_PATH = path.join(process.cwd(), 'src/data/inventory-cache.json')
+
+export default function netsuiteWebhook(req, res) {
+  // Validate webhook secret
+  const signature = req.headers['x-netsuite-signature']
+  const expected = crypto
+    .createHmac('sha256', process.env.NETSUITE_WEBHOOK_SECRET)
+    .update(JSON.stringify(req.body))
+    .digest('hex')
+
+  if (signature !== expected) {
+    return res.status(401).json({ error: 'Invalid webhook signature' })
+  }
+
+  // Write updated inventory to cache file
+  const payload = {
+    lastUpdated: new Date().toISOString(),
+    items: req.body.items || [],
+  }
+
+  try {
+    fs.writeFileSync(CACHE_PATH, JSON.stringify(payload, null, 2))
+    console.log(`[NetSuite Webhook] Inventory cache updated — ${payload.items.length} items`)
+    res.status(200).json({ success: true, itemCount: payload.items.length })
+  } catch (err) {
+    console.error('[NetSuite Webhook] Cache write failed:', err)
+    res.status(500).json({ error: 'Cache write failed' })
+  }
+}
+```
+
+---
+
+BUILD src/lib/netsuite.js — NETSUITE REST API CLIENT:
+
+This module fetches inventory directly from NetSuite when needed (manual refresh or initial load if cache is empty). Uses OAuth 1.0a with TBA (Token-Based Authentication) as required by NetSuite REST API.
+
+```javascript
+import crypto from 'crypto'
+import axios from 'axios'
+
+function generateOAuthHeader(method, url) {
+  const timestamp = Math.floor(Date.now() / 1000).toString()
+  const nonce = crypto.randomBytes(16).toString('hex')
+
+  const params = {
+    oauth_consumer_key: process.env.NETSUITE_CONSUMER_KEY,
+    oauth_nonce: nonce,
+    oauth_signature_method: 'HMAC-SHA256',
+    oauth_timestamp: timestamp,
+    oauth_token: process.env.NETSUITE_TOKEN_ID,
+    oauth_version: '1.0',
+  }
+
+  const baseString = [
+    method.toUpperCase(),
+    encodeURIComponent(url),
+    encodeURIComponent(
+      Object.keys(params).sort().map(k => `${k}=${params[k]}`).join('&')
+    ),
+  ].join('&')
+
+  const signingKey = `${encodeURIComponent(process.env.NETSUITE_CONSUMER_SECRET)}&${encodeURIComponent(process.env.NETSUITE_TOKEN_SECRET)}`
+  const signature = crypto.createHmac('sha256', signingKey).update(baseString).digest('base64')
+
+  params.oauth_signature = signature
+  params.realm = process.env.NETSUITE_ACCOUNT_ID
+
+  return 'OAuth ' + Object.keys(params).map(k => `${k}="${encodeURIComponent(params[k])}"`).join(', ')
+}
+
+export async function fetchNetSuiteInventory() {
+  const accountId = process.env.NETSUITE_ACCOUNT_ID
+  const url = `https://${accountId}.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql`
+
+  const query = `
+    SELECT
+      item.id AS itemId,
+      item.displayName AS productName,
+      item.itemType AS productType,
+      item.custitem_smc_model AS model,
+      item.custitem_smc_year AS year,
+      item.custitem_smc_condition AS condition,
+      item.salesprice AS price,
+      item.custitem_smc_status AS status
+    FROM item
+    WHERE item.isinactive = 'F'
+      AND item.custitem_smc_lift_inventory = 'T'
+    ORDER BY item.id DESC
+  `
+
+  const response = await axios.post(
+    url,
+    { q: query },
+    {
+      headers: {
+        Authorization: generateOAuthHeader('POST', url),
+        'Content-Type': 'application/json',
+        Prefer: 'transient',
+      },
+    }
+  )
+
+  return response.data.items || []
+}
+```
+
+Note: The field names custitem_smc_model, custitem_smc_year, custitem_smc_condition, custitem_smc_status, and custitem_smc_lift_inventory are placeholders. These must be replaced with the actual NetSuite custom field IDs from the SMC NetSuite account before this query will run. Flag these with TODO comments.
+
+Confirm when the Sanity integration, NetSuite webhook handler, and NetSuite REST client are complete. Do not build any page content yet.

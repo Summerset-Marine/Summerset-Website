@@ -29,7 +29,8 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 - `artifacts/summerset-marine/scripts/generate-sitemaps.ts` — build-time script (Node native TS) writing sitemaps to `public/`; runs via `generate:sitemaps` and chained into `build`; fetches blog posts from Sanity when configured
 - `artifacts/summerset-marine/.env.example` — documents all expected env vars
 - `artifacts/api-server/src/routes/submit-form.ts` — POST /api/submit-form (Gmail relay)
-- `artifacts/api-server/src/routes/netsuite-webhook.ts` — POST /api/netsuite-webhook + GET /api/inventory
+- `artifacts/api-server/src/routes/netsuite-webhook.ts` — POST /api/netsuite-webhook (HMAC-SHA256 of raw body in `x-netsuite-signature`) + GET /api/inventory (falls back to live SuiteQL fetch when cache empty and NetSuite configured)
+- `artifacts/summerset-marine/src/lib/sanity.ts` — Sanity clients (`sanityFetch` CDN, `sanityLiveFetch` fresh) + all GROQ queries (blog, lake, market, FAQ, projects, testimonials, lift media, team)
 - `artifacts/api-server/data/inventory-cache.json` — lift inventory cache written by the webhook
 
 ## Architecture decisions
@@ -41,13 +42,16 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 
 ## Product
 
-Prompts 1–2 of a multi-prompt build complete: foundation + SEO infrastructure (sitemaps, PageMeta with OG/Twitter tags, JsonLd schema builders). All ~50 pages are stubs ("Page content coming soon"). Page content, forms, CMS wiring, and design arrive in later prompts.
+Prompts 1–3 of a multi-prompt build complete: foundation + SEO infrastructure + CMS/ERP integration layer (sitemaps, PageMeta with OG/Twitter tags, JsonLd schema builders). All ~50 pages are stubs ("Page content coming soon"). Page content, forms, CMS wiring, and design arrive in later prompts.
 
 ## User preferences
 
 - User is following a prepared multi-prompt sequence (full spec in `attached_assets/Pasted--PROMPT-1-...txt`); keep file/route naming aligned with that spec so later prompts map cleanly.
 
 ## Gotchas
+
+- Webhook HMAC signs the **raw body bytes** — `express.json({ verify })` in `app.ts` stashes `req.rawBody`; don't remove that hook.
+- NetSuite SuiteQL query uses placeholder `custitem_smc_*` field IDs (TODO-flagged) — must be replaced with real field IDs from the SMC account.
 
 - `blog/[slug]` from the spec is implemented as `src/pages/blog/post.tsx` with wouter route `/blog/:slug`.
 - The inventory cache path resolves via `process.cwd()` — the api-server workflow runs with cwd = `artifacts/api-server`.

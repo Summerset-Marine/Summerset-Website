@@ -107,3 +107,48 @@ export async function netsuiteRequest<T>(
   const response = await axios.request<T>(config);
   return response.data;
 }
+
+export interface NetSuiteInventoryItem {
+  itemId: string | number;
+  productName: string;
+  productType: string;
+  model: string | null;
+  year: string | number | null;
+  condition: string | null;
+  price: string | number | null;
+  status: string | null;
+}
+
+/**
+ * Fetches lift inventory directly from NetSuite via SuiteQL. Used for manual
+ * refresh or initial load when the webhook-written cache is empty.
+ *
+ * TODO: The field names custitem_smc_model, custitem_smc_year,
+ * custitem_smc_condition, custitem_smc_status, and custitem_smc_lift_inventory
+ * are placeholders. Replace them with the actual NetSuite custom field IDs
+ * from the SMC NetSuite account before this query will run.
+ */
+export async function fetchNetSuiteInventory(): Promise<NetSuiteInventoryItem[]> {
+  const query = `
+    SELECT
+      item.id AS itemId,
+      item.displayName AS productName,
+      item.itemType AS productType,
+      item.custitem_smc_model AS model,
+      item.custitem_smc_year AS year,
+      item.custitem_smc_condition AS condition,
+      item.salesprice AS price,
+      item.custitem_smc_status AS status
+    FROM item
+    WHERE item.isinactive = 'F'
+      AND item.custitem_smc_lift_inventory = 'T'
+    ORDER BY item.id DESC
+  `;
+
+  const data = await netsuiteRequest<{ items?: NetSuiteInventoryItem[] }>(
+    "POST",
+    "/services/rest/query/v1/suiteql",
+    { q: query },
+  );
+  return data.items ?? [];
+}
