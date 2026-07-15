@@ -1,6 +1,6 @@
 # Summerset Marine Construction
 
-Image assets: `public/images/smc/` holds 21 scraped Squarespace photos with SEO filenames (`scripts/scrape-images.ts`, run via `pnpm run scrape:images`; `_manifest.json` maps filename→alt→source URL). Heroes on home/about/product/market pages use these; market pages keep the Sanity `heroImageUrl` override with static fallback. Header/Footer use the real white PNG logo (navy chip behind it in the white header). `STATIC_SITEMAP_IMAGES` in `src/lib/sitemap.ts` feeds sitemap-images.xml by default.
+Image assets: `public/images/smc/` holds 45 scraped Squarespace photos with SEO filenames (`scripts/scrape-images.ts`, run via `pnpm run scrape:images`; `_manifest.json` maps filename→alt→source URL). Heroes on home/about/product/market pages use these; market pages keep the Sanity `heroImageUrl` override with static fallback. Header/Footer use the real white PNG logo (navy chip behind it in the white header). `STATIC_SITEMAP_IMAGES` in `src/lib/sitemap.ts` feeds sitemap-images.xml by default.
 
 Marketing website for Summerset Marine Construction (summersetmarine.com) — a luxury marine construction company in Wisconsin building permanent piers, boat lifts, and marine contracting systems.
 

@@ -26,7 +26,8 @@ export default function ContactPage() {
           <div>
             <ContactForm formType="contact" />
           </div>
-          <div className="rounded-lg border border-brand-border bg-brand-offwhite p-8 self-start">
+          <div className="space-y-8 self-start">
+          <div className="rounded-lg border border-brand-border bg-brand-offwhite p-8">
             <h2 className="font-serif text-2xl text-brand-navy">Summerset Marine Construction</h2>
             <p className="mt-4 text-brand-gray">W3128 WI-HWY 59, Whitewater, WI 53190</p>
             <p className="mt-2 text-brand-gray">
@@ -51,6 +52,12 @@ export default function ContactPage() {
               </a>
               .
             </p>
+          </div>
+          <img
+            src="/images/smc/wisconsin-pier-consultation-contact-001.jpg"
+            alt="Lifetime Classic pier on Lac La Belle, Wisconsin — Summerset Marine Construction"
+            className="w-full rounded-lg object-cover"
+          />
           </div>
         </div>
       </section>

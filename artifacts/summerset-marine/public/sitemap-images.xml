@@ -4,19 +4,19 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://summersetmarine.com/</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://summersetmarine.com/images/smc/wisconsin-permanent-pier-sunrise-hero-001.jpg</image:loc>
-      <image:title>Lifetime permanent pier at sunrise on a Wisconsin lake — Summerset Marine Construction</image:title>
-      <image:caption>Lifetime permanent pier at sunrise on a Wisconsin lake — Summerset Marine Construction</image:caption>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-permanent-pier-aerial-hero-002.jpg</image:loc>
+      <image:title>Aerial view of a Lifetime All Seasons HD permanent pier with covered boat lift — Summerset Marine Construction</image:title>
+      <image:caption>Aerial view of a Lifetime All Seasons HD permanent pier with covered boat lift — Summerset Marine Construction</image:caption>
       <image:geo_location>Wisconsin</image:geo_location>
     </image:image>
   </url>
   <url>
     <loc>https://summersetmarine.com/about</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -28,7 +28,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/products/permanent-piers/all-seasons-hd</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/products/permanent-piers/all-seasons</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/products/permanent-piers/classic</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/products/permanent-piers/minimalist</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -81,20 +81,8 @@
     </image:image>
   </url>
   <url>
-    <loc>https://summersetmarine.com/products/lifts</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://summersetmarine.com/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg</image:loc>
-      <image:title>Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction</image:title>
-      <image:caption>Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction</image:caption>
-      <image:geo_location>Wisconsin</image:geo_location>
-    </image:image>
-  </url>
-  <url>
     <loc>https://summersetmarine.com/products/lifts/built-in</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -106,7 +94,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/products/lifts/standalone</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -118,7 +106,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/products/lifts/pwc</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -130,7 +118,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/markets/lake-geneva</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -142,7 +130,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/markets/lake-geneva/geneva-lake</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -153,20 +141,8 @@
     </image:image>
   </url>
   <url>
-    <loc>https://summersetmarine.com/markets/oconomowoc</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://summersetmarine.com/images/smc/oconomowoc-okauchee-lake-permanent-pier-hero-001.jpg</image:loc>
-      <image:title>Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction</image:title>
-      <image:caption>Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction</image:caption>
-      <image:geo_location>Okauchee Lake, Oconomowoc, Wisconsin</image:geo_location>
-    </image:image>
-  </url>
-  <url>
     <loc>https://summersetmarine.com/markets/oconomowoc/okauchee-lake</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -178,7 +154,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/markets/oconomowoc/lac-la-belle</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -190,7 +166,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/markets/oconomowoc/nagawicka-lake</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -202,7 +178,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/markets/oconomowoc/beaver-lake</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -213,20 +189,8 @@
     </image:image>
   </url>
   <url>
-    <loc>https://summersetmarine.com/markets/door-county</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://summersetmarine.com/images/smc/door-county-green-bay-permanent-pier-aerial-001.jpg</image:loc>
-      <image:title>Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction</image:title>
-      <image:caption>Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction</image:caption>
-      <image:geo_location>Green Bay, Door County, Wisconsin</image:geo_location>
-    </image:image>
-  </url>
-  <url>
     <loc>https://summersetmarine.com/markets/door-county/green-bay</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -238,7 +202,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/markets/door-county/sturgeon-bay</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -250,7 +214,7 @@
   </url>
   <url>
     <loc>https://summersetmarine.com/markets/door-county/lake-michigan</loc>
-    <lastmod>2026-07-15T21:46:51.206Z</lastmod>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -258,6 +222,216 @@
       <image:title>Permanent pier on Lake Michigan, Door County, Wisconsin — Summerset Marine Construction</image:title>
       <image:caption>Permanent pier on Lake Michigan, Door County, Wisconsin — Summerset Marine Construction</image:caption>
       <image:geo_location>Lake Michigan, Door County, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/permanent-piers</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-permanent-piers-hub-001.jpg</image:loc>
+      <image:title>Aerial view of a Lifetime permanent pier installation on a Wisconsin lake — Summerset Marine Construction</image:title>
+      <image:caption>Aerial view of a Lifetime permanent pier installation on a Wisconsin lake — Summerset Marine Construction</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/permanent-piers/commercial</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-commercial-pier-baileys-harbor-aerial-001.png</image:loc>
+      <image:title>Aerial view of the Baileys Harbor marina commercial marine construction project, Door County, Wisconsin</image:title>
+      <image:caption>Aerial view of the Baileys Harbor marina commercial marine construction project, Door County, Wisconsin</image:caption>
+      <image:geo_location>Baileys Harbor, Door County, Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-commercial-pier-baileys-harbor-marina-002.jpg</image:loc>
+      <image:title>Baileys Harbor marina commercial pier project, Door County, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Baileys Harbor marina commercial pier project, Door County, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Baileys Harbor, Door County, Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-commercial-pier-rock-island-003.jpg</image:loc>
+      <image:title>Rock Island commercial marine contracting project, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Rock Island commercial marine contracting project, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Rock Island, Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-commercial-pier-rock-island-004.jpg</image:loc>
+      <image:title>Rock Island commercial pier construction, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Rock Island commercial pier construction, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Rock Island, Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-commercial-pier-r1ver-milwaukee-005.jpg</image:loc>
+      <image:title>R1ver commercial dock project on the Milwaukee River — Summerset Marine Construction</image:title>
+      <image:caption>R1ver commercial dock project on the Milwaukee River — Summerset Marine Construction</image:caption>
+      <image:geo_location>Milwaukee, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/lifts</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-lifetime-boat-lifts-hub-001.jpg</image:loc>
+      <image:title>Lifetime All Seasons HD steel pier with integrated boat lift and canopy on Geneva Lake, Wisconsin</image:title>
+      <image:caption>Lifetime All Seasons HD steel pier with integrated boat lift and canopy on Geneva Lake, Wisconsin</image:caption>
+      <image:geo_location>Geneva Lake, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/seasonal</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-seasonal-pier-brown-lake-001.jpg</image:loc>
+      <image:title>Lifetime Minimalist pier with sun shade and boat lift at sunrise on Brown Lake, Wisconsin</image:title>
+      <image:caption>Lifetime Minimalist pier with sun shade and boat lift at sunrise on Brown Lake, Wisconsin</image:caption>
+      <image:geo_location>Brown Lake, Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-seasonal-pier-lake-mendota-001.jpg</image:loc>
+      <image:title>Seasonal removable pier on Lake Mendota, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Seasonal removable pier on Lake Mendota, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Lake Mendota, Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-seasonal-pier-moose-lake-001.jpg</image:loc>
+      <image:title>Lifetime Minimalist seasonal pier on Moose Lake, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Lifetime Minimalist seasonal pier on Moose Lake, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Moose Lake, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/accessories</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-pier-accessory-dock-box-001.png</image:loc>
+      <image:title>Lifetime dock box pier accessory — Summerset Marine Construction</image:title>
+      <image:caption>Lifetime dock box pier accessory — Summerset Marine Construction</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-pier-accessory-kayak-rack-001.jpg</image:loc>
+      <image:title>Kayak rack pier accessory on a Lifetime pier — Summerset Marine Construction</image:title>
+      <image:caption>Kayak rack pier accessory on a Lifetime pier — Summerset Marine Construction</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-pier-accessory-dock-ladder-001.jpg</image:loc>
+      <image:title>White dock ladder descending into clear blue Wisconsin lake water</image:title>
+      <image:caption>White dock ladder descending into clear blue Wisconsin lake water</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/services/marine-contracting</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-marine-contracting-service-hero-001.jpg</image:loc>
+      <image:title>Marine contracting barge and equipment on a Wisconsin waterway — Summerset Marine Construction</image:title>
+      <image:caption>Marine contracting barge and equipment on a Wisconsin waterway — Summerset Marine Construction</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-marine-contracting-service-r1ver-002.jpg</image:loc>
+      <image:title>R1ver marine contracting project on the Milwaukee River — Summerset Marine Construction</image:title>
+      <image:caption>R1ver marine contracting project on the Milwaukee River — Summerset Marine Construction</image:caption>
+      <image:geo_location>Milwaukee, Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-marine-contracting-service-rock-island-003.jpg</image:loc>
+      <image:title>Rock Island marine contracting project, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Rock Island marine contracting project, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Rock Island, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/services/residential</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-residential-service-hero-001.jpg</image:loc>
+      <image:title>Crane lifting a boat lift structure off a barge during residential installation — Summerset Marine Construction</image:title>
+      <image:caption>Crane lifting a boat lift structure off a barge during residential installation — Summerset Marine Construction</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/resources/installation-process</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-pier-installation-process-001.jpg</image:loc>
+      <image:title>Summerset Marine crew member welding a steel pier structure on a Wisconsin lake, sparks flying</image:title>
+      <image:caption>Summerset Marine crew member welding a steel pier structure on a Wisconsin lake, sparks flying</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/oconomowoc</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/oconomowoc-lake-permanent-pier-hero-001.jpg</image:loc>
+      <image:title>Lifetime All Seasons HD permanent pier on Oconomowoc Lake, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Lifetime All Seasons HD permanent pier on Oconomowoc Lake, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Oconomowoc Lake, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/door-county</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/door-county-location-hero-001.jpg</image:loc>
+      <image:title>Summerset Marine Construction Door County location, Brussels, Wisconsin</image:title>
+      <image:caption>Summerset Marine Construction Door County location, Brussels, Wisconsin</image:caption>
+      <image:geo_location>Brussels, Door County, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/careers</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/summerset-marine-whitewater-facility-001.jpg</image:loc>
+      <image:title>Demo pond outside Summerset Marine&apos;s Whitewater showroom with docks and a covered boat lift</image:title>
+      <image:caption>Demo pond outside Summerset Marine&apos;s Whitewater showroom with docks and a covered boat lift</image:caption>
+      <image:geo_location>Whitewater, Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/summerset-marine-whitewater-facility-002.jpg</image:loc>
+      <image:title>Carpentry and manufacturing shop inside Summerset Marine&apos;s Whitewater facility</image:title>
+      <image:caption>Carpentry and manufacturing shop inside Summerset Marine&apos;s Whitewater facility</image:caption>
+      <image:geo_location>Whitewater, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/consultation</loc>
+    <lastmod>2026-07-15T22:34:41.785Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-pier-consultation-contact-001.jpg</image:loc>
+      <image:title>Lifetime Classic pier on Lac La Belle, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Lifetime Classic pier on Lac La Belle, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Lac La Belle, Wisconsin</image:geo_location>
     </image:image>
   </url>
 </urlset>

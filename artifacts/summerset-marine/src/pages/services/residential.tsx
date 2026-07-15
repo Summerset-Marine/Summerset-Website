@@ -107,7 +107,11 @@ export default function ResidentialServicesPage() {
             maintenance and support.
           </p>
           <div className="mt-8">
-            <ContentPlaceholder label="Residential service hero image" className="bg-yellow-50/90" />
+            <img
+              src="/images/smc/wisconsin-residential-service-hero-001.jpg"
+              alt="Crane lifting a boat lift structure off a barge during residential installation — Summerset Marine Construction"
+              className="w-full rounded-lg object-cover"
+            />
           </div>
         </div>
       </section>

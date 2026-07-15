@@ -86,8 +86,8 @@ export default function OconomowocPage() {
             label: "Request an Oconomowoc / Lake Country Consultation",
             href: "/markets/oconomowoc/contact",
           }}
-          imageSrc={content?.heroImageUrl ?? "/images/smc/oconomowoc-okauchee-lake-permanent-pier-hero-001.jpg"}
-          imageAlt={content?.heroImageAlt ?? "Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction"}
+          imageSrc={content?.heroImageUrl ?? "/images/smc/oconomowoc-lake-permanent-pier-hero-001.jpg"}
+          imageAlt={content?.heroImageAlt ?? "Lifetime All Seasons HD permanent pier on Oconomowoc Lake, Wisconsin — Summerset Marine Construction"}
         />
 
       {/* 2. SMC presence */}

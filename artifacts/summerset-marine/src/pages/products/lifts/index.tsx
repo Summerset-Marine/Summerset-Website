@@ -12,8 +12,8 @@ export default function LiftsPage() {
       <HeroSection
         variant="full-bleed"
         headline="Boat Lifts"
-        imageSrc="/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg"
-        imageAlt="Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction"
+        imageSrc="/images/smc/wisconsin-lifetime-boat-lifts-hub-001.jpg"
+        imageAlt="Lifetime All Seasons HD steel pier with integrated boat lift and canopy on Geneva Lake, Wisconsin"
       />
       <section className="mx-auto max-w-content px-6 py-22">
         <p className="mt-4 text-brand-gray">Page content coming soon.</p>

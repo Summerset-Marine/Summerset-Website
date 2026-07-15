@@ -86,8 +86,8 @@ export default function DoorCountyPage() {
             label: "Request a Door County Consultation",
             href: "/markets/door-county/contact",
           }}
-          imageSrc={content?.heroImageUrl ?? "/images/smc/door-county-green-bay-permanent-pier-aerial-001.jpg"}
-          imageAlt={content?.heroImageAlt ?? "Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction"}
+          imageSrc={content?.heroImageUrl ?? "/images/smc/door-county-location-hero-001.jpg"}
+          imageAlt={content?.heroImageAlt ?? "Summerset Marine Construction Door County location, Brussels, Wisconsin"}
         />
 
       {/* 2. SMC presence */}

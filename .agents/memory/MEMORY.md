@@ -1,0 +1,1 @@
+- [Squarespace CDN image scraping](squarespace-image-scraping.md) — Accept header trick for original JPEGs; dedupe legacy assets by asset ID, not filename.

@@ -1,0 +1,169 @@
+# SMC IMAGE SCRAPE & WIRING — PROMPT v2 (post-audit correction)
+
+## WHY THIS PROMPT EXISTS
+
+The v1 image scrape prompt ran and pulled 21 images onto 21 pages. It worked, but a full page-by-page audit of both **https://summersetmarine.replit.app/** (all 53 routes, enumerated from the live sitemaps) and **https://summersetmarine.com/** (the legacy Squarespace site, ~78 non-blog/non-shop URLs) turned up two problems:
+
+1. **Reused images in the wrong places.** Several images are duplicated across pages in a way that makes distinct pages look identical to each other.
+2. **~30 pages got zero photography** in v1 and are still logo-only, including the entire Permanent Piers hub, the Commercial pier page, all three service pages, all five resource pages, the blog (index + all 3 posts), and every `/projects`, `/testimonials`, and `/contact` sub-page under all three markets.
+
+This prompt fixes both, using real source photography identified on the legacy site — not stock images.
+
+---
+
+## CRITICAL RULE: NO ACCIDENTAL DUPLICATION
+
+An image may appear on more than one page **only** in these two sanctioned cases:
+- A home-page teaser card may reuse the hero image of the specific page it links to (e.g., the "All Seasons HD" card on `/` may reuse the same photo as `/products/permanent-piers/all-seasons-hd`'s hero).
+- A `/locations` card may reuse the same photo used on that location's market hub page (same place, same photo, intentional).
+
+**Every other case of the same file appearing on two different pages is a bug.** In particular:
+- A market **hub** page (`/markets/oconomowoc`, `/markets/door-county`) must **never** use the identical photo as one specific lake page underneath it. Lake Geneva already does this correctly (hub and `/geneva-lake` have two different photos) — match that pattern for Oconomowoc and Door County.
+- A product **hub** page (`/products/lifts`, `/products/permanent-piers`) must never reuse the identical photo as one specific product-detail page underneath it.
+
+Before wiring anything, print a list of every image filename you're about to use and how many pages reference it. Flag anything above the two sanctioned cases before proceeding.
+
+---
+
+## TWO DIFFERENT MECHANISMS — READ BEFORE STARTING
+
+This site has two unrelated ways images get onto a page. Confusing them will waste a build cycle:
+
+**A. Static hero/section images** — hardcoded in the React components (market pages, product pages, service pages, resource pages, the homepage). Fixing these is: download the file → save to `artifacts/summerset-marine/public/images/smc/[filename]` → update the `src` in the relevant `.tsx` file. No CMS involved.
+
+**B. Sanity-driven content** — the `/markets/*/projects`, `/markets/*/testimonials`, `/markets/*/contact` (single testimonial + featured project), and every product page's "Project gallery photos" and "Customer testimonials" placeholder are populated by the `project` and `testimonial` Sanity schemas, fetched live via GROQ. **You cannot fix these by dropping a file into `public/`.** You have to create new Sanity documents.
+
+> **BLOCKER — Noah needs to do this before Track B can run:** the `SANITY_API_TOKEN` currently in Replit Secrets is a **viewer (read-only) token**. Creating `project`/`testimonial` documents and uploading image assets requires a token with Editor/Write permission. Generate one at manage.sanity.io → summerset-marine project → API → Tokens, and either swap the secret temporarily or hand it to the agent for this run only. Blog post featured images (`blogPost.featuredImage`) have the same requirement — the 3 already-imported posts need an update, not a new document, but it's still a write operation.
+
+Do Track A (static files) first — it's the bulk of the visual fix and has no blocker. Do Track B second, once the write token exists.
+
+---
+
+## TRACK A — STATIC IMAGES
+
+### A1. Homepage hero (highest priority fix)
+
+Current hero (`wisconsin-permanent-pier-sunrise-hero-001.jpg`) is a sunset-over-water shot with no pier, lift, or product visible anywhere in frame except two small mooring pilings in the far corners. It doesn't show what SMC sells. Replace it.
+
+Source candidates from the legacy homepage (both real, both distinct from anything already in use):
+- `https://images.squarespace-cdn.com/content/v1/671595d748a4623336b2fea8/c903e8e1-72b5-4557-9d9b-6b16aced21fb/Worker+in+a+Summerset+Marine+shirt+welding+a+steel+pier+structure+on+a+lake%2C+with+sparks+flying..jpg` — action/craftsmanship shot, strong "who builds this" story.
+- The aerial All Seasons HD pier + covered lift photo and the aerial All Seasons dual-lift-with-lounge-deck photo in the legacy homepage's product carousel (visible on-page; grab both `<img>` sources from `https://summersetmarine.com/` product-comparison carousel section) — these show the finished product clearly and read as premium.
+
+Recommendation: use one of the aerial product shots as the new hero (shows the product immediately), and consider the welding photo for `/resources/installation-process` instead (see A9).
+
+Download, rename per convention (`wisconsin-permanent-pier-aerial-hero-002.jpg` or similar — do not reuse the `-001` filename, keep the old file in case of rollback), wire into the Hero component on `/`. Leave the three "What We Build" teaser cards as-is — their reuse of the product-detail hero images is a sanctioned case, not a bug.
+
+### A2. `/markets/oconomowoc` hub — remove duplication with `/markets/oconomowoc/okauchee-lake`
+
+Both currently use `oconomowoc-okauchee-lake-permanent-pier-hero-001.jpg`. Keep that file on the Okauchee Lake page only. For the hub, download and use the Oconomowoc Lake photo instead (the market is literally named after this lake, so this is also a more accurate hub image):
+- Source page: `https://summersetmarine.com/lifetime-all-seasons-hd-portfolio/lifetime-all-seasons-hd-oconomowoc-lake` — take the first/best `Lifetime+All+Seasons+HD+Pier+-+oconomowoc+lake.jpg` variant.
+- New filename: `oconomowoc-lake-permanent-pier-hero-001.jpg`
+
+### A3. `/markets/door-county` hub — remove duplication with `/markets/door-county/green-bay`
+
+Both currently use `door-county-green-bay-permanent-pier-aerial-001.jpg`. Keep that file on the Green Bay page only. For the hub, use the legacy site's dedicated Door County location photo instead:
+- Source: `https://summersetmarine.com/door-county` — the hero image `Summerset+Marine+Construction+-+Door+County+Location.jpg`.
+- New filename: `door-county-location-hero-001.jpg`
+
+### A4. `/products/lifts` hub — remove duplication with `/products/lifts/built-in`
+
+Both currently use `wisconsin-lifetime-built-in-boat-lift-001.jpg`. Keep that file on the Built-In Lift page only. For the hub, use one of these from the legacy `/boat-pwc-lifts` page (both show lift+pier integration without being a specific lift-type's dedicated photo):
+- `Lifetime+All+Seasons+HD+steel+pier+with+integrated+boat+lift+and+canopy+on+Geneva+Lake...jpg`
+- `Lifetime+All+Seasons+dock+on+Lac+La+Belle+featuring+dual+covered+boat+lifts+with+ShoreStation+canopies...jpg`
+- New filename: `wisconsin-lifetime-boat-lifts-hub-001.jpg`
+
+### A5. `/products/permanent-piers` hub — currently zero images
+
+Legacy source: `https://summersetmarine.com/permanent-piers` has real installation photos mixed with a couple of AdobeStock stock images — use only the real ones (skip anything with an `AdobeStock_` filename). `edited-IMG_9106.jpg` and similar are real installs.
+- New filename: `wisconsin-permanent-piers-hub-001.jpg`
+
+### A6. `/products/permanent-piers/commercial` — currently 100% placeholder
+
+This is the biggest content gap on the site and it now has a direct real-world match: legacy `/lifetime-commercial` and `/marine-contracting` (plus its three case-study subpages `/marine-contracting/baileys-harbor-project`, `/marine-contracting/rock-island-project`, `/marine-contracting/r1ver-project`) are genuine commercial marine-contracting work.
+- Hero: `Aerial-current-marina.png` (Bailey's Harbor Project) or the R1ver `river-one[image-main].jpg`.
+- Gallery (4-6): pull the remaining unique photos across the three project subpages (Rock Island has several `Edited_...` and `EditedSquare_...` files, Bailey's Harbor has `Aerial-current-marina+copy.jpg`).
+- New filenames: `wisconsin-commercial-pier-[descriptor]-00N.jpg`
+- Note: this page's body copy (spec table, capabilities, overview) is still an SMC content gap — this prompt only fixes the imagery.
+
+### A7. `/services/marine-contracting` — currently zero images
+
+Same source pool as A6 (`/marine-contracting` and its subpages) — pick **different specific files** than whatever you used for the Commercial pier page so the two pages don't end up looking identical to each other.
+- New filenames: `wisconsin-marine-contracting-service-[descriptor]-00N.jpg`
+
+### A8. `/services/residential` — placeholder explicitly requests a hero image
+
+Legacy `/residential-service` has 13 real photos including `Barge-Install-Lift.jpg` (crane lifting a lift structure off a barge — good active-construction hero).
+- New filename: `wisconsin-residential-service-hero-001.jpg`
+
+### A9. `/resources/installation-process` — currently zero images
+
+Strong direct thematic match: the welding/sparks photo from A1 (if not used as the new homepage hero) fits this page better than anywhere else on the site.
+- Source: same `c903e8e1...` welding photo, or search `/whitewater` and `/home` (legacy) for more in-progress construction shots.
+- New filename: `wisconsin-pier-installation-process-001.jpg`
+
+### A10. `/products/seasonal` — currently zero images
+
+Legacy `/removable-piers` has real photos: Moose Lake minimalist shot, Lake Mendota (`Zetmyer+-+Lake+Mendota.jpg`), Brown Lake sunrise shot (`Lynch+Brown+Lake+Minimalist+Sun+Shade+Boat+Lift+Sunrise.jpg`).
+- New filenames: `wisconsin-seasonal-pier-[lake]-00N.jpg`
+
+### A11. `/products/accessories` — currently zero images
+
+Legacy `/lifetime-accessories` has direct 1:1 matches: dock box (`Screenshot+2026-02-26...` — rename descriptively, don't keep the screenshot filename), kayak rack (`Kayak+Rack.jpg`), dock ladder (`White+ladder+attached+to+a+dock...jpg`).
+- New filenames: `wisconsin-pier-accessory-dock-box-001.jpg`, `wisconsin-pier-accessory-kayak-rack-001.jpg`, `wisconsin-pier-accessory-dock-ladder-001.jpg`
+
+### A12. `/careers` — currently zero images
+
+Legacy `/whitewater` has facility/culture photos: the demo pond outside the showroom, the carpentry/manufacturing shop interior (`LifetimePiers_Carpentry_Whitewater+Facility.jpg`). Team member photos remain a genuine SMC-supply gap (real people, can't be sourced) — don't touch those placeholders.
+- New filenames: `summerset-marine-whitewater-facility-00N.jpg`
+
+### A13. `/consultation`, `/contact`, `/service-request` — currently zero images
+
+These are the three conversion/form pages. Recommend one consistent supporting image across all three (this repetition is fine — it's the same page *type*, not a hub/child relationship). Legacy `/contact-us` uses `Classic+Pier+on+La+Belle.jpg` for exactly this purpose.
+- New filename: `wisconsin-pier-consultation-contact-001.jpg`
+
+### A14. Blog — index + all 3 posts have zero featured images
+
+This also blocks `articleSchema`/`imageObjectSchema` from having real image data (Prompt 2's SEO infrastructure expects one). Match by topic, one distinct image per post — do not reuse the same photo across more than one post:
+- `great-lakes-waterfront-construction-door-county-different` → a Door County / marine-contracting photo not already used elsewhere (Track A6/A7 pool).
+- `why-geneva-lake-property-owners-choosing-permanent-piers` → a Lake Geneva HD portfolio photo not already used on `/markets/lake-geneva` or `/geneva-lake` (there are 8 in that gallery — plenty of unused ones).
+- `permanent-piers-oconomowoc-chain-lake-country-homeowners` → an Oconomowoc Lake or Lac La Belle portfolio photo not already used on those market pages.
+- New filenames: `smc-blog-[slug-fragment]-featured-001.jpg`
+- The blog index page pulls thumbnails from each post automatically once posts have a featured image — no separate index-page work needed.
+
+### Lower priority / optional (flag, don't block on these)
+- `/locations` — could reuse the Whitewater HQ photo + the three market hub photos (sanctioned reuse per the Critical Rule).
+- `/products/lifts/inventory` — pulls live NetSuite data; a generic header banner is optional, not required.
+- `/services/repairs` — no direct legacy-site equivalent found; flag as a genuine SMC content gap rather than guessing.
+- `/resources/permanent-vs-seasonal`, `/resources/what-does-a-pier-cost`, `/resources/what-to-expect` — text-driven comparison/FAQ-style pages; images are nice-to-have, not required.
+- `/resources/faq` — accordion-only, skip.
+
+---
+
+## TRACK B — SANITY CONTENT (requires the write token — see blocker above)
+
+For each of the following, create new `project` documents (with images uploaded as Sanity assets) and, where noted, new `testimonial` documents. Use the `market`/`lake`/`productType` tag fields so the existing GROQ queries (already built in Prompt 3) pick them up automatically — no frontend code changes needed, this is content-only.
+
+| Destination | Source (legacy site) | What to create |
+|---|---|---|
+| `/markets/lake-geneva/projects` + `/markets/lake-geneva/contact` featured photo | `/lifetime-all-seasons-hd-portfolio/lifetime-all-seasons-hd-lake-geneva` (8 photos) | 3-5 `project` docs, market=lake-geneva, lake=geneva-lake |
+| `/markets/oconomowoc/projects`, `/oconomowoc/lac-la-belle` gallery, `/oconomowoc/beaver-lake` gallery | `/lifetime-all-seasons-hd-portfolio/.../oconomowoc-lake` (9), `/lifetime-all-seasons-portfolio/.../lac-la-belle` (11, has real descriptive alt text), `/lifetime-all-seasons-portfolio/.../beaver-lake` (10, includes a nice "American flag on Beaver Lake" shot) | 3-5 `project` docs per lake |
+| `/markets/oconomowoc/okauchee-lake` gallery | `/lifetime-all-seasons-hd-portfolio/.../okauchee-lake` (10) + `/lifetime-minimalist-pier/okauchee-lake` (7) | 3-5 `project` docs |
+| `/markets/door-county/projects` + all Door County lake galleries + Commercial page gallery (Track A6) | `/marine-contracting` + its 3 project subpages (Baileys Harbor, Rock Island, R1ver) | 3-5 `project` docs, market=door-county |
+| `/products/permanent-piers/all-seasons` gallery | `/lifetime-all-seasons-portfolio` hub + subpages not already used above (Beulah, Pewaukee, Pine Lake) | 4-6 `project` docs, productType=all-seasons |
+| `/products/permanent-piers/classic` gallery | `/lifetime-classic-pier` + subpages (Lake Delavan, Lake Mendota, Upper Okauchee, Pewaukee, Lake Beulah) | 4-6 `project` docs, productType=classic |
+| `/products/permanent-piers/minimalist` gallery | `/lifetime-minimalist-pier` + subpages (Lake Beulah, Moose Lake, Brown Lake, in addition to Okauchee already sourced in Track A10-adjacent) | 4-6 `project` docs, productType=minimalist |
+| Testimonials (all `/markets/*/testimonials` pages, currently all empty) | No legacy testimonial text/photos were found on the equivalent legacy pages during this audit — flag this whole row as a genuine SMC-supply gap, not something to fabricate | none — leave as SMC-to-supply |
+
+**Do not fabricate customer testimonial quotes.** Real project photos with real locations are fine to migrate; putting words in a customer's mouth is not. If no legacy testimonial copy exists for a lake, leave that placeholder as-is and flag it in your final report rather than writing filler.
+
+---
+
+## AGENT WORKFLOW
+
+1. Confirm you have a Sanity write token before starting Track B; do Track A first regardless.
+2. For each Track A item: `curl` or `fetch` the exact source URL(s) given, save into a scratch folder, verify the file actually downloaded (not an HTML error page — check content-type), then move into `artifacts/summerset-marine/public/images/smc/` with the specified new filename.
+3. Update the `src` import/reference in the corresponding page component. Do not touch `ContentPlaceholder` blocks for copy — only swap image references.
+4. Re-run `generate-sitemaps.ts` so `sitemap-images.xml` picks up the new files.
+5. For Track B, write a small Node script using `@sanity/client` (`client.assets.upload('image', fileStream)` then `client.create({...})` referencing the returned asset `_id`) rather than hand-building NDJSON — it's less error-prone for image assets specifically.
+6. Before finishing, re-run the duplication check from the Critical Rule section — grep all page components for each new filename and confirm no unsanctioned duplicate made it back in.
+7. Final report: list every page touched, before/after image filename, and explicitly call out the two flagged genuine content gaps (`/services/repairs`, testimonial copy) that this prompt intentionally did not fabricate content for.

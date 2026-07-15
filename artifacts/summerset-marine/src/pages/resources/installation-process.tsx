@@ -22,6 +22,11 @@ export default function InstallationProcessPage() {
       <section className="bg-brand-navy text-white">
         <div className="mx-auto max-w-content px-6 py-16">
           <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">What Is the Pier Installation Process?</h1>
+          <img
+            src="/images/smc/wisconsin-pier-installation-process-001.jpg"
+            alt="Summerset Marine crew member welding a steel pier structure on a Wisconsin lake, sparks flying"
+            className="mt-10 aspect-[21/9] w-full rounded-lg object-cover"
+          />
         </div>
       </section>
 

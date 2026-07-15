@@ -32,9 +32,11 @@ export default function CommercialPierPage() {
             Lifetime by Summerset Marine Construction
           </p>
           <h1 className="mt-3 font-serif text-4xl md:text-5xl">Commercial Piers</h1>
-          <div className="mt-8">
-            <ContentPlaceholder label="Commercial pier hero image" />
-          </div>
+          <img
+            src="/images/smc/wisconsin-commercial-pier-baileys-harbor-aerial-001.png"
+            alt="Aerial view of the Baileys Harbor marina commercial marine construction project, Door County, Wisconsin"
+            className="mt-8 aspect-[21/9] w-full rounded-lg object-cover"
+          />
         </div>
       </section>
 
@@ -43,7 +45,31 @@ export default function CommercialPierPage() {
         <ContentPlaceholder label="Commercial pier product overview copy" />
         <ContentPlaceholder label="Commercial capabilities and engineering details" />
         <ContentPlaceholder label="Specification table (dimensions, load capacity, material specs)" />
-        <ContentPlaceholder label="Project gallery photos (4\u20136 images)" />
+        <div>
+          <h2 className="font-serif text-3xl text-brand-navy">Commercial Project Gallery</h2>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            <img
+              src="/images/smc/wisconsin-commercial-pier-baileys-harbor-marina-002.jpg"
+              alt="Baileys Harbor marina commercial pier project, Door County, Wisconsin — Summerset Marine Construction"
+              className="aspect-[4/3] w-full rounded-lg object-cover"
+            />
+            <img
+              src="/images/smc/wisconsin-commercial-pier-rock-island-003.jpg"
+              alt="Rock Island commercial marine contracting project, Wisconsin — Summerset Marine Construction"
+              className="aspect-[4/3] w-full rounded-lg object-cover"
+            />
+            <img
+              src="/images/smc/wisconsin-commercial-pier-rock-island-004.jpg"
+              alt="Rock Island commercial pier construction, Wisconsin — Summerset Marine Construction"
+              className="aspect-[4/3] w-full rounded-lg object-cover"
+            />
+            <img
+              src="/images/smc/wisconsin-commercial-pier-r1ver-milwaukee-005.jpg"
+              alt="R1ver commercial dock project on the Milwaukee River — Summerset Marine Construction"
+              className="aspect-[4/3] w-full rounded-lg object-cover"
+            />
+          </div>
+        </div>
         <ContentPlaceholder label="Customer testimonials" />
       </section>
 

@@ -50,6 +50,11 @@ export default function ConsultationPage() {
                 professional engineering.
               </p>
             </div>
+            <img
+              src="/images/smc/wisconsin-pier-consultation-contact-001.jpg"
+              alt="Lifetime Classic pier on Lac La Belle, Wisconsin — Summerset Marine Construction"
+              className="w-full rounded-lg object-cover"
+            />
             <ContentPlaceholder label="one customer testimonial for the consultation page" />
           </div>
         </div>

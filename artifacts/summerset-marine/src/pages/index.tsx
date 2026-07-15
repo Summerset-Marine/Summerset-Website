@@ -54,9 +54,9 @@ const PRODUCT_HIGHLIGHTS = [
     href: "/services/marine-contracting",
     description:
       "Dredging, stone work, barge work, steel sheeting, and professional engineering for demanding shorelines.",
-    imageSrc: "/images/smc/door-county-green-bay-permanent-pier-aerial-001.jpg",
+    imageSrc: "/images/smc/wisconsin-marine-contracting-service-hero-001.jpg",
     imageAlt:
-      "Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction",
+      "Marine contracting barge and equipment on a Wisconsin waterway — Summerset Marine Construction",
   },
 ] as const;
 
@@ -137,8 +137,8 @@ export default function HomePage() {
             </Button>
           </div>
           <img
-            src="/images/smc/wisconsin-permanent-pier-sunrise-hero-001.jpg"
-            alt="Lifetime permanent pier at sunrise on a Wisconsin lake — Summerset Marine Construction"
+            src="/images/smc/wisconsin-permanent-pier-aerial-hero-002.jpg"
+            alt="Aerial view of a Lifetime All Seasons HD permanent pier with covered boat lift — Summerset Marine Construction"
             className="mt-12 aspect-[21/9] w-full rounded-lg object-cover"
           />
         </div>
