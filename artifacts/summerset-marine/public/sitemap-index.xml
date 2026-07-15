@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder: populated programmatically at build time via src/lib/sitemap.ts -->
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://summersetmarine.com/sitemap-core.xml</loc>
+    <lastmod>2026-07-15T17:44:47.192Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://summersetmarine.com/sitemap-markets.xml</loc>
+    <lastmod>2026-07-15T17:44:47.192Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://summersetmarine.com/sitemap-products.xml</loc>
+    <lastmod>2026-07-15T17:44:47.192Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://summersetmarine.com/sitemap-images.xml</loc>
+    <lastmod>2026-07-15T17:44:47.192Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://summersetmarine.com/sitemap-blog.xml</loc>
+    <lastmod>2026-07-15T17:44:47.192Z</lastmod>
+  </sitemap>
 </sitemapindex>

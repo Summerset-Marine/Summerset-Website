@@ -25,7 +25,8 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 - `artifacts/summerset-marine/src/components/layout/` — Header, Footer, Layout
 - `artifacts/summerset-marine/src/components/seo/` — PageMeta (title/description/canonical), JsonLd
 - `artifacts/summerset-marine/src/index.css` — brand token system (`--color-brand-*` in @theme)
-- `artifacts/summerset-marine/src/lib/sitemap.ts` — canonical static route list + sitemap XML generators
+- `artifacts/summerset-marine/src/lib/sitemap.ts` — canonical static route list + all sitemap XML builders (5 sitemaps + index)
+- `artifacts/summerset-marine/scripts/generate-sitemaps.ts` — build-time script (Node native TS) writing sitemaps to `public/`; runs via `generate:sitemaps` and chained into `build`; fetches blog posts from Sanity when configured
 - `artifacts/summerset-marine/.env.example` — documents all expected env vars
 - `artifacts/api-server/src/routes/submit-form.ts` — POST /api/submit-form (Gmail relay)
 - `artifacts/api-server/src/routes/netsuite-webhook.ts` — POST /api/netsuite-webhook + GET /api/inventory
@@ -40,7 +41,7 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 
 ## Product
 
-Foundation only (Prompt 1 of a multi-prompt build). All ~48 pages are stubs ("Page content coming soon"). Page content, forms, CMS wiring, and design arrive in later prompts.
+Prompts 1–2 of a multi-prompt build complete: foundation + SEO infrastructure (sitemaps, PageMeta with OG/Twitter tags, JsonLd schema builders). All ~50 pages are stubs ("Page content coming soon"). Page content, forms, CMS wiring, and design arrive in later prompts.
 
 ## User preferences
 

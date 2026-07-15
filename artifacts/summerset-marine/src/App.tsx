@@ -19,6 +19,9 @@ import ClassicPierPage from "@/pages/products/permanent-piers/classic";
 import MinimalistPierPage from "@/pages/products/permanent-piers/minimalist";
 import CommercialPierPage from "@/pages/products/permanent-piers/commercial";
 
+import SeasonalSystemsPage from "@/pages/products/seasonal";
+import AccessoriesPage from "@/pages/products/accessories";
+
 import LiftsPage from "@/pages/products/lifts/index";
 import BuiltInLiftsPage from "@/pages/products/lifts/built-in";
 import StandaloneLiftsPage from "@/pages/products/lifts/standalone";
@@ -80,6 +83,9 @@ function Router() {
       <Route path="/products/permanent-piers/classic" component={ClassicPierPage} />
       <Route path="/products/permanent-piers/minimalist" component={MinimalistPierPage} />
       <Route path="/products/permanent-piers/commercial" component={CommercialPierPage} />
+
+      <Route path="/products/seasonal" component={SeasonalSystemsPage} />
+      <Route path="/products/accessories" component={AccessoriesPage} />
 
       <Route path="/products/lifts" component={LiftsPage} />
       <Route path="/products/lifts/built-in" component={BuiltInLiftsPage} />

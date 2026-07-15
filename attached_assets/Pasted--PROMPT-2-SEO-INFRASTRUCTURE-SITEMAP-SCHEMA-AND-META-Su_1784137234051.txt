@@ -1,0 +1,252 @@
+# PROMPT 2 — SEO INFRASTRUCTURE: SITEMAP, SCHEMA, AND META
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt 1 is confirmed complete
+
+---
+
+The project structure is initialized. Now build the complete SEO infrastructure. This must be done before any page content is written.
+
+---
+
+BUILD src/lib/sitemap.js — PROGRAMMATIC SITEMAP GENERATOR:
+
+This file generates five sitemap XML files at build time. It must produce valid XML that Google and all AI search engines can parse.
+
+Generate these five files to the dist/ directory at build time:
+
+SITEMAP 1 — sitemap-core.xml (priority 1.0, changefreq weekly):
+- https://summersetmarine.com/
+- https://summersetmarine.com/about
+- https://summersetmarine.com/locations
+- https://summersetmarine.com/careers
+- https://summersetmarine.com/consultation
+- https://summersetmarine.com/contact
+- https://summersetmarine.com/service-request
+
+SITEMAP 2 — sitemap-markets.xml:
+Market landing pages and body of water pages (priority 0.9, changefreq weekly):
+- https://summersetmarine.com/markets/lake-geneva
+- https://summersetmarine.com/markets/lake-geneva/geneva-lake
+- https://summersetmarine.com/markets/oconomowoc
+- https://summersetmarine.com/markets/oconomowoc/okauchee-lake
+- https://summersetmarine.com/markets/oconomowoc/lac-la-belle
+- https://summersetmarine.com/markets/oconomowoc/nagawicka-lake
+- https://summersetmarine.com/markets/oconomowoc/beaver-lake
+- https://summersetmarine.com/markets/door-county
+- https://summersetmarine.com/markets/door-county/green-bay
+- https://summersetmarine.com/markets/door-county/sturgeon-bay
+- https://summersetmarine.com/markets/door-county/lake-michigan
+
+Gallery, testimonials, contact pages for each market (priority 0.8, changefreq monthly):
+- /markets/lake-geneva/projects
+- /markets/lake-geneva/testimonials
+- /markets/lake-geneva/contact
+- /markets/oconomowoc/projects
+- /markets/oconomowoc/testimonials
+- /markets/oconomowoc/contact
+- /markets/door-county/projects
+- /markets/door-county/testimonials
+- /markets/door-county/contact
+
+SITEMAP 3 — sitemap-products.xml:
+Product hubs (priority 0.8, changefreq monthly):
+- https://summersetmarine.com/products/permanent-piers
+- https://summersetmarine.com/products/lifts
+
+Product detail pages (priority 0.7, changefreq monthly):
+- https://summersetmarine.com/products/permanent-piers/all-seasons-hd
+- https://summersetmarine.com/products/permanent-piers/all-seasons
+- https://summersetmarine.com/products/permanent-piers/classic
+- https://summersetmarine.com/products/permanent-piers/minimalist
+- https://summersetmarine.com/products/permanent-piers/commercial
+- https://summersetmarine.com/products/lifts/built-in
+- https://summersetmarine.com/products/lifts/standalone
+- https://summersetmarine.com/products/lifts/pwc
+- https://summersetmarine.com/products/lifts/inventory
+- https://summersetmarine.com/products/seasonal
+- https://summersetmarine.com/products/accessories
+
+Services and resources (priority 0.7, changefreq monthly):
+- https://summersetmarine.com/services/marine-contracting
+- https://summersetmarine.com/services/residential
+- https://summersetmarine.com/services/repairs
+- https://summersetmarine.com/resources/permanent-vs-seasonal
+- https://summersetmarine.com/resources/what-does-a-pier-cost
+- https://summersetmarine.com/resources/installation-process
+- https://summersetmarine.com/resources/what-to-expect
+- https://summersetmarine.com/resources/faq
+
+SITEMAP 4 — sitemap-images.xml:
+Google Image sitemap format. Placeholder structure now — image entries added as photography is loaded. Format per Google spec:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://summersetmarine.com/markets/lake-geneva/geneva-lake</loc>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/[image-filename]</image:loc>
+      <image:title>[Alt text string]</image:title>
+      <image:caption>[Project description]</image:caption>
+      <image:geo_location>Geneva Lake, Lake Geneva, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+</urlset>
+```
+
+SITEMAP 5 — sitemap-blog.xml (priority 0.5, changefreq weekly):
+Populated dynamically from Sanity at build time. Fetch all published blog posts from Sanity and generate one <url> entry per post with the post's updatedAt as lastmod.
+
+SITEMAP INDEX — sitemap-index.xml:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://summersetmarine.com/sitemap-core.xml</loc>
+    <lastmod>[BUILD_DATE_ISO]</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://summersetmarine.com/sitemap-markets.xml</loc>
+    <lastmod>[BUILD_DATE_ISO]</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://summersetmarine.com/sitemap-products.xml</loc>
+    <lastmod>[BUILD_DATE_ISO]</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://summersetmarine.com/sitemap-images.xml</loc>
+    <lastmod>[BUILD_DATE_ISO]</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://summersetmarine.com/sitemap-blog.xml</loc>
+    <lastmod>[BUILD_DATE_ISO]</lastmod>
+  </sitemap>
+</sitemapindex>
+```
+
+Every URL in every sitemap must include:
+- <loc> — the full absolute URL
+- <lastmod> — ISO 8601 date, set to build time for static pages, set to Sanity updatedAt for blog posts
+- <changefreq> — as specified above
+- <priority> — as specified above
+
+---
+
+BUILD src/components/seo/PageMeta.jsx:
+
+This component is included on every page. It injects into the document <head>:
+- <title> — page-specific, under 60 characters
+- <meta name="description"> — page-specific, 120–155 characters
+- <link rel="canonical"> — absolute URL for this page
+- <meta property="og:title">
+- <meta property="og:description">
+- <meta property="og:url">
+- <meta property="og:type"> — "website" for most pages, "article" for blog posts
+- <meta property="og:image"> — page-specific hero image URL
+- <meta name="twitter:card"> — "summary_large_image"
+- <meta name="twitter:title">
+- <meta name="twitter:description">
+
+Props: { title, description, canonical, ogImage, ogType }
+
+---
+
+BUILD src/components/seo/JsonLd.jsx:
+
+This component accepts a schema object and injects it as a <script type="application/ld+json"> tag. Used on every page with page-specific schema.
+
+Define and export these schema builder functions from this file:
+
+organizationSchema() — used on Home:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness"],
+  "name": "Summerset Marine Construction",
+  "url": "https://summersetmarine.com",
+  "logo": "https://summersetmarine.com/images/summerset-marine-logo.svg",
+  "telephone": "[SMC main phone]",
+  "email": "[SMC main email]",
+  "description": "Luxury permanent waterfront systems — custom piers, boat lifts, and marine contracting across Wisconsin and the Midwest.",
+  "address": [
+    { "@type": "PostalAddress", "streetAddress": "W3128 WI-HWY 59", "addressLocality": "Whitewater", "addressRegion": "WI", "postalCode": "53190", "addressCountry": "US" },
+    { "@type": "PostalAddress", "addressLocality": "Madison", "addressRegion": "WI", "addressCountry": "US" },
+    { "@type": "PostalAddress", "addressLocality": "Green Lake", "addressRegion": "WI", "addressCountry": "US" },
+    { "@type": "PostalAddress", "addressLocality": "Sturgeon Bay", "addressRegion": "WI", "addressCountry": "US" }
+  ],
+  "areaServed": ["Lake Geneva, WI", "Oconomowoc, WI", "Door County, WI", "Wisconsin"],
+  "sameAs": []
+}
+```
+
+localBusinessSchema({ market, lake, coordinates }) — used on market landing and body of water pages:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Summerset Marine Construction — [market name]",
+  "url": "https://summersetmarine.com/markets/[market-slug]",
+  "telephone": "[SMC phone]",
+  "description": "Permanent pier and boat lift installation on [lake name], [market], Wisconsin.",
+  "geo": { "@type": "GeoCoordinates", "latitude": "[lat]", "longitude": "[lng]" },
+  "areaServed": "[lake name], [market], Wisconsin"
+}
+```
+
+productSchema({ name, description, brand, category }) — used on all product pages:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "[product name]",
+  "description": "[product description]",
+  "brand": { "@type": "Brand", "name": "Lifetime" },
+  "category": "[Permanent Pier | Boat Lift | Seasonal System]",
+  "manufacturer": { "@type": "Organization", "name": "Summerset Marine Construction" }
+}
+```
+
+faqSchema({ faqs }) — used on FAQ page:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "[question text]",
+      "acceptedAnswer": { "@type": "Answer", "text": "[answer text]" }
+    }
+  ]
+}
+```
+
+articleSchema({ title, description, datePublished, dateModified, authorName, url, imageUrl }) — used on all blog posts:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[title]",
+  "description": "[description]",
+  "datePublished": "[ISO date]",
+  "dateModified": "[ISO date]",
+  "author": { "@type": "Person", "name": "[authorName]" },
+  "publisher": { "@type": "Organization", "name": "Summerset Marine Construction", "url": "https://summersetmarine.com" },
+  "url": "[url]",
+  "image": "[imageUrl]"
+}
+```
+
+imageObjectSchema({ url, caption, lake, productType, location }) — used on project gallery pages:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "url": "[image url]",
+  "caption": "[caption]",
+  "description": "[productType] installed at [lake], [location], Wisconsin",
+  "contentLocation": { "@type": "Place", "name": "[lake], Wisconsin" }
+}
+```
+
+Do not build any page content yet. Only the SEO infrastructure. Confirm when sitemap generation, PageMeta, and JsonLd are complete and tested.
