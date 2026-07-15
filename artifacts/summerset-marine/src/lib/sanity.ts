@@ -75,6 +75,7 @@ export const ALL_BLOG_POSTS_QUERY = `
     excerpt,
     market,
     lake,
+    productType,
     "featuredImageUrl": featuredImage.asset->url,
     "featuredImageAlt": featuredImage.alt,
     metaTitle,

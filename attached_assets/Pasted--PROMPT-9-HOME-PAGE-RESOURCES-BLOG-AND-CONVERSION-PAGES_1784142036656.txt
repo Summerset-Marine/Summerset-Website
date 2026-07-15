@@ -1,0 +1,146 @@
+# PROMPT 9 — HOME PAGE, RESOURCES, BLOG, AND CONVERSION PAGES
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt 8 is confirmed complete
+
+---
+
+All market microsites are complete. Now build the remaining pages.
+
+---
+
+src/pages/index.jsx — HOME PAGE
+
+This is the most important page on the site. Every section must be production-quality.
+
+Page structure:
+1. HeroSection (full-bleed or video-bg variant)
+   - Headline: "Wisconsin's Premier Permanent Waterfront Systems"
+   - Subheadline: "Custom piers, boat lifts, and marine contracting — engineered to last a lifetime."
+   - Primary CTA: "Get a Consultation" → /consultation
+   - Secondary CTA: "View Our Work" → /markets/lake-geneva/projects
+   - Hero image: PLACEHOLDER — SMC TO SUPPLY
+
+2. Product highlights section — three cards (Permanent Piers, Boat & PWC Lifts, Marine Contracting) each with icon or photo, one-line description, "Learn More" link
+
+3. "Why Permanent?" section — brief copy on permanent vs seasonal, link to /resources/permanent-vs-seasonal. PLACEHOLDER copy — SMC TO SUPPLY.
+
+4. Market presence section — three market cards (Lake Geneva, Oconomowoc / Lake Country, Door County) each linking to respective market landing page. Brief one-line descriptor per market.
+
+5. Featured projects grid — 4-6 project cards, pulled from Sanity (PLACEHOLDER grid if no projects). "View All Projects" link.
+
+6. Testimonials strip — 3 testimonials pulled from Sanity (PLACEHOLDER if none). Pull one per market where possible.
+
+7. "The Lifetime Difference" section — Lifetime Piers, Lifetime Lifts, Lifetime Barge sub-brand callouts. PLACEHOLDER — SMC TO SUPPLY.
+
+8. CTABlock (dark) — "Ready to transform your waterfront?" → /consultation
+
+Schema: organizationSchema()
+Meta title: "Summerset Marine Construction | Luxury Permanent Piers & Boat Lifts — Wisconsin"
+Meta description: "Summerset Marine Construction engineers luxury permanent waterfront systems across Wisconsin. Custom piers, boat lifts, and marine contracting on Geneva Lake, Oconomowoc, and Door County."
+Canonical: https://summersetmarine.com/
+
+---
+
+src/pages/resources/faq.jsx — FAQ PAGE
+
+Sanity query: FAQ_QUERY — live fetch (frequently updated)
+
+Page structure:
+1. Hero with headline "Frequently Asked Questions"
+2. Category filter tabs at top (filter questions by category)
+3. Accordion list — question as trigger, answer as expandable panel
+4. Each accordion item: question (bold, brand blue on expand), answer (body text)
+5. PLACEHOLDER accordion items with 5 example questions if no Sanity FAQ entries yet
+6. CTABlock at bottom
+
+Schema: faqSchema({ faqs: [all fetched FAQ items] })
+Meta title: "FAQ — Permanent Piers & Boat Lifts | Summerset Marine Construction"
+Meta description: "Answers to common questions about permanent pier installation, boat lifts, costs, process, and working with Summerset Marine Construction in Wisconsin."
+
+---
+
+src/pages/resources/permanent-vs-seasonal.jsx — COMPARISON PAGE
+
+Content: PLACEHOLDER — SMC TO SUPPLY (cost comparison, maintenance comparison, longevity, recommended scenarios for each). Build the full page structure with section headings and PLACEHOLDER content blocks. This is a canonical page — do not duplicate it anywhere.
+
+Meta title: "Permanent vs. Seasonal Pier Systems | Which Is Right for You? | Summerset Marine"
+Meta description: "Compare permanent and seasonal pier systems from Summerset Marine Construction. Learn which option is right for your Wisconsin waterfront property."
+
+---
+
+src/pages/resources/what-does-a-pier-cost.jsx, installation-process.jsx, what-to-expect.jsx
+
+Build all three with the same buyer-concern page template:
+- Hero with the question as H1
+- Structured body with H2 subheadings
+- Internal links to relevant product and market pages
+- CTABlock at bottom
+- All body content: PLACEHOLDER — SMC TO SUPPLY
+
+---
+
+src/pages/blog/index.jsx — BLOG INDEX
+
+Sanity query: ALL_BLOG_POSTS_QUERY — live fetch
+
+Page structure:
+1. Page header "Blog & Resources"
+2. Filter bar: Market (All, Lake Geneva, Oconomowoc, Door County), Product type
+3. Post card grid — 3 cols desktop, 2 cols tablet, 1 col mobile
+4. Each card: featured image, title, date, excerpt, market/lake tag, "Read More" link
+5. PLACEHOLDER cards if no Sanity posts yet
+6. Pagination if more than 12 posts
+
+Meta title: "Blog & Waterfront Resources | Summerset Marine Construction"
+Meta description: "Expert guidance on permanent piers, boat lifts, waterfront installation, and lake living from Summerset Marine Construction."
+
+---
+
+src/pages/blog/[slug].jsx — DYNAMIC BLOG POST (SSG)
+
+At build time, fetch ALL_BLOG_SLUGS_QUERY from Sanity and generate one static page per slug.
+
+For each post, fetch BLOG_POST_BY_SLUG_QUERY at build time.
+
+Page structure:
+1. Full-width hero image
+2. Post title (H1, serif font)
+3. Publish date, author, market tag, lake tag
+4. Body content — render Sanity portable text (use @portabletext/react)
+5. Internal links within body to at least one market page and one product page (Sanity authors include these — just render them)
+6. CTABlock at bottom: "Ready to build on [market lake]?" → relevant market contact page
+7. Related posts (3 posts from same market) — live Sanity fetch
+
+Install @portabletext/react for rendering Sanity block content.
+
+Schema: articleSchema for each post
+Meta title: from Sanity metaTitle field, fallback to post title + " | Summerset Marine Construction"
+Meta description: from Sanity metaDescription field, fallback to excerpt
+
+---
+
+src/pages/consultation.jsx, contact.jsx, service-request.jsx — CONVERSION PAGES
+
+consultation.jsx:
+- Headline: "Request a Consultation"
+- Subheadline: "Tell us about your project — we'll be in touch within one business day."
+- ContactForm component with formType="consultation"
+- Right side (on desktop): SMC phone, email, brief trust copy, one testimonial (PLACEHOLDER)
+
+contact.jsx:
+- Headline: "Contact Us"
+- ContactForm component with formType="contact"
+- SMC contact information
+
+service-request.jsx:
+- Headline: "Request Service"
+- Brief copy: "For seasonal installation, removal, repairs, and inspections."
+- ContactForm component with formType="service-request"
+
+---
+
+src/pages/careers.jsx — CAREERS PAGE
+
+Content: PLACEHOLDER — SMC TO SUPPLY (culture copy, open roles). Build the page structure. Include a prominent link to the Rippling ATS (URL: PLACEHOLDER — SMC TO SUPPLY). Note in PLACEHOLDER: "Insert Rippling ATS embed or link URL here."
+
+Confirm when all remaining pages are complete.
