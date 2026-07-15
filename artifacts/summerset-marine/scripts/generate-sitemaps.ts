@@ -23,7 +23,7 @@ const outDir = path.join(
   "public",
 );
 
-const SITE_URL = "https://summersetmarine.com";
+const SITE_URL = process.env.SITE_URL || "https://summersetmarine.com";
 
 function getSanityClient(): SanityClient | null {
   const projectId =

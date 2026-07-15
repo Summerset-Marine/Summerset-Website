@@ -13,7 +13,9 @@
  * Vite serves them in dev and copies them to dist/ at build time.
  */
 
-export const SITE_URL = "https://summersetmarine.com";
+export const SITE_URL =
+  (typeof process !== "undefined" && process.env?.SITE_URL) ||
+  "https://summersetmarine.com";
 
 export type Changefreq =
   | "always"
@@ -483,5 +485,6 @@ export function generateAllSitemaps(options: GenerateSitemapsOptions = {}): Reco
     ),
     "sitemap-blog.xml": buildBlogSitemapXml(options.blogPosts ?? [], buildDateIso),
     "sitemap-index.xml": buildSitemapIndexXml(buildDateIso),
+    "sitemap.xml": buildSitemapIndexXml(buildDateIso),
   };
 }
