@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import Button from "@/components/ui/Button";
 import PageMeta from "@/components/seo/PageMeta";
 import JsonLd, { productSchema } from "@/components/seo/JsonLd";
 import ContentPlaceholder from "@/components/ui/ContentPlaceholder";
@@ -118,6 +119,24 @@ export default function ClassicPierPage() {
         <ContentPlaceholder label="Specification table (dimensions, load capacity, material specs)" />
         <ContentPlaceholder label="Project gallery photos (4\u20136 images)" />
         <ContentPlaceholder label="Customer testimonials" />
+      </section>
+
+      {/* Where it's installed — internal links to lake pages */}
+      <section className="bg-brand-offwhite">
+        <div className="mx-auto max-w-content px-6 py-14">
+          <h2 className="font-serif text-3xl text-brand-navy">Where We Install It</h2>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <Button href="/markets/lake-geneva/geneva-lake" variant="secondary">
+              Geneva Lake
+            </Button>
+            <Button href="/markets/oconomowoc/okauchee-lake" variant="secondary">
+              Okauchee Lake
+            </Button>
+            <Button href="/markets/door-county/green-bay" variant="secondary">
+              Green Bay
+            </Button>
+          </div>
+        </div>
       </section>
 
       <CTABlock

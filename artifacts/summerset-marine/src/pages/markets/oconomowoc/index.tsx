@@ -257,7 +257,7 @@ export default function OconomowocPage() {
             />
           )}
           <div className="mt-8">
-            <Button href="/markets/oconomowoc/testimonials" variant="ghost">
+            <Button href="/markets/oconomowoc/testimonials" variant="secondary">
               Read All Testimonials
             </Button>
           </div>

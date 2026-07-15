@@ -66,8 +66,11 @@ export default function PermanentVsSeasonalPage() {
           <Button href="/products/lifts" variant="secondary">
             Boat &amp; PWC Lifts
           </Button>
-          <Button href="/resources/what-does-a-pier-cost" variant="ghost">
+          <Button href="/resources/what-does-a-pier-cost" variant="secondary">
             What Does a Pier Cost?
+          </Button>
+          <Button href="/resources/faq" variant="secondary">
+            Read the FAQ
           </Button>
         </div>
       </section>

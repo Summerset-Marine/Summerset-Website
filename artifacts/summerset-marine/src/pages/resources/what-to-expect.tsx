@@ -43,14 +43,17 @@ export default function WhatToExpectPage() {
           <Button href="/products/lifts" variant="secondary">
             Boat &amp; PWC Lifts
           </Button>
-          <Button href="/markets/lake-geneva" variant="ghost">
+          <Button href="/markets/lake-geneva" variant="secondary">
             Lake Geneva
           </Button>
-          <Button href="/markets/oconomowoc" variant="ghost">
+          <Button href="/markets/oconomowoc" variant="secondary">
             Oconomowoc / Lake Country
           </Button>
-          <Button href="/markets/door-county" variant="ghost">
+          <Button href="/markets/door-county" variant="secondary">
             Door County
+          </Button>
+          <Button href="/resources/faq" variant="secondary">
+            Read the FAQ
           </Button>
         </div>
       </section>

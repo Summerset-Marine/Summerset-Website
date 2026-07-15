@@ -1,0 +1,79 @@
+# PROMPT 10 — FINAL QA, PERFORMANCE, AND BUILD VERIFICATION
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt 9 is confirmed complete
+
+---
+
+All pages are built. Now run a complete quality assurance pass before the build is considered complete.
+
+---
+
+COMPLETE THESE CHECKS IN ORDER AND REPORT THE RESULT OF EACH:
+
+1. BUILD CHECK
+Run `npm run build` and confirm it completes without errors. Report any warnings.
+
+2. ROBOTS.TXT VERIFICATION
+Confirm public/robots.txt is present and contains Allow: / entries for all of the following user-agents: Googlebot, Google-Extended, GPTBot, OAI-SearchBot, ClaudeBot, anthropic-ai, PerplexityBot, Amazonbot, DuckAssistBot, cohere-ai, Bytespider, Meta-ExternalAgent, AppleBotExtended, CCBot.
+
+3. SITEMAP VERIFICATION
+Confirm all five sitemap files are generated in the dist/ directory after build:
+- sitemap-index.xml — contains five <sitemap> entries
+- sitemap-core.xml — contains all 7 core URLs with priority 1.0
+- sitemap-markets.xml — contains all market and lake URLs with correct priorities
+- sitemap-products.xml — contains all product and service URLs
+- sitemap-images.xml — correct format with image namespace
+- sitemap-blog.xml — generated from Sanity (may be empty if no posts — that is acceptable)
+All URLs must be absolute (https://summersetmarine.com/...). All entries must have <lastmod>, <changefreq>, and <priority>.
+
+4. JSON-LD SCHEMA VERIFICATION
+For each page type, confirm the correct schema is present in the rendered HTML:
+- Home: Organization + LocalBusiness with all 4 location addresses
+- /markets/lake-geneva/geneva-lake: LocalBusiness + Service with lake name and coordinates
+- /products/permanent-piers/all-seasons-hd: Product schema with brand Lifetime
+- /resources/faq: FAQPage schema (may be empty if no Sanity FAQ entries — acceptable)
+- /blog/[any slug if exists]: Article schema with datePublished
+
+5. META TAG VERIFICATION
+On each of the following pages, confirm that <title>, <meta name="description">, <link rel="canonical">, and all Open Graph tags are present and correctly populated:
+- / (Home)
+- /markets/lake-geneva/geneva-lake
+- /markets/oconomowoc/okauchee-lake
+- /markets/door-county/green-bay
+- /products/permanent-piers/all-seasons-hd
+- /resources/faq
+
+6. INTERNAL LINKING VERIFICATION
+Confirm that:
+- Each body of water page has a link to its parent market landing page
+- Each body of water page has links to at least two product pages
+- Each product detail page has links to at least two body of water pages where that product is installed
+- The FAQ page is linked from at least three other pages
+
+7. FORM SUBMISSION VERIFICATION
+Test each form type (consultation, contact, service-request) by submitting with test data to /api/submit-form. Confirm:
+- Success response is returned for valid submissions
+- Validation catches missing required fields and returns 400
+- Invalid email format is rejected
+- When HUBSPOT env vars are missing, the handler returns 503 with "Form service temporarily unavailable" rather than crashing
+- When HUBSPOT env vars are present, a test POST to HubSpot Forms API executes without error (check HubSpot portal for the test submission appearing as a contact)
+
+8. NETSUITE WEBHOOK VERIFICATION
+Send a test POST request to /api/netsuite-webhook with a sample payload and the correct HMAC signature. Confirm:
+- Valid signature is accepted, inventory-cache.json is updated
+- Invalid signature returns 401
+- Malformed payload is handled without crashing
+
+9. INVENTORY PAGE VERIFICATION
+Load /products/lifts/inventory. Confirm:
+- Page renders without errors when inventory-cache.json is empty (shows empty state)
+- Filters render and function correctly
+- Sanity live fetch executes without errors (may return empty if no liftMedia documents)
+
+10. PLACEHOLDER AUDIT
+Search all .jsx files for "PLACEHOLDER" and generate a complete list organized by page, showing every piece of content that SMC still needs to supply. This list will be sent to Horstman Networks as the content intake document.
+
+11. ENV VERIFICATION
+Confirm that all variables in .env.example are referenced in the codebase and that the app starts without crashing when .env values are missing (graceful degradation — do not crash on missing env, show a startup warning instead).
+
+Report the pass/fail status of each check and list any issues found. Fix any issues found before marking this build complete.

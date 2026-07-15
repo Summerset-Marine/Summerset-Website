@@ -274,6 +274,9 @@ export default function BeaverLakePage() {
             <Button href="/markets/oconomowoc/projects" variant="secondary">
               View All Oconomowoc / Lake Country Projects
             </Button>
+            <Button href="/markets/oconomowoc" variant="secondary" className="ml-3">
+              Explore the Oconomowoc / Lake Country Market
+            </Button>
           </div>
         </div>
       </section>

@@ -227,7 +227,7 @@ export default function LakeGenevaPage() {
             />
           )}
           <div className="mt-8">
-            <Button href="/markets/lake-geneva/testimonials" variant="ghost">
+            <Button href="/markets/lake-geneva/testimonials" variant="secondary">
               Read All Testimonials
             </Button>
           </div>

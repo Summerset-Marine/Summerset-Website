@@ -275,6 +275,9 @@ export default function GenevaLakePage() {
             <Button href="/markets/lake-geneva/projects" variant="secondary">
               View All Lake Geneva Projects
             </Button>
+            <Button href="/markets/lake-geneva" variant="secondary" className="ml-3">
+              Explore the Lake Geneva Market
+            </Button>
           </div>
         </div>
       </section>

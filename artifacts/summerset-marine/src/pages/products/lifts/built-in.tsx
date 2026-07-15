@@ -165,6 +165,24 @@ export default function BuiltInLiftsPage() {
         <ContentPlaceholder label="Built-In Lift specification table" />
       </section>
 
+      {/* Where it's installed — internal links to lake pages */}
+      <section className="bg-brand-offwhite">
+        <div className="mx-auto max-w-content px-6 py-14">
+          <h2 className="font-serif text-3xl text-brand-navy">Where We Install It</h2>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <Button href="/markets/lake-geneva/geneva-lake" variant="secondary">
+              Geneva Lake
+            </Button>
+            <Button href="/markets/oconomowoc/okauchee-lake" variant="secondary">
+              Okauchee Lake
+            </Button>
+            <Button href="/markets/door-county/green-bay" variant="secondary">
+              Green Bay
+            </Button>
+          </div>
+        </div>
+      </section>
+
       <CTABlock
         variant="dark"
         headline="Interested in a Lifetime Built-In Lift?"

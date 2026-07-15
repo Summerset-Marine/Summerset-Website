@@ -275,6 +275,9 @@ export default function LakeMichiganPage() {
             <Button href="/markets/door-county/projects" variant="secondary">
               View All Door County Projects
             </Button>
+            <Button href="/markets/door-county" variant="secondary" className="ml-3">
+              Explore the Door County Market
+            </Button>
           </div>
         </div>
       </section>
