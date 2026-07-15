@@ -118,6 +118,34 @@ export function localBusinessSchema(input: LocalBusinessSchemaInput): Schema {
   return schema;
 }
 
+export interface ServiceSchemaInput {
+  /** Service display name, e.g. "Permanent Pier Installation" */
+  name: string;
+  /** Market display name, e.g. "Lake Geneva" */
+  market: string;
+  /** Market URL slug, e.g. "lake-geneva" */
+  marketSlug: string;
+  /** Lake / body of water display name, e.g. "Geneva Lake" */
+  lake: string;
+}
+
+/** Used alongside localBusinessSchema on market microsite pages. */
+export function serviceSchema(input: ServiceSchemaInput): Schema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: input.name,
+    serviceType: input.name,
+    provider: {
+      "@type": "LocalBusiness",
+      name: `Summerset Marine Construction — ${input.market}`,
+      url: `${SITE_URL}/markets/${input.marketSlug}`,
+    },
+    areaServed: `${input.lake}, ${input.market}, Wisconsin`,
+    url: `${SITE_URL}/markets/${input.marketSlug}`,
+  };
+}
+
 export interface ProductSchemaInput {
   name: string;
   description: string;

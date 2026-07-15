@@ -185,6 +185,7 @@ export const MARKET_TESTIMONIALS_QUERY = `
     _id,
     quote,
     customerName,
+    "lakeSlug": lake,
     lakeLabel,
     productType,
     starRating

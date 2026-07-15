@@ -1,0 +1,101 @@
+# PROMPT 7 — MARKET MICROSITES: LAKE GENEVA
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt 6 is confirmed complete
+
+---
+
+The ported content pages are complete. Now build the Lake Geneva market microsite — all five pages. These are the highest-priority SEO pages on the entire site.
+
+Every page in this microsite uses LocalBusiness + Service JSON-LD schema and pulls content from Sanity at build time where available, rendering placeholders for content not yet supplied.
+
+---
+
+src/pages/markets/lake-geneva/index.jsx — LAKE GENEVA MARKET LANDING PAGE
+
+Sanity query: MARKET_PAGE_QUERY with marketSlug = 'lake-geneva'
+Fallback if no Sanity content: render all structure with PLACEHOLDER — SMC TO SUPPLY blocks.
+
+Page structure:
+1. HeroSection (full-bleed variant) — hero image from Sanity, headline: "Wisconsin's Premier Pier Builder on Geneva Lake", subheadline: PLACEHOLDER — SMC TO SUPPLY, primary CTA: "Request a Lake Geneva Consultation" → /markets/lake-geneva/contact
+2. SMC presence section — intro text from Sanity (PLACEHOLDER if not supplied)
+3. Body of water cards — Geneva Lake card linking to /markets/lake-geneva/geneva-lake
+4. Featured projects grid — from Sanity MARKET_PROJECTS_QUERY (PLACEHOLDER if no projects)
+5. Testimonials strip — from Sanity MARKET_TESTIMONIALS_QUERY (PLACEHOLDER if none)
+6. CTABlock (dark variant) — "Ready to build on Geneva Lake?" → /markets/lake-geneva/contact
+
+Schema: localBusinessSchema({ market: 'Lake Geneva', lake: 'Geneva Lake', coordinates: { lat: 42.5920, lng: -88.4343 } })
+Meta title: "Pier & Boat Lift Installation — Lake Geneva, WI | Summerset Marine"
+Meta description: "Summerset Marine Construction builds luxury permanent piers and boat lifts on Geneva Lake. Wisconsin's premier waterfront contractor serving the Lake Geneva market since 1990."
+Canonical: https://summersetmarine.com/markets/lake-geneva
+
+---
+
+src/pages/markets/lake-geneva/geneva-lake.jsx — GENEVA LAKE BODY OF WATER PAGE
+
+This is the highest-converting page in the microsite. Build it at full depth.
+
+Sanity query: LAKE_PAGE_QUERY with lakeSlug = 'geneva-lake'
+
+Page structure:
+1. HeroSection (full-bleed) — hero image from Sanity, headline: "Permanent Piers & Lifts on Geneva Lake", subheadline: from Sanity (PLACEHOLDER if not supplied), primary CTA: "Request a Consultation on Geneva Lake" → /markets/lake-geneva/contact
+2. "SMC on Geneva Lake" section — installed base copy from Sanity (PLACEHOLDER — SMC TO SUPPLY: years of experience, notable projects, installed base). Include the existing site stat: Geneva Lake average depth 61ft.
+3. Lake characteristics section — from Sanity lakeCharacteristics (PLACEHOLDER — SMC TO SUPPLY: depth, wave exposure, ice behavior, shoreline types, relevant installation considerations for a property owner)
+4. Products for Geneva Lake — product recommendation cards with links: Lifetime All Seasons HD (best for deep-water conditions), Built-In Lift, Standalone Lift
+5. Project gallery — from Sanity MARKET_PROJECTS_QUERY filtered to lake = 'geneva-lake' (PLACEHOLDER grid if no projects yet)
+6. Testimonials — from Sanity filtered to lake = 'geneva-lake' (PLACEHOLDER if none)
+7. CTABlock (dark) — "Ready to build on Geneva Lake?" → /markets/lake-geneva/contact
+
+Schema: localBusinessSchema + imageObjectSchema array for all project photos
+Meta title: "Permanent Pier Installation on Geneva Lake, WI | Summerset Marine"
+Meta description: "Summerset Marine Construction installs luxury permanent piers and boat lifts on Geneva Lake. Expert waterfront contractors serving Geneva Lake property owners in Lake Geneva, WI."
+Canonical: https://summersetmarine.com/markets/lake-geneva/geneva-lake
+
+---
+
+src/pages/markets/lake-geneva/projects.jsx — LAKE GENEVA PROJECTS GALLERY
+
+Sanity query: MARKET_PROJECTS_QUERY with market = 'lake-geneva' — live fetch (not SSG)
+
+Page structure:
+1. Page header: "Lake Geneva Projects" headline, subheadline about SMC's work in the market
+2. Filter bar: Product Type (All, Permanent Piers, Lifts, Seasonal Systems), Lake (All, Geneva Lake)
+3. Masonry or uniform grid — 3 cols desktop, 2 cols tablet, 1 col mobile
+4. Each card: project photo, lake name badge, product type badge, brief caption, year
+5. Lightbox on click — full-screen overlay, prev/next arrows, swipe on mobile, close button
+6. PLACEHOLDER grid if no Sanity projects yet — show 6 gray placeholder cards with "Projects Coming Soon" copy
+
+Schema: imageObjectSchema for each project
+Meta title: "Pier & Lift Projects — Lake Geneva, WI | Summerset Marine Construction"
+Meta description: "Browse completed Summerset Marine Construction projects on Geneva Lake and across the Lake Geneva market. Permanent piers, boat lifts, and waterfront systems."
+
+---
+
+src/pages/markets/lake-geneva/testimonials.jsx — LAKE GENEVA TESTIMONIALS
+
+Sanity query: MARKET_TESTIMONIALS_QUERY with market = 'lake-geneva' — build-time SSG
+
+Page structure:
+1. Page header: "What Geneva Lake Homeowners Say"
+2. Testimonial card grid — 2 cols desktop, 1 col mobile
+3. Each card: quote (large, serif font), customer name, lake label (e.g. "Geneva Lake homeowner"), star rating if present
+4. PLACEHOLDER grid if no testimonials yet
+5. CTABlock at bottom
+
+Meta title: "Customer Reviews — Lake Geneva, WI | Summerset Marine Construction"
+Meta description: "Read testimonials from Geneva Lake homeowners who chose Summerset Marine Construction for their permanent pier and boat lift installations."
+
+---
+
+src/pages/markets/lake-geneva/contact.jsx — LAKE GENEVA LOCALIZED CONTACT PAGE
+
+Page structure:
+1. Headline: "Request a Lake Geneva Consultation"
+2. Subheadline referencing the Lake Geneva market specifically: "Serving Geneva Lake and the Lake Geneva area since 1990."
+3. ContactForm component with formType="consultation" and market="Lake Geneva" pre-filled
+4. Below form: SMC phone number, email, a featured Lake Geneva project photo (PLACEHOLDER)
+5. A single Geneva Lake testimonial (PLACEHOLDER)
+
+Meta title: "Request a Lake Geneva Pier Consultation | Summerset Marine Construction"
+Meta description: "Request a consultation with Summerset Marine Construction for your Geneva Lake pier or boat lift project. Serving the Lake Geneva area since 1990."
+
+Confirm when all five Lake Geneva microsite pages are complete.
