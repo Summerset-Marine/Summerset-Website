@@ -78,7 +78,11 @@ export default function AllSeasonsHDPage() {
             You&rsquo;re either in or you&rsquo;re out.
           </p>
           <div className="mt-8">
-            <ContentPlaceholder label="All Seasons HD hero image" />
+            <img
+              src="/images/smc/wisconsin-lifetime-all-seasons-hd-pier-aerial-001.jpg"
+              alt="Lifetime All Seasons HD permanent pier aerial view — Summerset Marine Construction Wisconsin"
+              className="aspect-[21/9] w-full rounded-lg object-cover"
+            />
           </div>
         </div>
       </section>
@@ -154,7 +158,12 @@ export default function AllSeasonsHDPage() {
       {/* PLACEHOLDER sections — SMC TO SUPPLY */}
       <section className="mx-auto max-w-content space-y-6 px-6 pb-16">
         <ContentPlaceholder label="Specification table (dimensions, load capacity, material specs)" />
-        <ContentPlaceholder label="Project gallery photos (4\u20136 images)" />
+        <img
+          src="/images/smc/oconomowoc-okauchee-lake-lifetime-all-seasons-hd-pier-001.jpg"
+          alt="Lifetime All Seasons HD permanent pier installed on Okauchee Lake, Oconomowoc, Wisconsin"
+          className="aspect-[21/9] w-full rounded-lg object-cover"
+          loading="lazy"
+        />
         <ContentPlaceholder label="Customer testimonials" />
       </section>
 

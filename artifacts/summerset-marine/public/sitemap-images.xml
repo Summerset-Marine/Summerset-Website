@@ -1,6 +1,263 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Image entries are added as project photography is loaded. -->
+<!-- Static SMC photography entries; see STATIC_SITEMAP_IMAGES in src/lib/sitemap.ts. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
+  <url>
+    <loc>https://summersetmarine.com/</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-permanent-pier-sunrise-hero-001.jpg</image:loc>
+      <image:title>Lifetime permanent pier at sunrise on a Wisconsin lake — Summerset Marine Construction</image:title>
+      <image:caption>Lifetime permanent pier at sunrise on a Wisconsin lake — Summerset Marine Construction</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/about</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/summerset-marine-construction-whitewater-wi-headquarters-001.jpg</image:loc>
+      <image:title>Summerset Marine Construction headquarters in Whitewater, Wisconsin</image:title>
+      <image:caption>Summerset Marine Construction headquarters in Whitewater, Wisconsin</image:caption>
+      <image:geo_location>Whitewater, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/permanent-piers/all-seasons-hd</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-lifetime-all-seasons-hd-pier-aerial-001.jpg</image:loc>
+      <image:title>Lifetime All Seasons HD permanent pier aerial view — Summerset Marine Construction Wisconsin</image:title>
+      <image:caption>Lifetime All Seasons HD permanent pier aerial view — Summerset Marine Construction Wisconsin</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/oconomowoc-okauchee-lake-lifetime-all-seasons-hd-pier-001.jpg</image:loc>
+      <image:title>Lifetime All Seasons HD permanent pier installed on Okauchee Lake, Oconomowoc, Wisconsin</image:title>
+      <image:caption>Lifetime All Seasons HD permanent pier installed on Okauchee Lake, Oconomowoc, Wisconsin</image:caption>
+      <image:geo_location>Okauchee Lake, Oconomowoc, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/permanent-piers/all-seasons</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/oconomowoc-nagawicka-lake-lifetime-all-seasons-pier-001.jpg</image:loc>
+      <image:title>Lifetime All Seasons permanent pier installed on Nagawicka Lake, Oconomowoc, Wisconsin</image:title>
+      <image:caption>Lifetime All Seasons permanent pier installed on Nagawicka Lake, Oconomowoc, Wisconsin</image:caption>
+      <image:geo_location>Nagawicka Lake, Oconomowoc, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/permanent-piers/classic</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-lifetime-classic-pier-aerial-001.jpg</image:loc>
+      <image:title>Lifetime Classic permanent pier aerial view — Summerset Marine Construction Wisconsin</image:title>
+      <image:caption>Lifetime Classic permanent pier aerial view — Summerset Marine Construction Wisconsin</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/permanent-piers/minimalist</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-lifetime-minimalist-pier-sunrise-001.jpg</image:loc>
+      <image:title>Lifetime Minimalist permanent pier at sunrise — Summerset Marine Construction Wisconsin</image:title>
+      <image:caption>Lifetime Minimalist permanent pier at sunrise — Summerset Marine Construction Wisconsin</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/lifts</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg</image:loc>
+      <image:title>Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction</image:title>
+      <image:caption>Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/lifts/built-in</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg</image:loc>
+      <image:title>Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction</image:title>
+      <image:caption>Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/lifts/standalone</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-lifetime-standalone-boat-lift-001.jpg</image:loc>
+      <image:title>Lifetime standalone boat lift installed on a Wisconsin lake — Summerset Marine Construction</image:title>
+      <image:caption>Lifetime standalone boat lift installed on a Wisconsin lake — Summerset Marine Construction</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/products/lifts/pwc</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/wisconsin-lifetime-pwc-jet-ski-lift-001.jpg</image:loc>
+      <image:title>Lifetime PWC jet ski lift installed on a Wisconsin lake — Summerset Marine Construction</image:title>
+      <image:caption>Lifetime PWC jet ski lift installed on a Wisconsin lake — Summerset Marine Construction</image:caption>
+      <image:geo_location>Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/lake-geneva</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/lake-geneva-permanent-pier-sunrise-001.jpg</image:loc>
+      <image:title>Permanent pier at sunrise on Geneva Lake, Lake Geneva, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Permanent pier at sunrise on Geneva Lake, Lake Geneva, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Geneva Lake, Lake Geneva, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/lake-geneva/geneva-lake</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/lake-geneva-geneva-lake-permanent-pier-aerial-001.jpg</image:loc>
+      <image:title>Permanent pier aerial view on Geneva Lake, Lake Geneva, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Permanent pier aerial view on Geneva Lake, Lake Geneva, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Geneva Lake, Lake Geneva, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/oconomowoc</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/oconomowoc-okauchee-lake-permanent-pier-hero-001.jpg</image:loc>
+      <image:title>Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Okauchee Lake, Oconomowoc, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/oconomowoc/okauchee-lake</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/oconomowoc-okauchee-lake-permanent-pier-hero-001.jpg</image:loc>
+      <image:title>Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Okauchee Lake, Oconomowoc, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/oconomowoc/lac-la-belle</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/oconomowoc-lac-la-belle-permanent-pier-001.jpg</image:loc>
+      <image:title>Permanent pier on Lac La Belle, Oconomowoc, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Permanent pier on Lac La Belle, Oconomowoc, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Lac La Belle, Oconomowoc, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/oconomowoc/nagawicka-lake</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/oconomowoc-nagawicka-lake-permanent-pier-aerial-001.jpg</image:loc>
+      <image:title>Permanent pier aerial view on Nagawicka Lake, Oconomowoc, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Permanent pier aerial view on Nagawicka Lake, Oconomowoc, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Nagawicka Lake, Oconomowoc, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/oconomowoc/beaver-lake</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/oconomowoc-beaver-lake-permanent-pier-001.jpg</image:loc>
+      <image:title>Permanent pier on Beaver Lake, Oconomowoc, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Permanent pier on Beaver Lake, Oconomowoc, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Beaver Lake, Oconomowoc, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/door-county</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/door-county-green-bay-permanent-pier-aerial-001.jpg</image:loc>
+      <image:title>Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Green Bay, Door County, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/door-county/green-bay</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/door-county-green-bay-permanent-pier-aerial-001.jpg</image:loc>
+      <image:title>Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Green Bay, Door County, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/door-county/sturgeon-bay</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/door-county-sturgeon-bay-wisconsin-lake-001.jpg</image:loc>
+      <image:title>Clear Wisconsin waterway in Door County — Summerset Marine Construction</image:title>
+      <image:caption>Clear Wisconsin waterway in Door County — Summerset Marine Construction</image:caption>
+      <image:geo_location>Sturgeon Bay, Door County, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://summersetmarine.com/markets/door-county/lake-michigan</loc>
+    <lastmod>2026-07-15T21:34:33.026Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://summersetmarine.com/images/smc/door-county-lake-michigan-permanent-pier-001.jpg</image:loc>
+      <image:title>Permanent pier on Lake Michigan, Door County, Wisconsin — Summerset Marine Construction</image:title>
+      <image:caption>Permanent pier on Lake Michigan, Door County, Wisconsin — Summerset Marine Construction</image:caption>
+      <image:geo_location>Lake Michigan, Door County, Wisconsin</image:geo_location>
+    </image:image>
+  </url>
 </urlset>

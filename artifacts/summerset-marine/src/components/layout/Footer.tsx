@@ -52,7 +52,7 @@ export default function Footer() {
         <div>
           <Link href="/" className="inline-block rounded bg-white px-3 py-2">
             <img
-              src="/images/summerset-marine-logo.svg"
+              src="/images/summerset-marine-logo.png"
               alt="Summerset Marine Construction"
               className="h-10 w-auto"
             />

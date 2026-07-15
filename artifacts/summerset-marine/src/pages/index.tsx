@@ -36,18 +36,27 @@ const PRODUCT_HIGHLIGHTS = [
     href: "/products/permanent-piers",
     description:
       "Engineered pier systems that stay in the water year-round — no seasonal install, no removal, built to last a lifetime.",
+    imageSrc: "/images/smc/wisconsin-lifetime-all-seasons-hd-pier-aerial-001.jpg",
+    imageAlt:
+      "Lifetime All Seasons HD permanent pier aerial view — Summerset Marine Construction Wisconsin",
   },
   {
     name: "Boat & PWC Lifts",
     href: "/products/lifts",
     description:
       "Built-in, standalone, and PWC lifts that protect your investment and keep your waterfront looking clean.",
+    imageSrc: "/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg",
+    imageAlt:
+      "Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction",
   },
   {
     name: "Marine Contracting",
     href: "/services/marine-contracting",
     description:
       "Dredging, stone work, barge work, steel sheeting, and professional engineering for demanding shorelines.",
+    imageSrc: "/images/smc/door-county-green-bay-permanent-pier-aerial-001.jpg",
+    imageAlt:
+      "Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction",
   },
 ] as const;
 
@@ -127,7 +136,11 @@ export default function HomePage() {
               View Our Work
             </Button>
           </div>
-          <ContentPlaceholder label="home page hero image or video" className="mt-12" />
+          <img
+            src="/images/smc/wisconsin-permanent-pier-sunrise-hero-001.jpg"
+            alt="Lifetime permanent pier at sunrise on a Wisconsin lake — Summerset Marine Construction"
+            className="mt-12 aspect-[21/9] w-full rounded-lg object-cover"
+          />
         </div>
       </section>
 
@@ -140,7 +153,12 @@ export default function HomePage() {
               key={product.name}
               className="flex flex-col rounded-lg border border-brand-border bg-white p-8 shadow-sm"
             >
-              <ContentPlaceholder label={`${product.name} icon or photo`} />
+              <img
+                src={product.imageSrc}
+                alt={product.imageAlt}
+                className="aspect-[4/3] w-full rounded-md object-cover"
+                loading="lazy"
+              />
               <h3 className="mt-5 font-serif text-2xl text-brand-navy">{product.name}</h3>
               <p className="mt-3 flex-1 leading-relaxed text-brand-gray">
                 {product.description}

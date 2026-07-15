@@ -72,7 +72,11 @@ export default function MinimalistPierPage() {
             simplicity, this pier blends subtle elegance with lasting performance.
           </p>
           <div className="mt-8">
-            <ContentPlaceholder label="Minimalist Pier hero image" />
+            <img
+              src="/images/smc/wisconsin-lifetime-minimalist-pier-sunrise-001.jpg"
+              alt="Lifetime Minimalist permanent pier at sunrise — Summerset Marine Construction Wisconsin"
+              className="aspect-[21/9] w-full rounded-lg object-cover"
+            />
           </div>
         </div>
       </section>

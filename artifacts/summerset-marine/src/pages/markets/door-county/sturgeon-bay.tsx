@@ -135,37 +135,17 @@ export default function SturgeonBayPage() {
         ))}
 
       {/* 1. Hero */}
-      {content?.heroImageUrl ? (
-        <HeroSection
+      <HeroSection
           variant="full-bleed"
           headline="Permanent Piers & Lifts on Sturgeon Bay"
-          subheadline={content.historyText ?? undefined}
+          subheadline={content?.historyText ?? undefined}
           primaryCta={{
             label: "Request a Consultation on Sturgeon Bay",
             href: "/markets/door-county/contact",
           }}
-          imageSrc={content.heroImageUrl}
-          imageAlt={content.heroImageAlt ?? "Permanent pier on Sturgeon Bay"}
+          imageSrc={content?.heroImageUrl ?? "/images/smc/door-county-sturgeon-bay-wisconsin-lake-001.jpg"}
+          imageAlt={content?.heroImageAlt ?? "Clear Wisconsin waterway in Door County — Summerset Marine Construction"}
         />
-      ) : (
-        <section className="bg-brand-navy text-white">
-          <div className="mx-auto max-w-content px-6 py-20">
-            <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-              Permanent Piers &amp; Lifts on Sturgeon Bay
-            </h1>
-            <ContentPlaceholder
-              label="Sturgeon Bay hero subheadline"
-              className="mt-6 max-w-2xl"
-            />
-            <div className="mt-8">
-              <Button href="/markets/door-county/contact" variant="primary" size="large">
-                Request a Consultation on Sturgeon Bay
-              </Button>
-            </div>
-            <ContentPlaceholder label="Sturgeon Bay hero image" className="mt-10" />
-          </div>
-        </section>
-      )}
 
       {/* 2. SMC on this water */}
       <section className="mx-auto max-w-content px-6 py-16">

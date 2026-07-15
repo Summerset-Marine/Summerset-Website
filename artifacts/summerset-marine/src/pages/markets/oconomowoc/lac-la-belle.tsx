@@ -135,37 +135,17 @@ export default function LacLaBellePage() {
         ))}
 
       {/* 1. Hero */}
-      {content?.heroImageUrl ? (
-        <HeroSection
+      <HeroSection
           variant="full-bleed"
           headline="Permanent Piers & Lifts on Lac La Belle"
-          subheadline={content.historyText ?? undefined}
+          subheadline={content?.historyText ?? undefined}
           primaryCta={{
             label: "Request a Consultation on Lac La Belle",
             href: "/markets/oconomowoc/contact",
           }}
-          imageSrc={content.heroImageUrl}
-          imageAlt={content.heroImageAlt ?? "Permanent pier on Lac La Belle"}
+          imageSrc={content?.heroImageUrl ?? "/images/smc/oconomowoc-lac-la-belle-permanent-pier-001.jpg"}
+          imageAlt={content?.heroImageAlt ?? "Permanent pier on Lac La Belle, Oconomowoc, Wisconsin — Summerset Marine Construction"}
         />
-      ) : (
-        <section className="bg-brand-navy text-white">
-          <div className="mx-auto max-w-content px-6 py-20">
-            <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-              Permanent Piers &amp; Lifts on Lac La Belle
-            </h1>
-            <ContentPlaceholder
-              label="Lac La Belle hero subheadline"
-              className="mt-6 max-w-2xl"
-            />
-            <div className="mt-8">
-              <Button href="/markets/oconomowoc/contact" variant="primary" size="large">
-                Request a Consultation on Lac La Belle
-              </Button>
-            </div>
-            <ContentPlaceholder label="Lac La Belle hero image" className="mt-10" />
-          </div>
-        </section>
-      )}
 
       {/* 2. SMC on this water */}
       <section className="mx-auto max-w-content px-6 py-16">

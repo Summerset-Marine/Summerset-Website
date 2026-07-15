@@ -265,11 +265,13 @@ export default function Header() {
     >
       <div className="mx-auto flex h-20 max-w-content items-center justify-between gap-6 px-6">
         <Link href="/" className="flex shrink-0 items-center" data-testid="link-home">
-          <img
-            src="/images/summerset-marine-logo.svg"
-            alt="Summerset Marine Construction"
-            className="h-12 w-auto"
-          />
+          <span className="inline-flex items-center rounded-md bg-brand-navy px-3 py-2">
+            <img
+              src="/images/summerset-marine-logo.png"
+              alt="Summerset Marine Construction"
+              className="h-8 w-auto"
+            />
+          </span>
         </Link>
 
         {/* Desktop navigation */}
@@ -384,11 +386,13 @@ export default function Header() {
           />
           <div className="absolute right-0 top-0 flex h-full w-80 max-w-[85vw] flex-col bg-white shadow-2xl">
             <div className="flex items-center justify-between border-b border-brand-border px-5 py-4">
-              <img
-                src="/images/summerset-marine-logo.svg"
-                alt="Summerset Marine Construction"
-                className="h-10 w-auto"
-              />
+              <span className="inline-flex items-center rounded-md bg-brand-navy px-2.5 py-1.5">
+                <img
+                  src="/images/summerset-marine-logo.png"
+                  alt="Summerset Marine Construction"
+                  className="h-7 w-auto"
+                />
+              </span>
               <button
                 type="button"
                 onClick={() => setDrawerOpen(false)}

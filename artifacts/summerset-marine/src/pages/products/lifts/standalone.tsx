@@ -72,7 +72,11 @@ export default function StandaloneLiftsPage() {
             </Button>
           </div>
           <div className="mt-8">
-            <ContentPlaceholder label="Standalone Lift hero image" />
+            <img
+              src="/images/smc/wisconsin-lifetime-standalone-boat-lift-001.jpg"
+              alt="Lifetime standalone boat lift installed on a Wisconsin lake — Summerset Marine Construction"
+              className="aspect-[21/9] w-full rounded-lg object-cover"
+            />
           </div>
         </div>
       </section>

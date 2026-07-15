@@ -5,7 +5,7 @@
  *   sitemap-core.xml     — core company pages (priority 1.0, weekly)
  *   sitemap-markets.xml  — market + body-of-water pages (0.9/0.8)
  *   sitemap-products.xml — product, service, resource pages (0.8/0.7)
- *   sitemap-images.xml   — Google image sitemap (placeholder until photography loads)
+ *   sitemap-images.xml   — Google image sitemap (static SMC photography entries)
  *   sitemap-blog.xml     — blog posts from Sanity (0.5, weekly)
  *   sitemap-index.xml    — index referencing all five
  *
@@ -199,6 +199,167 @@ export interface SitemapImage {
   geoLocation: string;
 }
 
+/**
+ * Static image sitemap entries for the scraped SMC photography in
+ * public/images/smc/. Filenames follow [market]-[lake]-[product]-[descriptor]-[seq].
+ */
+export const STATIC_SITEMAP_IMAGES: SitemapImage[] = [
+  {
+    pagePath: "/",
+    imageUrl: "/images/smc/wisconsin-permanent-pier-sunrise-hero-001.jpg",
+    title: "Lifetime permanent pier at sunrise on a Wisconsin lake — Summerset Marine Construction",
+    caption: "Lifetime permanent pier at sunrise on a Wisconsin lake — Summerset Marine Construction",
+    geoLocation: "Wisconsin",
+  },
+  {
+    pagePath: "/about",
+    imageUrl: "/images/smc/summerset-marine-construction-whitewater-wi-headquarters-001.jpg",
+    title: "Summerset Marine Construction headquarters in Whitewater, Wisconsin",
+    caption: "Summerset Marine Construction headquarters in Whitewater, Wisconsin",
+    geoLocation: "Whitewater, Wisconsin",
+  },
+  {
+    pagePath: "/products/permanent-piers/all-seasons-hd",
+    imageUrl: "/images/smc/wisconsin-lifetime-all-seasons-hd-pier-aerial-001.jpg",
+    title: "Lifetime All Seasons HD permanent pier aerial view — Summerset Marine Construction Wisconsin",
+    caption: "Lifetime All Seasons HD permanent pier aerial view — Summerset Marine Construction Wisconsin",
+    geoLocation: "Wisconsin",
+  },
+  {
+    pagePath: "/products/permanent-piers/all-seasons-hd",
+    imageUrl: "/images/smc/oconomowoc-okauchee-lake-lifetime-all-seasons-hd-pier-001.jpg",
+    title: "Lifetime All Seasons HD permanent pier installed on Okauchee Lake, Oconomowoc, Wisconsin",
+    caption: "Lifetime All Seasons HD permanent pier installed on Okauchee Lake, Oconomowoc, Wisconsin",
+    geoLocation: "Okauchee Lake, Oconomowoc, Wisconsin",
+  },
+  {
+    pagePath: "/products/permanent-piers/all-seasons",
+    imageUrl: "/images/smc/oconomowoc-nagawicka-lake-lifetime-all-seasons-pier-001.jpg",
+    title: "Lifetime All Seasons permanent pier installed on Nagawicka Lake, Oconomowoc, Wisconsin",
+    caption: "Lifetime All Seasons permanent pier installed on Nagawicka Lake, Oconomowoc, Wisconsin",
+    geoLocation: "Nagawicka Lake, Oconomowoc, Wisconsin",
+  },
+  {
+    pagePath: "/products/permanent-piers/classic",
+    imageUrl: "/images/smc/wisconsin-lifetime-classic-pier-aerial-001.jpg",
+    title: "Lifetime Classic permanent pier aerial view — Summerset Marine Construction Wisconsin",
+    caption: "Lifetime Classic permanent pier aerial view — Summerset Marine Construction Wisconsin",
+    geoLocation: "Wisconsin",
+  },
+  {
+    pagePath: "/products/permanent-piers/minimalist",
+    imageUrl: "/images/smc/wisconsin-lifetime-minimalist-pier-sunrise-001.jpg",
+    title: "Lifetime Minimalist permanent pier at sunrise — Summerset Marine Construction Wisconsin",
+    caption: "Lifetime Minimalist permanent pier at sunrise — Summerset Marine Construction Wisconsin",
+    geoLocation: "Wisconsin",
+  },
+  {
+    pagePath: "/products/lifts",
+    imageUrl: "/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg",
+    title: "Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction",
+    caption: "Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction",
+    geoLocation: "Wisconsin",
+  },
+  {
+    pagePath: "/products/lifts/built-in",
+    imageUrl: "/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg",
+    title: "Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction",
+    caption: "Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction",
+    geoLocation: "Wisconsin",
+  },
+  {
+    pagePath: "/products/lifts/standalone",
+    imageUrl: "/images/smc/wisconsin-lifetime-standalone-boat-lift-001.jpg",
+    title: "Lifetime standalone boat lift installed on a Wisconsin lake — Summerset Marine Construction",
+    caption: "Lifetime standalone boat lift installed on a Wisconsin lake — Summerset Marine Construction",
+    geoLocation: "Wisconsin",
+  },
+  {
+    pagePath: "/products/lifts/pwc",
+    imageUrl: "/images/smc/wisconsin-lifetime-pwc-jet-ski-lift-001.jpg",
+    title: "Lifetime PWC jet ski lift installed on a Wisconsin lake — Summerset Marine Construction",
+    caption: "Lifetime PWC jet ski lift installed on a Wisconsin lake — Summerset Marine Construction",
+    geoLocation: "Wisconsin",
+  },
+  {
+    pagePath: "/markets/lake-geneva",
+    imageUrl: "/images/smc/lake-geneva-permanent-pier-sunrise-001.jpg",
+    title: "Permanent pier at sunrise on Geneva Lake, Lake Geneva, Wisconsin — Summerset Marine Construction",
+    caption: "Permanent pier at sunrise on Geneva Lake, Lake Geneva, Wisconsin — Summerset Marine Construction",
+    geoLocation: "Geneva Lake, Lake Geneva, Wisconsin",
+  },
+  {
+    pagePath: "/markets/lake-geneva/geneva-lake",
+    imageUrl: "/images/smc/lake-geneva-geneva-lake-permanent-pier-aerial-001.jpg",
+    title: "Permanent pier aerial view on Geneva Lake, Lake Geneva, Wisconsin — Summerset Marine Construction",
+    caption: "Permanent pier aerial view on Geneva Lake, Lake Geneva, Wisconsin — Summerset Marine Construction",
+    geoLocation: "Geneva Lake, Lake Geneva, Wisconsin",
+  },
+  {
+    pagePath: "/markets/oconomowoc",
+    imageUrl: "/images/smc/oconomowoc-okauchee-lake-permanent-pier-hero-001.jpg",
+    title: "Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction",
+    caption: "Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction",
+    geoLocation: "Okauchee Lake, Oconomowoc, Wisconsin",
+  },
+  {
+    pagePath: "/markets/oconomowoc/okauchee-lake",
+    imageUrl: "/images/smc/oconomowoc-okauchee-lake-permanent-pier-hero-001.jpg",
+    title: "Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction",
+    caption: "Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction",
+    geoLocation: "Okauchee Lake, Oconomowoc, Wisconsin",
+  },
+  {
+    pagePath: "/markets/oconomowoc/lac-la-belle",
+    imageUrl: "/images/smc/oconomowoc-lac-la-belle-permanent-pier-001.jpg",
+    title: "Permanent pier on Lac La Belle, Oconomowoc, Wisconsin — Summerset Marine Construction",
+    caption: "Permanent pier on Lac La Belle, Oconomowoc, Wisconsin — Summerset Marine Construction",
+    geoLocation: "Lac La Belle, Oconomowoc, Wisconsin",
+  },
+  {
+    pagePath: "/markets/oconomowoc/nagawicka-lake",
+    imageUrl: "/images/smc/oconomowoc-nagawicka-lake-permanent-pier-aerial-001.jpg",
+    title: "Permanent pier aerial view on Nagawicka Lake, Oconomowoc, Wisconsin — Summerset Marine Construction",
+    caption: "Permanent pier aerial view on Nagawicka Lake, Oconomowoc, Wisconsin — Summerset Marine Construction",
+    geoLocation: "Nagawicka Lake, Oconomowoc, Wisconsin",
+  },
+  {
+    pagePath: "/markets/oconomowoc/beaver-lake",
+    imageUrl: "/images/smc/oconomowoc-beaver-lake-permanent-pier-001.jpg",
+    title: "Permanent pier on Beaver Lake, Oconomowoc, Wisconsin — Summerset Marine Construction",
+    caption: "Permanent pier on Beaver Lake, Oconomowoc, Wisconsin — Summerset Marine Construction",
+    geoLocation: "Beaver Lake, Oconomowoc, Wisconsin",
+  },
+  {
+    pagePath: "/markets/door-county",
+    imageUrl: "/images/smc/door-county-green-bay-permanent-pier-aerial-001.jpg",
+    title: "Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction",
+    caption: "Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction",
+    geoLocation: "Green Bay, Door County, Wisconsin",
+  },
+  {
+    pagePath: "/markets/door-county/green-bay",
+    imageUrl: "/images/smc/door-county-green-bay-permanent-pier-aerial-001.jpg",
+    title: "Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction",
+    caption: "Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction",
+    geoLocation: "Green Bay, Door County, Wisconsin",
+  },
+  {
+    pagePath: "/markets/door-county/sturgeon-bay",
+    imageUrl: "/images/smc/door-county-sturgeon-bay-wisconsin-lake-001.jpg",
+    title: "Clear Wisconsin waterway in Door County — Summerset Marine Construction",
+    caption: "Clear Wisconsin waterway in Door County — Summerset Marine Construction",
+    geoLocation: "Sturgeon Bay, Door County, Wisconsin",
+  },
+  {
+    pagePath: "/markets/door-county/lake-michigan",
+    imageUrl: "/images/smc/door-county-lake-michigan-permanent-pier-001.jpg",
+    title: "Permanent pier on Lake Michigan, Door County, Wisconsin — Summerset Marine Construction",
+    caption: "Permanent pier on Lake Michigan, Door County, Wisconsin — Summerset Marine Construction",
+    geoLocation: "Lake Michigan, Door County, Wisconsin",
+  },
+];
+
 export function buildImageSitemapXml(
   images: SitemapImage[] = [],
   buildDateIso: string = new Date().toISOString(),
@@ -242,7 +403,7 @@ export function buildImageSitemapXml(
 
   return (
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
-    `<!-- Image entries are added as project photography is loaded. -->\n` +
+    `<!-- Static SMC photography entries; see STATIC_SITEMAP_IMAGES in src/lib/sitemap.ts. -->\n` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
     `        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
     `${urls}\n` +
@@ -316,7 +477,10 @@ export function generateAllSitemaps(options: GenerateSitemapsOptions = {}): Reco
     "sitemap-core.xml": buildUrlsetXml(entriesFromGroups(coreGroups, buildDateIso)),
     "sitemap-markets.xml": buildUrlsetXml(entriesFromGroups(marketGroups, buildDateIso)),
     "sitemap-products.xml": buildUrlsetXml(entriesFromGroups(productGroups, buildDateIso)),
-    "sitemap-images.xml": buildImageSitemapXml(options.images ?? [], buildDateIso),
+    "sitemap-images.xml": buildImageSitemapXml(
+      options.images ?? STATIC_SITEMAP_IMAGES,
+      buildDateIso,
+    ),
     "sitemap-blog.xml": buildBlogSitemapXml(options.blogPosts ?? [], buildDateIso),
     "sitemap-index.xml": buildSitemapIndexXml(buildDateIso),
   };

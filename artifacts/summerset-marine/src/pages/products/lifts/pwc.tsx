@@ -76,7 +76,11 @@ export default function PwcLiftsPage() {
             </Button>
           </div>
           <div className="mt-8">
-            <ContentPlaceholder label="PWC Platform Lift hero image" />
+            <img
+              src="/images/smc/wisconsin-lifetime-pwc-jet-ski-lift-001.jpg"
+              alt="Lifetime PWC jet ski lift installed on a Wisconsin lake — Summerset Marine Construction"
+              className="aspect-[21/9] w-full rounded-lg object-cover"
+            />
           </div>
         </div>
       </section>

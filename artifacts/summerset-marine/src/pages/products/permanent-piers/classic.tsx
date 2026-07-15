@@ -68,7 +68,11 @@ export default function ClassicPierPage() {
             home and enhances your shoreline.
           </p>
           <div className="mt-8">
-            <ContentPlaceholder label="Classic Pier hero image" />
+            <img
+              src="/images/smc/wisconsin-lifetime-classic-pier-aerial-001.jpg"
+              alt="Lifetime Classic permanent pier aerial view — Summerset Marine Construction Wisconsin"
+              className="aspect-[21/9] w-full rounded-lg object-cover"
+            />
           </div>
         </div>
       </section>

@@ -135,37 +135,17 @@ export default function LakeMichiganPage() {
         ))}
 
       {/* 1. Hero */}
-      {content?.heroImageUrl ? (
-        <HeroSection
+      <HeroSection
           variant="full-bleed"
           headline="Permanent Piers & Lifts on Lake Michigan — Door County"
-          subheadline={content.historyText ?? undefined}
+          subheadline={content?.historyText ?? undefined}
           primaryCta={{
             label: "Request a Consultation on Lake Michigan",
             href: "/markets/door-county/contact",
           }}
-          imageSrc={content.heroImageUrl}
-          imageAlt={content.heroImageAlt ?? "Permanent pier on Lake Michigan — Door County"}
+          imageSrc={content?.heroImageUrl ?? "/images/smc/door-county-lake-michigan-permanent-pier-001.jpg"}
+          imageAlt={content?.heroImageAlt ?? "Permanent pier on Lake Michigan, Door County, Wisconsin — Summerset Marine Construction"}
         />
-      ) : (
-        <section className="bg-brand-navy text-white">
-          <div className="mx-auto max-w-content px-6 py-20">
-            <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-              Permanent Piers &amp; Lifts on Lake Michigan — Door County
-            </h1>
-            <ContentPlaceholder
-              label="Lake Michigan — Door County hero subheadline"
-              className="mt-6 max-w-2xl"
-            />
-            <div className="mt-8">
-              <Button href="/markets/door-county/contact" variant="primary" size="large">
-                Request a Consultation on Lake Michigan
-              </Button>
-            </div>
-            <ContentPlaceholder label="Lake Michigan — Door County hero image" className="mt-10" />
-          </div>
-        </section>
-      )}
 
       {/* 2. SMC on this water */}
       <section className="mx-auto max-w-content px-6 py-16">

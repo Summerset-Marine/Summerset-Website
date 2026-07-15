@@ -135,37 +135,17 @@ export default function NagawickaLakePage() {
         ))}
 
       {/* 1. Hero */}
-      {content?.heroImageUrl ? (
-        <HeroSection
+      <HeroSection
           variant="full-bleed"
           headline="Permanent Piers & Lifts on Nagawicka Lake"
-          subheadline={content.historyText ?? undefined}
+          subheadline={content?.historyText ?? undefined}
           primaryCta={{
             label: "Request a Consultation on Nagawicka Lake",
             href: "/markets/oconomowoc/contact",
           }}
-          imageSrc={content.heroImageUrl}
-          imageAlt={content.heroImageAlt ?? "Permanent pier on Nagawicka Lake"}
+          imageSrc={content?.heroImageUrl ?? "/images/smc/oconomowoc-nagawicka-lake-permanent-pier-aerial-001.jpg"}
+          imageAlt={content?.heroImageAlt ?? "Permanent pier aerial view on Nagawicka Lake, Oconomowoc, Wisconsin — Summerset Marine Construction"}
         />
-      ) : (
-        <section className="bg-brand-navy text-white">
-          <div className="mx-auto max-w-content px-6 py-20">
-            <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-              Permanent Piers &amp; Lifts on Nagawicka Lake
-            </h1>
-            <ContentPlaceholder
-              label="Nagawicka Lake hero subheadline"
-              className="mt-6 max-w-2xl"
-            />
-            <div className="mt-8">
-              <Button href="/markets/oconomowoc/contact" variant="primary" size="large">
-                Request a Consultation on Nagawicka Lake
-              </Button>
-            </div>
-            <ContentPlaceholder label="Nagawicka Lake hero image" className="mt-10" />
-          </div>
-        </section>
-      )}
 
       {/* 2. SMC on this water */}
       <section className="mx-auto max-w-content px-6 py-16">

@@ -78,37 +78,17 @@ export default function DoorCountyPage() {
       />
 
       {/* 1. Hero */}
-      {content?.heroImageUrl ? (
-        <HeroSection
+      <HeroSection
           variant="full-bleed"
           headline="Waterfront Systems on Green Bay, Sturgeon Bay & Lake Michigan"
-          subheadline={content.introText ?? undefined}
+          subheadline={content?.introText ?? undefined}
           primaryCta={{
             label: "Request a Door County Consultation",
             href: "/markets/door-county/contact",
           }}
-          imageSrc={content.heroImageUrl}
-          imageAlt={content.heroImageAlt ?? "Permanent pier — Door County"}
+          imageSrc={content?.heroImageUrl ?? "/images/smc/door-county-green-bay-permanent-pier-aerial-001.jpg"}
+          imageAlt={content?.heroImageAlt ?? "Permanent pier aerial view on Green Bay, Door County, Wisconsin — Summerset Marine Construction"}
         />
-      ) : (
-        <section className="bg-brand-navy text-white">
-          <div className="mx-auto max-w-content px-6 py-20">
-            <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-              Waterfront Systems on Green Bay, Sturgeon Bay &amp; Lake Michigan
-            </h1>
-            <ContentPlaceholder
-              label="Door County market hero subheadline"
-              className="mt-6 max-w-2xl"
-            />
-            <div className="mt-8">
-              <Button href="/markets/door-county/contact" variant="primary" size="large">
-                Request a Door County Consultation
-              </Button>
-            </div>
-            <ContentPlaceholder label="Door County market hero image" className="mt-10" />
-          </div>
-        </section>
-      )}
 
       {/* 2. SMC presence */}
       <section className="mx-auto max-w-content px-6 py-16">

@@ -78,37 +78,17 @@ export default function OconomowocPage() {
       />
 
       {/* 1. Hero */}
-      {content?.heroImageUrl ? (
-        <HeroSection
+      <HeroSection
           variant="full-bleed"
           headline="Wisconsin's Premier Pier Builder on Okauchee, Nagawicka & Lac La Belle"
-          subheadline={content.introText ?? undefined}
+          subheadline={content?.introText ?? undefined}
           primaryCta={{
             label: "Request an Oconomowoc / Lake Country Consultation",
             href: "/markets/oconomowoc/contact",
           }}
-          imageSrc={content.heroImageUrl}
-          imageAlt={content.heroImageAlt ?? "Permanent pier — Oconomowoc / Lake Country"}
+          imageSrc={content?.heroImageUrl ?? "/images/smc/oconomowoc-okauchee-lake-permanent-pier-hero-001.jpg"}
+          imageAlt={content?.heroImageAlt ?? "Permanent pier on Okauchee Lake, Oconomowoc, Wisconsin — Summerset Marine Construction"}
         />
-      ) : (
-        <section className="bg-brand-navy text-white">
-          <div className="mx-auto max-w-content px-6 py-20">
-            <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-              Wisconsin&rsquo;s Premier Pier Builder on Okauchee, Nagawicka &amp; Lac La Belle
-            </h1>
-            <ContentPlaceholder
-              label="Oconomowoc / Lake Country market hero subheadline"
-              className="mt-6 max-w-2xl"
-            />
-            <div className="mt-8">
-              <Button href="/markets/oconomowoc/contact" variant="primary" size="large">
-                Request an Oconomowoc / Lake Country Consultation
-              </Button>
-            </div>
-            <ContentPlaceholder label="Oconomowoc / Lake Country market hero image" className="mt-10" />
-          </div>
-        </section>
-      )}
 
       {/* 2. SMC presence */}
       <section className="mx-auto max-w-content px-6 py-16">

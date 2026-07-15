@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import PageMeta from "@/components/seo/PageMeta";
+import HeroSection from "@/components/ui/HeroSection";
 
 export default function LiftsPage() {
   return (
@@ -8,8 +9,13 @@ export default function LiftsPage() {
         title="Boat Lifts | Summerset Marine Construction"
         description="Boat Lifts — Summerset Marine Construction, Wisconsin's builder of permanent piers, boat lifts, and marine contracting systems."
       />
+      <HeroSection
+        variant="full-bleed"
+        headline="Boat Lifts"
+        imageSrc="/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg"
+        imageAlt="Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction"
+      />
       <section className="mx-auto max-w-content px-6 py-22">
-        <h1 className="font-serif text-4xl text-brand-navy">Boat Lifts</h1>
         <p className="mt-4 text-brand-gray">Page content coming soon.</p>
       </section>
     </Layout>

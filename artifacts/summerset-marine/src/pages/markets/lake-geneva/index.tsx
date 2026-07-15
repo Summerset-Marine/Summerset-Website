@@ -78,37 +78,17 @@ export default function LakeGenevaPage() {
       />
 
       {/* 1. Hero */}
-      {content?.heroImageUrl ? (
-        <HeroSection
+      <HeroSection
           variant="full-bleed"
           headline="Wisconsin's Premier Pier Builder on Geneva Lake"
-          subheadline={content.introText ?? undefined}
+          subheadline={content?.introText ?? undefined}
           primaryCta={{
             label: "Request a Lake Geneva Consultation",
             href: "/markets/lake-geneva/contact",
           }}
-          imageSrc={content.heroImageUrl}
-          imageAlt={content.heroImageAlt ?? "Permanent pier on Geneva Lake"}
+          imageSrc={content?.heroImageUrl ?? "/images/smc/lake-geneva-permanent-pier-sunrise-001.jpg"}
+          imageAlt={content?.heroImageAlt ?? "Permanent pier at sunrise on Geneva Lake, Lake Geneva, Wisconsin — Summerset Marine Construction"}
         />
-      ) : (
-        <section className="bg-brand-navy text-white">
-          <div className="mx-auto max-w-content px-6 py-20">
-            <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-              Wisconsin&rsquo;s Premier Pier Builder on Geneva Lake
-            </h1>
-            <ContentPlaceholder
-              label="Lake Geneva market hero subheadline"
-              className="mt-6 max-w-2xl"
-            />
-            <div className="mt-8">
-              <Button href="/markets/lake-geneva/contact" variant="primary" size="large">
-                Request a Lake Geneva Consultation
-              </Button>
-            </div>
-            <ContentPlaceholder label="Lake Geneva market hero image" className="mt-10" />
-          </div>
-        </section>
-      )}
 
       {/* 2. SMC presence */}
       <section className="mx-auto max-w-content px-6 py-16">

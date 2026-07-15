@@ -87,7 +87,11 @@ export default function BuiltInLiftsPage() {
             </Button>
           </div>
           <div className="mt-8">
-            <ContentPlaceholder label="Built-In Lift hero image" />
+            <img
+              src="/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg"
+              alt="Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction"
+              className="aspect-[21/9] w-full rounded-lg object-cover"
+            />
           </div>
         </div>
       </section>

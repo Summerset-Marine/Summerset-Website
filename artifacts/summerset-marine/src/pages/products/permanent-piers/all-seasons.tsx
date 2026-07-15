@@ -71,7 +71,11 @@ export default function AllSeasonsPage() {
             these piers offer exceptional durability and resistance to wear and tear.
           </p>
           <div className="mt-8">
-            <ContentPlaceholder label="All Seasons hero image" />
+            <img
+              src="/images/smc/oconomowoc-nagawicka-lake-lifetime-all-seasons-pier-001.jpg"
+              alt="Lifetime All Seasons permanent pier installed on Nagawicka Lake, Oconomowoc, Wisconsin"
+              className="aspect-[21/9] w-full rounded-lg object-cover"
+            />
           </div>
         </div>
       </section>
