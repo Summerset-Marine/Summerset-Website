@@ -1,0 +1,70 @@
+# PROMPT 8 — MARKET MICROSITES: OCONOMOWOC AND DOOR COUNTY
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt 7 is confirmed complete
+
+---
+
+Using the Lake Geneva microsite as the exact template, build the Oconomowoc / Lake Country and Door County microsites. The structure, component usage, and schema patterns are identical — only the market name, lake names, coordinates, and content differ.
+
+---
+
+OCONOMOWOC / LAKE COUNTRY MICROSITE:
+
+Build these five page types:
+
+1. src/pages/markets/oconomowoc/index.jsx
+   - Headline: "Wisconsin's Premier Pier Builder on Okauchee, Nagawicka & Lac La Belle"
+   - Market slug: 'oconomowoc'
+   - Schema coordinates: { lat: 43.1053, lng: -88.4990 } (Oconomowoc city center)
+   - Meta title: "Pier & Boat Lift Installation — Oconomowoc / Lake Country, WI | Summerset Marine"
+
+2. src/pages/markets/oconomowoc/okauchee-lake.jsx
+   - Lake slug: 'okauchee-lake', Lake name: "Okauchee Lake"
+   - Meta title: "Permanent Pier Installation on Okauchee Lake, WI | Summerset Marine"
+
+3. src/pages/markets/oconomowoc/lac-la-belle.jsx
+   - Lake slug: 'lac-la-belle', Lake name: "Lac La Belle"
+   - Meta title: "Permanent Pier Installation on Lac La Belle, WI | Summerset Marine"
+
+4. src/pages/markets/oconomowoc/nagawicka-lake.jsx
+   - Lake slug: 'nagawicka-lake', Lake name: "Nagawicka Lake"
+   - Meta title: "Permanent Pier Installation on Nagawicka Lake, WI | Summerset Marine"
+
+5. src/pages/markets/oconomowoc/beaver-lake.jsx
+   - Lake slug: 'beaver-lake', Lake name: "Beaver Lake"
+   - Include the existing site stat: Beaver Lake average depth 15ft
+   - Meta title: "Permanent Pier Installation on Beaver Lake, WI | Summerset Marine"
+
+6. src/pages/markets/oconomowoc/projects.jsx (same structure as Lake Geneva projects)
+7. src/pages/markets/oconomowoc/testimonials.jsx (same structure)
+8. src/pages/markets/oconomowoc/contact.jsx — "Request an Oconomowoc / Lake Country Consultation" with market="Oconomowoc / Lake Country" pre-filled
+
+---
+
+DOOR COUNTY MICROSITE:
+
+1. src/pages/markets/door-county/index.jsx
+   - Headline: "Waterfront Systems on Green Bay, Sturgeon Bay & Lake Michigan"
+   - Market slug: 'door-county'
+   - Schema coordinates: { lat: 44.8503, lng: -87.3627 } (Door County center)
+   - Meta title: "Pier & Boat Lift Installation — Door County, WI | Summerset Marine"
+
+2. src/pages/markets/door-county/green-bay.jsx
+   - Lake slug: 'green-bay', Lake name: "Green Bay"
+   - Meta title: "Permanent Pier & Marine Contracting on Green Bay, WI | Summerset Marine"
+
+3. src/pages/markets/door-county/sturgeon-bay.jsx
+   - Lake slug: 'sturgeon-bay', Lake name: "Sturgeon Bay"
+   - Meta title: "Permanent Pier Installation on Sturgeon Bay, WI | Summerset Marine"
+
+4. src/pages/markets/door-county/lake-michigan.jsx
+   - Lake slug: 'lake-michigan', Lake name: "Lake Michigan — Door County"
+   - Meta title: "Marine Contracting & Pier Installation on Lake Michigan — Door County, WI | Summerset Marine"
+
+5. src/pages/markets/door-county/projects.jsx (same structure)
+6. src/pages/markets/door-county/testimonials.jsx (same structure)
+7. src/pages/markets/door-county/contact.jsx — "Request a Door County Consultation" with market="Door County" pre-filled
+
+All body of water pages and market landing pages in both microsites follow the identical structure as the Lake Geneva pages. All content that requires SMC input must be rendered as clearly marked PLACEHOLDER — SMC TO SUPPLY blocks with a light yellow background.
+
+Confirm when both microsites are complete.
