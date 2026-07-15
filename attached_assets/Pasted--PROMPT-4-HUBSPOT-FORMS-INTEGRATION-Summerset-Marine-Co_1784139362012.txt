@@ -1,0 +1,359 @@
+# PROMPT 4 — HUBSPOT FORMS INTEGRATION
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt 3 is confirmed complete
+
+---
+
+The CMS and NetSuite integration is complete. Now build the HubSpot Forms API integration and the ContactForm component. Remove the googleapis and nodemailer packages entirely — they are not used in this build.
+
+---
+
+FIRST — REMOVE UNUSED PACKAGES:
+
+Run this command to remove the Gmail/email dependencies that are not used:
+
+```bash
+npm uninstall googleapis nodemailer
+```
+
+---
+
+INSTALL THE HUBSPOT CLIENT:
+
+```bash
+npm install @hubspot/api-client
+```
+
+---
+
+UPDATE .env.example — REPLACE GMAIL VARIABLES WITH HUBSPOT VARIABLES:
+
+Remove these lines entirely:
+```
+GMAIL_CLIENT_ID=
+GMAIL_CLIENT_SECRET=
+GMAIL_REFRESH_TOKEN=
+GMAIL_SENDER_ADDRESS=
+FORM_RECIPIENT_EMAIL=
+```
+
+Add these lines in their place:
+```
+# HubSpot
+HUBSPOT_ACCESS_TOKEN=
+HUBSPOT_PORTAL_ID=
+HUBSPOT_FORM_ID_CONSULTATION=
+HUBSPOT_FORM_ID_CONTACT=
+HUBSPOT_FORM_ID_SERVICE_REQUEST=
+```
+
+HUBSPOT_ACCESS_TOKEN: Private app access token from HubSpot Settings > Integrations > Private Apps. Requires scopes: forms, crm.objects.contacts.write, crm.objects.deals.write.
+HUBSPOT_PORTAL_ID: The HubSpot portal/account ID (found in HubSpot account settings).
+HUBSPOT_FORM_ID_CONSULTATION: The HubSpot form GUID for the Consultation Request form — Jason/SMC creates this in HubSpot and supplies the ID.
+HUBSPOT_FORM_ID_CONTACT: The HubSpot form GUID for the Contact form.
+HUBSPOT_FORM_ID_SERVICE_REQUEST: The HubSpot form GUID for the Service Request form.
+
+NOTE FOR JASON/SMC: Three forms must be created in the HubSpot portal before the integration can be tested. Each form must have fields matching the field names listed below for each form type. The portal ID and three form GUIDs must be added to the Replit environment variables before form submissions will work.
+
+---
+
+BUILD src/lib/hubspot.js — HUBSPOT CLIENT AND SUBMISSION HANDLERS:
+
+```javascript
+import { Client } from '@hubspot/api-client'
+
+function getClient() {
+  return new Client({ accessToken: process.env.HUBSPOT_ACCESS_TOKEN })
+}
+
+// ── HubSpot Forms API submission ──────────────────────────────────────────────
+// Submits to HubSpot Forms API v3 (no auth required on this endpoint —
+// uses portal ID and form ID only). This is the simplest, most reliable method.
+async function submitToHubSpotForm(formId, fields, context = {}) {
+  const portalId = process.env.HUBSPOT_PORTAL_ID
+
+  const body = {
+    fields: Object.entries(fields).map(([name, value]) => ({
+      objectTypeId: '0-1', // Contact object
+      name,
+      value: value ?? '',
+    })),
+    context: {
+      pageUri: 'https://summersetmarine.com',
+      pageName: 'Summerset Marine Construction',
+      ...context,
+    },
+  }
+
+  const response = await fetch(
+    `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    }
+  )
+
+  if (!response.ok) {
+    const error = await response.text()
+    throw new Error(`HubSpot Forms API error: ${response.status} — ${error}`)
+  }
+
+  return response.json()
+}
+
+// ── Create a Deal in HubSpot CRM for consultation requests ───────────────────
+async function createDeal(contactEmail, data) {
+  const client = getClient()
+
+  // First find or confirm the contact was created by the form submission
+  // Then create a deal associated with that contact
+  const dealResponse = await client.crm.deals.basicApi.create({
+    properties: {
+      dealname: `Consultation Request — ${data.name} — ${data.lake || data.market || 'General'}`,
+      pipeline: 'default',
+      dealstage: 'appointmentscheduled', // First stage — adjust to SMC's actual pipeline stage ID
+      amount: '',
+      closedate: '',
+      description: data.projectDescription || '',
+      hs_note_status: `
+        Name: ${data.name}
+        Email: ${data.email}
+        Phone: ${data.phone || 'Not provided'}
+        Lake / Location: ${data.lake || 'Not provided'}
+        Market: ${data.market || 'Not provided'}
+        Project Description: ${data.projectDescription || 'Not provided'}
+        Timeframe: ${data.timeframe || 'Not provided'}
+        How they heard about SMC: ${data.hearAbout || 'Not provided'}
+      `.trim(),
+    },
+  })
+
+  // Associate deal with contact by email
+  try {
+    const contacts = await client.crm.contacts.searchApi.doSearch({
+      filterGroups: [{
+        filters: [{ propertyName: 'email', operator: 'EQ', value: contactEmail }]
+      }],
+      properties: ['email'],
+      limit: 1,
+    })
+
+    if (contacts.results.length > 0) {
+      const contactId = contacts.results[0].id
+      await client.crm.deals.associationsApi.create(
+        dealResponse.id,
+        'contacts',
+        contactId,
+        [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 3 }]
+      )
+    }
+  } catch (assocErr) {
+    // Non-fatal — deal is created even if association fails
+    console.warn('[HubSpot] Deal-contact association failed:', assocErr.message)
+  }
+
+  return dealResponse
+}
+
+// ── Public submission functions ───────────────────────────────────────────────
+
+export async function submitConsultationForm(data, context) {
+  const formId = process.env.HUBSPOT_FORM_ID_CONSULTATION
+
+  // Map React form fields to HubSpot field names
+  // NOTE: field names must match the field internal names in the HubSpot form exactly
+  const fields = {
+    firstname:        data.name?.split(' ')[0] || data.name,
+    lastname:         data.name?.split(' ').slice(1).join(' ') || '',
+    email:            data.email,
+    phone:            data.phone || '',
+    city:             data.lake || '',           // maps to lake/location field
+    state:            data.market || '',         // maps to market field
+    message:          data.projectDescription || '',
+    hs_lead_status:   'NEW',
+    // Custom HubSpot properties — TODO: replace with actual HubSpot custom property names
+    // once SMC configures them in their portal
+    smc_timeframe:    data.timeframe || '',
+    smc_hear_about:   data.hearAbout || '',
+  }
+
+  await submitToHubSpotForm(formId, fields, context)
+
+  // Create a Deal for consultation requests
+  await createDeal(data.email, data)
+}
+
+export async function submitContactForm(data, context) {
+  const formId = process.env.HUBSPOT_FORM_ID_CONTACT
+
+  const fields = {
+    firstname:  data.name?.split(' ')[0] || data.name,
+    lastname:   data.name?.split(' ').slice(1).join(' ') || '',
+    email:      data.email,
+    phone:      data.phone || '',
+    message:    data.message || '',
+  }
+
+  await submitToHubSpotForm(formId, fields, context)
+  // Contact only — no Deal created for general contact submissions
+}
+
+export async function submitServiceRequestForm(data, context) {
+  const formId = process.env.HUBSPOT_FORM_ID_SERVICE_REQUEST
+
+  const fields = {
+    firstname:          data.name?.split(' ')[0] || data.name,
+    lastname:           data.name?.split(' ').slice(1).join(' ') || '',
+    email:              data.email,
+    phone:              data.phone || '',
+    address:            data.propertyLocation || '',
+    message:            data.issueDescription || '',
+    // Custom HubSpot properties — TODO: replace with actual custom property names
+    smc_service_type:   data.serviceType || '',
+    smc_equipment:      data.equipmentDescription || '',
+    smc_preferred_time: data.preferredTime || '',
+  }
+
+  await submitToHubSpotForm(formId, fields, context)
+  // Contact only — no Deal created for service requests
+}
+```
+
+---
+
+REWRITE src/api/submit-form.js — UNIFIED FORM HANDLER (HUBSPOT):
+
+Replace the entire existing file with this:
+
+```javascript
+import {
+  submitConsultationForm,
+  submitContactForm,
+  submitServiceRequestForm,
+} from '../lib/hubspot.js'
+
+export default async function submitForm(req, res) {
+  const { formType, ...data } = req.body
+
+  // Basic validation
+  if (!data.name || !data.email) {
+    return res.status(400).json({ error: 'Name and email are required' })
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRegex.test(data.email)) {
+    return res.status(400).json({ error: 'Invalid email address' })
+  }
+
+  // Build HubSpot page context from request headers
+  const context = {
+    pageUri: `https://summersetmarine.com${req.headers.referer ? new URL(req.headers.referer).pathname : '/'}`,
+    pageName: 'Summerset Marine Construction',
+    ipAddress: req.headers['x-forwarded-for'] || req.socket.remoteAddress || '',
+    hutk: req.cookies?.hubspotutk || '', // HubSpot tracking cookie — requires cookie-parser middleware
+  }
+
+  try {
+    if (formType === 'consultation') {
+      if (!data.projectDescription) {
+        return res.status(400).json({ error: 'Project description is required' })
+      }
+      await submitConsultationForm(data, context)
+
+    } else if (formType === 'contact') {
+      if (!data.message) {
+        return res.status(400).json({ error: 'Message is required' })
+      }
+      await submitContactForm(data, context)
+
+    } else if (formType === 'service-request') {
+      if (!data.issueDescription) {
+        return res.status(400).json({ error: 'Issue description is required' })
+      }
+      await submitServiceRequestForm(data, context)
+
+    } else {
+      return res.status(400).json({ error: 'Invalid form type' })
+    }
+
+    res.status(200).json({ success: true })
+
+  } catch (err) {
+    console.error('[Form Submission] HubSpot submission failed:', err.message)
+    res.status(500).json({ error: 'Form submission failed' })
+  }
+}
+```
+
+---
+
+UPDATE server.js — ADD COOKIE-PARSER FOR HUBSPOT TRACKING:
+
+Add cookie-parser so the HubSpot tracking cookie (hubspotutk) is readable from form submissions. This enables HubSpot to associate form submissions with prior site visits for attribution tracking.
+
+```bash
+npm install cookie-parser
+```
+
+In server.js, add after `app.use(express.json())`:
+
+```javascript
+import cookieParser from 'cookie-parser'
+app.use(cookieParser())
+```
+
+---
+
+ADD THE HUBSPOT TRACKING SCRIPT to the site:
+
+In src/components/layout/Layout.jsx, add the HubSpot tracking script to the document head. This script sets the hubspotutk cookie that enables attribution tracking between page visits and form submissions.
+
+```javascript
+// Add inside Layout.jsx, in the useEffect or via react-helmet/react-helmet-async:
+// <script
+//   type="text/javascript"
+//   id="hs-script-loader"
+//   async
+//   defer
+//   src={`//js.hs-scripts.com/${process.env.VITE_HUBSPOT_PORTAL_ID}.js`}
+// />
+```
+
+Add VITE_HUBSPOT_PORTAL_ID= to .env.example (the Vite-prefixed version makes it available client-side for the tracking script).
+
+---
+
+BUILD src/components/ui/ContactForm.jsx — REUSABLE FORM COMPONENT:
+
+This component handles all three form types based on a formType prop. It submits to POST /api/submit-form, shows a loading state during submission, and shows a success or error message after submission. No page reload on submit.
+
+Props: { formType: 'consultation' | 'contact' | 'service-request', market?: string, lake?: string }
+
+Fields by form type:
+
+consultation: name (required), email (required), phone, lake/body of water (label: "Property Lake or Location"), market (pre-filled and hidden if passed as prop), projectDescription (required, textarea, label: "Tell us about your project"), timeframe (select: This season, Next season, Planning ahead, Not sure), hearAbout (select: Neighbor or friend, Google Search, Social Media, Saw an SMC project, Other)
+
+contact: name (required), email (required), phone, message (required, textarea)
+
+service-request: name (required), email (required), phone, serviceType (select: Seasonal Install, Seasonal Removal, Repair, Inspection, Other), equipmentDescription (textarea, label: "Describe your pier or lift"), issueDescription (required, textarea, label: "Describe the issue or service needed"), propertyLocation (label: "Property address or lake"), preferredTime (select: Morning, Afternoon, Either)
+
+Styling requirements:
+- All field labels render above the input, brand navy color, font-weight 500
+- Inputs: full width, border 1px #D1D5DB, border-radius 6px, padding 10px 14px, focus ring brand blue
+- Error state: red border (#C8102E), red error message below field, font-size 13px
+- Submit button: primary Button component (red background), full width, shows "Sending..." with an inline spinner SVG during submission
+- Success state: replace form with a green checkmark icon, heading "Thank you — we'll be in touch within one business day.", subtext "A member of the Summerset Marine team will contact you shortly."
+- Error state: show "Something went wrong. Please call us directly at [SMC_PHONE_PLACEHOLDER]." with a link to the phone number
+
+On submission:
+1. Run client-side validation — mark all invalid fields before submitting
+2. POST to /api/submit-form with { formType, ...allFieldValues }
+3. Show loading state on button
+4. On 200: show success message
+5. On any error: show error message with phone number fallback
+
+Confirm when the HubSpot integration and ContactForm component are complete. Verify by:
+1. Confirming npm run build completes without errors
+2. Confirming the /api/submit-form route handles all three formType values without crashing
+3. Confirming graceful error handling when HUBSPOT env vars are missing (log warning, return 503 with message "Form service temporarily unavailable")

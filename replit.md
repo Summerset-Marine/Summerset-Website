@@ -28,7 +28,10 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 - `artifacts/summerset-marine/src/lib/sitemap.ts` — canonical static route list + all sitemap XML builders (5 sitemaps + index)
 - `artifacts/summerset-marine/scripts/generate-sitemaps.ts` — build-time script (Node native TS) writing sitemaps to `public/`; runs via `generate:sitemaps` and chained into `build`; fetches blog posts from Sanity when configured
 - `artifacts/summerset-marine/.env.example` — documents all expected env vars
-- `artifacts/api-server/src/routes/submit-form.ts` — POST /api/submit-form (stub 503; HubSpot handler arrives in Prompt 4)
+- `artifacts/api-server/src/routes/submit-form.ts` — POST /api/submit-form (validates, relays 3 form types to HubSpot; 503 "Form service temporarily unavailable" until HubSpot env vars set)
+- `artifacts/api-server/src/lib/hubspot.ts` — HubSpot Forms API v3 submission + CRM Deal creation for consultations (TODO-flagged smc_* custom props + pipeline stage ID)
+- `artifacts/summerset-marine/src/components/ui/ContactForm.tsx` — reusable form (consultation | contact | service-request), client validation, loading/success/error states
+- `artifacts/summerset-marine/src/components/layout/Layout.tsx` — also injects HubSpot tracking script when VITE_HUBSPOT_PORTAL_ID is set
 - `artifacts/api-server/src/routes/netsuite-webhook.ts` — POST /api/netsuite-webhook (HMAC-SHA256 of raw body in `x-netsuite-signature`) + GET /api/inventory (falls back to live SuiteQL fetch when cache empty and NetSuite configured)
 - `artifacts/summerset-marine/src/lib/sanity.ts` — Sanity clients (`sanityFetch` CDN, `sanityLiveFetch` fresh) + all GROQ queries (blog, lake, market, FAQ, projects, testimonials, lift media, team)
 - `artifacts/api-server/data/inventory-cache.json` — lift inventory cache written by the webhook
@@ -42,7 +45,7 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 
 ## Product
 
-Prompts 1–3 of a multi-prompt build complete: foundation + SEO infrastructure + CMS/ERP integration layer (sitemaps, PageMeta with OG/Twitter tags, JsonLd schema builders). All ~50 pages are stubs ("Page content coming soon"). Page content, forms, CMS wiring, and design arrive in later prompts.
+Prompts 1–4 of a multi-prompt build complete: foundation + SEO infrastructure + CMS/ERP integration layer + HubSpot Forms integration (ContactForm component, form relay endpoint, tracking script). All ~50 pages are stubs ("Page content coming soon"). Page content, CMS wiring, and design arrive in later prompts.
 
 ## User preferences
 
