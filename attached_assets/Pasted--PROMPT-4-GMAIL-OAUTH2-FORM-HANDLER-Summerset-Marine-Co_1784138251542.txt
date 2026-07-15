@@ -1,0 +1,181 @@
+# PROMPT 4 — GMAIL OAUTH2 FORM HANDLER
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt 3 is confirmed complete
+
+---
+
+The CMS and NetSuite integration is complete. Now build the Gmail OAuth2 form submission handler.
+
+---
+
+BUILD src/lib/gmail.js — GMAIL OAUTH2 SERVICE:
+
+```javascript
+import { google } from 'googleapis'
+import nodemailer from 'nodemailer'
+
+function getOAuth2Client() {
+  const oauth2Client = new google.auth.OAuth2(
+    process.env.GMAIL_CLIENT_ID,
+    process.env.GMAIL_CLIENT_SECRET,
+    'https://developers.google.com/oauthplayground'
+  )
+  oauth2Client.setCredentials({
+    refresh_token: process.env.GMAIL_REFRESH_TOKEN,
+  })
+  return oauth2Client
+}
+
+export async function sendFormEmail({ to, subject, html, replyTo }) {
+  const oauth2Client = getOAuth2Client()
+  const accessToken = await oauth2Client.getAccessToken()
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      type: 'OAuth2',
+      user: process.env.GMAIL_SENDER_ADDRESS,
+      clientId: process.env.GMAIL_CLIENT_ID,
+      clientSecret: process.env.GMAIL_CLIENT_SECRET,
+      refreshToken: process.env.GMAIL_REFRESH_TOKEN,
+      accessToken: accessToken.token,
+    },
+  })
+
+  return transporter.sendMail({
+    from: `"Summerset Marine Construction Website" <${process.env.GMAIL_SENDER_ADDRESS}>`,
+    to,
+    subject,
+    html,
+    replyTo,
+  })
+}
+```
+
+---
+
+BUILD src/api/submit-form.js — UNIFIED FORM HANDLER:
+
+This single Express route handles all three form types: consultation, contact, and service-request. It identifies the form type from the request body, validates required fields, and sends a formatted email via Gmail OAuth2.
+
+```javascript
+import { sendFormEmail } from '../lib/gmail.js'
+
+const RECIPIENT = process.env.FORM_RECIPIENT_EMAIL
+
+function formatConsultationEmail(data) {
+  return {
+    subject: `New Consultation Request — ${data.name} — ${data.lake || data.market || 'General'}`,
+    html: `
+      <h2>New Consultation Request</h2>
+      <table>
+        <tr><td><b>Name</b></td><td>${data.name}</td></tr>
+        <tr><td><b>Email</b></td><td>${data.email}</td></tr>
+        <tr><td><b>Phone</b></td><td>${data.phone || 'Not provided'}</td></tr>
+        <tr><td><b>Property Location / Lake</b></td><td>${data.lake || 'Not provided'}</td></tr>
+        <tr><td><b>Market</b></td><td>${data.market || 'Not provided'}</td></tr>
+        <tr><td><b>Project Description</b></td><td>${data.projectDescription || 'Not provided'}</td></tr>
+        <tr><td><b>Timeframe</b></td><td>${data.timeframe || 'Not provided'}</td></tr>
+        <tr><td><b>How did you hear about us?</b></td><td>${data.hearAbout || 'Not provided'}</td></tr>
+      </table>
+      <p><i>Submitted from summersetmarine.com at ${new Date().toLocaleString()}</i></p>
+    `
+  }
+}
+
+function formatContactEmail(data) {
+  return {
+    subject: `New Contact Form Submission — ${data.name}`,
+    html: `
+      <h2>Contact Form Submission</h2>
+      <table>
+        <tr><td><b>Name</b></td><td>${data.name}</td></tr>
+        <tr><td><b>Email</b></td><td>${data.email}</td></tr>
+        <tr><td><b>Phone</b></td><td>${data.phone || 'Not provided'}</td></tr>
+        <tr><td><b>Message</b></td><td>${data.message}</td></tr>
+      </table>
+      <p><i>Submitted from summersetmarine.com at ${new Date().toLocaleString()}</i></p>
+    `
+  }
+}
+
+function formatServiceRequestEmail(data) {
+  return {
+    subject: `Service Request — ${data.name} — ${data.serviceType || 'General'}`,
+    html: `
+      <h2>Service Request</h2>
+      <table>
+        <tr><td><b>Name</b></td><td>${data.name}</td></tr>
+        <tr><td><b>Email</b></td><td>${data.email}</td></tr>
+        <tr><td><b>Phone</b></td><td>${data.phone || 'Not provided'}</td></tr>
+        <tr><td><b>Service Type</b></td><td>${data.serviceType || 'Not provided'}</td></tr>
+        <tr><td><b>Pier / Lift Description</b></td><td>${data.equipmentDescription || 'Not provided'}</td></tr>
+        <tr><td><b>Issue Description</b></td><td>${data.issueDescription}</td></tr>
+        <tr><td><b>Property Address / Lake</b></td><td>${data.propertyLocation || 'Not provided'}</td></tr>
+        <tr><td><b>Preferred Contact Time</b></td><td>${data.preferredTime || 'Not provided'}</td></tr>
+      </table>
+      <p><i>Submitted from summersetmarine.com at ${new Date().toLocaleString()}</i></p>
+    `
+  }
+}
+
+export default async function submitForm(req, res) {
+  const { formType, ...data } = req.body
+
+  if (!data.name || !data.email) {
+    return res.status(400).json({ error: 'Name and email are required' })
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRegex.test(data.email)) {
+    return res.status(400).json({ error: 'Invalid email address' })
+  }
+
+  let emailContent
+  if (formType === 'consultation') {
+    if (!data.projectDescription) return res.status(400).json({ error: 'Project description is required' })
+    emailContent = formatConsultationEmail(data)
+  } else if (formType === 'contact') {
+    if (!data.message) return res.status(400).json({ error: 'Message is required' })
+    emailContent = formatContactEmail(data)
+  } else if (formType === 'service-request') {
+    if (!data.issueDescription) return res.status(400).json({ error: 'Issue description is required' })
+    emailContent = formatServiceRequestEmail(data)
+  } else {
+    return res.status(400).json({ error: 'Invalid form type' })
+  }
+
+  try {
+    await sendFormEmail({
+      to: RECIPIENT,
+      subject: emailContent.subject,
+      html: emailContent.html,
+      replyTo: data.email,
+    })
+    res.status(200).json({ success: true })
+  } catch (err) {
+    console.error('[Form Submission] Email send failed:', err)
+    res.status(500).json({ error: 'Failed to send form submission' })
+  }
+}
+```
+
+---
+
+BUILD A REUSABLE ContactForm COMPONENT at src/components/ui/ContactForm.jsx:
+
+This component handles all three form types based on a formType prop. It submits to POST /api/submit-form, shows a loading state during submission, and shows a success or error message after submission. No page reload on submit.
+
+Props: { formType: 'consultation' | 'contact' | 'service-request', market?: string, lake?: string }
+
+Fields by form type:
+
+consultation: name (required), email (required), phone, lake/body of water, market (pre-filled from prop if passed), projectDescription (required, textarea), timeframe (select: This season, Next season, Planning ahead, Not sure), hearAbout (select: Neighbor/Friend, Google Search, Social Media, Saw a project, Other)
+
+contact: name (required), email (required), phone, message (required, textarea)
+
+service-request: name (required), email (required), phone, serviceType (select: Seasonal Install, Seasonal Removal, Repair, Inspection, Other), equipmentDescription (textarea), issueDescription (required, textarea), propertyLocation, preferredTime (select: Morning, Afternoon, Either)
+
+All field labels render above the input. Show red border and error message below field on validation failure. Show green checkmark on success. Submit button shows "Sending..." with a spinner during submission. On success show: "Thank you — we'll be in touch within one business day." On error show: "Something went wrong. Please call us directly at [SMC phone number]."
+
+Confirm when the Gmail integration and ContactForm component are complete and tested with a test submission.

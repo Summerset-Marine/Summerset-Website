@@ -15,7 +15,7 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 - Frontend: React + Vite + Tailwind v4 + wouter (`artifacts/summerset-marine`)
 - API: Express 5 (`artifacts/api-server`)
 - CMS (planned): Sanity (`@sanity/client`, null client until VITE_SANITY_PROJECT_ID is set)
-- Email (planned): Gmail OAuth2 via nodemailer + googleapis
+- Forms (planned): HubSpot Forms API (@hubspot/api-client; handler arrives in Prompt 4)
 - ERP (planned): NetSuite REST API (OAuth 1.0a TBA, HMAC-SHA256)
 
 ## Where things live
@@ -28,7 +28,7 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 - `artifacts/summerset-marine/src/lib/sitemap.ts` — canonical static route list + all sitemap XML builders (5 sitemaps + index)
 - `artifacts/summerset-marine/scripts/generate-sitemaps.ts` — build-time script (Node native TS) writing sitemaps to `public/`; runs via `generate:sitemaps` and chained into `build`; fetches blog posts from Sanity when configured
 - `artifacts/summerset-marine/.env.example` — documents all expected env vars
-- `artifacts/api-server/src/routes/submit-form.ts` — POST /api/submit-form (Gmail relay)
+- `artifacts/api-server/src/routes/submit-form.ts` — POST /api/submit-form (stub 503; HubSpot handler arrives in Prompt 4)
 - `artifacts/api-server/src/routes/netsuite-webhook.ts` — POST /api/netsuite-webhook (HMAC-SHA256 of raw body in `x-netsuite-signature`) + GET /api/inventory (falls back to live SuiteQL fetch when cache empty and NetSuite configured)
 - `artifacts/summerset-marine/src/lib/sanity.ts` — Sanity clients (`sanityFetch` CDN, `sanityLiveFetch` fresh) + all GROQ queries (blog, lake, market, FAQ, projects, testimonials, lift media, team)
 - `artifacts/api-server/data/inventory-cache.json` — lift inventory cache written by the webhook
@@ -37,7 +37,7 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 
 - Routing uses wouter (workspace convention) instead of react-router-dom from the original spec; routes match the spec's URL structure exactly.
 - Form/webhook endpoints live in the shared Express api-server (plain routes, not yet in the OpenAPI spec — form schemas arrive in later prompts).
-- Integration code (Sanity, Gmail, NetSuite) degrades gracefully: endpoints return 503/typed errors until env vars are configured. No secrets are set yet — `.env.example` documents placeholders only.
+- Integration code (Sanity, HubSpot, NetSuite) degrades gracefully: endpoints return 503/typed errors until env vars are configured. No secrets are set yet — `.env.example` documents placeholders only.
 - Brand palette: navy #0A1628, blue #1B6A9C, red #C8102E (CTA), offwhite #F8F7F4. Fonts: Inter (sans), Playfair Display (serif headings).
 
 ## Product
