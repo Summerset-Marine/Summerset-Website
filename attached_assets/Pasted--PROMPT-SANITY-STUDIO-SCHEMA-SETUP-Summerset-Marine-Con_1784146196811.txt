@@ -1,0 +1,495 @@
+# PROMPT — SANITY STUDIO SCHEMA SETUP
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt now that artifacts/sanity-studio has been created
+
+---
+
+The Sanity Studio has been initialized at artifacts/sanity-studio. Now build all 8 content schemas that match the GROQ queries already defined in artifacts/summerset-marine/src/lib/sanity.ts. Field names must match exactly or content will not appear on the site.
+
+---
+
+STEP 1 — CREATE THE SCHEMA FILES
+
+Create the following files inside artifacts/sanity-studio/schemaTypes/
+
+---
+
+FILE: artifacts/sanity-studio/schemaTypes/blogPost.ts
+
+```typescript
+import { defineField, defineType } from 'sanity'
+
+export const blogPost = defineType({
+  name: 'blogPost',
+  title: 'Blog Post',
+  type: 'document',
+  fields: [
+    defineField({ name: 'title', title: 'Title', type: 'string', validation: Rule => Rule.required().max(60) }),
+    defineField({ name: 'slug', title: 'Slug', type: 'slug', options: { source: 'title', maxLength: 96 }, validation: Rule => Rule.required() }),
+    defineField({ name: 'published', title: 'Published', type: 'boolean', initialValue: false }),
+    defineField({ name: 'publishedAt', title: 'Published At', type: 'datetime' }),
+    defineField({ name: 'author', title: 'Author', type: 'string' }),
+    defineField({
+      name: 'market',
+      title: 'Market',
+      type: 'string',
+      options: { list: ['lake-geneva', 'oconomowoc', 'door-county', 'general'] }
+    }),
+    defineField({
+      name: 'lake',
+      title: 'Body of Water',
+      type: 'string',
+      options: { list: ['geneva-lake', 'okauchee-lake', 'lac-la-belle', 'nagawicka-lake', 'beaver-lake', 'green-bay', 'sturgeon-bay', 'lake-michigan', 'general'] }
+    }),
+    defineField({
+      name: 'productType',
+      title: 'Product Type',
+      type: 'string',
+      options: { list: ['permanent-piers', 'lifts', 'seasonal-systems', 'marine-contracting', 'general'] }
+    }),
+    defineField({
+      name: 'featuredImage',
+      title: 'Featured Image',
+      type: 'image',
+      options: { hotspot: true },
+      fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string', validation: Rule => Rule.required() })]
+    }),
+    defineField({ name: 'excerpt', title: 'Excerpt', type: 'text', rows: 3, validation: Rule => Rule.max(155) }),
+    defineField({ name: 'body', title: 'Body', type: 'array', of: [{ type: 'block' }, { type: 'image', options: { hotspot: true } }] }),
+    defineField({ name: 'metaTitle', title: 'SEO Title', type: 'string', validation: Rule => Rule.max(60) }),
+    defineField({ name: 'metaDescription', title: 'SEO Description', type: 'text', rows: 2, validation: Rule => Rule.max(155) }),
+  ],
+  preview: {
+    select: { title: 'title', market: 'market', media: 'featuredImage' },
+    prepare({ title, market, media }) {
+      return { title, subtitle: market || 'No market assigned', media }
+    }
+  }
+})
+```
+
+---
+
+FILE: artifacts/sanity-studio/schemaTypes/lakePageContent.ts
+
+```typescript
+import { defineField, defineType } from 'sanity'
+
+export const lakePageContent = defineType({
+  name: 'lakePageContent',
+  title: 'Body of Water Page',
+  type: 'document',
+  fields: [
+    defineField({ name: 'lakeName', title: 'Lake Name', type: 'string', validation: Rule => Rule.required() }),
+    defineField({
+      name: 'lakeSlug',
+      title: 'Lake Slug',
+      type: 'string',
+      description: 'Must match the URL slug exactly: geneva-lake, okauchee-lake, lac-la-belle, nagawicka-lake, beaver-lake, green-bay, sturgeon-bay, lake-michigan',
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'market',
+      title: 'Market',
+      type: 'string',
+      options: { list: ['lake-geneva', 'oconomowoc', 'door-county'] },
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'heroImage',
+      title: 'Hero Image',
+      type: 'image',
+      options: { hotspot: true },
+      fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string', validation: Rule => Rule.required() })]
+    }),
+    defineField({ name: 'historyText', title: 'SMC History on This Lake', type: 'text', rows: 5, description: 'Installed base, years of experience, notable projects on this lake' }),
+    defineField({ name: 'lakeCharacteristics', title: 'Lake Characteristics', type: 'text', rows: 5, description: 'Average depth, wave exposure, ice behavior, shoreline type — written for a property owner scoping a project' }),
+    defineField({
+      name: 'projects',
+      title: 'Projects on This Lake',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({ name: 'title', title: 'Project Title', type: 'string' }),
+          defineField({ name: 'productType', title: 'Product Type', type: 'string', options: { list: ['permanent-piers', 'lifts', 'seasonal-systems', 'marine-contracting'] } }),
+          defineField({ name: 'installYear', title: 'Install Year', type: 'number' }),
+          defineField({ name: 'caption', title: 'Caption', type: 'string' }),
+          defineField({ name: 'beforeImage', title: 'Before Image', type: 'image', options: { hotspot: true }, fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string' })] }),
+          defineField({ name: 'afterImage', title: 'After Image', type: 'image', options: { hotspot: true }, fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string', validation: Rule => Rule.required() })] }),
+        ]
+      }]
+    }),
+    defineField({
+      name: 'testimonials',
+      title: 'Testimonials',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({ name: 'quote', title: 'Quote', type: 'text', rows: 3 }),
+          defineField({ name: 'customerName', title: 'Customer Name', type: 'string' }),
+          defineField({ name: 'lakeLabel', title: 'Lake Label', type: 'string', description: 'e.g. Geneva Lake homeowner' }),
+        ]
+      }]
+    }),
+    defineField({ name: 'metaTitle', title: 'SEO Title', type: 'string', validation: Rule => Rule.max(60) }),
+    defineField({ name: 'metaDescription', title: 'SEO Description', type: 'text', rows: 2, validation: Rule => Rule.max(155) }),
+  ],
+  preview: {
+    select: { title: 'lakeName', subtitle: 'market', media: 'heroImage' },
+  }
+})
+```
+
+---
+
+FILE: artifacts/sanity-studio/schemaTypes/marketPage.ts
+
+```typescript
+import { defineField, defineType } from 'sanity'
+
+export const marketPage = defineType({
+  name: 'marketPage',
+  title: 'Market Landing Page',
+  type: 'document',
+  fields: [
+    defineField({ name: 'marketName', title: 'Market Name', type: 'string', validation: Rule => Rule.required() }),
+    defineField({
+      name: 'marketSlug',
+      title: 'Market Slug',
+      type: 'string',
+      description: 'Must match exactly: lake-geneva, oconomowoc, door-county',
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'heroImage',
+      title: 'Hero Image',
+      type: 'image',
+      options: { hotspot: true },
+      fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string', validation: Rule => Rule.required() })]
+    }),
+    defineField({ name: 'introText', title: 'Market Introduction', type: 'text', rows: 4, description: 'Brief paragraph about SMC\'s presence in this market — years operating, install volume, what makes it distinct' }),
+    defineField({
+      name: 'featuredProjects',
+      title: 'Featured Projects',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({ name: 'title', title: 'Project Title', type: 'string' }),
+          defineField({ name: 'lake', title: 'Lake', type: 'string' }),
+          defineField({ name: 'productType', title: 'Product Type', type: 'string' }),
+          defineField({ name: 'image', title: 'Image', type: 'image', options: { hotspot: true }, fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string', validation: Rule => Rule.required() })] }),
+        ]
+      }]
+    }),
+    defineField({ name: 'metaTitle', title: 'SEO Title', type: 'string', validation: Rule => Rule.max(60) }),
+    defineField({ name: 'metaDescription', title: 'SEO Description', type: 'text', rows: 2, validation: Rule => Rule.max(155) }),
+  ],
+  preview: {
+    select: { title: 'marketName', media: 'heroImage' },
+  }
+})
+```
+
+---
+
+FILE: artifacts/sanity-studio/schemaTypes/faqEntry.ts
+
+```typescript
+import { defineField, defineType } from 'sanity'
+
+export const faqEntry = defineType({
+  name: 'faqEntry',
+  title: 'FAQ Entry',
+  type: 'document',
+  fields: [
+    defineField({ name: 'question', title: 'Question', type: 'string', validation: Rule => Rule.required() }),
+    defineField({ name: 'answer', title: 'Answer', type: 'text', rows: 5, description: 'Write as plain text — this renders as schema-ready FAQ answer', validation: Rule => Rule.required() }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      options: { list: ['Permanent Systems', 'Boat Lifts', 'Seasonal Systems', 'Installation Process', 'Pricing', 'Service & Repairs', 'General'] },
+      validation: Rule => Rule.required()
+    }),
+  ],
+  preview: {
+    select: { title: 'question', subtitle: 'category' },
+  }
+})
+```
+
+---
+
+FILE: artifacts/sanity-studio/schemaTypes/project.ts
+
+```typescript
+import { defineField, defineType } from 'sanity'
+
+export const project = defineType({
+  name: 'project',
+  title: 'Project',
+  type: 'document',
+  fields: [
+    defineField({ name: 'title', title: 'Project Title', type: 'string', validation: Rule => Rule.required() }),
+    defineField({
+      name: 'market',
+      title: 'Market',
+      type: 'string',
+      options: { list: ['lake-geneva', 'oconomowoc', 'door-county'] },
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'lake',
+      title: 'Body of Water',
+      type: 'string',
+      options: { list: ['geneva-lake', 'okauchee-lake', 'lac-la-belle', 'nagawicka-lake', 'beaver-lake', 'green-bay', 'sturgeon-bay', 'lake-michigan'] },
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'productType',
+      title: 'Product Type',
+      type: 'string',
+      options: { list: ['permanent-piers', 'lifts', 'seasonal-systems', 'marine-contracting'] },
+      validation: Rule => Rule.required()
+    }),
+    defineField({ name: 'installYear', title: 'Install Year', type: 'number' }),
+    defineField({ name: 'caption', title: 'Caption', type: 'string' }),
+    defineField({ name: 'beforeImage', title: 'Before Image', type: 'image', options: { hotspot: true }, fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string' })] }),
+    defineField({ name: 'afterImage', title: 'After Image', type: 'image', options: { hotspot: true }, fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string', validation: Rule => Rule.required() })] }),
+    defineField({ name: 'testimonial', title: 'Customer Testimonial', type: 'text', rows: 3 }),
+    defineField({ name: 'body', title: 'Project Story', type: 'array', of: [{ type: 'block' }] }),
+  ],
+  preview: {
+    select: { title: 'title', subtitle: 'lake', media: 'afterImage' },
+  }
+})
+```
+
+---
+
+FILE: artifacts/sanity-studio/schemaTypes/testimonial.ts
+
+```typescript
+import { defineField, defineType } from 'sanity'
+
+export const testimonial = defineType({
+  name: 'testimonial',
+  title: 'Testimonial',
+  type: 'document',
+  fields: [
+    defineField({ name: 'quote', title: 'Quote', type: 'text', rows: 4, validation: Rule => Rule.required() }),
+    defineField({ name: 'customerName', title: 'Customer Name', type: 'string', validation: Rule => Rule.required() }),
+    defineField({ name: 'lakeLabel', title: 'Lake Label', type: 'string', description: 'e.g. Geneva Lake homeowner', validation: Rule => Rule.required() }),
+    defineField({
+      name: 'market',
+      title: 'Market',
+      type: 'string',
+      options: { list: ['lake-geneva', 'oconomowoc', 'door-county'] },
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'productType',
+      title: 'Product Type',
+      type: 'string',
+      options: { list: ['permanent-piers', 'lifts', 'seasonal-systems', 'marine-contracting', 'general'] }
+    }),
+    defineField({ name: 'starRating', title: 'Star Rating', type: 'number', options: { list: [1, 2, 3, 4, 5] } }),
+  ],
+  preview: {
+    select: { title: 'customerName', subtitle: 'lakeLabel' },
+  }
+})
+```
+
+---
+
+FILE: artifacts/sanity-studio/schemaTypes/teamMember.ts
+
+```typescript
+import { defineField, defineType } from 'sanity'
+
+export const teamMember = defineType({
+  name: 'teamMember',
+  title: 'Team Member',
+  type: 'document',
+  fields: [
+    defineField({ name: 'name', title: 'Full Name', type: 'string', validation: Rule => Rule.required() }),
+    defineField({ name: 'title', title: 'Job Title', type: 'string', validation: Rule => Rule.required() }),
+    defineField({ name: 'bio', title: 'Bio', type: 'text', rows: 5 }),
+    defineField({
+      name: 'photo',
+      title: 'Photo',
+      type: 'image',
+      options: { hotspot: true },
+      fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string', validation: Rule => Rule.required() })]
+    }),
+    defineField({ name: 'order', title: 'Display Order', type: 'number', description: 'Lower numbers appear first' }),
+  ],
+  orderings: [{ title: 'Display Order', name: 'orderAsc', by: [{ field: 'order', direction: 'asc' }] }],
+  preview: {
+    select: { title: 'name', subtitle: 'title', media: 'photo' },
+  }
+})
+```
+
+---
+
+FILE: artifacts/sanity-studio/schemaTypes/liftMedia.ts
+
+```typescript
+import { defineField, defineType } from 'sanity'
+
+export const liftMedia = defineType({
+  name: 'liftMedia',
+  title: 'Lift Media',
+  type: 'document',
+  description: 'Photos and marketplace links for lift inventory units. Match the netsuiteItemId to the NetSuite item ID.',
+  fields: [
+    defineField({
+      name: 'netsuiteItemId',
+      title: 'NetSuite Item ID',
+      type: 'string',
+      description: 'Must match the item ID exactly as it appears in NetSuite',
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'photos',
+      title: 'Photos',
+      type: 'array',
+      of: [{
+        type: 'image',
+        options: { hotspot: true },
+        fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string', validation: Rule => Rule.required() })]
+      }],
+      validation: Rule => Rule.min(1)
+    }),
+    defineField({ name: 'notes', title: 'Notes', type: 'text', rows: 2, description: 'Optional internal notes about this unit' }),
+    defineField({
+      name: 'marketplaceLinks',
+      title: 'Marketplace Listing Links',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({ name: 'platform', title: 'Platform', type: 'string', options: { list: ['eBay', 'Boat Trader', 'Facebook Marketplace', 'Other'] } }),
+          defineField({ name: 'url', title: 'Listing URL', type: 'url' }),
+        ]
+      }]
+    }),
+  ],
+  preview: {
+    select: { title: 'netsuiteItemId', media: 'photos.0' },
+    prepare({ title, media }) {
+      return { title: `Unit: ${title}`, media }
+    }
+  }
+})
+```
+
+---
+
+STEP 2 — REGISTER ALL SCHEMAS IN THE INDEX FILE
+
+Replace the entire contents of artifacts/sanity-studio/schemaTypes/index.ts with:
+
+```typescript
+import { blogPost } from './blogPost'
+import { lakePageContent } from './lakePageContent'
+import { marketPage } from './marketPage'
+import { faqEntry } from './faqEntry'
+import { project } from './project'
+import { testimonial } from './testimonial'
+import { teamMember } from './teamMember'
+import { liftMedia } from './liftMedia'
+
+export const schemaTypes = [
+  blogPost,
+  lakePageContent,
+  marketPage,
+  faqEntry,
+  project,
+  testimonial,
+  teamMember,
+  liftMedia,
+]
+```
+
+---
+
+STEP 3 — UPDATE sanity.config.ts
+
+Replace the entire contents of artifacts/sanity-studio/sanity.config.ts with:
+
+```typescript
+import { defineConfig } from 'sanity'
+import { structureTool } from 'sanity/structure'
+import { visionTool } from '@sanity/vision'
+import { schemaTypes } from './schemaTypes'
+
+export default defineConfig({
+  name: 'summerset-marine',
+  title: 'Summerset Marine Construction',
+  projectId: 'mx8e8b7p',
+  dataset: 'production',
+  plugins: [
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title('Content')
+          .items([
+            S.listItem().title('Blog Posts').schemaType('blogPost').child(S.documentTypeList('blogPost')),
+            S.divider(),
+            S.listItem().title('Market Pages').schemaType('marketPage').child(S.documentTypeList('marketPage')),
+            S.listItem().title('Body of Water Pages').schemaType('lakePageContent').child(S.documentTypeList('lakePageContent')),
+            S.listItem().title('Projects').schemaType('project').child(S.documentTypeList('project')),
+            S.listItem().title('Testimonials').schemaType('testimonial').child(S.documentTypeList('testimonial')),
+            S.divider(),
+            S.listItem().title('FAQ').schemaType('faqEntry').child(S.documentTypeList('faqEntry')),
+            S.listItem().title('Team Members').schemaType('teamMember').child(S.documentTypeList('teamMember')),
+            S.listItem().title('Lift Media').schemaType('liftMedia').child(S.documentTypeList('liftMedia')),
+          ])
+    }),
+    visionTool(),
+  ],
+  schema: {
+    types: schemaTypes,
+  },
+})
+```
+
+---
+
+STEP 4 — VERIFY THE BUILD
+
+Run this in the shell to confirm the Studio builds without TypeScript errors:
+
+```bash
+cd artifacts/sanity-studio && pnpm run build
+```
+
+If it builds clean, run:
+
+```bash
+pnpm run dev
+```
+
+Confirm the Studio starts without errors. Then report back which schemas appear in the Studio sidebar and whether any TypeScript errors were thrown during build.
+
+---
+
+STEP 5 — DEPLOY STUDIO
+
+Once the build is confirmed clean, deploy Studio so SMC staff can access it from a browser:
+
+```bash
+npx sanity@latest deploy
+```
+
+When prompted for a hostname, enter: summerset-marine
+
+Studio will be live at: https://summerset-marine.sanity.studio
+
+Report the deployed URL and confirm all 8 schema types are visible in the Studio sidebar.
