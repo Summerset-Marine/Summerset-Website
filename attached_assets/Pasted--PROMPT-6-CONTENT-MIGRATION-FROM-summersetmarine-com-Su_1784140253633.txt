@@ -1,0 +1,138 @@
+# PROMPT 6 — CONTENT MIGRATION FROM summersetmarine.com
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt 5 is confirmed complete
+
+---
+
+The global layout is complete. Now port content from the existing Squarespace site at summersetmarine.com into the React pages. This prompt covers every page where existing content is reused.
+
+For each page, port the content exactly as described. Where content is marked as "PLACEHOLDER — SMC TO SUPPLY" do not invent content — render a clearly marked placeholder div with a comment and a light yellow background so it is visually obvious during staging review.
+
+---
+
+PAGES TO BUILD WITH PORTED CONTENT:
+
+---
+
+src/pages/about.jsx — ABOUT SMC PAGE
+
+Port these elements from summersetmarine.com/about-summerset-marine:
+
+Company founding story (port verbatim):
+- Founded 1990 by Larry Chapman while attending UW-Whitewater
+- Headquarters: 70,000 sq ft facility in Whitewater, WI
+- Acquisition of DL Anderson business
+- Expansion: Green Lake showroom opening
+- Expansion: Door County location opening
+- Current multi-location operation
+
+Mission and vision copy — port verbatim from existing About page.
+
+Executive team — port all team member names and titles from the existing site. Photos: PLACEHOLDER — SMC TO SUPPLY. Bios: PLACEHOLDER — SMC TO SUPPLY if not on existing site.
+
+Lead with the competitive differentiator section BEFORE the founding history. This section content is PLACEHOLDER — SMC TO SUPPLY:
+- Why Summerset over a regional competitor
+- Why Lifetime permanent systems
+- What the engineering difference is
+- Design, manufacture, and installation in-house
+
+Schema: organizationSchema() from JsonLd.jsx
+Meta title: "About Summerset Marine Construction | Permanent Pier & Lift Experts Since 1990"
+Meta description: "Summerset Marine Construction has been engineering luxury permanent waterfront systems across Wisconsin since 1990. Family-owned, designed and built in Whitewater, WI."
+
+---
+
+src/pages/products/permanent-piers/all-seasons-hd.jsx — LIFETIME ALL SEASONS HD PIER
+
+Port these elements from summersetmarine.com/lifetime-all-seasons-hd-piers:
+
+Product name: "Lifetime All Seasons HD Pier"
+Brand: Lifetime by Summerset Marine Construction
+
+Port verbatim from existing page:
+- The All Seasons HD vs All Seasons comparison copy
+- HDPE decking feature description
+- "No seasonal removal" feature copy
+- "Engineered for every season" copy
+- Lake-specific installation statistics where they appear (Geneva Lake avg depth 61ft, Beaver Lake 15ft, Oconomowoc Lake 32ft — use these exactly as they appear on the current site)
+
+PLACEHOLDER — SMC TO SUPPLY:
+- Hero image
+- Specification table (dimensions, load capacity, material specs)
+- Project gallery photos (4-6 images)
+- Customer testimonials
+
+Schema: productSchema({ name: 'Lifetime All Seasons HD Pier', brand: 'Lifetime', category: 'Permanent Pier' })
+Meta title: "Lifetime All Seasons HD Pier | Summerset Marine Construction"
+Meta description: "The Lifetime All Seasons HD is Summerset's premier permanent pier system — HDPE decking, engineered for year-round Wisconsin conditions, no seasonal removal required."
+
+Build the remaining four permanent pier pages (all-seasons.jsx, classic.jsx, minimalist.jsx, commercial.jsx) with the same structure. Port whatever copy exists on the current site for each. Mark all missing content as PLACEHOLDER — SMC TO SUPPLY.
+
+---
+
+src/pages/products/lifts/built-in.jsx, standalone.jsx, pwc.jsx
+
+Port the three-category lift structure (Built-In, Standalone, PWC) from summersetmarine.com/boat-pwc-lifts.
+
+For each lift type:
+- Port product description copy verbatim from the existing page
+- Port any project photo captions that reference named lakes (these are SEO-valuable)
+- Mark hero image as PLACEHOLDER — SMC TO SUPPLY
+- Mark spec table as PLACEHOLDER — SMC TO SUPPLY
+
+All three lift detail pages are display/inquiry only — no pricing, no cart. Include a prominent "Inquire About This Lift" button that links to /consultation with a query param ?interest=lifts pre-filled.
+
+---
+
+src/pages/services/residential.jsx — RESIDENTIAL SERVICE PAGE
+
+Port from summersetmarine.com/residential-service:
+- The four geographic service zone concept — port the zone descriptions verbatim
+- The "parts and service for all brands" section copy — port verbatim
+- Service types listed (seasonal install, seasonal removal, repairs, inspections)
+
+PLACEHOLDER — SMC TO SUPPLY:
+- Hero image
+- Any pricing or service call information
+
+---
+
+src/pages/locations.jsx — LOCATIONS PAGE
+
+Port all four location references from the existing site:
+- Whitewater, WI — W3128 WI-HWY 59, Whitewater, WI 53190 (headquarters)
+- Madison, WI — PLACEHOLDER address
+- Green Lake, WI — PLACEHOLDER address
+- Door County, WI — PLACEHOLDER address
+
+For each location render:
+- Address
+- Phone number (PLACEHOLDER — SMC TO SUPPLY)
+- Hours (PLACEHOLDER — SMC TO SUPPLY)
+- Google Maps embed (use placeholder iframe with correct city for now)
+
+Schema: four separate LocalBusiness JSON-LD blocks, one per location, in a single @graph array.
+
+---
+
+src/pages/products/lifts/inventory.jsx — LIVE LIFT INVENTORY PAGE
+
+This page reads from src/data/inventory-cache.json (updated by NetSuite webhook) and from Sanity liftMedia documents. It is a client-side rendered page — NOT SSG — because inventory changes without a rebuild.
+
+Page structure:
+- Page title: "Available Lift Inventory | Summerset Marine Construction"
+- Brief intro paragraph explaining these are display-and-inquire only (no online purchase)
+- Filter bar: Product Type (All, Built-In, Standalone, PWC), Condition (All, New, Used), Price Range (All, Under $5,000, $5,000–$10,000, Over $10,000)
+- Card grid: 3 columns desktop, 2 columns tablet, 1 column mobile
+- Each card: primary photo (from Sanity liftMedia matched by netsuiteItemId), product name, model, year, condition badge (green = New, gray = Used), price (display only), "Inquire" CTA button linking to /consultation?interest=lift-inventory&itemId=[id], marketplace link buttons where present in Sanity liftMedia
+- Placeholder card for units with no Sanity photo — same card dimensions, gray background, "Photo Coming Soon" label
+- Empty state if no inventory: "No inventory currently available. Contact us to discuss custom new lift options."
+- Loading state while fetching
+
+On load:
+1. Read inventory-cache.json for NetSuite item data
+2. Fetch liftMedia documents from Sanity (live fetch, not SSG)
+3. Join on netsuiteItemId
+4. Render filtered, sorted cards
+
+Confirm when all ported content pages and the inventory page are complete.

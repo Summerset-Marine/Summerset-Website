@@ -39,6 +39,8 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 - `artifacts/api-server/src/routes/netsuite-webhook.ts` — POST /api/netsuite-webhook (HMAC-SHA256 of raw body in `x-netsuite-signature`) + GET /api/inventory (falls back to live SuiteQL fetch when cache empty and NetSuite configured)
 - `artifacts/summerset-marine/src/lib/sanity.ts` — Sanity clients (`sanityFetch` CDN, `sanityLiveFetch` fresh) + all GROQ queries (blog, lake, market, FAQ, projects, testimonials, lift media, team)
 - `artifacts/api-server/data/inventory-cache.json` — lift inventory cache written by the webhook
+- `artifacts/summerset-marine/src/components/ui/ContentPlaceholder.tsx` — yellow "PLACEHOLDER — SMC TO SUPPLY: {label}" block marking content the client must provide
+- `artifacts/summerset-marine/src/pages/products/lifts/inventory.tsx` — client-side inventory page: fetches `${BASE_URL}api/inventory`, optionally joins Sanity lift media on netsuiteItemId, type/condition/price filters, loading/empty/error states
 
 ## Architecture decisions
 
@@ -49,7 +51,7 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 
 ## Product
 
-Prompts 1–5 of a multi-prompt build complete: foundation + SEO infrastructure + CMS/ERP integration layer + HubSpot Forms integration + global layout/design system (Header with Products/Markets mega-menus, Footer, Button, HeroSection, CTABlock). All ~50 pages are stubs ("Page content coming soon"). Page content and CMS wiring arrive in later prompts.
+Prompts 1–6 of a multi-prompt build complete: foundation + SEO infrastructure + CMS/ERP integration layer + HubSpot Forms integration + global layout/design system (Header with Products/Markets mega-menus, Footer, Button, HeroSection, CTABlock) + content migration. Prompt 6 ported verbatim copy from the live Squarespace site into: about, locations (4 real WI locations, Maps embeds, LocalBusiness @graph JSON-LD), services/residential, 4 pier product pages (commercial is all placeholders — no live source page), 3 lift pages, and the live inventory page. Remaining pages are stubs; further content/CMS wiring arrives in later prompts.
 
 ## User preferences
 
@@ -63,6 +65,7 @@ Prompts 1–5 of a multi-prompt build complete: foundation + SEO infrastructure 
 - `blog/[slug]` from the spec is implemented as `src/pages/blog/post.tsx` with wouter route `/blog/:slug`.
 - The inventory cache path resolves via `process.cwd()` — the api-server workflow runs with cwd = `artifacts/api-server`.
 - robots.txt in `public/` contains the exact AI-bot allowlist from the spec; don't regenerate it.
+- Lake-stat captions on product pages are verbatim from the live site (source captures in `/tmp/smc/*.md`); the Prompt 6 spec's example stats (Geneva 61 / Beaver 15 / Oconomowoc 32) span multiple pages — don't "correct" a page to match the spec list.
 
 ## Pointers
 
