@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Summerset Marine Construction"
+version = "1.0.0"
+id = "artifacts/summerset-marine"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22891
+
+[services.development]
+run = "pnpm --filter @workspace/summerset-marine run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/summerset-marine", "run", "build" ]
+publicDir = "artifacts/summerset-marine/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22891"
+BASE_PATH = "/"

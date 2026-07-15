@@ -1,0 +1,349 @@
+# PROMPT 1 — PROJECT ARCHITECTURE AND FOUNDATION
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt N/A (this is first) is confirmed complete
+
+---
+
+# SUMMERSET MARINE CONSTRUCTION — REPLIT AGENT PROMPT SEQUENCE
+# LaBonte Development | Complete Build Prompts v1.0
+# Stack: React + Vite + vite-plugin-ssg + Tailwind CSS + Sanity CMS + NetSuite REST API + Gmail OAuth2
+
+---
+
+## PROMPT 1 — PROJECT ARCHITECTURE AND FOUNDATION
+
+You are building a fully custom marketing website for Summerset Marine Construction (summersetmarine.com), a luxury marine construction company in Wisconsin that builds permanent waterfront systems (piers, boat lifts, marine contracting) with average project values of $50,000–$100,000.
+
+This is a static site generation (SSG) build using Vite + vite-plugin-ssg + React + Tailwind CSS, hosted on Replit Reserved VM. The site replaces an existing Squarespace site.
+
+---
+
+INITIALIZE THE PROJECT WITH THIS EXACT STRUCTURE:
+
+```
+summerset-marine/
+├── public/
+│   ├── robots.txt
+│   ├── sitemap-index.xml          (placeholder — populated at build)
+│   └── images/                    (static assets)
+├── src/
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   └── Layout.jsx
+│   │   ├── ui/
+│   │   │   ├── Button.jsx
+│   │   │   ├── Card.jsx
+│   │   │   ├── HeroSection.jsx
+│   │   │   └── CTABlock.jsx
+│   │   └── seo/
+│   │       ├── PageMeta.jsx       (handles title, meta description, canonical)
+│   │       └── JsonLd.jsx         (injects JSON-LD schema per page)
+│   ├── pages/
+│   │   ├── index.jsx              (Home)
+│   │   ├── about.jsx
+│   │   ├── locations.jsx
+│   │   ├── careers.jsx
+│   │   ├── consultation.jsx
+│   │   ├── contact.jsx
+│   │   ├── service-request.jsx
+│   │   ├── products/
+│   │   │   ├── permanent-piers/
+│   │   │   │   ├── index.jsx      (hub)
+│   │   │   │   ├── all-seasons-hd.jsx
+│   │   │   │   ├── all-seasons.jsx
+│   │   │   │   ├── classic.jsx
+│   │   │   │   ├── minimalist.jsx
+│   │   │   │   └── commercial.jsx
+│   │   │   └── lifts/
+│   │   │       ├── index.jsx      (hub)
+│   │   │       ├── built-in.jsx
+│   │   │       ├── standalone.jsx
+│   │   │       ├── pwc.jsx
+│   │   │       └── inventory.jsx  (live NetSuite + Sanity display)
+│   │   ├── services/
+│   │   │   ├── marine-contracting.jsx
+│   │   │   ├── residential.jsx
+│   │   │   └── repairs.jsx
+│   │   ├── resources/
+│   │   │   ├── permanent-vs-seasonal.jsx
+│   │   │   ├── what-does-a-pier-cost.jsx
+│   │   │   ├── installation-process.jsx
+│   │   │   ├── what-to-expect.jsx
+│   │   │   └── faq.jsx
+│   │   ├── blog/
+│   │   │   ├── index.jsx          (blog index)
+│   │   │   └── [slug].jsx         (dynamic blog post — SSG generated)
+│   │   └── markets/
+│   │       ├── lake-geneva/
+│   │       │   ├── index.jsx
+│   │       │   ├── geneva-lake.jsx
+│   │       │   ├── projects.jsx
+│   │       │   ├── testimonials.jsx
+│   │       │   └── contact.jsx
+│   │       ├── oconomowoc/
+│   │       │   ├── index.jsx
+│   │       │   ├── okauchee-lake.jsx
+│   │       │   ├── lac-la-belle.jsx
+│   │       │   ├── nagawicka-lake.jsx
+│   │       │   ├── beaver-lake.jsx
+│   │       │   ├── projects.jsx
+│   │       │   ├── testimonials.jsx
+│   │       │   └── contact.jsx
+│   │       └── door-county/
+│   │           ├── index.jsx
+│   │           ├── green-bay.jsx
+│   │           ├── sturgeon-bay.jsx
+│   │           ├── lake-michigan.jsx
+│   │           ├── projects.jsx
+│   │           ├── testimonials.jsx
+│   │           └── contact.jsx
+│   ├── lib/
+│   │   ├── sanity.js              (Sanity client config)
+│   │   ├── netsuite.js            (NetSuite REST API client)
+│   │   ├── gmail.js               (Gmail OAuth2 service)
+│   │   └── sitemap.js             (programmatic sitemap generation)
+│   ├── data/
+│   │   └── inventory-cache.json   (NetSuite inventory cache — updated by webhook)
+│   ├── api/
+│   │   ├── submit-form.js         (Express route — handles all form submissions via Gmail OAuth2)
+│   │   └── netsuite-webhook.js    (Express route — receives NetSuite inventory updates)
+│   ├── styles/
+│   │   └── globals.css
+│   ├── App.jsx
+│   └── main.jsx
+├── server.js                      (Express server — serves SSG output + API routes)
+├── vite.config.js
+├── tailwind.config.js
+├── .env.example
+└── package.json
+```
+
+---
+
+INSTALL THESE EXACT DEPENDENCIES:
+
+```json
+{
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
+    "vite-plugin-ssg": "^0.23.0",
+    "@sanity/client": "^6.15.0",
+    "express": "^4.18.3",
+    "googleapis": "^140.0.0",
+    "nodemailer": "^6.9.12",
+    "axios": "^1.7.2"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "tailwindcss": "^3.4.3",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38"
+  }
+}
+```
+
+---
+
+CONFIGURE vite.config.js EXACTLY AS FOLLOWS:
+
+```javascript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    outDir: 'dist',
+  },
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
+})
+```
+
+---
+
+CONFIGURE tailwind.config.js WITH THIS EXACT TOKEN SYSTEM:
+
+```javascript
+module.exports = {
+  content: ['./src/**/*.{jsx,js,ts,tsx}', './index.html'],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          navy:      '#0A1628',
+          blue:      '#1B6A9C',
+          'blue-light': '#2A8AC4',
+          red:       '#C8102E',
+          'red-hover':'#A50D25',
+          offwhite:  '#F8F7F4',
+          gray:      '#6B7280',
+          'gray-light': '#F3F4F6',
+          border:    '#D1D5DB',
+        },
+      },
+      fontFamily: {
+        sans:  ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '88': '22rem',
+        '128': '32rem',
+      },
+      maxWidth: {
+        'content': '1280px',
+      },
+    },
+  },
+  plugins: [],
+}
+```
+
+---
+
+CREATE public/robots.txt WITH EXACTLY THIS CONTENT:
+
+```
+# Summerset Marine Construction — robots.txt
+# Custom React build — AI visibility OPEN
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: AppleBotExtended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://summersetmarine.com/sitemap-index.xml
+Sitemap: https://summersetmarine.com/sitemap-images.xml
+```
+
+---
+
+CREATE .env.example WITH THESE VARIABLES (no values — placeholders only):
+
+```
+# Sanity CMS
+VITE_SANITY_PROJECT_ID=
+VITE_SANITY_DATASET=production
+VITE_SANITY_API_VERSION=2024-01-01
+SANITY_API_TOKEN=
+
+# NetSuite REST API
+NETSUITE_ACCOUNT_ID=
+NETSUITE_CONSUMER_KEY=
+NETSUITE_CONSUMER_SECRET=
+NETSUITE_TOKEN_ID=
+NETSUITE_TOKEN_SECRET=
+NETSUITE_WEBHOOK_SECRET=
+
+# Gmail OAuth2 (Google Service Account)
+GMAIL_CLIENT_ID=
+GMAIL_CLIENT_SECRET=
+GMAIL_REFRESH_TOKEN=
+GMAIL_SENDER_ADDRESS=
+FORM_RECIPIENT_EMAIL=
+
+# Site
+VITE_SITE_URL=https://summersetmarine.com
+```
+
+---
+
+CREATE server.js AS AN EXPRESS SERVER:
+
+```javascript
+import express from 'express'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const app = express()
+
+app.use(express.json())
+app.use(express.static(path.join(__dirname, 'dist')))
+
+// API routes
+import submitForm from './src/api/submit-form.js'
+import netsuiteWebhook from './src/api/netsuite-webhook.js'
+
+app.post('/api/submit-form', submitForm)
+app.post('/api/netsuite-webhook', netsuiteWebhook)
+
+// Serve SSG output for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+})
+
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => console.log(`Summerset Marine running on port ${PORT}`))
+```
+
+---
+
+CREATE src/data/inventory-cache.json AS AN EMPTY SHELL:
+
+```json
+{
+  "lastUpdated": null,
+  "items": []
+}
+```
+
+Do not build any page content yet. Only initialize the project structure, install dependencies, and create the configuration files listed above. Confirm when the project structure is complete and all dependencies are installed without errors.
