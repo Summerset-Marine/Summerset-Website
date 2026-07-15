@@ -24,12 +24,18 @@ function useHubSpotTracking() {
   }, []);
 }
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   useHubSpotTracking();
   return (
     <div className="flex min-h-screen flex-col bg-brand-offwhite">
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className={`flex-1 ${className ?? ""}`}>{children}</main>
       <Footer />
     </div>
   );

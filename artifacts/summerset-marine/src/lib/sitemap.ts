@@ -48,6 +48,7 @@ const coreGroups: RouteGroup[] = [
       "/about",
       "/locations",
       "/careers",
+      "/privacy",
       "/consultation",
       "/contact",
       "/service-request",

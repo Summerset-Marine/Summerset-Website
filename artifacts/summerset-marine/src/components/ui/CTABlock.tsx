@@ -1,32 +1,64 @@
 import { Link } from "wouter";
+import Button from "@/components/ui/Button";
+
+interface Cta {
+  label: string;
+  href: string;
+}
 
 interface CTABlockProps {
-  title?: string;
-  subtitle?: string;
-  buttonLabel?: string;
-  buttonHref?: string;
+  variant?: "light" | "dark";
+  headline: string;
+  subheadline?: string;
+  primaryCta: Cta;
+  secondaryCta?: Cta;
 }
 
 export default function CTABlock({
-  title = "Ready to build something permanent?",
-  subtitle = "Schedule a consultation with our waterfront specialists.",
-  buttonLabel = "Request a Consultation",
-  buttonHref = "/consultation",
+  variant = "light",
+  headline,
+  subheadline,
+  primaryCta,
+  secondaryCta,
 }: CTABlockProps) {
+  const isDark = variant === "dark";
+
   return (
-    <section className="bg-brand-blue text-white">
-      <div className="mx-auto flex max-w-content flex-col items-start gap-6 px-6 py-18 md:flex-row md:items-center md:justify-between">
-        <div>
-          <h2 className="font-serif text-3xl">{title}</h2>
-          <p className="mt-2 text-white/80">{subtitle}</p>
+    <section className={isDark ? "bg-brand-navy text-white" : "bg-brand-offwhite text-brand-navy"}>
+      <div className="mx-auto flex max-w-content flex-col items-center px-6 py-20 text-center">
+        <h2 className="max-w-2xl font-serif text-3xl leading-tight md:text-4xl">{headline}</h2>
+        {subheadline ? (
+          <p className={`mt-4 max-w-xl text-lg ${isDark ? "text-white/75" : "text-brand-gray"}`}>
+            {subheadline}
+          </p>
+        ) : null}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
+          {isDark ? (
+            <Button href={primaryCta.href} variant="primary" size="large">
+              {primaryCta.label}
+            </Button>
+          ) : (
+            <Button
+              href={primaryCta.href}
+              variant="primary"
+              size="large"
+              className="!border-transparent !bg-brand-blue hover:!bg-brand-navy"
+            >
+              {primaryCta.label}
+            </Button>
+          )}
+          {secondaryCta ? (
+            <Link
+              href={secondaryCta.href}
+              className={`font-medium underline-offset-4 hover:underline ${
+                isDark ? "text-white/85" : "text-brand-blue"
+              }`}
+              data-testid="link-cta-secondary"
+            >
+              {secondaryCta.label}
+            </Link>
+          ) : null}
         </div>
-        <Link
-          href={buttonHref}
-          className="rounded-md bg-brand-red px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-red-hover"
-          data-testid="button-cta"
-        >
-          {buttonLabel}
-        </Link>
       </div>
     </section>
   );

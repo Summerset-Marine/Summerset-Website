@@ -22,7 +22,11 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 
 - `artifacts/summerset-marine/src/pages/` — one file per route (~48 pages: products, services, resources, blog, markets)
 - `artifacts/summerset-marine/src/App.tsx` — full wouter route map
-- `artifacts/summerset-marine/src/components/layout/` — Header, Footer, Layout
+- `artifacts/summerset-marine/src/components/layout/` — Header (mega-menus + mobile drawer), Footer (4-col navy), Layout (accepts className)
+- `artifacts/summerset-marine/src/components/ui/Button/index.tsx` — brand Button (primary/secondary/ghost, default/large, href renders link) — named `Button/` dir because shadcn `button.tsx` collides by casing
+- `artifacts/summerset-marine/src/components/ui/HeroSection.tsx` — full-bleed / split / video-bg hero variants
+- `artifacts/summerset-marine/src/components/ui/CTABlock.tsx` — light/dark full-width CTA section
+- `artifacts/summerset-marine/public/images/summerset-marine-logo.svg` — placeholder logo (replace with real SMC logo when supplied)
 - `artifacts/summerset-marine/src/components/seo/` — PageMeta (title/description/canonical), JsonLd
 - `artifacts/summerset-marine/src/index.css` — brand token system (`--color-brand-*` in @theme)
 - `artifacts/summerset-marine/src/lib/sitemap.ts` — canonical static route list + all sitemap XML builders (5 sitemaps + index)
@@ -45,7 +49,7 @@ Marketing website for Summerset Marine Construction (summersetmarine.com) — a 
 
 ## Product
 
-Prompts 1–4 of a multi-prompt build complete: foundation + SEO infrastructure + CMS/ERP integration layer + HubSpot Forms integration (ContactForm component, form relay endpoint, tracking script). All ~50 pages are stubs ("Page content coming soon"). Page content, CMS wiring, and design arrive in later prompts.
+Prompts 1–5 of a multi-prompt build complete: foundation + SEO infrastructure + CMS/ERP integration layer + HubSpot Forms integration + global layout/design system (Header with Products/Markets mega-menus, Footer, Button, HeroSection, CTABlock). All ~50 pages are stubs ("Page content coming soon"). Page content and CMS wiring arrive in later prompts.
 
 ## User preferences
 

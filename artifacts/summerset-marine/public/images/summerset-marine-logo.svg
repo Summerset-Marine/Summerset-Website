@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="48" viewBox="0 0 280 48" role="img" aria-label="Summerset Marine Construction">
+  <g fill="none" fill-rule="evenodd">
+    <!-- Wave mark -->
+    <g transform="translate(0 4)">
+      <path d="M4 26c4-6 8-6 12 0s8 6 12 0 8-6 12 0" stroke="#1B6A9C" stroke-width="3" stroke-linecap="round"/>
+      <path d="M4 33c4-6 8-6 12 0s8 6 12 0 8-6 12 0" stroke="#0A1628" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+      <path d="M22 4l8 14H14z" fill="#C8102E"/>
+    </g>
+    <!-- Wordmark -->
+    <text x="52" y="26" font-family="Playfair Display, Georgia, serif" font-size="19" font-weight="700" fill="#0A1628">SUMMERSET</text>
+    <text x="52" y="42" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" letter-spacing="3" fill="#1B6A9C">MARINE CONSTRUCTION</text>
+  </g>
+</svg>

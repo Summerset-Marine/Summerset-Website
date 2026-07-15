@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/Button";
 
 const SMC_PHONE_PLACEHOLDER = "[SMC_PHONE_PLACEHOLDER]";
 
@@ -296,9 +296,9 @@ export default function ContactForm({ formType, market, lake }: ContactFormProps
 
       <Button
         type="submit"
-        size="lg"
+        variant="primary"
         disabled={status === "submitting"}
-        className="w-full bg-brand-red text-white border-brand-red hover:bg-brand-red/90"
+        className="w-full"
       >
         {status === "submitting" ? (
           <>

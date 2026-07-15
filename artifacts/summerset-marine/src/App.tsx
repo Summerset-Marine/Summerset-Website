@@ -8,6 +8,7 @@ import HomePage from "@/pages/index";
 import AboutPage from "@/pages/about";
 import LocationsPage from "@/pages/locations";
 import CareersPage from "@/pages/careers";
+import PrivacyPage from "@/pages/privacy";
 import ConsultationPage from "@/pages/consultation";
 import ContactPage from "@/pages/contact";
 import ServiceRequestPage from "@/pages/service-request";
@@ -73,6 +74,7 @@ function Router() {
       <Route path="/about" component={AboutPage} />
       <Route path="/locations" component={LocationsPage} />
       <Route path="/careers" component={CareersPage} />
+      <Route path="/privacy" component={PrivacyPage} />
       <Route path="/consultation" component={ConsultationPage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/service-request" component={ServiceRequestPage} />

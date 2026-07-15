@@ -1,0 +1,134 @@
+# PROMPT 5 — GLOBAL LAYOUT, HEADER, FOOTER, AND DESIGN SYSTEM
+# Summerset Marine Construction — LaBonte Development
+# Run this prompt in sequence after Prompt 4 is confirmed complete
+
+---
+
+The backend integrations are complete. Now build the global layout components. These are used on every page so they must be production-quality.
+
+---
+
+DESIGN DIRECTION (apply consistently throughout):
+- Background: white (#FFFFFF) and off-white (#F8F7F4)
+- Primary brand color: steel blue (#1B6A9C)
+- Accent: red (#C8102E) — CTAs, hover states, highlights only
+- Text: near-black (#0A1628) for headings, gray (#6B7280) for secondary text
+- The SMC logo sits in a white header — design accommodates this without workarounds
+- Aesthetic: open, airy, typographically strong — architectural firm meets marine engineering
+- Photography-forward — layouts built around large imagery with strong whitespace
+- All spacing on 8px grid multiples
+
+---
+
+BUILD src/components/layout/Header.jsx:
+
+Desktop layout:
+- Full-width sticky header, white background, subtle bottom border (1px #D1D5DB)
+- Left: SMC logo (img tag, src="/images/summerset-marine-logo.svg", height 48px)
+- Center/Right: navigation links
+  - Products (mega-menu dropdown)
+  - Services (dropdown: Marine Contracting, Residential Service, Repairs)
+  - Markets (mega-menu dropdown)
+  - Resources (dropdown: FAQ, Blog, Buyer Guides)
+  - About
+  - Locations
+- Far right: "Get a Consultation" button — red (#C8102E) background, white text, rounded, hover darkens to (#A50D25)
+- Sticky on scroll — adds box-shadow on scroll
+
+Products mega-menu (opens on hover, closes on mouse leave):
+- Two columns
+- Column 1 — Permanent Systems: Lifetime All Seasons HD, Lifetime All Seasons, Lifetime Classic, Lifetime Minimalist, Commercial Pier, [separator] Permanent vs. Seasonal Comparison
+- Column 2 — Lifts & Other: Built-In Lift, Standalone Lift, PWC Lift, View All Inventory, [separator] Seasonal Systems, Accessories
+
+Markets mega-menu (opens on hover, closes on mouse leave):
+- Three columns, one per Core market
+- Lake Geneva: Geneva Lake, Projects, Testimonials, Contact
+- Oconomowoc / Lake Country: Okauchee Lake, Lac La Belle, Nagawicka Lake, Beaver Lake, Projects, Testimonials, Contact
+- Door County: Green Bay, Sturgeon Bay, Lake Michigan, Projects, Testimonials, Contact
+
+Mobile layout (< 768px):
+- Hamburger icon (three lines) — opens full-height slide-out drawer from right
+- Drawer: white background, SMC logo at top, close button (X) top-right
+- Navigation items as accordion: Products expands to show all sub-links, Markets expands to show all markets and lakes
+- "Get a Consultation" button at bottom of drawer, full width, red background
+- Overlay backdrop behind drawer (semi-transparent black), clicking it closes drawer
+
+---
+
+BUILD src/components/layout/Footer.jsx:
+
+Dark navy background (#0A1628), white text.
+
+Four-column layout on desktop (stacked single column on mobile):
+
+Column 1 — Brand:
+- SMC logo (white/light variant if available, otherwise standard logo)
+- Tagline: "Engineering Wisconsin's finest waterfront systems since 1990."
+- Social media icon links (placeholders for Facebook, Instagram, LinkedIn — URLs from env or hardcoded placeholder)
+
+Column 2 — Products:
+- Heading: "Products"
+- Links: Permanent Piers, Boat & PWC Lifts, Seasonal Systems, Accessories, Lift Inventory, Permanent vs. Seasonal
+
+Column 3 — Markets:
+- Heading: "Markets"
+- Links: Lake Geneva, Oconomowoc / Lake Country, Door County
+
+Column 4 — Contact:
+- Heading: "Contact"
+- SMC phone number (placeholder)
+- SMC email (placeholder)
+- Whitewater, WI headquarters address
+- "Get a Consultation" button — red background, full width on this column
+
+Bottom bar (below columns, full width):
+- Left: "© 2025 Summerset Marine Construction. All rights reserved."
+- Right: "Privacy Policy" link
+
+---
+
+BUILD src/components/ui/Button.jsx:
+
+Three variants: primary, secondary, ghost.
+
+primary: red (#C8102E) background, white text, rounded (border-radius 6px), padding 12px 24px, font-weight 600, hover darkens background to (#A50D25), transition 150ms. Size variants: default and large (padding 16px 32px, font-size larger).
+
+secondary: steel blue (#1B6A9C) border (2px), steel blue text, transparent background, same radius/padding as primary, hover fills with steel blue background and white text.
+
+ghost: white border (2px), white text, transparent background — for use on dark/image backgrounds. Hover fills white, text turns navy.
+
+Props: { variant: 'primary' | 'secondary' | 'ghost', size: 'default' | 'large', href?: string, onClick?: function, children, className?, type?: string }
+
+If href is provided, render as <a> tag. Otherwise render as <button>. Support type prop for form submit buttons.
+
+---
+
+BUILD src/components/ui/HeroSection.jsx:
+
+Three variants:
+
+full-bleed: full-viewport-width image background (object-fit cover, object-position center), dark overlay (rgba 0,0,0,0.45), content centered or left-aligned over image. Content: headline (h1, serif font, white, large), subheadline (p, white, semi-transparent), primary CTA button (ghost variant since it's on dark background). Min-height: 85vh on desktop, 70vh on mobile.
+
+split: left half is text content (headline h1, subheadline, primary CTA, secondary CTA), right half is large image (object-fit cover, full height of section). On mobile, image stacks below text. Min-height: 600px desktop.
+
+video-bg: same as full-bleed but accepts a video src. Video autoplay, muted, loop, playsInline. Falls back to poster image if video fails. Used on Home page optionally.
+
+Props: { variant: 'full-bleed' | 'split' | 'video-bg', headline, subheadline, primaryCta: { label, href }, secondaryCta?: { label, href }, imageSrc, imageAlt, videoSrc? }
+
+---
+
+BUILD src/components/ui/CTABlock.jsx:
+
+A full-width section used at the bottom of most pages. Variants: light (white/offwhite background, dark text, blue primary button) and dark (navy background, white text, red button).
+
+Content: headline, subheadline, primary CTA button, optional secondary CTA link.
+
+Props: { variant: 'light' | 'dark', headline, subheadline, primaryCta: { label, href }, secondaryCta?: { label, href } }
+
+---
+
+BUILD src/components/layout/Layout.jsx:
+
+Wraps every page. Renders Header, then children, then Footer. Accepts a className prop for page-specific body wrapper styling.
+
+Confirm when all layout components and the Button, HeroSection, and CTABlock components are complete and rendering correctly.
