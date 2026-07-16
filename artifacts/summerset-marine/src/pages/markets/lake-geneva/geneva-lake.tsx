@@ -23,6 +23,15 @@ interface LakePageContent {
   lakeCharacteristics?: string;
   heroImageUrl?: string;
   heroImageAlt?: string;
+  /** Inline "Projects on This Lake" entries edited directly on the Lake Page doc in Sanity. */
+  projects?: {
+    title: string;
+    productType?: string;
+    installYear?: number;
+    caption?: string;
+    afterImageUrl?: string;
+    afterImageAlt?: string;
+  }[];
 }
 
 interface Project {
@@ -93,6 +102,9 @@ export default function GenevaLakePage() {
       .catch(() => setTestimonials([]));
   }, []);
 
+  const inlineProjects: Project[] = (content?.projects ?? []).map((p, i) => ({ _id: `inline-${i}`, ...p }));
+  const allProjects = [...inlineProjects, ...projects];
+
   const heroImage = content?.heroImageUrl ?? "/images/smc/lake-geneva-geneva-lake-permanent-pier-aerial-001.jpg";
 
   return (
@@ -118,7 +130,7 @@ export default function GenevaLakePage() {
           lake: "Geneva Lake",
         })}
       />
-      {projects
+      {allProjects
         .filter((p) => p.afterImageUrl)
         .map((p) => (
           <JsonLd
@@ -246,9 +258,9 @@ export default function GenevaLakePage() {
             <Link href="/markets/lake-geneva/projects" className="font-serif text-[12px] tracking-[.14em] uppercase text-brand-navy border-b border-brand-navy/50 pb-0.5 hover:text-brand-gold hover:border-brand-gold transition-colors">All Lake Geneva Projects →</Link>
           </div>
           
-          {projects.length > 0 ? (
+          {allProjects.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.map((project) => (
+              {allProjects.map((project) => (
                 <div key={project._id} className="group cursor-pointer">
                   <div className="overflow-hidden border border-brand-border mb-4">
                     {project.afterImageUrl ? (
