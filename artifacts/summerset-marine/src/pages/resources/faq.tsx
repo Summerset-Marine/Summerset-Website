@@ -77,7 +77,7 @@ export default function FaqPage() {
   return (
     <Layout>
       <PageMeta
-        title="FAQ — Permanent Piers & Boat Lifts | Summerset Marine Construction"
+        title="FAQ — Permanent Piers & Boat Lifts | Summerset Marine"
         description="Answers to common questions about permanent pier installation, boat lifts, costs, process, and working with Summerset Marine Construction in Wisconsin."
         canonical="https://summersetmarine.com/resources/faq"
       />

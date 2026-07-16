@@ -55,8 +55,8 @@ export default function FoxChainPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Boat Lift Installation — Fox Chain, WI | Summerset Marine"
-        description="Discover durable, permanent piers and lifts designed for the Fox Chain's unique conditions, expertly installed by Summerset Marine Construction. Contact us today."
+        title="Piers & Boat Lifts — Fox Chain, WI | Summerset Marine"
+        description="Durable permanent piers and lifts designed for the Fox Chain's unique conditions, expertly installed by Summerset Marine."
         canonical="https://summersetmarine.com/markets/fox-chain"
       />
       <JsonLd

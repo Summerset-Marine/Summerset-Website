@@ -99,8 +99,8 @@ export default function BeaverLakePage() {
   return (
     <Layout>
       <PageMeta
-        title="Permanent Pier Installation on Beaver Lake, WI | Summerset Marine"
-        description="Summerset Marine Construction installs luxury permanent piers and boat lifts on Beaver Lake. Expert waterfront contractors serving Lake Country property owners."
+        title="Permanent Piers on Beaver Lake, WI | Summerset Marine"
+        description="Summerset Marine installs luxury permanent piers and boat lifts on Beaver Lake. Expert waterfront contractors serving Lake Country property owners."
         canonical="https://summersetmarine.com/markets/oconomowoc/beaver-lake"
       />
       <JsonLd

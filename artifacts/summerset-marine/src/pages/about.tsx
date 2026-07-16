@@ -36,8 +36,8 @@ export default function AboutPage() {
   return (
     <Layout>
       <PageMeta
-        title="About Summerset Marine Construction | Permanent Pier & Lift Experts Since 1990"
-        description="Summerset Marine Construction has been engineering luxury permanent waterfront systems across Wisconsin since 1990. Family-owned, designed and built in Whitewater, WI."
+        title="About Summerset Marine | Pier & Lift Experts Since 1990"
+        description="Engineering luxury permanent waterfront systems across Wisconsin since 1990. Family-owned, designed and built in Whitewater, WI."
       />
       <JsonLd data={organizationSchema()} />
 

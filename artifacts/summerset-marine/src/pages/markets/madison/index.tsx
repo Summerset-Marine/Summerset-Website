@@ -55,8 +55,8 @@ export default function MadisonPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Boat Lift Installation — Madison, WI | Summerset Marine"
-        description="Summerset Marine Construction's Madison location — one of the largest selections of new and used boat lifts and piers in Wisconsin, serving Lake Mendota and the Madison chain."
+        title="Piers & Boat Lifts — Madison, WI | Summerset Marine"
+        description="One of Wisconsin's largest selections of new and used boat lifts and piers — Summerset Marine's Madison location, serving Lake Mendota."
         canonical="https://summersetmarine.com/markets/madison"
       />
       <JsonLd

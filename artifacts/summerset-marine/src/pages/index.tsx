@@ -112,8 +112,8 @@ export default function HomePage() {
   return (
     <Layout>
       <PageMeta
-        title="Summerset Marine Construction | Luxury Permanent Piers & Boat Lifts — Wisconsin"
-        description="Summerset Marine Construction engineers luxury permanent waterfront systems across Wisconsin. Custom piers, boat lifts, and marine contracting on Geneva Lake, Oconomowoc, and Door County."
+        title="Summerset Marine | Luxury Permanent Piers & Boat Lifts"
+        description="Summerset Marine engineers luxury permanent piers, boat lifts, and marine contracting across Wisconsin — Geneva Lake, Oconomowoc, and Door County."
         canonical="https://summersetmarine.com/"
       />
       <JsonLd data={organizationSchema()} />

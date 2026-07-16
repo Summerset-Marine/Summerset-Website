@@ -8,8 +8,8 @@ export default function FoxChainContactPage() {
   return (
     <Layout>
       <PageMeta
-        title="Request a Fox Chain Pier Consultation | Summerset Marine Construction"
-        description="Request a consultation with Summerset Marine Construction for your Fox Chain O’ Lakes pier or boat lift project. Serving the Fox Chain area — Summerset Marine Construction."
+        title="Request a Fox Chain Pier Consultation | Summerset Marine"
+        description="Request a consultation with Summerset Marine for your Fox Chain O’ Lakes pier or boat lift project."
         canonical="https://summersetmarine.com/markets/fox-chain/contact"
       />
       <JsonLd

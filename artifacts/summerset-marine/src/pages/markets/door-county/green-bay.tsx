@@ -99,8 +99,8 @@ export default function GreenBayPage() {
   return (
     <Layout>
       <PageMeta
-        title="Permanent Pier & Marine Contracting on Green Bay, WI | Summerset Marine"
-        description="Summerset Marine Construction builds permanent piers and provides marine contracting on Green Bay. Expert waterfront contractors serving Door County property owners."
+        title="Marine Contracting on Green Bay, WI | Summerset Marine"
+        description="Summerset Marine builds permanent piers and provides marine contracting on Green Bay. Expert waterfront contractors serving Door County property owners."
         canonical="https://summersetmarine.com/markets/door-county/green-bay"
       />
       <JsonLd

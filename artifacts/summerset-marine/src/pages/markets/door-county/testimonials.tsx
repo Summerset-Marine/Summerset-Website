@@ -41,7 +41,7 @@ export default function DoorCountyTestimonialsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Customer Reviews — Door County, WI | Summerset Marine Construction"
+        title="Customer Reviews — Door County, WI | Summerset Marine"
         description="Read testimonials from Door County property owners who chose Summerset Marine Construction for their permanent pier and marine contracting projects."
         canonical="https://summersetmarine.com/markets/door-county/testimonials"
       />

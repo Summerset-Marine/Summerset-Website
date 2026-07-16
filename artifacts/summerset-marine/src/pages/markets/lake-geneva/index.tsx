@@ -56,8 +56,8 @@ export default function LakeGenevaPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Boat Lift Installation — Lake Geneva, WI | Summerset Marine"
-        description="Summerset Marine Construction builds luxury permanent piers and boat lifts on Geneva Lake. Wisconsin's premier waterfront contractor serving the Lake Geneva market since 1990."
+        title="Piers & Boat Lifts — Lake Geneva, WI | Summerset Marine"
+        description="Summerset Marine builds luxury permanent piers and boat lifts on Geneva Lake. Wisconsin's premier waterfront contractor since 1990."
         canonical="https://summersetmarine.com/markets/lake-geneva"
       />
       <JsonLd

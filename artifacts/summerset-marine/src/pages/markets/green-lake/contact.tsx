@@ -8,8 +8,8 @@ export default function GreenLakeContactPage() {
   return (
     <Layout>
       <PageMeta
-        title="Request a Green Lake Pier Consultation | Summerset Marine Construction"
-        description="Request a consultation with Summerset Marine Construction for your Green Lake pier or boat lift project. Serving the Green Lake area — Summerset Marine Construction."
+        title="Request a Green Lake Pier Consultation | Summerset Marine"
+        description="Request a consultation with Summerset Marine for your Green Lake pier or boat lift project."
         canonical="https://summersetmarine.com/markets/green-lake/contact"
       />
       <JsonLd

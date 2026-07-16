@@ -119,8 +119,8 @@ export default function WhitewaterProjectsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Lift Projects — Whitewater, WI | Summerset Marine Construction"
-        description="Browse completed Summerset Marine Construction projects on Whitewater area lakes and across the Whitewater market. Permanent piers, boat lifts, and waterfront systems."
+        title="Pier & Lift Projects — Whitewater, WI | Summerset Marine"
+        description="Browse completed Summerset Marine projects on Whitewater area lakes — permanent piers, boat lifts, and waterfront systems."
         canonical="https://summersetmarine.com/markets/whitewater/projects"
       />
       <JsonLd

@@ -41,7 +41,7 @@ export default function LakeGenevaTestimonialsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Customer Reviews — Lake Geneva, WI | Summerset Marine Construction"
+        title="Customer Reviews — Lake Geneva, WI | Summerset Marine"
         description="Read testimonials from Geneva Lake homeowners who chose Summerset Marine Construction for their permanent pier and boat lift installations."
         canonical="https://summersetmarine.com/markets/lake-geneva/testimonials"
       />

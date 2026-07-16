@@ -121,8 +121,8 @@ export default function LakeGenevaProjectsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Lift Projects — Lake Geneva, WI | Summerset Marine Construction"
-        description="Browse completed Summerset Marine Construction projects on Geneva Lake and across the Lake Geneva market. Permanent piers, boat lifts, and waterfront systems."
+        title="Pier & Lift Projects — Lake Geneva, WI | Summerset Marine"
+        description="Browse completed Summerset Marine projects on Geneva Lake — permanent piers, boat lifts, and waterfront systems."
         canonical="https://summersetmarine.com/markets/lake-geneva/projects"
       />
       <JsonLd

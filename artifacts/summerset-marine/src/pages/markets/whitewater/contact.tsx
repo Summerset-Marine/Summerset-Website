@@ -8,8 +8,8 @@ export default function WhitewaterContactPage() {
   return (
     <Layout>
       <PageMeta
-        title="Request a Whitewater Pier Consultation | Summerset Marine Construction"
-        description="Request a consultation with Summerset Marine Construction for your Whitewater area lakes pier or boat lift project. Serving the Whitewater area — Summerset Marine Construction."
+        title="Request a Whitewater Pier Consultation | Summerset Marine"
+        description="Request a consultation with Summerset Marine for your Whitewater area pier or boat lift project."
         canonical="https://summersetmarine.com/markets/whitewater/contact"
       />
       <JsonLd

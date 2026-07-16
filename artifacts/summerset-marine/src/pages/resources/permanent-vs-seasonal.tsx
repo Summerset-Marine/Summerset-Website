@@ -31,7 +31,7 @@ export default function PermanentVsSeasonalPage() {
   return (
     <Layout>
       <PageMeta
-        title="Permanent vs. Seasonal Pier Systems | Which Is Right for You? | Summerset Marine"
+        title="Permanent vs. Seasonal Piers | Summerset Marine"
         description="Compare permanent and seasonal pier systems from Summerset Marine Construction. Learn which option is right for your Wisconsin waterfront property."
         canonical="https://summersetmarine.com/resources/permanent-vs-seasonal"
       />

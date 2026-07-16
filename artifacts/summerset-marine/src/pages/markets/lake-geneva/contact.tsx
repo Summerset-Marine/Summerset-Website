@@ -8,7 +8,7 @@ export default function LakeGenevaContactPage() {
   return (
     <Layout>
       <PageMeta
-        title="Request a Lake Geneva Pier Consultation | Summerset Marine Construction"
+        title="Request a Lake Geneva Pier Consultation | Summerset Marine"
         description="Request a consultation with Summerset Marine Construction for your Geneva Lake pier or boat lift project. Serving the Lake Geneva area since 1990."
         canonical="https://summersetmarine.com/markets/lake-geneva/contact"
       />

@@ -56,8 +56,8 @@ export default function DoorCountyPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Boat Lift Installation — Door County, WI | Summerset Marine"
-        description="Summerset Marine Construction builds permanent piers, boat lifts, and marine contracting systems across Door County — Green Bay, Sturgeon Bay, and Lake Michigan shorelines."
+        title="Piers & Boat Lifts — Door County, WI | Summerset Marine"
+        description="Summerset Marine builds permanent piers, boat lifts, and marine contracting across Door County — Green Bay, Sturgeon Bay, and Lake Michigan."
         canonical="https://summersetmarine.com/markets/door-county"
       />
       <JsonLd

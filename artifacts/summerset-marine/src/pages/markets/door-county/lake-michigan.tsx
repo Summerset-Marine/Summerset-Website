@@ -99,7 +99,7 @@ export default function LakeMichiganPage() {
   return (
     <Layout>
       <PageMeta
-        title="Marine Contracting & Pier Installation on Lake Michigan — Door County, WI | Summerset Marine"
+        title="Marine Contracting on Lake Michigan | Summerset Marine"
         description="Summerset Marine Construction provides marine contracting and permanent pier installation on Lake Michigan's Door County shoreline."
         canonical="https://summersetmarine.com/markets/door-county/lake-michigan"
       />

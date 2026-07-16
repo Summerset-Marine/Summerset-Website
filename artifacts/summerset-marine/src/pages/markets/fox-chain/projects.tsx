@@ -119,8 +119,8 @@ export default function FoxChainProjectsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Lift Projects — Fox Chain, WI | Summerset Marine Construction"
-        description="Browse completed Summerset Marine Construction projects on Fox Chain O’ Lakes and across the Fox Chain market. Permanent piers, boat lifts, and waterfront systems."
+        title="Pier & Lift Projects — Fox Chain, WI | Summerset Marine"
+        description="Browse completed Summerset Marine projects on the Fox Chain O’ Lakes — permanent piers, boat lifts, and waterfront systems."
         canonical="https://summersetmarine.com/markets/fox-chain/projects"
       />
       <JsonLd

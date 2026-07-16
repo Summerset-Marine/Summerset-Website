@@ -8,7 +8,7 @@ export default function DoorCountyContactPage() {
   return (
     <Layout>
       <PageMeta
-        title="Request a Door County Pier Consultation | Summerset Marine Construction"
+        title="Request a Door County Pier Consultation | Summerset Marine"
         description="Request a consultation with Summerset Marine Construction for your Door County pier or marine contracting project. Located at 9580 Rica Ln, Brussels, WI."
         canonical="https://summersetmarine.com/markets/door-county/contact"
       />

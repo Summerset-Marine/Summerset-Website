@@ -55,7 +55,7 @@ export default function GreenLakePage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Boat Lift Installation — Green Lake, WI | Summerset Marine"
+        title="Piers & Boat Lifts — Green Lake, WI | Summerset Marine"
         description="Summerset Marine Construction's Green Lake location — piers, boat lifts, and seasonal pier installation and removal services on Green Lake, Wisconsin."
         canonical="https://summersetmarine.com/markets/green-lake"
       />

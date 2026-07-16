@@ -41,7 +41,7 @@ export default function OconomowocTestimonialsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Customer Reviews — Oconomowoc / Lake Country, WI | Summerset Marine Construction"
+        title="Customer Reviews — Lake Country, WI | Summerset Marine"
         description="Read testimonials from Lake Country homeowners who chose Summerset Marine Construction for their permanent pier and boat lift installations."
         canonical="https://summersetmarine.com/markets/oconomowoc/testimonials"
       />

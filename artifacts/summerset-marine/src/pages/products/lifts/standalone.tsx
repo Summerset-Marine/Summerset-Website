@@ -40,7 +40,7 @@ export default function StandaloneLiftsPage() {
     <Layout>
       <PageMeta
         title="Lifetime Standalone Lift | Summerset Marine Construction"
-        description="The Lifetime Standalone Lift — a rugged, independent, easy-to-use boat lift with no permanent dock integration required. Freestanding strength, seamless performance."
+        description="The Lifetime Standalone Lift — a rugged, independent, easy-to-use boat lift. Freestanding strength, no dock integration required."
       />
       <JsonLd
         data={productSchema({

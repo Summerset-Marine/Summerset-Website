@@ -41,7 +41,7 @@ export default function GreenLakeTestimonialsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Customer Reviews — Green Lake, WI | Summerset Marine Construction"
+        title="Customer Reviews — Green Lake, WI | Summerset Marine"
         description="Read testimonials from Green Lake customers who chose Summerset Marine Construction for their permanent pier and boat lift installations."
         canonical="https://summersetmarine.com/markets/green-lake/testimonials"
       />

@@ -122,7 +122,7 @@ export default function MadisonProjectsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Lift Projects — Madison, WI | Summerset Marine Construction"
+        title="Pier & Lift Projects — Madison, WI | Summerset Marine"
         description="Browse completed Summerset Marine Construction projects on Lake Mendota and across the Madison market. Permanent piers, boat lifts, and waterfront systems."
         canonical="https://summersetmarine.com/markets/madison/projects"
       />

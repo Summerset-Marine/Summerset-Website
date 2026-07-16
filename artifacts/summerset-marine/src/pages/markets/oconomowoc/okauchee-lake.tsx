@@ -99,8 +99,8 @@ export default function OkaucheeLakePage() {
   return (
     <Layout>
       <PageMeta
-        title="Permanent Pier Installation on Okauchee Lake, WI | Summerset Marine"
-        description="Summerset Marine Construction installs luxury permanent piers and boat lifts on Okauchee Lake. Expert waterfront contractors serving Lake Country property owners."
+        title="Permanent Piers on Okauchee Lake, WI | Summerset Marine"
+        description="Summerset Marine installs luxury permanent piers and boat lifts on Okauchee Lake. Expert waterfront contractors serving Lake Country property owners."
         canonical="https://summersetmarine.com/markets/oconomowoc/okauchee-lake"
       />
       <JsonLd

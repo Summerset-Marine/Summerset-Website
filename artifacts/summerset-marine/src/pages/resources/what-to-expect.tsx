@@ -14,7 +14,7 @@ export default function WhatToExpectPage() {
   return (
     <Layout>
       <PageMeta
-        title="What to Expect When Working with Us | Summerset Marine Construction"
+        title="What to Expect When Working with Us | Summerset Marine"
         description="What to expect when you hire Summerset Marine Construction — communication, timelines, site care, and how we treat your Wisconsin waterfront property."
         canonical="https://summersetmarine.com/resources/what-to-expect"
       />

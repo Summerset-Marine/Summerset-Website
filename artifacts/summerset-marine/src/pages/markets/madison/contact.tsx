@@ -8,8 +8,8 @@ export default function MadisonContactPage() {
   return (
     <Layout>
       <PageMeta
-        title="Request a Madison Pier Consultation | Summerset Marine Construction"
-        description="Request a consultation with Summerset Marine Construction for your Lake Mendota pier or boat lift project. Serving the Madison area — Summerset Marine Construction."
+        title="Request a Madison Pier Consultation | Summerset Marine"
+        description="Request a consultation with Summerset Marine for your Lake Mendota pier or boat lift project. Serving the Madison area."
         canonical="https://summersetmarine.com/markets/madison/contact"
       />
       <JsonLd

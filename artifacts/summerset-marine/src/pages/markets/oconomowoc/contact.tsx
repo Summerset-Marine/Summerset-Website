@@ -8,8 +8,8 @@ export default function OconomowocContactPage() {
   return (
     <Layout>
       <PageMeta
-        title="Request an Oconomowoc / Lake Country Pier Consultation | Summerset Marine Construction"
-        description="Request a consultation with Summerset Marine Construction for your Lake Country pier or boat lift project. Serving Okauchee, Nagawicka, Lac La Belle, and Beaver Lake."
+        title="Request a Lake Country Consultation | Summerset Marine"
+        description="Request a consultation for your Lake Country pier or boat lift project. Serving Okauchee, Nagawicka, Lac La Belle, and Beaver Lake."
         canonical="https://summersetmarine.com/markets/oconomowoc/contact"
       />
       <JsonLd

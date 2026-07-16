@@ -99,7 +99,7 @@ export default function SturgeonBayPage() {
   return (
     <Layout>
       <PageMeta
-        title="Permanent Pier Installation on Sturgeon Bay, WI | Summerset Marine"
+        title="Permanent Piers on Sturgeon Bay, WI | Summerset Marine"
         description="Summerset Marine Construction installs permanent piers and boat lifts on Sturgeon Bay. Expert waterfront contractors serving Door County property owners."
         canonical="https://summersetmarine.com/markets/door-county/sturgeon-bay"
       />

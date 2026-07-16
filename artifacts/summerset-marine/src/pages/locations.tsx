@@ -106,7 +106,7 @@ export default function LocationsPage() {
     <Layout>
       <PageMeta
         title="Locations | Summerset Marine Construction"
-        description="Visit Summerset Marine Construction in Whitewater (headquarters), Madison, Green Lake, or Door County, Wisconsin. Permanent piers, boat lifts, and marine contracting."
+        description="Visit Summerset Marine in Whitewater (HQ), Madison, Green Lake, or Door County, WI. Permanent piers, boat lifts, and marine contracting."
       />
       <JsonLd data={locationsGraphSchema()} />
 

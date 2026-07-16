@@ -41,7 +41,7 @@ export default function MadisonTestimonialsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Customer Reviews — Madison, WI | Summerset Marine Construction"
+        title="Customer Reviews — Madison, WI | Summerset Marine"
         description="Read testimonials from Madison customers who chose Summerset Marine Construction for their permanent pier and boat lift installations."
         canonical="https://summersetmarine.com/markets/madison/testimonials"
       />

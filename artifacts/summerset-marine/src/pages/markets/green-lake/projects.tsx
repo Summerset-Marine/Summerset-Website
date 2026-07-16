@@ -122,8 +122,8 @@ export default function GreenLakeProjectsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Lift Projects — Green Lake, WI | Summerset Marine Construction"
-        description="Browse completed Summerset Marine Construction projects on Green Lake and across the Green Lake market. Permanent piers, boat lifts, and waterfront systems."
+        title="Pier & Lift Projects — Green Lake, WI | Summerset Marine"
+        description="Browse completed Summerset Marine projects on Green Lake — permanent piers, boat lifts, and waterfront systems."
         canonical="https://summersetmarine.com/markets/green-lake/projects"
       />
       <JsonLd

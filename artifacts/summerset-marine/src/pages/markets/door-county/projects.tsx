@@ -130,8 +130,8 @@ export default function DoorCountyProjectsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Lift Projects — Door County, WI | Summerset Marine Construction"
-        description="Browse completed Summerset Marine Construction projects across Door County — Green Bay, Sturgeon Bay, and Lake Michigan. Permanent piers, marine contracting, and waterfront systems."
+        title="Pier & Lift Projects — Door County, WI | Summerset Marine"
+        description="Browse completed Summerset Marine projects across Door County — Green Bay, Sturgeon Bay, and Lake Michigan shorelines."
         canonical="https://summersetmarine.com/markets/door-county/projects"
       />
       <JsonLd

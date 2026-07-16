@@ -41,7 +41,7 @@ export default function WhitewaterTestimonialsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Customer Reviews — Whitewater, WI | Summerset Marine Construction"
+        title="Customer Reviews — Whitewater, WI | Summerset Marine"
         description="Read testimonials from Whitewater customers who chose Summerset Marine Construction for their permanent pier and boat lift installations."
         canonical="https://summersetmarine.com/markets/whitewater/testimonials"
       />

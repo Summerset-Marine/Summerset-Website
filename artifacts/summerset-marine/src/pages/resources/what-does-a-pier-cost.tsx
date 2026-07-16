@@ -14,8 +14,8 @@ export default function PierCostPage() {
   return (
     <Layout>
       <PageMeta
-        title="What Does a Permanent Pier Cost? | Summerset Marine Construction"
-        description="Understand what drives the cost of a permanent pier in Wisconsin — materials, site conditions, engineering, and options — from Summerset Marine Construction."
+        title="What Does a Permanent Pier Cost? | Summerset Marine"
+        description="What drives the cost of a permanent pier in Wisconsin — materials, site conditions, engineering, and options — from Summerset Marine."
         canonical="https://summersetmarine.com/resources/what-does-a-pier-cost"
       />
 

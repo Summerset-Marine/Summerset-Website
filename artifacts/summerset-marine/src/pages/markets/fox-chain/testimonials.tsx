@@ -41,7 +41,7 @@ export default function FoxChainTestimonialsPage() {
   return (
     <Layout>
       <PageMeta
-        title="Customer Reviews — Fox Chain, WI | Summerset Marine Construction"
+        title="Customer Reviews — Fox Chain, WI | Summerset Marine"
         description="Read testimonials from Fox Chain customers who chose Summerset Marine Construction for their permanent pier and boat lift installations."
         canonical="https://summersetmarine.com/markets/fox-chain/testimonials"
       />

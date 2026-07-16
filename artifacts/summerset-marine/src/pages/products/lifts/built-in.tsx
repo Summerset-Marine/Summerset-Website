@@ -55,7 +55,7 @@ export default function BuiltInLiftsPage() {
     <Layout>
       <PageMeta
         title="Lifetime Built-In Lift | Summerset Marine Construction"
-        description="The Lifetime Built-In Lift integrates seamlessly into your pier — hassle-free boat access at the push of a button, built from marine-grade aluminum and stainless steel."
+        description="The Lifetime Built-In Lift integrates into your pier — push-button boat access, built from marine-grade aluminum and stainless steel."
       />
       <JsonLd
         data={productSchema({

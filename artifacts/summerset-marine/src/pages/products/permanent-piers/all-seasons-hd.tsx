@@ -49,7 +49,7 @@ export default function AllSeasonsHDPage() {
     <Layout>
       <PageMeta
         title="Lifetime All Seasons HD Pier | Summerset Marine Construction"
-        description="The Lifetime All Seasons HD is Summerset's premier permanent pier system — HDPE decking, engineered for year-round Wisconsin conditions, no seasonal removal required."
+        description="Summerset's premier permanent pier system — HDPE decking, engineered for year-round Wisconsin conditions, no seasonal removal required."
       />
       <JsonLd
         data={productSchema({

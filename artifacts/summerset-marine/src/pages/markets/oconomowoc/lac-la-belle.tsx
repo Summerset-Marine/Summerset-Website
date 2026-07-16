@@ -99,8 +99,8 @@ export default function LacLaBellePage() {
   return (
     <Layout>
       <PageMeta
-        title="Permanent Pier Installation on Lac La Belle, WI | Summerset Marine"
-        description="Summerset Marine Construction installs luxury permanent piers and boat lifts on Lac La Belle. Expert waterfront contractors serving Oconomowoc property owners."
+        title="Permanent Piers on Lac La Belle, WI | Summerset Marine"
+        description="Summerset Marine installs luxury permanent piers and boat lifts on Lac La Belle. Expert waterfront contractors serving Oconomowoc property owners."
         canonical="https://summersetmarine.com/markets/oconomowoc/lac-la-belle"
       />
       <JsonLd

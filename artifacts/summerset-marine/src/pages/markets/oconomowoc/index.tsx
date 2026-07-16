@@ -56,8 +56,8 @@ export default function OconomowocPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Boat Lift Installation — Oconomowoc / Lake Country, WI | Summerset Marine"
-        description="Summerset Marine Construction builds luxury permanent piers and boat lifts across Lake Country — Okauchee Lake, Lac La Belle, Nagawicka Lake, and Beaver Lake. Wisconsin's premier waterfront contractor."
+        title="Piers & Boat Lifts — Lake Country, WI | Summerset Marine"
+        description="Summerset Marine builds luxury permanent piers and boat lifts across Lake Country — Okauchee, Lac La Belle, Nagawicka, and Beaver Lake."
         canonical="https://summersetmarine.com/markets/oconomowoc"
       />
       <JsonLd

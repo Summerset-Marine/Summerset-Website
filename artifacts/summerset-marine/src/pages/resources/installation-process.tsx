@@ -14,8 +14,8 @@ export default function InstallationProcessPage() {
   return (
     <Layout>
       <PageMeta
-        title="The Pier Installation Process, Step by Step | Summerset Marine Construction"
-        description="See how Summerset Marine Construction installs a permanent pier — from consultation and engineering to permitting and construction on your Wisconsin shoreline."
+        title="Pier Installation Process | Summerset Marine"
+        description="How Summerset Marine installs a permanent pier — from consultation and engineering to permitting and construction on your Wisconsin shoreline."
         canonical="https://summersetmarine.com/resources/installation-process"
       />
 

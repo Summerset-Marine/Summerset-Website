@@ -87,8 +87,8 @@ export default function ResidentialServicesPage() {
   return (
     <Layout>
       <PageMeta
-        title="Residential Lakefront Services | Summerset Marine Construction"
-        description="Comprehensive residential lakefront services across southern, southeastern, and east-central Wisconsin — seasonal installation and removal, repairs, inspections, and parts for all major brands."
+        title="Residential Lakefront Services | Summerset Marine"
+        description="Residential lakefront services across southern and eastern Wisconsin — seasonal installation, removal, repairs, inspections, and parts for all brands."
       />
 
       {/* Hero — image PLACEHOLDER — SMC TO SUPPLY */}

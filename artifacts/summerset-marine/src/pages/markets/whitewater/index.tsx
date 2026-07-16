@@ -55,8 +55,8 @@ export default function WhitewaterPage() {
   return (
     <Layout>
       <PageMeta
-        title="Pier & Boat Lift Installation — Whitewater, WI | Summerset Marine"
-        description="Summerset Marine Construction's 75,000+ square foot manufacturing facility and corporate headquarters in Whitewater, Wisconsin — custom pier and lift manufacturing, design, and distribution."
+        title="Piers & Boat Lifts — Whitewater, WI | Summerset Marine"
+        description="Summerset Marine's 75,000+ sq ft manufacturing facility and headquarters in Whitewater, WI — custom pier and lift manufacturing, design, and distribution."
         canonical="https://summersetmarine.com/markets/whitewater"
       />
       <JsonLd
