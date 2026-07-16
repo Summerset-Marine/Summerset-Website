@@ -97,7 +97,7 @@ export default function HeroSection({
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#060f1c]/20 to-[#060f1c]/70 pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#060f1c]/35 to-[#060f1c]/80 pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-content px-6 pointer-events-none">
         <div className={`flex w-full flex-col justify-center py-24 ${alignClasses}`}>

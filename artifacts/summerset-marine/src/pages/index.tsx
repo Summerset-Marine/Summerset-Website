@@ -91,7 +91,7 @@ export default function HomePage() {
           poster="/images/smc/wisconsin-permanent-pier-aerial-hero-002.jpg"
           aria-label="Aerial view of a Lifetime All Seasons HD permanent pier with covered boat lift — Summerset Marine Construction"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#060f1c]/20 to-[#060f1c]/70" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#060f1c]/35 to-[#060f1c]/80" />
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 text-center md:px-20">
           <div className="mb-7 animate-fade-in-up font-serif text-xs uppercase tracking-[0.3em] text-brand-gold">
             Wisconsin Lake Country
