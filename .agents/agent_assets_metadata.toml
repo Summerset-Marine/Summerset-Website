@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "fhh9DHi4YMgHeyCvwwgTd"
+uri = "file://design/WIREFRAMES.md"
+type = "text"
+title = "Wireframes & Component Structure"
