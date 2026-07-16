@@ -42,9 +42,24 @@ const MARKETS = [
 
 const MARKET_SLUGS = ["lake-geneva", "oconomowoc", "door-county"] as const;
 
+/** All 7 markets — the rotating home quote draws from every region. */
+const TESTIMONIAL_MARKET_SLUGS = [
+  "lake-geneva",
+  "oconomowoc",
+  "door-county",
+  "madison",
+  "whitewater",
+  "green-lake",
+  "fox-chain",
+] as const;
+
+const TESTIMONIAL_ROTATE_MS = 8000;
+
 export default function HomePage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [fading, setFading] = useState(false);
 
   useEffect(() => {
     if (!isSanityConfigured) return;
@@ -57,19 +72,28 @@ export default function HomePage() {
     ).then((byMarket) => setProjects(byMarket.flat().slice(0, 5))); // Top 5 for the grid
 
     Promise.all(
-      MARKET_SLUGS.map((market) =>
+      TESTIMONIAL_MARKET_SLUGS.map((market) =>
         sanityFetch<Testimonial[]>(MARKET_TESTIMONIALS_QUERY, { market }).catch(
           () => [] as Testimonial[],
         ),
       ),
     ).then((byMarket) => {
-      // Find one strong testimonial
-      const all = byMarket.flat().filter(Boolean);
-      if (all.length > 0) {
-        setTestimonials([all[0]]);
-      }
+      setTestimonials(byMarket.flat().filter(Boolean));
     });
   }, []);
+
+  // Rotate the featured quote through all testimonials
+  useEffect(() => {
+    if (testimonials.length < 2) return;
+    const timer = setInterval(() => {
+      setFading(true);
+      window.setTimeout(() => {
+        setActiveTestimonial((i) => (i + 1) % testimonials.length);
+        setFading(false);
+      }, 400);
+    }, TESTIMONIAL_ROTATE_MS);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
 
   return (
     <Layout>
@@ -337,13 +361,37 @@ export default function HomePage() {
           <div className="mx-auto mb-9 h-12 w-px bg-brand-border" />
           {testimonials.length > 0 ? (
             <>
-              <blockquote className="mb-8 m-0 font-serif text-2xl font-light italic leading-[1.45] text-[#201f1d] md:text-[32px]">
-                &ldquo;{testimonials[0].quote}&rdquo;
-              </blockquote>
-              <div className="mx-auto mb-5 h-px w-8 bg-brand-gold" />
-              <div className="font-serif text-[14px] uppercase tracking-[0.16em] text-[#6b6560]">
-                &mdash; {testimonials[0].customerName} &middot; {testimonials[0].lakeLabel}
+              <div
+                className={`transition-opacity duration-400 ${fading ? "opacity-0" : "opacity-100"}`}
+                aria-live="polite"
+              >
+                <blockquote className="mb-8 m-0 font-serif text-2xl font-light italic leading-[1.45] text-[#201f1d] md:text-[32px]">
+                  &ldquo;{testimonials[activeTestimonial].quote}&rdquo;
+                </blockquote>
+                <div className="mx-auto mb-5 h-px w-8 bg-brand-gold" />
+                <div className="font-serif text-[14px] uppercase tracking-[0.16em] text-[#6b6560]">
+                  &mdash; {testimonials[activeTestimonial].customerName} &middot;{" "}
+                  {testimonials[activeTestimonial].lakeLabel}
+                </div>
               </div>
+              {testimonials.length > 1 && (
+                <div className="mt-8 flex justify-center gap-2.5">
+                  {testimonials.map((t, i) => (
+                    <button
+                      key={t._id}
+                      type="button"
+                      aria-label={`Show testimonial ${i + 1} of ${testimonials.length}`}
+                      onClick={() => {
+                        setActiveTestimonial(i);
+                        setFading(false);
+                      }}
+                      className={`h-1.5 w-1.5 cursor-pointer rounded-full border-0 p-0 transition-colors ${
+                        i === activeTestimonial ? "bg-brand-gold" : "bg-brand-border"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
             </>
           ) : (
             <ContentPlaceholder label="Featured testimonial (from Sanity)" />
