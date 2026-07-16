@@ -46,6 +46,7 @@ Markets: 7 market sections — lake-geneva, oconomowoc, door-county (with lake s
 - `artifacts/api-server/src/routes/netsuite-webhook.ts` — POST /api/netsuite-webhook (HMAC-SHA256 of raw body in `x-netsuite-signature`) + GET /api/inventory (falls back to live SuiteQL fetch when cache empty and NetSuite configured)
 - `artifacts/summerset-marine/src/lib/sanity.ts` — Sanity clients (`sanityFetch` CDN, `sanityLiveFetch` fresh) + all GROQ queries (blog, lake, market, FAQ, projects, testimonials, lift media, team)
 - `artifacts/api-server/data/inventory-cache.json` — lift inventory cache written by the webhook
+- `artifacts/summerset-marine/src/components/ui/GoogleReviews.tsx` — Elfsight Google Reviews embed on the home page; gated by `VITE_ELFSIGHT_GOOGLE_REVIEWS_ID` (section hidden in prod when unset, ContentPlaceholder in dev)
 - `artifacts/summerset-marine/src/components/ui/ContentPlaceholder.tsx` — yellow "PLACEHOLDER — SMC TO SUPPLY: {label}" block marking content the client must provide
 - `artifacts/summerset-marine/src/pages/products/lifts/inventory.tsx` — client-side inventory page: fetches `${BASE_URL}api/inventory`, optionally joins Sanity lift media on netsuiteItemId, type/condition/price filters, loading/empty/error states
 

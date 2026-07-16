@@ -5,6 +5,7 @@ import PageMeta from "@/components/seo/PageMeta";
 import JsonLd, { organizationSchema } from "@/components/seo/JsonLd";
 import Button from "@/components/ui/Button";
 import ContentPlaceholder from "@/components/ui/ContentPlaceholder";
+import { GoogleReviews, googleReviewsEnabled } from "@/components/ui/GoogleReviews";
 import {
   isSanityConfigured,
   sanityFetch,
@@ -350,6 +351,23 @@ export default function HomePage() {
           <div className="mx-auto mt-8 h-12 w-px bg-brand-border" />
         </div>
       </section>
+
+      {/* 6b. Google Reviews (Elfsight) — hidden entirely in production until the widget ID is set */}
+      {googleReviewsEnabled && (
+      <section className="border-t border-brand-border bg-brand-offwhite px-6 pb-16 md:px-30 md:pb-[88px]">
+        <div className="mx-auto max-w-[1080px]">
+          <div className="pt-14 pb-10 text-center">
+            <div className="mb-4 font-serif text-xs uppercase tracking-[0.28em] text-brand-gold">
+              From Our Clients
+            </div>
+            <h2 className="m-0 font-serif text-3xl font-light italic text-[#201f1d] md:text-[38px]">
+              Google Reviews
+            </h2>
+          </div>
+          <GoogleReviews />
+        </div>
+      </section>
+      )}
 
       {/* 7. Final CTA */}
       <section className="bg-brand-navy px-6 py-20 text-center md:px-30 md:py-[108px]">
