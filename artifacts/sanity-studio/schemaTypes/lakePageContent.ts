@@ -38,7 +38,7 @@ export const lakePageContent = defineType({
         type: 'object',
         fields: [
           defineField({ name: 'title', title: 'Project Title', type: 'string' }),
-          defineField({ name: 'productType', title: 'Product Type', type: 'string', options: { list: ['permanent-piers', 'lifts', 'seasonal-systems', 'marine-contracting'] } }),
+          defineField({ name: 'productType', title: 'Product Type', type: 'string', options: { list: ['All Seasons HD Permanent Pier', 'All Seasons Permanent Pier', 'Classic Permanent Pier', 'Minimalist Pier', 'Boat Lift', 'Seasonal Pier', 'Commercial Marine Contracting'] } }),
           defineField({ name: 'installYear', title: 'Install Year', type: 'number' }),
           defineField({ name: 'caption', title: 'Caption', type: 'string' }),
           defineField({ name: 'beforeImage', title: 'Before Image', type: 'image', options: { hotspot: true }, fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string' })] }),
