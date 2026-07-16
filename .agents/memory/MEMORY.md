@@ -1,2 +1,3 @@
 - [Squarespace CDN image scraping](squarespace-image-scraping.md) — Accept header trick for original JPEGs; dedupe legacy assets by asset ID, not filename.
 - [Verify subagent file edits](subagent-verification.md) — subagents can report success with zero file changes; always confirm via git diff before accepting.
+- [Sanity Studio deploy](sanity-studio-deploy.md) — `sanity deploy` hangs at "Verifying local content" here; upload the dist tarball to the deployments API instead.
