@@ -24,34 +24,25 @@ export default function CTABlock({
   const isDark = variant === "dark";
 
   return (
-    <section className={isDark ? "bg-brand-navy text-white" : "bg-brand-offwhite text-brand-navy"}>
-      <div className="mx-auto flex max-w-content flex-col items-center px-6 py-20 text-center">
-        <h2 className="max-w-2xl font-serif text-3xl leading-tight md:text-4xl">{headline}</h2>
+    <section className={isDark ? "bg-brand-navy text-white" : "bg-brand-offwhite text-brand-navy border-t border-brand-hairline"}>
+      <div className="mx-auto flex max-w-[620px] flex-col items-center px-6 py-[108px] text-center">
+        <div className="font-serif text-[12px] tracking-[.28em] uppercase text-brand-gold mb-[22px]">Start the Conversation</div>
+        <h2 className="font-serif text-[60px] font-light italic leading-[1.02] mb-[22px]">{headline}</h2>
+        <div className="w-[48px] h-[1px] bg-brand-gold mb-[30px]" />
         {subheadline ? (
-          <p className={`mt-4 max-w-xl text-lg ${isDark ? "text-white/75" : "text-brand-gray"}`}>
+          <p className={`text-[18px] leading-[1.8] ${isDark ? "text-brand-offwhite/60" : "text-brand-gray"} mb-[48px] text-balance`}>
             {subheadline}
           </p>
         ) : null}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
-          {isDark ? (
-            <Button href={primaryCta.href} variant="primary" size="large">
-              {primaryCta.label}
-            </Button>
-          ) : (
-            <Button
-              href={primaryCta.href}
-              variant="primary"
-              size="large"
-              className="!border-transparent !bg-brand-blue hover:!bg-brand-navy"
-            >
-              {primaryCta.label}
-            </Button>
-          )}
+        <div className="flex flex-wrap items-center justify-center gap-5">
+          <Button href={primaryCta.href} variant={isDark ? "primary" : "secondary"} size="large">
+            {primaryCta.label}
+          </Button>
           {secondaryCta ? (
             <Link
               href={secondaryCta.href}
-              className={`font-medium underline-offset-4 hover:underline ${
-                isDark ? "text-white/85" : "text-brand-blue"
+              className={`font-serif text-[13px] uppercase tracking-[.15em] border-b pb-[2px] transition-colors ${
+                isDark ? "text-brand-gold border-brand-gold/50 hover:border-brand-gold" : "text-brand-navy border-brand-navy hover:text-brand-gold hover:border-brand-gold"
               }`}
               data-testid="link-cta-secondary"
             >

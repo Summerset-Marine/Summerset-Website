@@ -54,7 +54,7 @@ Markets: 7 market sections — lake-geneva, oconomowoc, door-county (with lake s
 - Routing uses wouter (workspace convention) instead of react-router-dom from the original spec; routes match the spec's URL structure exactly.
 - Form/webhook endpoints live in the shared Express api-server (plain routes, not yet in the OpenAPI spec — form schemas arrive in later prompts).
 - Integration code (Sanity, HubSpot, NetSuite) degrades gracefully: endpoints return 503/typed errors until env vars are configured. No secrets are set yet — `.env.example` documents placeholders only.
-- Brand palette: navy #0A1628, blue #1B6A9C, red #C8102E (CTA), offwhite #F8F7F4. Fonts: Inter (sans), Playfair Display (serif headings).
+- Design system: client-supplied "Classical" editorial DS (references in `design/redesign-reference/`, readme at `_ds/classical-*/readme.md`) applied site-wide. Palette: off-white #f8f7f4 ground, gold #b68235 accent, navy #0a1628 dark bands/header chip, hairlines #d4c9b8, text #201f1d (`brand-black`). Fonts: Cormorant Garamond (serif headings), Lora (body). Buttons are outlined, not filled (Button variants remain primary/secondary/ghost — there is no "outline" variant; ghost is dark-backgrounds only). Cards are flat with hairline borders — no rounded corners/shadows; chips are outlined serif smallcaps. Legacy blue/red tokens still exist in index.css but should not be used in new UI.
 
 ## Product
 

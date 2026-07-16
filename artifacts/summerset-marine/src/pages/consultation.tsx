@@ -29,13 +29,13 @@ export default function ConsultationPage() {
           <div className="space-y-8">
             <div className="rounded-lg border border-brand-border bg-brand-offwhite p-8">
               <h2 className="font-serif text-2xl text-brand-navy">Talk to Our Team</h2>
-              <p className="mt-4 text-brand-gray">
+              <p className="mt-4 text-brand-black/80">
                 Phone:{" "}
                 <a href="tel:+18008169698" className="font-medium text-brand-blue">
                   (800) 816-9698
                 </a>
               </p>
-              <p className="mt-2 text-brand-gray">
+              <p className="mt-2 text-brand-black/80">
                 Email:{" "}
                 <a
                   href="mailto:info@summersetmarine.com"
@@ -44,7 +44,7 @@ export default function ConsultationPage() {
                   info@summersetmarine.com
                 </a>
               </p>
-              <p className="mt-4 leading-relaxed text-brand-gray">
+              <p className="mt-4 leading-relaxed text-brand-black/80">
                 Since 1990, Summerset Marine has engineered and built permanent waterfront
                 systems across Wisconsin &mdash; fully bonded and insured, with in-house
                 professional engineering.

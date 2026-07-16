@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-34d2778d-934e-4961-811a-0caac01c111a/styles.css">
+  <script src="_ds/classical-34d2778d-934e-4961-811a-0caac01c111a/_ds_bundle.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #f8f7f4; color: #201f1d; font-family: 'Lora', Georgia, serif; }
+    a { color: inherit; text-decoration: none; }
+    .nav-link:hover { color: #b68235; }
+    .ftr-link:hover { color: rgba(248,247,244,.9); }
+    .value-card:hover { border-color: #b68235; }
+    .team-card:hover .team-name { color: #b68235; }
+    @keyframes heroFade { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .hc-kicker { animation: heroFade .8s .1s ease both; }
+    .hc-h1     { animation: heroFade .9s .25s ease both; }
+    .hc-rule   { animation: heroFade .7s .4s ease both; }
+    .hc-sub    { animation: heroFade .8s .5s ease both; }
+  </style>
+</helmet>
+
+<!-- TOP UTILITY BAR -->
+<div style="background:#0a1628;height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 60px">
+  <span style="font-family:'Lora',serif;font-size:11px;color:rgba(248,247,244,.45);letter-spacing:.04em">Serving Wisconsin Lake Country · Est. 2001</span>
+  <div style="display:flex;align-items:center;gap:24px">
+    <span style="font-family:'Lora',serif;font-size:12px;color:rgba(248,247,244,.6)">(262) 248-8444</span>
+    <span style="display:block;width:1px;height:14px;background:rgba(248,247,244,.15)"></span>
+    <a href="Consultation.dc.html" style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#b68235">Schedule Consultation</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav style="position:sticky;top:0;z-index:100;background:#f8f7f4;border-bottom:1px solid #d4c9b8;padding:0 60px;height:64px;display:flex;align-items:center;justify-content:space-between">
+  <a href="Home.dc.html" style="display:flex;align-items:center;gap:14px;text-decoration:none">
+    <div style="background:#0a1628;padding:8px 16px;display:flex;align-items:center">
+      <img src="uploads/SMC Logo.png" alt="Summerset Marine Construction" style="height:28px;width:auto;display:block">
+    </div>
+  </a>
+  <div style="display:flex;align-items:center;gap:36px">
+    <a href="#" class="nav-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em;transition:color .2s">Products</a>
+    <a href="#" class="nav-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em;transition:color .2s">Services</a>
+    <a href="#" class="nav-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em;transition:color .2s">Markets</a>
+    <a href="Projects Gallery.dc.html" class="nav-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em;transition:color .2s">Projects</a>
+    <a href="#" class="nav-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#b68235;letter-spacing:.06em;transition:color .2s">About</a>
+    <a href="Consultation.dc.html" style="padding:9px 22px;border:1px solid #0a1628;font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.13em;color:#0a1628;text-transform:uppercase">GET A CONSULTATION</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="position:relative;height:75vh;min-height:520px;overflow:hidden;background:#0a1628">
+  <video autoplay="true" muted="true" loop="true" playsinline="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
+    <source src="/videos/about.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(6,15,28,.82) 40%,rgba(6,15,28,.25) 100%);pointer-events:none"></div>
+  <div style="position:absolute;inset:0;display:flex;align-items:center;padding:0 120px;pointer-events:none">
+    <div style="max-width:580px">
+      <div class="hc-kicker" style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.28em;color:#b68235;text-transform:uppercase;margin-bottom:20px">Est. 2001 · Wisconsin</div>
+      <h1 class="hc-h1" style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;line-height:1.0;color:#f8f7f4;font-style:italic;margin:0 0 20px">Built on<br>these lakes.</h1>
+      <div class="hc-rule" style="width:40px;height:1px;background:#b68235;margin-bottom:22px"></div>
+      <p class="hc-sub" style="font-family:'Lora',Georgia,serif;font-size:18px;line-height:1.8;color:rgba(248,247,244,.65);margin:0">Wisconsin's premier permanent marine construction company — family-owned, lake-focused, and built to last.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section style="background:#f8f7f4;padding:96px 120px">
+  <div style="max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1px 1fr;gap:72px;align-items:start">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#b68235;margin-bottom:20px">Our Story</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:400;line-height:1.1;color:#201f1d;margin:0 0 22px">Two decades on<br><em>Wisconsin water.</em></h2>
+      <div style="width:32px;height:1px;background:#b68235;margin-bottom:24px"></div>
+      <p style="font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.9;color:#4a4540;margin:0 0 20px;text-align:justify;text-wrap:pretty">Summerset Marine Construction was founded in 2001 by a team of marine construction specialists who believed that Wisconsin's lakefront property owners deserved better than what the market was offering: seasonal docks that shifted, failed, and needed to be replaced on a cycle that cost more than it should.</p>
+      <p style="font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.9;color:#4a4540;margin:0;text-align:justify;text-wrap:pretty">We set out to build the opposite: permanent structures, engineered for Wisconsin's conditions, backed by a warranty that meant something. Twenty-four years later, that commitment hasn't changed. We've grown to serve seven markets across Wisconsin's finest lakes, but the approach is the same — site by site, one well-built pier at a time.</p>
+    </div>
+    <div style="width:1px;background:#d4c9b8;align-self:stretch"></div>
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#b68235;margin-bottom:28px">By the Numbers</div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid #e8e4de">
+          <span style="font-family:'Lora',serif;font-size:15px;color:#6b6560">Years in business</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">24</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid #e8e4de">
+          <span style="font-family:'Lora',serif;font-size:15px;color:#6b6560">Projects completed</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">500+</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid #e8e4de">
+          <span style="font-family:'Lora',serif;font-size:15px;color:#6b6560">Lake markets served</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">7</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid #e8e4de">
+          <span style="font-family:'Lora',serif;font-size:15px;color:#6b6560">Pier systems still standing</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">100%</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0">
+          <span style="font-family:'Lora',serif;font-size:15px;color:#6b6560">Structural warranty</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#0a1628">Lifetime</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL-WIDTH IMAGE -->
+<div style="width:100%;height:480px;overflow:hidden;border-top:1px solid #d4c9b8;border-bottom:1px solid #d4c9b8;position:relative;background:#c0bcb4">
+  <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="about-wide" shape="rect" placeholder="Drop a wide team or lakefront photo here" style="position:absolute;inset:0;width:100%;height:100%" hint-size="100%,480px"></x-import>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(6,15,28,.5) 100%);pointer-events:none"></div>
+  <div style="position:absolute;bottom:40px;left:120px;pointer-events:none">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:8px">Lake Geneva · 2024</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:#f8f7f4;font-weight:300">Installation of an All Seasons HD — Williams Bay estate</div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section style="background:#f8f7f4;padding:88px 120px">
+  <div style="max-width:1040px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:64px">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#b68235;margin-bottom:16px">How We Work</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:#201f1d;margin:0">What we stand for.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">
+
+      <div class="value-card" style="padding:40px 36px;border:1px solid #d4c9b8;background:#fff;transition:border-color .25s">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:16px">01</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#201f1d;margin:0 0 16px;line-height:1.2">Honesty over salesmanship.</h3>
+        <p style="font-family:'Lora',Georgia,serif;font-size:15px;line-height:1.8;color:#5a5550;margin:0">We'll tell you when a seasonal dock is a better fit for your situation. We'd rather earn your trust than a project we're wrong for. Most of our business comes from referrals — that's why.</p>
+      </div>
+
+      <div class="value-card" style="padding:40px 36px;border:1px solid #d4c9b8;border-left:none;background:#fff;transition:border-color .25s">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:16px">02</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#201f1d;margin:0 0 16px;line-height:1.2">Engineering before aesthetics.</h3>
+        <p style="font-family:'Lora',Georgia,serif;font-size:15px;line-height:1.8;color:#5a5550;margin:0">A beautiful pier that fails in its third winter isn't a success. We spec every post, every weld, and every anchor point for your specific lake, depth, and exposure — then we make it look right.</p>
+      </div>
+
+      <div class="value-card" style="padding:40px 36px;border:1px solid #d4c9b8;border-left:none;background:#fff;transition:border-color .25s">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:16px">03</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#201f1d;margin:0 0 16px;line-height:1.2">One team, start to finish.</h3>
+        <p style="font-family:'Lora',Georgia,serif;font-size:15px;line-height:1.8;color:#5a5550;margin:0">Your project manager is your contact from the first call through the final walkthrough. We don't hand you off to a subcontractor at installation. The people who sold you the job are the people who build it.</p>
+      </div>
+
+      <div class="value-card" style="padding:40px 36px;border:1px solid #d4c9b8;border-top:none;background:#fff;transition:border-color .25s">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:16px">04</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#201f1d;margin:0 0 16px;line-height:1.2">Permits done right.</h3>
+        <p style="font-family:'Lora',Georgia,serif;font-size:15px;line-height:1.8;color:#5a5550;margin:0">We've never built an unpermitted structure. It protects you, it protects us, and it keeps Wisconsin's lakes healthy for the next generation. We manage every filing in-house — no exceptions.</p>
+      </div>
+
+      <div class="value-card" style="padding:40px 36px;border:1px solid #d4c9b8;border-left:none;border-top:none;background:#fff;transition:border-color .25s">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:16px">05</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#201f1d;margin:0 0 16px;line-height:1.2">Long-term thinking.</h3>
+        <p style="font-family:'Lora',Georgia,serif;font-size:15px;line-height:1.8;color:#5a5550;margin:0">We build things we intend to service for decades. Our warranty means something because we're still here to honor it. Every decision we make — from material selection to hire — is made with that in mind.</p>
+      </div>
+
+      <div class="value-card" style="padding:40px 36px;border:1px solid #d4c9b8;border-left:none;border-top:none;background:#fff;transition:border-color .25s">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:16px">06</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#201f1d;margin:0 0 16px;line-height:1.2">These are our lakes too.</h3>
+        <p style="font-family:'Lora',Georgia,serif;font-size:15px;line-height:1.8;color:#5a5550;margin:0">Our team lives and recreates on the same lakes where we work. We care about their health, their clarity, and their future. That's not marketing copy — it's the reason we do this work the way we do it.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section style="background:#0a1628;padding:88px 120px">
+  <div style="max-width:1040px;margin:0 auto">
+    <div style="margin-bottom:56px">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#b68235;margin-bottom:16px">The People</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:#f8f7f4;font-style:italic;margin:0;line-height:1.05">The team behind<br>the warranty.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px">
+
+      <div class="team-card" style="cursor:default">
+        <div style="overflow:hidden;border:1px solid rgba(248,247,244,.08);margin-bottom:20px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="team-1" shape="rect" placeholder="Team member photo" style="display:block;width:100%;height:240px" hint-size="100%,240px"></x-import>
+        </div>
+        <div class="team-name" style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#f8f7f4;margin-bottom:4px;transition:color .2s">James Summerset</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#b68235;margin-bottom:10px">Founder &amp; President</div>
+        <p style="font-family:'Lora',serif;font-size:13px;line-height:1.75;color:rgba(248,247,244,.45);margin:0">25 years in marine construction. Lake Geneva and Oconomowoc markets.</p>
+      </div>
+
+      <div class="team-card" style="cursor:default">
+        <div style="overflow:hidden;border:1px solid rgba(248,247,244,.08);margin-bottom:20px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="team-2" shape="rect" placeholder="Team member photo" style="display:block;width:100%;height:240px" hint-size="100%,240px"></x-import>
+        </div>
+        <div class="team-name" style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#f8f7f4;margin-bottom:4px;transition:color .2s">David Halvorsen</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#b68235;margin-bottom:10px">VP of Operations</div>
+        <p style="font-family:'Lora',serif;font-size:13px;line-height:1.75;color:rgba(248,247,244,.45);margin:0">Project delivery and field operations. Leads our Madison and Fox Chain crews.</p>
+      </div>
+
+      <div class="team-card" style="cursor:default">
+        <div style="overflow:hidden;border:1px solid rgba(248,247,244,.08);margin-bottom:20px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="team-3" shape="rect" placeholder="Team member photo" style="display:block;width:100%;height:240px" hint-size="100%,240px"></x-import>
+        </div>
+        <div class="team-name" style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#f8f7f4;margin-bottom:4px;transition:color .2s">Sara Kowalczyk</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#b68235;margin-bottom:10px">Permitting &amp; Compliance</div>
+        <p style="font-family:'Lora',serif;font-size:13px;line-height:1.75;color:rgba(248,247,244,.45);margin:0">DNR and municipal permit specialist. 300+ permits filed across all seven markets.</p>
+      </div>
+
+      <div class="team-card" style="cursor:default">
+        <div style="overflow:hidden;border:1px solid rgba(248,247,244,.08);margin-bottom:20px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="team-4" shape="rect" placeholder="Team member photo" style="display:block;width:100%;height:240px" hint-size="100%,240px"></x-import>
+        </div>
+        <div class="team-name" style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#f8f7f4;margin-bottom:4px;transition:color .2s">Mike Tran</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#b68235;margin-bottom:10px">Lead Engineer</div>
+        <p style="font-family:'Lora',serif;font-size:13px;line-height:1.75;color:rgba(248,247,244,.45);margin:0">Structural design and site engineering. PE-licensed. Specifies every pier system we build.</p>
+      </div>
+
+    </div>
+    <div style="margin-top:48px;padding-top:40px;border-top:1px solid rgba(248,247,244,.08);display:flex;justify-content:space-between;align-items:center">
+      <p style="font-family:'Lora',serif;font-size:15px;line-height:1.75;color:rgba(248,247,244,.5);margin:0;max-width:500px">Summerset Marine employs 28 full-time specialists across project management, engineering, permitting, fabrication, and field installation.</p>
+      <a href="Consultation.dc.html" style="display:inline-block;padding:13px 36px;border:1px solid rgba(184,130,53,.5);font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#b68235;white-space:nowrap">Work With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section style="background:#f8f7f4;padding:96px 120px;border-top:1px solid #d4c9b8">
+  <div style="max-width:720px;margin:0 auto;text-align:center">
+    <div style="width:1px;height:48px;background:#d4c9b8;margin:0 auto 36px"></div>
+    <blockquote style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;font-style:italic;line-height:1.45;color:#201f1d;margin:0 0 32px">"Summerset built our pier in 2009. Sixteen years later, not a single structural issue. The same crew that installed it came back to replace our decking last season and remembered every detail of the original project."</blockquote>
+    <div style="width:32px;height:1px;background:#b68235;margin:0 auto 20px"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#6b6560">— T. &amp; M. Feldmann · Lake Nagawicka</div>
+    <div style="width:1px;height:48px;background:#d4c9b8;margin:32px auto 0"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:#0a1628;padding:100px 120px;text-align:center">
+  <div style="max-width:600px;margin:0 auto">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#b68235;margin-bottom:20px">Let's Build Together</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:#f8f7f4;font-style:italic;line-height:1.02;margin:0 0 20px">Start with a<br>conversation.</h2>
+    <div style="width:44px;height:1px;background:#b68235;margin:0 auto 28px"></div>
+    <p style="font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.8;color:rgba(248,247,244,.55);margin:0 0 44px;text-wrap:pretty">Every project begins with a no-obligation site visit. We'll assess your waterfront, answer your questions, and design a system built to last.</p>
+    <a href="Consultation.dc.html" style="display:inline-block;padding:16px 52px;border:1px solid #b68235;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.18em;color:#b68235;text-transform:uppercase">Request a Consultation</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#060f1c;padding:80px 120px 0">
+  <div style="max-width:1040px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:56px;padding-bottom:64px;border-bottom:1px solid rgba(248,247,244,.07)">
+      <div>
+        <div style="margin-bottom:22px">
+          <img src="uploads/SMC Logo.png" alt="Summerset Marine Construction" style="height:32px;width:auto;display:block">
+        </div>
+        <p style="font-family:'Lora',Georgia,serif;font-size:13px;line-height:1.8;color:rgba(248,247,244,.42);margin:0">Wisconsin's premier permanent pier and boat lift specialists. Serving lake country since 2001.</p>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:22px">Products</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">All Seasons HD Pier</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Classic Pier System</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Minimalist Pier</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Built-In Lifts</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Standalone Lifts</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:22px">Company</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="About.dc.html" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.8);transition:color .2s">About Summerset</a>
+          <a href="Projects Gallery.dc.html" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Project Gallery</a>
+          <a href="Blog Index.dc.html" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">From the Lake</a>
+          <a href="FAQ.dc.html" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">FAQ</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:22px">Contact</div>
+        <div style="display:flex;flex-direction:column;gap:13px;margin-bottom:32px">
+          <a href="tel:+12622488444" style="font-family:'Lora',Georgia,serif;font-size:14px;color:rgba(248,247,244,.65)">(262) 248-8444</a>
+          <a href="mailto:info@summersetmarine.com" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5)">info@summersetmarine.com</a>
+          <div style="font-family:'Lora',Georgia,serif;font-size:13px;line-height:1.7;color:rgba(248,247,244,.35)">Mon – Fri  7am – 5pm CT</div>
+        </div>
+        <a href="Consultation.dc.html" style="display:inline-block;padding:11px 24px;border:1px solid rgba(184,130,53,.4);font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#b68235">Schedule Consultation</a>
+      </div>
+    </div>
+    <div style="padding:22px 0;display:flex;justify-content:space-between;align-items:center">
+      <div style="font-family:'Lora',serif;font-size:11px;color:rgba(248,247,244,.2)">© 2025 Summerset Marine Construction LLC. All rights reserved.</div>
+      <div style="display:flex;gap:28px">
+        <a href="#" style="font-family:'Lora',serif;font-size:11px;color:rgba(248,247,244,.2)">Privacy Policy</a>
+        <a href="#" style="font-family:'Lora',serif;font-size:11px;color:rgba(248,247,244,.2)">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>

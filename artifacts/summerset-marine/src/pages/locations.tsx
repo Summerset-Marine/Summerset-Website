@@ -140,7 +140,7 @@ export default function LocationsPage() {
                     </span>
                   ) : null}
                 </h2>
-                <p className="mt-3 text-brand-gray">
+                <p className="mt-3 text-brand-black/80">
                   {loc.streetAddress}, {loc.city}, WI {loc.zip}
                 </p>
                 <p className="mt-2 font-medium text-brand-navy">
@@ -152,14 +152,14 @@ export default function LocationsPage() {
                   <h3 className="text-sm font-semibold uppercase tracking-wide text-brand-blue">
                     Hours
                   </h3>
-                  <ul className="mt-1 space-y-0.5 text-sm text-brand-gray">
+                  <ul className="mt-1 space-y-0.5 text-sm text-brand-black/80">
                     {loc.hours.map((h) => (
                       <li key={h}>{h}</li>
                     ))}
                   </ul>
                 </div>
                 {loc.blurb ? (
-                  <p className="mt-4 text-sm leading-relaxed text-brand-gray">{loc.blurb}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-brand-black/80">{loc.blurb}</p>
                 ) : null}
                 <div className="mt-6">
                   <Button

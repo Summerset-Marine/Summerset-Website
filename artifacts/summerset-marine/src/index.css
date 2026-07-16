@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -98,10 +99,13 @@
   --color-brand-blue-light: #2A8AC4;
   --color-brand-red: #C8102E;
   --color-brand-red-hover: #A50D25;
-  --color-brand-offwhite: #F8F7F4;
-  --color-brand-gray: #6B7280;
-  --color-brand-gray-light: #F3F4F6;
-  --color-brand-border: #D1D5DB;
+  --color-brand-gold: #b68235;
+  --color-brand-black: #201f1d;
+  --color-brand-offwhite: #f8f7f4;
+  --color-brand-hairline: #d4c9b8;
+  --color-brand-gray: #6b6560;
+  --color-brand-gray-light: #d4c9b8;
+  --color-brand-border: #d4c9b8;
 
   --spacing-18: 4.5rem;
   --spacing-22: 5.5rem;
@@ -185,8 +189,8 @@
   --chart-4: 203 65% 47%;
   --chart-5: 220 9% 46%;
 
-  --app-font-sans: 'Inter', system-ui, sans-serif;
-  --app-font-serif: 'Playfair Display', Georgia, serif;
+  --app-font-sans: 'Lora', Georgia, serif;
+  --app-font-serif: 'Cormorant Garamond', system-ui, sans-serif;
   --app-font-mono: Menlo, monospace;
   --radius: .5rem; /* 8px */
   --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00); /*replace with H S L */

@@ -31,12 +31,12 @@ export default function WhitewaterContactPage() {
       />
 
       {/* 1–2. Header */}
-      <section className="bg-brand-navy text-white">
+      <section className="bg-brand-offwhite text-brand-black border-b border-brand-hairline">
         <div className="mx-auto max-w-content px-6 py-16">
           <h1 className="font-serif text-4xl md:text-5xl">
             Request a Whitewater Consultation
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-white/85">
+          <p className="mt-5 max-w-2xl text-lg text-brand-black/70">
             Serving Whitewater area lakes and the surrounding Whitewater area.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function WhitewaterContactPage() {
 
           {/* 4–5. Contact info, featured photo, testimonial */}
           <div className="space-y-8">
-            <div className="rounded-lg border border-brand-border bg-brand-offwhite p-8">
+            <div className="border border-brand-hairline bg-brand-offwhite p-8">
               <h2 className="font-serif text-2xl text-brand-navy">Talk to Our Team</h2>
               <p className="mt-4 text-brand-gray">
                 Phone:{" "}

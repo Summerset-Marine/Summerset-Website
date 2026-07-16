@@ -87,7 +87,7 @@ export default function AboutPage() {
       <section className="bg-brand-offwhite">
         <div className="mx-auto max-w-content px-6 py-16">
           <h2 className="font-serif text-3xl text-brand-navy">Our Journey</h2>
-          <p className="mt-6 max-w-4xl text-lg leading-relaxed text-brand-gray">
+          <p className="mt-6 max-w-4xl text-lg leading-relaxed text-brand-black/80">
             Summerset Marine Construction began in 1990 with Larry Chapman&rsquo;s vision to
             redefine waterfront living. What started in East Troy grew into a family-driven
             operation, expanding to Eagle in 2000 and later making a bold move to a 70,000 sq. ft.
@@ -104,7 +104,7 @@ export default function AboutPage() {
         <div className="grid gap-12 md:grid-cols-2">
           <div>
             <h2 className="font-serif text-3xl text-brand-navy">Our Mission</h2>
-            <p className="mt-5 text-lg leading-relaxed text-brand-gray">
+            <p className="mt-5 text-lg leading-relaxed text-brand-black/80">
               For decades, our family has cherished the joy of life on the water. As a
               family-owned, multi-generational business, we&rsquo;re dedicated to helping families
               and businesses craft enduring waterfront memories by providing durable, beautiful,
@@ -116,7 +116,7 @@ export default function AboutPage() {
           </div>
           <div>
             <h2 className="font-serif text-3xl text-brand-navy">Our Vision</h2>
-            <p className="mt-5 text-lg leading-relaxed text-brand-gray">
+            <p className="mt-5 text-lg leading-relaxed text-brand-black/80">
               Building timeless memories through lasting{" "}
               <span className="font-semibold uppercase text-brand-navy">
                 connections to the water.
@@ -139,7 +139,7 @@ export default function AboutPage() {
                 <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-brand-blue">
                   {member.title}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-brand-gray">{member.bio}</p>
+                <p className="mt-3 text-sm leading-relaxed text-brand-black/80">{member.bio}</p>
               </div>
             ))}
           </div>

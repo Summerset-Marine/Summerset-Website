@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-34d2778d-934e-4961-811a-0caac01c111a/styles.css">
+  <script src="_ds/classical-34d2778d-934e-4961-811a-0caac01c111a/_ds_bundle.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #f8f7f4; color: #201f1d; font-family: 'Lora', Georgia, serif; }
+    a { color: inherit; text-decoration: none; }
+    .nav-link:hover { color: #b68235; }
+    .ftr-link:hover { color: rgba(248,247,244,.9); }
+    .lake-card:hover .lake-card-name { color: #b68235; }
+    .lake-card:hover { border-color: #b68235; }
+    .proj-card:hover .proj-title { color: #b68235; }
+    @keyframes heroFade { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .hc-kicker { animation: heroFade .8s .1s ease both; }
+    .hc-h1     { animation: heroFade .9s .25s ease both; }
+    .hc-rule   { animation: heroFade .7s .4s ease both; }
+    .hc-sub    { animation: heroFade .8s .5s ease both; }
+    .hc-cta    { animation: heroFade .7s .65s ease both; }
+  </style>
+</helmet>
+
+<!-- TOP UTILITY BAR -->
+<div style="background:#0a1628;height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 60px">
+  <span style="font-family:'Lora',serif;font-size:11px;color:rgba(248,247,244,.45);letter-spacing:.04em">Serving Wisconsin Lake Country · Est. 2001</span>
+  <div style="display:flex;align-items:center;gap:24px">
+    <span style="font-family:'Lora',serif;font-size:12px;color:rgba(248,247,244,.6)">(262) 248-8444</span>
+    <span style="display:block;width:1px;height:14px;background:rgba(248,247,244,.15)"></span>
+    <a href="#" style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#b68235">Schedule Consultation</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav style="position:sticky;top:0;z-index:100;background:#f8f7f4;border-bottom:1px solid #d4c9b8;padding:0 60px;height:64px;display:flex;align-items:center;justify-content:space-between">
+  <a href="Home.dc.html" style="display:flex;align-items:center;gap:14px;text-decoration:none">
+    <div style="background:#0a1628;padding:8px 16px;display:flex;align-items:center">
+      <img src="uploads/SMC Logo.png" alt="Summerset Marine Construction" style="height:28px;width:auto;display:block">
+    </div>
+  </a>
+  <div style="display:flex;align-items:center;gap:36px">
+    <a href="#" class="nav-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em;transition:color .2s">Products</a>
+    <a href="#" class="nav-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em;transition:color .2s">Services</a>
+    <a href="#" class="nav-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#b68235;letter-spacing:.06em;transition:color .2s">Markets</a>
+    <a href="#" class="nav-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em;transition:color .2s">Projects</a>
+    <a href="#" class="nav-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em;transition:color .2s">About</a>
+    <a href="#" style="padding:9px 22px;border:1px solid #0a1628;font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.13em;color:#0a1628;text-transform:uppercase">GET A CONSULTATION</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div style="background:#f8f7f4;padding:14px 120px;border-bottom:1px solid #e8e4de">
+  <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:10px">
+    <a href="#" style="font-family:'Lora',serif;font-size:12px;color:rgba(32,31,29,.45)">Markets</a>
+    <span style="font-size:11px;color:rgba(32,31,29,.3)">›</span>
+    <span style="font-family:'Lora',serif;font-size:12px;color:#201f1d">Lake Geneva</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section style="position:relative;height:75vh;min-height:540px;overflow:hidden;background:#0a1628">
+  <video autoplay="true" muted="true" loop="true" playsinline="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
+    <source src="/videos/lake-geneva.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(6,15,28,.88) 0%, rgba(6,15,28,.3) 60%, rgba(6,15,28,.15) 100%);pointer-events:none"></div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 120px 72px;pointer-events:none">
+    <div class="hc-kicker" style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.28em;color:#b68235;text-transform:uppercase;margin-bottom:18px">Wisconsin Lake Country</div>
+    <h1 class="hc-h1" style="font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;line-height:1.0;color:#f8f7f4;font-style:italic;margin:0 0 18px;max-width:700px">Lake Geneva</h1>
+    <div class="hc-rule" style="width:40px;height:1px;background:#b68235;margin-bottom:20px"></div>
+    <p class="hc-sub" style="font-family:'Lora',Georgia,serif;font-size:18px;line-height:1.7;color:rgba(248,247,244,.65);max-width:540px;margin:0 0 36px">Wisconsin's premier lakefront destination — where we've built some of our most enduring work since 2003.</p>
+    <div class="hc-cta" style="display:flex;gap:32px;align-items:center">
+      <a href="#" style="display:inline-block;padding:13px 40px;border:1px solid #b68235;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.16em;color:#b68235;text-transform:uppercase;pointer-events:auto">Start a Project Here</a>
+      <a href="#" style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:rgba(248,247,244,.5);border-bottom:1px solid rgba(248,247,244,.25);padding-bottom:2px;pointer-events:auto">View Projects →</a>
+    </div>
+  </div>
+  <!-- stat pills -->
+  <div style="position:absolute;top:36px;right:60px;display:flex;flex-direction:column;gap:12px;pointer-events:none">
+    <div style="background:rgba(6,15,28,.6);border:1px solid rgba(184,130,53,.3);padding:14px 20px;backdrop-filter:blur(8px)">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#b68235;font-variant-numeric:tabular-nums;line-height:1">5,262</div>
+      <div style="font-family:'Lora',serif;font-size:10px;color:rgba(248,247,244,.4);letter-spacing:.1em;margin-top:4px;text-transform:uppercase">Acres</div>
+    </div>
+    <div style="background:rgba(6,15,28,.6);border:1px solid rgba(184,130,53,.3);padding:14px 20px;backdrop-filter:blur(8px)">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#b68235;font-variant-numeric:tabular-nums;line-height:1">135′</div>
+      <div style="font-family:'Lora',serif;font-size:10px;color:rgba(248,247,244,.4);letter-spacing:.1em;margin-top:4px;text-transform:uppercase">Max Depth</div>
+    </div>
+    <div style="background:rgba(6,15,28,.6);border:1px solid rgba(184,130,53,.3);padding:14px 20px;backdrop-filter:blur(8px)">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#b68235;font-variant-numeric:tabular-nums;line-height:1">20+</div>
+      <div style="font-family:'Lora',serif;font-size:10px;color:rgba(248,247,244,.4);letter-spacing:.1em;margin-top:4px;text-transform:uppercase">Years Serving</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET INTRO -->
+<section style="background:#f8f7f4;padding:88px 120px">
+  <div style="max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1px 1fr;gap:72px;align-items:start">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#b68235;margin-bottom:20px">Our Presence Here</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:400;line-height:1.1;color:#201f1d;margin:0 0 22px">Two decades on<br><em>Geneva's shores.</em></h2>
+      <div style="width:32px;height:1px;background:#b68235;margin-bottom:24px"></div>
+      <p style="font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.9;color:#4a4540;margin:0 0 20px;text-align:justify;text-wrap:pretty">Lake Geneva has long been Wisconsin's most coveted address — a place where lakefront property is measured not just in frontage feet but in legacy. Since 2003, Summerset Marine has been the trusted name in permanent marine construction for Geneva's most discerning property owners.</p>
+      <p style="font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.9;color:#4a4540;margin:0;text-align:justify;text-wrap:pretty">Our crews know Geneva's bottom, its regulations, and its seasonal rhythms. That institutional knowledge is why clients return — and why they refer their neighbors.</p>
+    </div>
+    <div style="width:1px;background:#d4c9b8;align-self:stretch"></div>
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#b68235;margin-bottom:28px">By the Numbers</div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-bottom:1px solid #e8e4de">
+          <span style="font-family:'Lora',serif;font-size:14px;color:#6b6560">Installations completed</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">21+</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-bottom:1px solid #e8e4de">
+          <span style="font-family:'Lora',serif;font-size:14px;color:#6b6560">Years serving Geneva</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">20+</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-bottom:1px solid #e8e4de">
+          <span style="font-family:'Lora',serif;font-size:14px;color:#6b6560">Shoreline miles served</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">21</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:20px 0">
+          <span style="font-family:'Lora',serif;font-size:14px;color:#6b6560">Pier systems still standing</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">100%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODIES OF WATER -->
+<section style="background:#f8f7f4;padding:0 120px 88px;border-top:1px solid #d4c9b8">
+  <div style="max-width:1040px;margin:0 auto">
+    <div style="padding:64px 0 48px;text-align:center">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#b68235;margin-bottom:16px">The Lakes</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:#201f1d;margin:0">Bodies of Water We Serve</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">
+
+      <div class="lake-card" style="border:1px solid #d4c9b8;background:#fff;overflow:hidden;transition:border-color .25s;cursor:pointer">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="lake-geneva" shape="rect" placeholder="Geneva Lake photo" style="display:block;width:100%;height:200px" hint-size="100%,200px"></x-import>
+        <div style="padding:32px 28px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:10px">Primary Lake</div>
+          <div class="lake-card-name" style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#201f1d;margin-bottom:18px;transition:color .2s">Geneva Lake</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px">
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">5,262</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Acres</div></div>
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">135′</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Max depth</div></div>
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">21 mi</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Shoreline</div></div>
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">21+</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Our installs</div></div>
+          </div>
+          <a href="#" style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;padding-bottom:2px;display:inline-flex;align-items:center;gap:8px">Lake Profile <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="lake-card" style="border:1px solid #d4c9b8;border-left:none;background:#fff;overflow:hidden;transition:border-color .25s;cursor:pointer">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="lake-como" shape="rect" placeholder="Lake Como photo" style="display:block;width:100%;height:200px" hint-size="100%,200px"></x-import>
+        <div style="padding:32px 28px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:10px">Adjacent Lake</div>
+          <div class="lake-card-name" style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#201f1d;margin-bottom:18px;transition:color .2s">Lake Como</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px">
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">812</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Acres</div></div>
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">24′</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Max depth</div></div>
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">6.5 mi</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Shoreline</div></div>
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">8+</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Our installs</div></div>
+          </div>
+          <a href="#" style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;padding-bottom:2px;display:inline-flex;align-items:center;gap:8px">Lake Profile <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="lake-card" style="border:1px solid #d4c9b8;border-left:none;background:#fff;overflow:hidden;transition:border-color .25s;cursor:pointer">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="lake-delavan" shape="rect" placeholder="Delavan Lake photo" style="display:block;width:100%;height:200px" hint-size="100%,200px"></x-import>
+        <div style="padding:32px 28px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:10px">Adjacent Lake</div>
+          <div class="lake-card-name" style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#201f1d;margin-bottom:18px;transition:color .2s">Delavan Lake</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px">
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">2,168</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Acres</div></div>
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">52′</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Max depth</div></div>
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">11.5 mi</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Shoreline</div></div>
+            <div><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#0a1628;font-variant-numeric:tabular-nums">6+</div><div style="font-family:'Lora',serif;font-size:11px;color:#aaa;margin-top:3px">Our installs</div></div>
+          </div>
+          <a href="#" style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;padding-bottom:2px;display:inline-flex;align-items:center;gap:8px">Lake Profile <span>→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section style="background:#0a1628;padding:88px 120px">
+  <div style="max-width:1040px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#b68235;margin-bottom:16px">Portfolio</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:#f8f7f4;font-style:italic;margin:0;line-height:1.05">Lake Geneva Projects</h2>
+      </div>
+      <a href="#" style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#b68235;border-bottom:1px solid rgba(184,130,53,.5);padding-bottom:2px">All Projects →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px">
+
+      <div class="proj-card" style="cursor:pointer">
+        <div style="overflow:hidden;border:1px solid rgba(248,247,244,.08);margin-bottom:16px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="proj-lg-1" shape="rect" placeholder="Project photo" style="display:block;width:100%;height:240px" hint-size="100%,240px"></x-import>
+        </div>
+        <div style="padding:0 4px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:8px">All Seasons HD · Geneva Lake</div>
+          <div class="proj-title" style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#f8f7f4;margin-bottom:6px;transition:color .2s">Williams Bay Residence</div>
+          <div style="font-family:'Lora',serif;font-size:13px;color:rgba(248,247,244,.4)">120′ pier · 2 lifts · 2021</div>
+        </div>
+      </div>
+
+      <div class="proj-card" style="cursor:pointer">
+        <div style="overflow:hidden;border:1px solid rgba(248,247,244,.08);margin-bottom:16px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="proj-lg-2" shape="rect" placeholder="Project photo" style="display:block;width:100%;height:240px" hint-size="100%,240px"></x-import>
+        </div>
+        <div style="padding:0 4px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:8px">Classic Pier · Lake Como</div>
+          <div class="proj-title" style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#f8f7f4;margin-bottom:6px;transition:color .2s">Como Bluffs Estate</div>
+          <div style="font-family:'Lora',serif;font-size:13px;color:rgba(248,247,244,.4)">80′ pier · 1 lift · 2022</div>
+        </div>
+      </div>
+
+      <div class="proj-card" style="cursor:pointer">
+        <div style="overflow:hidden;border:1px solid rgba(248,247,244,.08);margin-bottom:16px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="proj-lg-3" shape="rect" placeholder="Project photo" style="display:block;width:100%;height:240px" hint-size="100%,240px"></x-import>
+        </div>
+        <div style="padding:0 4px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:8px">All Seasons HD · Delavan Lake</div>
+          <div class="proj-title" style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#f8f7f4;margin-bottom:6px;transition:color .2s">Delavan Shoreline Rebuild</div>
+          <div style="font-family:'Lora',serif;font-size:13px;color:rgba(248,247,244,.4)">160′ pier · 3 lifts · 2023</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section style="background:#f8f7f4;padding:96px 120px;border-top:1px solid #d4c9b8">
+  <div style="max-width:720px;margin:0 auto;text-align:center">
+    <div style="width:1px;height:48px;background:#d4c9b8;margin:0 auto 36px"></div>
+    <blockquote style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;font-style:italic;line-height:1.45;color:#201f1d;margin:0 0 32px">"On Geneva Lake, your pier is as much a statement as your house. Summerset understood that — and delivered something we're genuinely proud of."</blockquote>
+    <div style="width:32px;height:1px;background:#b68235;margin:0 auto 20px"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#6b6560">— R. &amp; C. Whitmore · Geneva Lake, Williams Bay</div>
+    <div style="width:1px;height:48px;background:#d4c9b8;margin:32px auto 0"></div>
+  </div>
+</section>
+
+<!-- RECOMMENDED PRODUCTS -->
+<section style="background:#f8f7f4;padding:0 120px 88px;border-top:1px solid #d4c9b8">
+  <div style="max-width:1040px;margin:0 auto">
+    <div style="padding:64px 0 40px;display:flex;justify-content:space-between;align-items:baseline">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#b68235;margin-bottom:14px">Recommended for Geneva</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#201f1d;margin:0">Systems suited to<br><em>Geneva's depths</em></h2>
+      </div>
+      <a href="#" style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;padding-bottom:2px">All Products</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">
+      <div style="border:1px solid #d4c9b8;background:#fff;padding:36px 32px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:12px">Best for deep water</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#201f1d;margin-bottom:12px">All Seasons HD</div>
+        <div style="font-family:'Lora',serif;font-size:14px;line-height:1.75;color:#6b6560;margin-bottom:24px">Rated to 14′ depth — perfect for Geneva's steep drop-offs and open water exposure.</div>
+        <a href="Product Detail.dc.html" style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;padding-bottom:2px;display:inline-flex;align-items:center;gap:8px">Learn More <span>→</span></a>
+      </div>
+      <div style="border:1px solid #d4c9b8;border-left:none;background:#fff;padding:36px 32px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:12px">For sheltered coves</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#201f1d;margin-bottom:12px">Classic Pier</div>
+        <div style="font-family:'Lora',serif;font-size:14px;line-height:1.75;color:#6b6560;margin-bottom:24px">Time-proven framing for Geneva's protected bays — reliable, elegant, and built to last.</div>
+        <a href="#" style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;padding-bottom:2px;display:inline-flex;align-items:center;gap:8px">Learn More <span>→</span></a>
+      </div>
+      <div style="border:1px solid #d4c9b8;border-left:none;background:#fff;padding:36px 32px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:12px">Vessel protection</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#201f1d;margin-bottom:12px">Built-In Lift</div>
+        <div style="font-family:'Lora',serif;font-size:14px;line-height:1.75;color:#6b6560;margin-bottom:24px">Integrated seamlessly into your dock structure — preferred by Geneva's most discerning boaters.</div>
+        <a href="#" style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;padding-bottom:2px;display:inline-flex;align-items:center;gap:8px">Learn More <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA — market-specific -->
+<section style="background:#0a1628;padding:100px 120px;text-align:center">
+  <div style="max-width:600px;margin:0 auto">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#b68235;margin-bottom:20px">Lake Geneva</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:#f8f7f4;font-style:italic;line-height:1.02;margin:0 0 20px">Build on Geneva<br>with confidence.</h2>
+    <div style="width:44px;height:1px;background:#b68235;margin:0 auto 28px"></div>
+    <p style="font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.8;color:rgba(248,247,244,.55);margin:0 0 44px;text-wrap:pretty">Our Lake Geneva team knows the lake, the regulations, and the shoreline. Start with a no-obligation site visit and we'll tell you exactly what's possible for your property.</p>
+    <a href="#" style="display:inline-block;padding:16px 52px;border:1px solid #b68235;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.18em;color:#b68235;text-transform:uppercase">Request a Site Visit</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#060f1c;padding:80px 120px 0">
+  <div style="max-width:1040px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:56px;padding-bottom:64px;border-bottom:1px solid rgba(248,247,244,.07)">
+      <div>
+        <div style="display:flex;align-items:center;gap:13px;margin-bottom:22px">
+          <img src="uploads/SMC Logo.png" alt="Summerset Marine Construction" style="height:32px;width:auto;display:block">
+        </div>
+        <p style="font-family:'Lora',Georgia,serif;font-size:13px;line-height:1.8;color:rgba(248,247,244,.42);margin:0;text-wrap:pretty">Wisconsin's premier permanent pier and boat lift specialists. Serving lake country since 2001.</p>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:22px">Products</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">All Seasons HD Pier</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Classic Pier System</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Minimalist Pier</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Built-In Lifts</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Standalone Lifts</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Live Inventory</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:22px">Markets</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="#" class="ftr-link" style="font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:rgba(248,247,244,.8);transition:color .2s">Lake Geneva</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Oconomowoc</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Madison</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Green Lake</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Fox Chain</a>
+          <a href="#" class="ftr-link" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5);transition:color .2s">Door County</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:22px">Contact</div>
+        <div style="display:flex;flex-direction:column;gap:13px;margin-bottom:32px">
+          <a href="tel:+12622488444" style="font-family:'Lora',Georgia,serif;font-size:14px;color:rgba(248,247,244,.65)">(262) 248-8444</a>
+          <a href="mailto:info@summersetmarine.com" style="font-family:'Lora',Georgia,serif;font-size:13px;color:rgba(248,247,244,.5)">info@summersetmarine.com</a>
+          <div style="font-family:'Lora',Georgia,serif;font-size:13px;line-height:1.7;color:rgba(248,247,244,.35)">Mon – Fri  7am – 5pm CT</div>
+        </div>
+        <a href="#" style="display:inline-block;padding:11px 24px;border:1px solid rgba(184,130,53,.4);font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#b68235">Schedule Consultation</a>
+      </div>
+    </div>
+    <div style="padding:22px 0;display:flex;justify-content:space-between;align-items:center">
+      <div style="font-family:'Lora',serif;font-size:11px;color:rgba(248,247,244,.2)">© 2025 Summerset Marine Construction LLC. All rights reserved.</div>
+      <div style="display:flex;gap:28px">
+        <a href="#" style="font-family:'Lora',serif;font-size:11px;color:rgba(248,247,244,.2)">Privacy Policy</a>
+        <a href="#" style="font-family:'Lora',serif;font-size:11px;color:rgba(248,247,244,.2)">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>

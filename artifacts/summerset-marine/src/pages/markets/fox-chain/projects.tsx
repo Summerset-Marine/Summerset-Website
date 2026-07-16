@@ -147,10 +147,10 @@ export default function FoxChainProjectsPage() {
         ))}
 
       {/* 1. Header */}
-      <section className="bg-brand-navy text-white">
+      <section className="bg-brand-offwhite text-brand-black border-b border-brand-hairline">
         <div className="mx-auto max-w-content px-6 py-16">
           <h1 className="font-serif text-4xl md:text-5xl">Fox Chain Projects</h1>
-          <p className="mt-5 max-w-2xl text-lg text-white/85">
+          <p className="mt-5 max-w-2xl text-lg text-brand-black/70">
             Completed permanent piers, boat lifts, and waterfront systems built by Summerset
             Marine across the Fox Chain market.
           </p>
@@ -192,7 +192,7 @@ export default function FoxChainProjectsPage() {
             {[0, 1, 2, 3, 4, 5].map((n) => (
               <div
                 key={n}
-                className="h-72 animate-pulse rounded-lg border border-brand-border bg-brand-offwhite"
+                className="h-72 animate-pulse border border-brand-hairline bg-brand-offwhite"
               />
             ))}
           </div>
@@ -202,7 +202,7 @@ export default function FoxChainProjectsPage() {
               {[0, 1, 2, 3, 4, 5].map((n) => (
                 <div
                   key={n}
-                  className="flex h-72 items-center justify-center rounded-lg border border-brand-border bg-brand-gray-light"
+                  className="flex h-72 items-center justify-center border border-brand-hairline bg-brand-offwhite"
                 >
                   <span className="text-sm font-medium uppercase tracking-wide text-brand-gray">
                     Projects Coming Soon
@@ -229,7 +229,7 @@ export default function FoxChainProjectsPage() {
                       setLightboxIndex(lightboxPos);
                     }
                   }}
-                  className="group overflow-hidden rounded-lg border border-brand-border bg-white text-left shadow-sm transition hover:shadow-md"
+                  className="group overflow-hidden border border-brand-hairline bg-white text-left transition-colors hover:border-brand-gold"
                 >
                   {project.afterImageUrl ? (
                     <img
@@ -245,13 +245,13 @@ export default function FoxChainProjectsPage() {
                   )}
                   <div className="p-5">
                     <div className="flex flex-wrap gap-2">
-                      <span className="rounded bg-brand-navy px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                      <span className="border border-brand-hairline px-2.5 py-1 font-serif text-[11px] uppercase tracking-[.13em] text-brand-black/70">
                         {project.lake === "fox-chain"
                           ? "Fox Chain O’ Lakes"
                           : (project.lake ?? "Fox Chain O’ Lakes")}
                       </span>
                       {project.productType ? (
-                        <span className="rounded bg-brand-blue px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                        <span className="border border-brand-gold px-2.5 py-1 font-serif text-[11px] uppercase tracking-[.13em] text-brand-gold">
                           {project.productType}
                         </span>
                       ) : null}

@@ -14,16 +14,16 @@ export interface ButtonProps {
 
 const VARIANT_CLASSES: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "bg-brand-red text-white hover:bg-brand-red-hover border-2 border-transparent",
+    "border border-brand-gold text-brand-gold hover:bg-brand-gold/10",
   secondary:
-    "border-2 border-brand-blue text-brand-blue bg-transparent hover:bg-brand-blue hover:text-white",
+    "border border-brand-navy text-brand-navy bg-transparent hover:bg-brand-navy/5",
   ghost:
-    "border-2 border-white text-white bg-transparent hover:bg-white hover:text-brand-navy",
+    "border border-white text-white bg-transparent hover:bg-white/10",
 };
 
 const SIZE_CLASSES: Record<NonNullable<ButtonProps["size"]>, string> = {
-  default: "px-6 py-3 text-sm",
-  large: "px-8 py-4 text-base",
+  default: "px-[22px] py-[9px] text-[12px] uppercase tracking-[.13em] font-serif",
+  large: "px-12 py-[15px] text-[13px] uppercase tracking-[.18em] font-serif",
 };
 
 export default function Button({

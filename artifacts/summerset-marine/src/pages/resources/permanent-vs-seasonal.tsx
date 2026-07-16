@@ -38,7 +38,7 @@ export default function PermanentVsSeasonalPage() {
 
       <section className="bg-brand-navy text-white">
         <div className="mx-auto max-w-content px-6 py-16">
-          <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
+          <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl text-brand-gold">
             Permanent vs. Seasonal Pier Systems: Which Is Right for You?
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/85">
@@ -49,7 +49,7 @@ export default function PermanentVsSeasonalPage() {
       </section>
 
       {SECTIONS.map((section, i) => (
-        <section key={section.heading} className={i % 2 === 1 ? "bg-brand-offwhite" : ""}>
+        <section key={section.heading} className={i % 2 === 1 ? "bg-brand-offwhite border-y border-brand-hairline" : ""}>
           <div className="mx-auto max-w-content px-6 py-14">
             <h2 className="font-serif text-3xl text-brand-navy">{section.heading}</h2>
             <ContentPlaceholder label={section.label} className="mt-6 max-w-3xl" />

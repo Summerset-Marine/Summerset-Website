@@ -31,14 +31,15 @@ export default function HeroSection({
 }: HeroSectionProps) {
   if (variant === "split") {
     return (
-      <section className="bg-white">
+      <section className="bg-brand-offwhite">
         <div className="mx-auto grid min-h-[600px] max-w-content items-stretch px-0 lg:grid-cols-2">
           <div className="flex flex-col justify-center px-6 py-16 lg:pr-14">
-            <h1 className="font-serif text-4xl leading-tight text-brand-navy md:text-5xl">
+            <h1 className="font-serif text-[44px] italic font-light leading-[1.1] text-brand-navy md:text-[50px]">
               {headline}
             </h1>
+            <div className="mt-[22px] mb-[26px] h-[1px] w-[32px] bg-brand-gold" />
             {subheadline ? (
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-brand-gray">
+              <p className="max-w-xl text-[17px] leading-[1.9] text-[#4a4540]">
                 {subheadline}
               </p>
             ) : null}
@@ -77,7 +78,7 @@ export default function HeroSection({
       : "items-start text-left";
 
   return (
-    <section className="relative flex min-h-[70vh] w-full overflow-hidden md:min-h-[85vh]">
+    <section className="relative flex min-h-[580px] h-[88vh] w-full overflow-hidden bg-brand-navy">
       {isVideo ? (
         <video
           className="absolute inset-0 h-full w-full object-cover object-center"
@@ -96,22 +97,23 @@ export default function HeroSection({
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
       )}
-      <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#060f1c]/20 to-[#060f1c]/70 pointer-events-none" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-content px-6">
+      <div className="relative z-10 mx-auto flex w-full max-w-content px-6 pointer-events-none">
         <div className={`flex w-full flex-col justify-center py-24 ${alignClasses}`}>
-          <h1 className="max-w-3xl font-serif text-4xl leading-tight text-white md:text-6xl">
+          <h1 className="max-w-[820px] font-serif text-[60px] md:text-[82px] font-light italic leading-none text-brand-offwhite mb-6">
             {headline}
           </h1>
+          <div className="h-[1px] w-[48px] bg-brand-gold mb-[26px]" />
           {subheadline ? (
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl">
+            <p className="max-w-[540px] font-serif text-[18px] md:text-[21px] font-light leading-[1.55] text-brand-offwhite/70 mb-11 tracking-wide">
               {subheadline}
             </p>
           ) : null}
           {(primaryCta || secondaryCta) && (
-            <div className={`mt-9 flex flex-wrap gap-4 ${align === "center" ? "justify-center" : ""}`}>
+            <div className={`flex flex-wrap gap-4 pointer-events-auto ${align === "center" ? "justify-center" : ""}`}>
               {primaryCta ? (
-                <Button href={primaryCta.href} variant="ghost" size="large">
+                <Button href={primaryCta.href} variant="primary" size="large">
                   {primaryCta.label}
                 </Button>
               ) : null}

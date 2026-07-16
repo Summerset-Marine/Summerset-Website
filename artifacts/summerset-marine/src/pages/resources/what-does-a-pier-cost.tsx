@@ -21,12 +21,12 @@ export default function PierCostPage() {
 
       <section className="bg-brand-navy text-white">
         <div className="mx-auto max-w-content px-6 py-16">
-          <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">What Does a Permanent Pier Cost?</h1>
+          <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl text-brand-gold">What Does a Permanent Pier Cost?</h1>
         </div>
       </section>
 
       {SECTIONS.map((heading, i) => (
-        <section key={heading} className={i % 2 === 1 ? "bg-brand-offwhite" : ""}>
+        <section key={heading} className={i % 2 === 1 ? "bg-brand-offwhite border-y border-brand-hairline" : ""}>
           <div className="mx-auto max-w-content px-6 py-14">
             <h2 className="font-serif text-3xl text-brand-navy">{heading}</h2>
             <ContentPlaceholder label={`${heading} — body copy`} className="mt-6 max-w-3xl" />

@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import Layout from "@/components/layout/Layout";
 import PageMeta from "@/components/seo/PageMeta";
 import JsonLd, { organizationSchema } from "@/components/seo/JsonLd";
-import CTABlock from "@/components/ui/CTABlock";
 import Button from "@/components/ui/Button";
 import ContentPlaceholder from "@/components/ui/ContentPlaceholder";
 import {
@@ -30,52 +29,14 @@ interface Testimonial {
   lakeLabel?: string;
 }
 
-const PRODUCT_HIGHLIGHTS = [
-  {
-    name: "Permanent Piers",
-    href: "/products/permanent-piers",
-    description:
-      "Engineered pier systems that stay in the water year-round — no seasonal install, no removal, built to last a lifetime.",
-    imageSrc: "/images/smc/wisconsin-lifetime-all-seasons-hd-pier-aerial-001.jpg",
-    imageAlt:
-      "Lifetime All Seasons HD permanent pier aerial view — Summerset Marine Construction Wisconsin",
-  },
-  {
-    name: "Boat & PWC Lifts",
-    href: "/products/lifts",
-    description:
-      "Built-in, standalone, and PWC lifts that protect your investment and keep your waterfront looking clean.",
-    imageSrc: "/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg",
-    imageAlt:
-      "Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction",
-  },
-  {
-    name: "Marine Contracting",
-    href: "/services/marine-contracting",
-    description:
-      "Dredging, stone work, barge work, steel sheeting, and professional engineering for demanding shorelines.",
-    imageSrc: "/images/smc/wisconsin-marine-contracting-service-hero-001.jpg",
-    imageAlt:
-      "Marine contracting barge and equipment on a Wisconsin waterway — Summerset Marine Construction",
-  },
-] as const;
-
 const MARKETS = [
-  {
-    name: "Lake Geneva",
-    href: "/markets/lake-geneva",
-    descriptor: "Wisconsin's most iconic lakefront — permanent piers built for Geneva Lake estates.",
-  },
-  {
-    name: "Oconomowoc / Lake Country",
-    href: "/markets/oconomowoc",
-    descriptor: "Okauchee, Nagawicka, Lac La Belle, and Beaver Lake — Lake Country's pier builder.",
-  },
-  {
-    name: "Door County",
-    href: "/markets/door-county",
-    descriptor: "Green Bay, Sturgeon Bay, and Lake Michigan — marine contracting for the peninsula.",
-  },
+  { name: "Lake Geneva", count: "3 lakes", num: "01", href: "/markets/lake-geneva" },
+  { name: "Oconomowoc", count: "4 lakes", num: "02", href: "/markets/oconomowoc" },
+  { name: "Madison", count: "5 lakes", num: "03", href: "/markets/madison" },
+  { name: "Whitewater", count: "2 lakes", num: "04", href: "/markets/whitewater" },
+  { name: "Green Lake", count: "2 lakes", num: "05", href: "/markets/green-lake" },
+  { name: "Fox Chain", count: "6 lakes", num: "06", href: "/markets/fox-chain" },
+  { name: "Door County", count: "3 lakes", num: "07", href: "/markets/door-county" },
 ] as const;
 
 const MARKET_SLUGS = ["lake-geneva", "oconomowoc", "door-county"] as const;
@@ -92,7 +53,8 @@ export default function HomePage() {
           () => [] as Project[],
         ),
       ),
-    ).then((byMarket) => setProjects(byMarket.flat().slice(0, 6)));
+    ).then((byMarket) => setProjects(byMarket.flat().slice(0, 5))); // Top 5 for the grid
+
     Promise.all(
       MARKET_SLUGS.map((market) =>
         sanityFetch<Testimonial[]>(MARKET_TESTIMONIALS_QUERY, { market }).catch(
@@ -100,12 +62,11 @@ export default function HomePage() {
         ),
       ),
     ).then((byMarket) => {
-      // One testimonial per market where possible, then fill to three.
-      const primary = byMarket
-        .map((list) => list[0])
-        .filter((t): t is Testimonial => Boolean(t));
-      const extras = byMarket.flat().filter((t) => !primary.includes(t));
-      setTestimonials([...primary, ...extras].slice(0, 3));
+      // Find one strong testimonial
+      const all = byMarket.flat().filter(Boolean);
+      if (all.length > 0) {
+        setTestimonials([all[0]]);
+      }
     });
   }, []);
 
@@ -119,215 +80,296 @@ export default function HomePage() {
       <JsonLd data={organizationSchema()} />
 
       {/* 1. Hero */}
-      <section className="bg-brand-navy text-white">
-        <div className="mx-auto max-w-content px-6 py-24">
-          <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-6xl">
-            Wisconsin&rsquo;s Premier Permanent Waterfront Systems
+      <section className="relative h-[88vh] min-h-[580px] overflow-hidden bg-brand-navy">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          src="/videos/home.mp4"
+          poster="/images/smc/wisconsin-permanent-pier-aerial-hero-002.jpg"
+          aria-label="Aerial view of a Lifetime All Seasons HD permanent pier with covered boat lift — Summerset Marine Construction"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#060f1c]/20 to-[#060f1c]/70" />
+        <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 text-center md:px-20">
+          <div className="mb-7 animate-fade-in-up font-serif text-xs uppercase tracking-[0.3em] text-brand-gold">
+            Wisconsin Lake Country
+          </div>
+          <h1 className="mb-6 m-0 max-w-[820px] animate-fade-in-up font-serif text-5xl font-light italic leading-[1.0] text-brand-offwhite delay-150 md:text-[82px]">
+            Built for<br />the Water's Edge
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-white/85 md:text-xl">
-            Custom piers, boat lifts, and marine contracting &mdash; engineered to last a
-            lifetime.
+          <div className="mb-6 h-px w-12 animate-fade-in-up bg-brand-gold delay-300" />
+          <p className="mb-11 m-0 max-w-[540px] animate-fade-in-up font-serif text-lg font-light leading-relaxed tracking-wider text-brand-offwhite/70 delay-500 md:text-[21px]">
+            Permanent pier systems &amp; boat lifts crafted<br />for Wisconsin's finest lakes
           </p>
-          <div className="mt-9 flex flex-wrap gap-4">
+          <div className="pointer-events-auto animate-fade-in-up delay-700">
             <Button href="/consultation" variant="primary" size="large">
-              Get a Consultation
-            </Button>
-            <Button href="/markets/lake-geneva/projects" variant="ghost" size="large">
-              View Our Work
+              Begin Your Project
             </Button>
           </div>
-          <video
-            src="/videos/home.mp4"
-            poster="/images/smc/wisconsin-permanent-pier-aerial-hero-002.jpg"
-            className="mt-12 aspect-[21/9] w-full rounded-lg object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            aria-label="Aerial view of a Lifetime All Seasons HD permanent pier with covered boat lift — Summerset Marine Construction"
-          />
+        </div>
+        <div className="pointer-events-none absolute bottom-9 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2">
+          <span className="font-serif text-[10px] uppercase tracking-[0.22em] text-brand-offwhite/35">
+            Scroll
+          </span>
+          <div className="h-9 w-px bg-gradient-to-b from-brand-offwhite/30 to-transparent" />
         </div>
       </section>
 
-      {/* 2. Product highlights */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl text-brand-navy">What We Build</h2>
-        <div className="mt-8 grid gap-8 md:grid-cols-3">
-          {PRODUCT_HIGHLIGHTS.map((product) => (
-            <div
-              key={product.name}
-              className="flex flex-col rounded-lg border border-brand-border bg-white p-8 shadow-sm"
-            >
-              <img
-                src={product.imageSrc}
-                alt={product.imageAlt}
-                className="aspect-[4/3] w-full rounded-md object-cover"
-                loading="lazy"
-              />
-              <h3 className="mt-5 font-serif text-2xl text-brand-navy">{product.name}</h3>
-              <p className="mt-3 flex-1 leading-relaxed text-brand-gray">
-                {product.description}
-              </p>
-              <div className="mt-6">
-                <Button href={product.href} variant="secondary">
-                  Learn More
-                </Button>
+      {/* 2. Intro Band */}
+      <section className="bg-brand-offwhite px-6 py-24 md:px-20 md:py-[88px]">
+        <div className="mx-auto grid max-w-[1040px] items-start gap-12 md:grid-cols-[1fr_1px_1fr] md:gap-[72px]">
+          <div>
+            <h2 className="mb-5 m-0 font-serif text-4xl font-normal leading-[1.1] text-[#201f1d] md:text-[44px]">
+              The permanent<br /><em className="italic">difference.</em>
+            </h2>
+            <div className="mb-6 h-px w-8 bg-brand-gold" />
+            <p className="m-0 text-pretty font-serif text-base leading-[1.9] text-[#4a4540] text-justify md:text-[17px]">
+              For over two decades, Summerset Marine has set the standard for permanent marine construction on Wisconsin's premier lakes. Our structures don't merely hold — they endure season after season, through ice and storm, outlasting every seasonal dock on the block.
+            </p>
+          </div>
+          <div className="hidden self-stretch bg-brand-border md:block w-px" />
+          <div>
+            <div className="mb-7 font-serif text-xs uppercase tracking-[0.22em] text-brand-gold">
+              Our Commitment
+            </div>
+            <div className="flex flex-col gap-6">
+              <div className="flex items-start gap-5">
+                <div className="mt-3 h-px w-7 shrink-0 bg-brand-gold" />
+                <div>
+                  <div className="mb-1 font-serif text-[19px] font-semibold text-[#201f1d]">Engineered for Wisconsin</div>
+                  <div className="font-serif text-sm leading-[1.75] text-[#6b6560]">Designed for freeze-thaw cycles, high winds, and decades of lake conditions.</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-5">
+                <div className="mt-3 h-px w-7 shrink-0 bg-brand-gold" />
+                <div>
+                  <div className="mb-1 font-serif text-[19px] font-semibold text-[#201f1d]">Complete Project Management</div>
+                  <div className="font-serif text-sm leading-[1.75] text-[#6b6560]">Consultation, permitting, installation, and ongoing service — one relationship.</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-5">
+                <div className="mt-3 h-px w-7 shrink-0 bg-brand-gold" />
+                <div>
+                  <div className="mb-1 font-serif text-[19px] font-semibold text-[#201f1d]">Lifetime Structural Warranty</div>
+                  <div className="font-serif text-sm leading-[1.75] text-[#6b6560]">Every pier system carries our full structural warranty — unconditionally.</div>
+                </div>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 3. Why Permanent? */}
-      <section className="bg-brand-offwhite">
-        <div className="mx-auto max-w-content px-6 py-16">
-          <h2 className="font-serif text-3xl text-brand-navy">Why Permanent?</h2>
-          <ContentPlaceholder
-            label="brief copy on permanent vs seasonal pier systems"
-            className="mt-6 max-w-3xl"
-          />
-          <div className="mt-8">
-            <Button href="/resources/permanent-vs-seasonal" variant="secondary">
-              Permanent vs. Seasonal: Which Is Right for You?
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* 4. Market presence */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl text-brand-navy">Where We Build</h2>
-        <div className="mt-8 grid gap-8 md:grid-cols-3">
-          {MARKETS.map((market) => (
-            <Link
-              key={market.name}
-              href={market.href}
-              className="group block rounded-lg border border-brand-border bg-white p-8 shadow-sm transition hover:shadow-md"
-            >
-              <h3 className="font-serif text-2xl text-brand-navy group-hover:text-brand-blue">
-                {market.name}
-              </h3>
-              <p className="mt-3 leading-relaxed text-brand-gray">{market.descriptor}</p>
-              <span className="mt-5 inline-block font-medium text-brand-red">
-                Explore {market.name} &rarr;
-              </span>
+      {/* 3. Systems */}
+      <div className="border-t border-brand-border bg-brand-offwhite px-6 pb-12 pt-16 text-center md:px-20 md:pb-[52px] md:pt-[64px]">
+        <div className="mb-4 font-serif text-xs uppercase tracking-[0.28em] text-brand-gold">
+          Our Systems
+        </div>
+        <h2 className="m-0 font-serif text-4xl font-light text-[#201f1d] md:text-[48px]">
+          Permanence, Elevated
+        </h2>
+      </div>
+
+      <div className="grid border-t border-brand-border md:grid-cols-2">
+        <img
+          src="/images/smc/wisconsin-lifetime-all-seasons-hd-pier-aerial-001.jpg"
+          alt="Permanent Pier Systems"
+          className="h-64 w-full object-cover md:h-[480px]"
+          loading="lazy"
+        />
+        <div className="flex flex-col justify-center bg-brand-offwhite px-8 py-12 md:border-l md:border-brand-border md:px-[72px] md:py-[68px]">
+          <div className="mb-5 font-serif text-xs uppercase tracking-[0.24em] text-brand-gold">
+            01 — Pier Systems
+          </div>
+          <h3 className="mb-5 m-0 font-serif text-4xl font-light leading-[1.0] text-[#201f1d] md:text-[50px]">
+            Permanent<br />Pier Systems
+          </h3>
+          <div className="mb-6 h-px w-8 bg-brand-gold" />
+          <p className="mb-9 m-0 text-pretty font-serif text-base leading-[1.9] text-[#5a5550] text-justify md:text-[17px]">
+            Four flagship systems — All Seasons HD, All Seasons, Classic, and Minimalist — each engineered for Wisconsin's freeze-thaw reality. Chosen by the owners of Wisconsin's finest lakefront properties for a reason: they outlast everything else.
+          </p>
+          <Link href="/products/permanent-piers" className="group inline-flex w-fit items-center gap-2 border-b border-[#0a1628] pb-1 font-serif text-xs uppercase tracking-[0.15em] text-[#0a1628] transition-colors hover:border-brand-gold hover:text-brand-gold">
+            Explore Systems <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </Link>
+        </div>
+      </div>
+
+      <div className="grid border-t border-brand-border md:grid-cols-2">
+        <div className="order-2 flex flex-col justify-center bg-brand-offwhite px-8 py-12 md:order-1 md:border-right md:border-brand-border md:px-[72px] md:py-[68px]">
+          <div className="mb-5 font-serif text-xs uppercase tracking-[0.24em] text-brand-gold">
+            02 — Boat Lifts
+          </div>
+          <h3 className="mb-5 m-0 font-serif text-4xl font-light leading-[1.0] text-[#201f1d] md:text-[50px]">
+            Lift Systems<br />&amp; Hardware
+          </h3>
+          <div className="mb-6 h-px w-8 bg-brand-gold" />
+          <p className="mb-9 m-0 text-pretty font-serif text-base leading-[1.9] text-[#5a5550] text-justify md:text-[17px]">
+            Built-in, standalone, and PWC lifts — precisely matched to your dock and vessel. Protect your investment with equipment engineered to the same exacting standard as your permanent pier. Available from live inventory or custom-specified.
+          </p>
+          <Link href="/products/lifts" className="group inline-flex w-fit items-center gap-2 border-b border-[#0a1628] pb-1 font-serif text-xs uppercase tracking-[0.15em] text-[#0a1628] transition-colors hover:border-brand-gold hover:text-brand-gold">
+            Explore Lifts <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </Link>
+        </div>
+        <img
+          src="/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg"
+          alt="Boat Lifts"
+          className="order-1 h-64 w-full object-cover md:order-2 md:h-[480px]"
+          loading="lazy"
+        />
+      </div>
+
+      <div className="grid border-t border-brand-border md:grid-cols-2">
+        <img
+          src="/images/smc/wisconsin-marine-contracting-service-hero-001.jpg"
+          alt="Marine Contracting"
+          className="h-64 w-full object-cover md:h-[480px]"
+          loading="lazy"
+        />
+        <div className="flex flex-col justify-center bg-brand-offwhite px-8 py-12 md:border-l md:border-brand-border md:px-[72px] md:py-[68px]">
+          <div className="mb-5 font-serif text-xs uppercase tracking-[0.24em] text-brand-gold">
+            03 — Services
+          </div>
+          <h3 className="mb-5 m-0 font-serif text-4xl font-light leading-[1.0] text-[#201f1d] md:text-[50px]">
+            Marine<br />Contracting
+          </h3>
+          <div className="mb-6 h-px w-8 bg-brand-gold" />
+          <p className="mb-9 m-0 text-pretty font-serif text-base leading-[1.9] text-[#5a5550] text-justify md:text-[17px]">
+            Full-service marine construction, residential service, and repair. From the first site consultation to the final inspection — and every season after — we are your lakefront's long-term partner. One company, cradle to grave.
+          </p>
+          <Link href="/services/marine-contracting" className="group inline-flex w-fit items-center gap-2 border-b border-[#0a1628] pb-1 font-serif text-xs uppercase tracking-[0.15em] text-[#0a1628] transition-colors hover:border-brand-gold hover:text-brand-gold">
+            Our Services <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* 4. Markets */}
+      <section className="border-t border-brand-gold/20 bg-brand-navy px-6 py-16 md:px-30 md:py-[80px]">
+        <div className="mx-auto max-w-[1040px]">
+          <div className="mb-10 flex flex-col items-start justify-between gap-6 md:mb-[52px] md:flex-row md:items-end">
+            <div>
+              <div className="mb-4 font-serif text-xs uppercase tracking-[0.28em] text-brand-gold">
+                Where We Build
+              </div>
+              <h2 className="m-0 font-serif text-4xl font-light italic leading-[1.05] text-brand-offwhite md:text-[46px]">
+                Wisconsin's Premier Lakes
+              </h2>
+            </div>
+            <Link href="/markets" className="border-b border-brand-gold/50 pb-0.5 font-serif text-[12px] uppercase tracking-[0.15em] text-brand-gold hover:text-brand-offwhite">
+              View All Markets
             </Link>
-          ))}
+          </div>
+          
+          <div className="grid grid-cols-2 border-t border-brand-offwhite/10 md:grid-cols-7">
+            {MARKETS.map((market, i) => (
+              <Link
+                key={market.name}
+                href={market.href}
+                className={`group block cursor-pointer border-brand-offwhite/10 py-7 md:border-r ${i === MARKETS.length - 1 ? 'md:border-r-0' : ''} ${i === 0 ? 'md:pr-4' : 'md:px-4'}`}
+              >
+                <div className="mb-3 font-serif text-[10px] uppercase tracking-[0.2em] text-brand-gold tabular-nums">
+                  {market.num}
+                </div>
+                <div className="mb-2 font-serif text-[17px] leading-[1.25] text-brand-offwhite transition-colors group-hover:text-brand-gold">
+                  {market.name.split(' ').map((word, j) => (
+                    <span key={j}>{word}<br /></span>
+                  ))}
+                </div>
+                <div className="mb-4 font-serif text-[11px] text-brand-offwhite/35">
+                  {market.count}
+                </div>
+                <div className="h-px w-4 bg-brand-gold transition-all group-hover:w-8" />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 5. Featured projects */}
-      <section className="bg-brand-offwhite">
-        <div className="mx-auto max-w-content px-6 py-16">
-          <h2 className="font-serif text-3xl text-brand-navy">Featured Projects</h2>
-          {projects.length > 0 ? (
-            <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {projects.map((project) => (
-                <div
-                  key={project._id}
-                  className="overflow-hidden rounded-lg border border-brand-border bg-white shadow-sm"
+      {/* 5. Projects */}
+      <section className="border-t border-brand-border bg-brand-offwhite px-6 py-16 md:px-30 md:py-[88px]">
+        <div className="mx-auto max-w-[1040px]">
+          <div className="mb-10 flex flex-col items-start justify-between gap-6 md:mb-[52px] md:flex-row md:items-baseline">
+            <div>
+              <div className="mb-4 font-serif text-xs uppercase tracking-[0.28em] text-brand-gold">
+                Portfolio
+              </div>
+              <h2 className="m-0 font-serif text-4xl font-light text-[#201f1d] md:text-[46px]">
+                Featured Projects
+              </h2>
+            </div>
+            <Link href="/markets/lake-geneva/projects" className="border-b border-[#0a1628] pb-0.5 font-serif text-[12px] uppercase tracking-[0.14em] text-[#0a1628] hover:border-brand-gold hover:text-brand-gold">
+              View All Work
+            </Link>
+          </div>
+
+          {projects.length >= 5 ? (
+            <div className="grid gap-3 md:grid-cols-[2fr_1fr_1fr] md:grid-rows-[auto_auto]">
+              {projects.map((p, i) => (
+                <Link
+                  key={p._id}
+                  href="/markets/lake-geneva/projects"
+                  className={`group relative block overflow-hidden border border-brand-border bg-[#e8e6e1] ${i === 0 ? 'md:row-span-2' : ''}`}
                 >
-                  {project.afterImageUrl ? (
+                  {p.afterImageUrl ? (
                     <img
-                      src={project.afterImageUrl}
-                      alt={project.afterImageAlt ?? project.title}
-                      className="h-56 w-full object-cover"
+                      src={p.afterImageUrl}
+                      alt={p.afterImageAlt || p.title}
+                      className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-90 ${i === 0 ? 'h-64 md:h-[528px]' : 'h-48 md:h-[256px]'}`}
                       loading="lazy"
                     />
                   ) : (
-                    <div className="flex h-56 items-center justify-center bg-brand-offwhite text-sm text-brand-gray">
-                      Photo Coming Soon
-                    </div>
+                    <div className={`w-full ${i === 0 ? 'h-64 md:h-[528px]' : 'h-48 md:h-[256px]'}`} />
                   )}
-                  <div className="p-5">
-                    <h3 className="font-serif text-xl text-brand-navy">{project.title}</h3>
-                    <p className="mt-1 text-sm text-brand-gray">
-                      {[project.productType, project.lake].filter(Boolean).join(" · ")}
-                    </p>
-                  </div>
-                </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                </Link>
               ))}
             </div>
           ) : (
-            <div className="mt-8">
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {[0, 1, 2, 3, 4, 5].map((n) => (
-                  <div
-                    key={n}
-                    className="flex h-64 items-center justify-center rounded-lg border border-brand-border bg-brand-gray-light"
-                  >
-                    <span className="text-sm font-medium uppercase tracking-wide text-brand-gray">
-                      Projects Coming Soon
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <ContentPlaceholder
-                label="featured project photos and captions (from Sanity projects)"
-                className="mt-8"
-              />
-            </div>
+            <ContentPlaceholder label="Featured project photos (from Sanity projects)" className="mt-8" />
           )}
-          <div className="mt-8">
-            <Button href="/markets/lake-geneva/projects" variant="secondary">
-              View All Projects
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* 6. Testimonials strip */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl text-brand-navy">What Our Customers Say</h2>
-        {testimonials.length > 0 ? (
-          <div className="mt-8 grid gap-8 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <blockquote
-                key={t._id}
-                className="rounded-lg border border-brand-border bg-white p-8 shadow-sm"
-              >
-                <p className="font-serif text-xl leading-relaxed text-brand-navy">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <footer className="mt-4 text-sm text-brand-gray">
-                  {[t.customerName, t.lakeLabel].filter(Boolean).join(" — ")}
-                </footer>
+      {/* 6. Testimonial Pull Quote */}
+      <section className="border-t border-brand-border bg-brand-offwhite px-6 py-16 md:px-30 md:py-[88px]">
+        <div className="mx-auto max-w-[720px] text-center">
+          <div className="mx-auto mb-9 h-12 w-px bg-brand-border" />
+          {testimonials.length > 0 ? (
+            <>
+              <blockquote className="mb-8 m-0 font-serif text-2xl font-light italic leading-[1.45] text-[#201f1d] md:text-[32px]">
+                &ldquo;{testimonials[0].quote}&rdquo;
               </blockquote>
-            ))}
-          </div>
-        ) : (
-          <ContentPlaceholder
-            label="three customer testimonials — one per market (from Sanity testimonials)"
-            className="mt-8"
-          />
-        )}
-      </section>
-
-      {/* 7. The Lifetime Difference */}
-      <section className="bg-brand-navy text-white">
-        <div className="mx-auto max-w-content px-6 py-16">
-          <h2 className="font-serif text-3xl">The Lifetime Difference</h2>
-          <div className="mt-8 grid gap-8 md:grid-cols-3">
-            {["Lifetime Piers", "Lifetime Lifts", "Lifetime Barge"].map((brand) => (
-              <div key={brand} className="rounded-lg border border-white/15 bg-white/5 p-8">
-                <h3 className="font-serif text-2xl">{brand}</h3>
-                <ContentPlaceholder
-                  label={`${brand} sub-brand callout copy`}
-                  className="mt-4"
-                />
+              <div className="mx-auto mb-5 h-px w-8 bg-brand-gold" />
+              <div className="font-serif text-[14px] uppercase tracking-[0.16em] text-[#6b6560]">
+                &mdash; {testimonials[0].customerName} &middot; {testimonials[0].lakeLabel}
               </div>
-            ))}
-          </div>
+            </>
+          ) : (
+            <ContentPlaceholder label="Featured testimonial (from Sanity)" />
+          )}
+          <div className="mx-auto mt-8 h-12 w-px bg-brand-border" />
         </div>
       </section>
 
-      {/* 8. CTA */}
-      <CTABlock
-        variant="dark"
-        headline="Ready to transform your waterfront?"
-        subheadline="Request a consultation and our team will walk your shoreline with you."
-        primaryCta={{ label: "Get a Consultation", href: "/consultation" }}
-      />
+      {/* 7. Final CTA */}
+      <section className="bg-brand-navy px-6 py-20 text-center md:px-30 md:py-[108px]">
+        <div className="mx-auto max-w-[620px]">
+          <div className="mb-6 font-serif text-xs uppercase tracking-[0.28em] text-brand-gold">
+            Start the Conversation
+          </div>
+          <h2 className="mb-6 m-0 font-serif text-5xl font-light italic leading-[1.02] text-brand-offwhite md:text-[60px]">
+            Ready to build<br />on the water?
+          </h2>
+          <div className="mx-auto mb-8 h-px w-12 bg-brand-gold" />
+          <p className="mb-12 m-0 text-pretty font-serif text-lg leading-[1.8] text-brand-offwhite/60 md:text-[18px]">
+            Our consultants serve Wisconsin lake country — no obligation, no pressure. Every great project begins with a single conversation.
+          </p>
+          <Button href="/consultation" variant="primary" size="large">
+            Schedule a Consultation
+          </Button>
+        </div>
+      </section>
     </Layout>
   );
 }
+

@@ -21,17 +21,17 @@ export default function InstallationProcessPage() {
 
       <section className="bg-brand-navy text-white">
         <div className="mx-auto max-w-content px-6 py-16">
-          <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">What Is the Pier Installation Process?</h1>
+          <h1 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl text-brand-gold">What Is the Pier Installation Process?</h1>
           <img
             src="/images/smc/wisconsin-pier-installation-process-001.jpg"
             alt="Summerset Marine crew member welding a steel pier structure on a Wisconsin lake, sparks flying"
-            className="mt-10 aspect-[21/9] w-full rounded-lg object-cover"
+            className="mt-10 aspect-[21/9] w-full rounded-none border border-brand-hairline object-cover"
           />
         </div>
       </section>
 
       {SECTIONS.map((heading, i) => (
-        <section key={heading} className={i % 2 === 1 ? "bg-brand-offwhite" : ""}>
+        <section key={heading} className={i % 2 === 1 ? "bg-brand-offwhite border-y border-brand-hairline" : ""}>
           <div className="mx-auto max-w-content px-6 py-14">
             <h2 className="font-serif text-3xl text-brand-navy">{heading}</h2>
             <ContentPlaceholder label={`${heading} — body copy`} className="mt-6 max-w-3xl" />

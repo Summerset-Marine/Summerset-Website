@@ -13,9 +13,9 @@ interface ContentPlaceholderProps {
 export default function ContentPlaceholder({ label, className = "" }: ContentPlaceholderProps) {
   return (
     <div
-      className={`flex min-h-[120px] items-center justify-center rounded-lg border border-dashed border-yellow-400 bg-yellow-50 p-6 text-center ${className}`}
+      className={`flex min-h-[120px] items-center justify-center rounded-[2px] border border-dashed border-brand-gold bg-[#fff3e4] p-6 text-center ${className}`}
     >
-      <p className="text-sm font-medium tracking-wide text-yellow-800">
+      <p className="text-[11px] font-medium tracking-[.1em] uppercase text-[#a06f24]">
         PLACEHOLDER — SMC TO SUPPLY: {label}
       </p>
     </div>

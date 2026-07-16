@@ -29,14 +29,14 @@ export default function ContactPage() {
           <div className="space-y-8 self-start">
           <div className="rounded-lg border border-brand-border bg-brand-offwhite p-8">
             <h2 className="font-serif text-2xl text-brand-navy">Summerset Marine Construction</h2>
-            <p className="mt-4 text-brand-gray">W3128 WI-HWY 59, Whitewater, WI 53190</p>
-            <p className="mt-2 text-brand-gray">
+            <p className="mt-4 text-brand-black/80">W3128 WI-HWY 59, Whitewater, WI 53190</p>
+            <p className="mt-2 text-brand-black/80">
               Phone:{" "}
               <a href="tel:+18008169698" className="font-medium text-brand-blue">
                 (800) 816-9698
               </a>
             </p>
-            <p className="mt-2 text-brand-gray">
+            <p className="mt-2 text-brand-black/80">
               Email:{" "}
               <a
                 href="mailto:info@summersetmarine.com"
@@ -45,7 +45,7 @@ export default function ContactPage() {
                 info@summersetmarine.com
               </a>
             </p>
-            <p className="mt-4 text-brand-gray">
+            <p className="mt-4 text-brand-black/80">
               Additional locations in Madison, Green Lake, and Door County &mdash; see{" "}
               <a href="/locations" className="font-medium text-brand-blue">
                 Locations

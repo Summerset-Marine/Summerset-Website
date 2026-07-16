@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#e8e6e0;font-family:system-ui,sans-serif}
+.dv-turn{padding:48px 44px 40px;border-bottom:2px solid rgba(0,0,0,.1);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 24px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}
+.dv-opts{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.1);color:#1a1a1a;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.5)}
+.dv-card{max-width:100%;background:#faf9f7;border:1px solid rgba(0,0,0,.12);border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}
+.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}
+.dv-next{margin:28px 0 0;font:12px/1.6 system-ui,sans-serif;color:rgba(0,0,0,.45)}
+.ann{font-family:'Caveat',cursive;font-size:13px;color:#888;font-weight:400}
+.img{background:repeating-linear-gradient(-45deg,#c8c4bc 0,#c8c4bc 1px,#dedad4 0,#dedad4 50%) 0/10px 10px;display:flex;align-items:center;justify-content:center}
+.img-dk{background:repeating-linear-gradient(-45deg,#0a1628 0,#0a1628 1px,#162240 0,#162240 50%) 0/10px 10px;display:flex;align-items:center;justify-content:center}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname"><a class="dv-oid" href="#1a">1a</a> aesthetic + <a class="dv-oid" href="#1c">1c</a> systems block — combined direction</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="2a">
+  <div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>The Estate with editorial split services</div>
+  <div class="dv-card" style="width:1100px">
+
+    <!-- NAV — same as 1a -->
+    <div style="background:#f8f7f4;border-bottom:1px solid #d4c9b8;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:36px;height:36px;border:1.5px solid #0a1628;display:flex;align-items:center;justify-content:center">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:#0a1628;letter-spacing:.08em">SMC</span>
+        </div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:#0a1628;letter-spacing:.06em">SUMMERSET MARINE</span>
+      </div>
+      <div style="display:flex;gap:32px;align-items:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em">Products</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em">Services</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em">Markets</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em">Projects</span>
+        <div style="padding:8px 20px;border:1px solid #0a1628;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.1em;color:#0a1628">GET A CONSULTATION</div>
+      </div>
+    </div>
+
+    <!-- HERO — same as 1a -->
+    <div class="img" style="height:580px;position:relative;background-color:#1a2a40">
+      <div class="img-dk" style="position:absolute;inset:0"></div>
+      <div style="position:relative;z-index:2;text-align:center;padding:0 120px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.25em;color:#b68235;text-transform:uppercase;margin-bottom:24px">Wisconsin Lake Country</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:74px;font-weight:300;line-height:1.05;color:#f8f7f4;font-style:italic;margin-bottom:20px">Built for<br>the Water's Edge</div>
+        <div style="width:48px;height:1px;background:#b68235;margin:0 auto 24px"></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(248,247,244,.7);font-weight:300;margin-bottom:40px;letter-spacing:.04em">Permanent pier systems &amp; boat lifts<br>crafted for Wisconsin's finest lakes</div>
+        <div style="display:inline-block;padding:14px 40px;border:1px solid #b68235;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.14em;color:#b68235;text-transform:uppercase">Begin Your Project</div>
+      </div>
+      <div class="ann" style="position:absolute;bottom:16px;left:20px;color:#b68235aa">full-bleed video loop</div>
+    </div>
+
+    <!-- INTRO BAND — same as 1a -->
+    <div style="background:#f8f7f4;padding:64px 120px;display:grid;grid-template-columns:1fr 2px 1fr;gap:48px;align-items:start">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:400;line-height:1.15;color:#201f1d;margin-bottom:20px">The permanent<br><em>difference.</em></div>
+        <div style="width:32px;height:1px;background:#b68235;margin-bottom:20px"></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.75;color:#4a4540;text-align:justify">For over two decades, Summerset Marine has set the standard for permanent marine construction on Wisconsin's premier lakes. Our structures don't merely hold — they endure, season after season, through ice and storm.</div>
+      </div>
+      <div style="width:1px;background:#d4c9b8;align-self:stretch"></div>
+      <div style="padding-top:8px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:20px">Our Commitment</div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;gap:16px;align-items:start">
+            <div style="width:24px;height:1px;background:#b68235;margin-top:11px;flex-shrink:0"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#4a4540;line-height:1.6">Engineered for Wisconsin's freeze-thaw cycles</div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:start">
+            <div style="width:24px;height:1px;background:#b68235;margin-top:11px;flex-shrink:0"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#4a4540;line-height:1.6">Consultation-to-completion project management</div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:start">
+            <div style="width:24px;height:1px;background:#b68235;margin-top:11px;flex-shrink:0"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#4a4540;line-height:1.6">Lifetime structural warranty on all pier systems</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYSTEMS SECTION HEADER -->
+    <div style="height:1px;background:#d4c9b8;margin:0 120px"></div>
+    <div style="background:#f8f7f4;padding:56px 120px 0">
+      <div style="text-align:center;margin-bottom:0">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:12px">Our Systems</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:#201f1d">Permanence, Elevated</div>
+      </div>
+    </div>
+
+    <!-- SYSTEMS — 1c alternating split rows, 1a styling -->
+    <div style="background:#f8f7f4">
+      <!-- Row 1: image left -->
+      <div style="border-top:1px solid #d4c9b8;margin-top:48px;display:grid;grid-template-columns:1fr 1fr">
+        <div class="img" style="height:380px;background-color:#b8b4ac"></div>
+        <div style="padding:56px 60px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid #d4c9b8">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:16px">01 — Pier Systems</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;line-height:1.1;color:#201f1d;margin-bottom:20px">Permanent<br>Pier Systems</div>
+          <div style="width:32px;height:1px;background:#b68235;margin-bottom:20px"></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.8;color:#6b6560;text-align:justify;margin-bottom:32px">Four flagship systems — All Seasons HD, All Seasons, Classic, and Minimalist — engineered for Wisconsin's freeze-thaw reality and built to outlast every season you spend on the water.</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;display:inline-flex;align-items:center;gap:8px;width:fit-content;padding-bottom:2px">Explore Systems <span>→</span></div>
+        </div>
+      </div>
+      <!-- Row 2: image right -->
+      <div style="border-top:1px solid #d4c9b8;display:grid;grid-template-columns:1fr 1fr">
+        <div style="padding:56px 60px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #d4c9b8">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:16px">02 — Boat Lifts</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;line-height:1.1;color:#201f1d;margin-bottom:20px">Lift Systems<br>&amp; Hardware</div>
+          <div style="width:32px;height:1px;background:#b68235;margin-bottom:20px"></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.8;color:#6b6560;text-align:justify;margin-bottom:32px">Built-in, standalone, and PWC lifts — precisely matched to your dock and vessel. Protect your investment with equipment engineered to the same standard as your pier.</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;display:inline-flex;align-items:center;gap:8px;width:fit-content;padding-bottom:2px">Explore Lifts <span>→</span></div>
+        </div>
+        <div class="img" style="height:380px;background-color:#c0bcb4"></div>
+      </div>
+      <!-- Row 3: image left -->
+      <div style="border-top:1px solid #d4c9b8;display:grid;grid-template-columns:1fr 1fr">
+        <div class="img" style="height:380px;background-color:#c8c4bc"></div>
+        <div style="padding:56px 60px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid #d4c9b8">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:16px">03 — Services</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;line-height:1.1;color:#201f1d;margin-bottom:20px">Marine<br>Contracting</div>
+          <div style="width:32px;height:1px;background:#b68235;margin-bottom:20px"></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.8;color:#6b6560;text-align:justify;margin-bottom:32px">Full-service marine construction, residential service, and repair from Wisconsin's most trusted specialists. From concept to completion and every season after.</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;display:inline-flex;align-items:center;gap:8px;width:fit-content;padding-bottom:2px">Our Services <span>→</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARKETS BAND — same as 1a -->
+    <div style="background:#0a1628;padding:56px 120px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:40px">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:10px">Where We Build</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#f8f7f4;font-style:italic">Wisconsin's Premier Lakes</div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#b68235;border-bottom:1px solid #b68235;padding-bottom:2px">View All Markets</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px">
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px 0 0">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">01</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Lake Geneva</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">3 lakes</div>
+        </div>
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">02</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Oconomowoc</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">4 lakes</div>
+        </div>
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">03</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Madison</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">5 lakes</div>
+        </div>
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">04</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Whitewater</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">2 lakes</div>
+        </div>
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">05</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Green Lake</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">2 lakes</div>
+        </div>
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">06</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Fox Chain</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">6 lakes</div>
+        </div>
+        <div style="padding:0 0 0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">07</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Door County</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">3 lakes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS — same as 1a -->
+    <div style="background:#f8f7f4;padding:64px 120px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:10px">Portfolio</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#201f1d">Featured Projects</div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;padding-bottom:2px">View All Work</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:16px">
+        <div class="img" style="height:340px;grid-row:1/3;background-color:#b8b4ac;border:1px solid #d4c9b8"></div>
+        <div class="img" style="height:160px;background-color:#c4c0b8;border:1px solid #d4c9b8"></div>
+        <div class="img" style="height:160px;background-color:#b8b4ac;border:1px solid #d4c9b8"></div>
+        <div class="img" style="height:160px;background-color:#c0bcb4;border:1px solid #d4c9b8"></div>
+        <div class="img" style="height:160px;background-color:#c8c4bc;border:1px solid #d4c9b8"></div>
+      </div>
+    </div>
+
+    <!-- CTA — same as 1a -->
+    <div style="background:#0a1628;padding:80px 120px;text-align:center">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:16px">Start the Conversation</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#f8f7f4;line-height:1.1;font-style:italic;margin-bottom:16px">Ready to build<br>on the water?</div>
+      <div style="width:48px;height:1px;background:#b68235;margin:0 auto 28px"></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:rgba(248,247,244,.65);margin-bottom:40px;letter-spacing:.03em">Our consultants serve Wisconsin lake country — no obligation, no pressure.</div>
+      <div style="display:inline-block;padding:16px 48px;border:1px solid #b68235;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.14em;color:#b68235;text-transform:uppercase">Schedule a Consultation</div>
+    </div>
+
+    <div style="background:#060f1c;padding:16px 120px;display:flex;justify-content:space-between;align-items:center">
+      <div class="ann" style="color:#b8b4ac">4-col footer: logo + products + markets + contact</div>
+      <div class="ann" style="color:#b8b4ac">© Summerset Marine Construction</div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "build this out as a full hi-fi page" · "show me the product detail page in this style" · "refine the hero with a different headline treatment"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Three homepage directions — Summerset Marine Construction</span></div>
+<div class="dv-opts">
+
+<!-- ====== 1a THE ESTATE ====== -->
+<div class="dv-opt" id="1a">
+  <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>The Estate — editorial warmth, Cormorant serif, plate photography</div>
+  <div class="dv-card" style="width:1100px">
+
+    <!-- NAV -->
+    <div style="background:#f8f7f4;border-bottom:1px solid #d4c9b8;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:36px;height:36px;border:1.5px solid #0a1628;display:flex;align-items:center;justify-content:center">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:#0a1628;letter-spacing:.08em">SMC</span>
+        </div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:#0a1628;letter-spacing:.06em">SUMMERSET MARINE</span>
+      </div>
+      <div style="display:flex;gap:32px;align-items:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em">Products</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em">Services</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em">Markets</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a3630;letter-spacing:.06em">Projects</span>
+        <div style="padding:8px 20px;border:1px solid #0a1628;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.1em;color:#0a1628">GET A CONSULTATION</div>
+      </div>
+    </div>
+
+    <!-- HERO full-bleed -->
+    <div class="img" style="height:580px;position:relative;background-color:#1a2a40">
+      <div class="img-dk" style="position:absolute;inset:0"></div>
+      <div style="position:relative;z-index:2;text-align:center;padding:0 120px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.25em;color:#b68235;text-transform:uppercase;margin-bottom:24px">Wisconsin Lake Country</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:74px;font-weight:300;line-height:1.05;color:#f8f7f4;font-style:italic;margin-bottom:20px">Built for<br>the Water's Edge</div>
+        <div style="width:48px;height:1px;background:#b68235;margin:0 auto 24px"></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(248,247,244,.7);font-weight:300;margin-bottom:40px;letter-spacing:.04em">Permanent pier systems &amp; boat lifts<br>crafted for Wisconsin's finest lakes</div>
+        <div style="display:inline-block;padding:14px 40px;border:1px solid #b68235;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.14em;color:#b68235;text-transform:uppercase">Begin Your Project</div>
+      </div>
+      <div class="ann" style="position:absolute;bottom:16px;left:20px;color:#b68235aa">full-bleed video loop</div>
+    </div>
+
+    <!-- INTRO TEXT BAND -->
+    <div style="background:#f8f7f4;padding:64px 120px;display:grid;grid-template-columns:1fr 2px 1fr;gap:48px;align-items:start">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:400;line-height:1.15;color:#201f1d;margin-bottom:20px">The permanent<br><em>difference.</em></div>
+        <div style="width:32px;height:1px;background:#b68235;margin-bottom:20px"></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.75;color:#4a4540;text-align:justify">For over two decades, Summerset Marine has set the standard for permanent marine construction on Wisconsin's premier lakes. Our structures don't merely hold — they endure, season after season, through ice and storm.</div>
+      </div>
+      <div style="width:1px;background:#d4c9b8;align-self:stretch"></div>
+      <div style="padding-top:8px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:20px">Our Commitment</div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;gap:16px;align-items:start">
+            <div style="width:24px;height:1px;background:#b68235;margin-top:11px;flex-shrink:0"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#4a4540;line-height:1.6">Engineered for Wisconsin's freeze-thaw cycles</div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:start">
+            <div style="width:24px;height:1px;background:#b68235;margin-top:11px;flex-shrink:0"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#4a4540;line-height:1.6">Consultation-to-completion project management</div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:start">
+            <div style="width:24px;height:1px;background:#b68235;margin-top:11px;flex-shrink:0"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#4a4540;line-height:1.6">Lifetime structural warranty on all pier systems</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THIN RULE -->
+    <div style="height:1px;background:#d4c9b8;margin:0 120px"></div>
+
+    <!-- PRODUCTS — portrait plates -->
+    <div style="background:#f8f7f4;padding:64px 120px">
+      <div style="text-align:center;margin-bottom:48px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:12px">Our Systems</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:#201f1d">Permanence, Elevated</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+        <div style="border:1px solid #d4c9b8;background:#fff">
+          <div class="img" style="height:240px;background-color:#c8c4bc"></div>
+          <div style="padding:28px 24px">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:8px">Pier Systems</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#201f1d;margin-bottom:12px">Permanent Piers</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:15px;line-height:1.7;color:#6b6560;margin-bottom:20px">All Seasons HD, Classic &amp; Minimalist systems — built for Wisconsin's most demanding lakefronts.</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;display:inline">Explore Systems</div>
+          </div>
+        </div>
+        <div style="border:1px solid #d4c9b8;background:#fff">
+          <div class="img" style="height:240px;background-color:#c8c4bc"></div>
+          <div style="padding:28px 24px">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:8px">Boat Lifts</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#201f1d;margin-bottom:12px">Lift Systems</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:15px;line-height:1.7;color:#6b6560;margin-bottom:20px">Built-in, standalone &amp; PWC lifts — protect your investment with precision-engineered lifting.</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;display:inline">Explore Lifts</div>
+          </div>
+        </div>
+        <div style="border:1px solid #d4c9b8;background:#fff">
+          <div class="img" style="height:240px;background-color:#c8c4bc"></div>
+          <div style="padding:28px 24px">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:8px">Services</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#201f1d;margin-bottom:12px">Marine Contracting</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:15px;line-height:1.7;color:#6b6560;margin-bottom:20px">Full-service marine construction, residential service &amp; repair from Wisconsin's trusted specialists.</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;display:inline">Our Services</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARKETS BAND -->
+    <div style="background:#0a1628;padding:56px 120px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:40px">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:10px">Where We Build</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#f8f7f4;font-style:italic">Wisconsin's Premier Lakes</div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#b68235;border-bottom:1px solid #b68235">View All Markets</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px">
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px 0 0">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">01</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Lake Geneva</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">3 lakes</div>
+        </div>
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">02</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Oconomowoc</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">4 lakes</div>
+        </div>
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">03</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Madison</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">5 lakes</div>
+        </div>
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">04</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Whitewater</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">2 lakes</div>
+        </div>
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">05</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Green Lake</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">2 lakes</div>
+        </div>
+        <div style="border-right:1px solid rgba(248,247,244,.1);padding:0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">06</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Fox Chain</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">6 lakes</div>
+        </div>
+        <div style="padding:0 0 0 20px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b68235;margin-bottom:8px">07</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f8f7f4;margin-bottom:4px">Door County</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(248,247,244,.5)">3 lakes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div style="background:#f8f7f4;padding:64px 120px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:10px">Portfolio</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#201f1d">Featured Projects</div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628">View All Work</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:16px">
+        <div class="img" style="height:340px;grid-row:1/3;background-color:#b8b4ac;border:1px solid #d4c9b8"></div>
+        <div class="img" style="height:160px;background-color:#c4c0b8;border:1px solid #d4c9b8"></div>
+        <div class="img" style="height:160px;background-color:#b8b4ac;border:1px solid #d4c9b8"></div>
+        <div class="img" style="height:160px;background-color:#c0bcb4;border:1px solid #d4c9b8"></div>
+        <div class="img" style="height:160px;background-color:#c8c4bc;border:1px solid #d4c9b8"></div>
+      </div>
+    </div>
+
+    <!-- CTA BLOCK -->
+    <div style="background:#0a1628;padding:80px 120px;text-align:center">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:16px">Start the Conversation</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#f8f7f4;line-height:1.1;font-style:italic;margin-bottom:16px">Ready to build<br>on the water?</div>
+      <div style="width:48px;height:1px;background:#b68235;margin:0 auto 28px"></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:rgba(248,247,244,.65);margin-bottom:40px;letter-spacing:.03em">Our consultants serve Wisconsin lake country — no obligation, no pressure.</div>
+      <div style="display:inline-block;padding:16px 48px;border:1px solid #b68235;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.14em;color:#b68235;text-transform:uppercase">Schedule a Consultation</div>
+    </div>
+
+    <!-- FOOTER hint -->
+    <div style="background:#060f1c;padding:16px 120px;display:flex;justify-content:space-between;align-items:center">
+      <div class="ann" style="color:#b8b4ac">4-col footer: logo + products + markets + contact</div>
+      <div class="ann" style="color:#b8b4ac">© Summerset Marine Construction</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== 1b THE COMMODORE ====== -->
+<div class="dv-opt" id="1b">
+  <div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>The Commodore — dark, split hero, nautical authority with gold mark</div>
+  <div class="dv-card" style="width:1100px">
+
+    <!-- NAV -->
+    <div style="background:#0a1628;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="width:40px;height:40px;border:1.5px solid #b68235;display:flex;align-items:center;justify-content:center;position:relative">
+          <span style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#b68235">S</span>
+          <div style="position:absolute;top:-3px;left:-3px;width:6px;height:6px;border-top:1.5px solid #b68235;border-left:1.5px solid #b68235"></div>
+          <div style="position:absolute;top:-3px;right:-3px;width:6px;height:6px;border-top:1.5px solid #b68235;border-right:1.5px solid #b68235"></div>
+          <div style="position:absolute;bottom:-3px;left:-3px;width:6px;height:6px;border-bottom:1.5px solid #b68235;border-left:1.5px solid #b68235"></div>
+          <div style="position:absolute;bottom:-3px;right:-3px;width:6px;height:6px;border-bottom:1.5px solid #b68235;border-right:1.5px solid #b68235"></div>
+        </div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#f8f7f4;letter-spacing:.04em">SUMMERSET</div>
+          <div style="font-family:'Playfair Display',serif;font-size:9px;letter-spacing:.22em;color:#b68235;text-transform:uppercase">Marine Construction</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:28px;align-items:center">
+        <span style="font-size:13px;color:rgba(248,247,244,.7);letter-spacing:.05em">Products</span>
+        <span style="font-size:13px;color:rgba(248,247,244,.7);letter-spacing:.05em">Services</span>
+        <span style="font-size:13px;color:rgba(248,247,244,.7);letter-spacing:.05em">Markets</span>
+        <span style="font-size:13px;color:rgba(248,247,244,.7);letter-spacing:.05em">Projects</span>
+        <span style="font-size:13px;color:rgba(248,247,244,.7);letter-spacing:.05em">About</span>
+        <div style="padding:10px 22px;background:#b68235;font-size:12px;font-weight:600;letter-spacing:.1em;color:#060f1c;text-transform:uppercase">Consult</div>
+      </div>
+    </div>
+
+    <!-- HERO SPLIT -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;height:560px">
+      <div style="background:#0a1628;padding:64px 56px;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:#b68235;margin-bottom:20px">Est. 2001 · Wisconsin</div>
+        <div style="font-family:'Playfair Display',serif;font-size:60px;font-weight:700;line-height:1.0;color:#f8f7f4;margin-bottom:8px">Built to</div>
+        <div style="font-family:'Playfair Display',serif;font-size:60px;font-weight:400;font-style:italic;line-height:1.0;color:#b68235;margin-bottom:28px">Last.</div>
+        <div style="width:40px;height:2px;background:#b68235;margin-bottom:24px"></div>
+        <div style="font-size:16px;line-height:1.7;color:rgba(248,247,244,.7);max-width:360px;margin-bottom:40px">Permanent pier systems and boat lifts for Wisconsin's most discerning lakefront property owners.</div>
+        <div style="display:flex;gap:16px">
+          <div style="padding:14px 32px;background:#b68235;font-size:12px;font-weight:700;letter-spacing:.12em;color:#060f1c;text-transform:uppercase">Get a Consultation</div>
+          <div style="padding:14px 32px;border:1px solid rgba(248,247,244,.3);font-size:12px;letter-spacing:.1em;color:#f8f7f4;text-transform:uppercase">View Projects</div>
+        </div>
+      </div>
+      <div class="img-dk" style="position:relative;overflow:hidden">
+        <div class="ann" style="color:#b68235bb;position:absolute;bottom:16px;right:16px">hero video / photo</div>
+        <!-- blueprint overlay -->
+        <div style="position:absolute;top:16px;left:16px;right:16px;bottom:16px;border:1px solid rgba(184,130,53,.25);pointer-events:none">
+          <div style="position:absolute;top:-4px;left:-4px;width:12px;height:12px;border-top:2px solid #b68235;border-left:2px solid #b68235"></div>
+          <div style="position:absolute;top:-4px;right:-4px;width:12px;height:12px;border-top:2px solid #b68235;border-right:2px solid #b68235"></div>
+          <div style="position:absolute;bottom:-4px;left:-4px;width:12px;height:12px;border-bottom:2px solid #b68235;border-left:2px solid #b68235"></div>
+          <div style="position:absolute;bottom:-4px;right:-4px;width:12px;height:12px;border-bottom:2px solid #b68235;border-right:2px solid #b68235"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRAND STATS STRIP -->
+    <div style="background:#b68235;padding:24px 80px;display:grid;grid-template-columns:repeat(4,1fr)">
+      <div style="text-align:center">
+        <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#060f1c">20+</div>
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(6,15,28,.7);margin-top:4px">Years Building</div>
+      </div>
+      <div style="text-align:center;border-left:1px solid rgba(6,15,28,.2)">
+        <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#060f1c">500+</div>
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(6,15,28,.7);margin-top:4px">Projects Completed</div>
+      </div>
+      <div style="text-align:center;border-left:1px solid rgba(6,15,28,.2)">
+        <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#060f1c">7</div>
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(6,15,28,.7);margin-top:4px">Lake Markets</div>
+      </div>
+      <div style="text-align:center;border-left:1px solid rgba(6,15,28,.2)">
+        <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#060f1c">∞</div>
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(6,15,28,.7);margin-top:4px">Structural Warranty</div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div style="background:#f8f7f4;padding:72px 80px">
+      <div style="margin-bottom:48px">
+        <div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:12px">Our Systems</div>
+        <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:#0a1628">What We Build</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #d4c9b8">
+          <div style="padding:40px 48px;border-right:1px solid #d4c9b8">
+            <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:16px">01 — Pier Systems</div>
+            <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#0a1628;margin-bottom:14px">Permanent Piers</div>
+            <div style="font-size:15px;line-height:1.7;color:#5a5550;margin-bottom:24px">Four flagship systems from our All Seasons HD to the refined Minimalist — each engineered to outlast every Wisconsin winter.</div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#0a1628;font-weight:600;display:flex;align-items:center;gap:8px">Explore Systems <span>→</span></div>
+          </div>
+          <div class="img" style="height:200px;background-color:#b8b4ac"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #d4c9b8;border-top:none">
+          <div class="img" style="height:200px;background-color:#c0bcb4;border-right:1px solid #d4c9b8"></div>
+          <div style="padding:40px 48px">
+            <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:16px">02 — Boat Lifts</div>
+            <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#0a1628;margin-bottom:14px">Lift Systems</div>
+            <div style="font-size:15px;line-height:1.7;color:#5a5550;margin-bottom:24px">Built-in, standalone &amp; PWC lift configurations. Protect your vessel with equipment that meets your dock.</div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#0a1628;font-weight:600;display:flex;align-items:center;gap:8px">Explore Lifts <span>→</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARKETS -->
+    <div style="background:#0a1628;padding:72px 80px">
+      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:48px">
+        <div>
+          <div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:12px">Service Area</div>
+          <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:#f8f7f4">Wisconsin's<br>Finest Waters</div>
+        </div>
+        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#b68235;margin-top:8px;border-bottom:1px solid #b68235;padding-bottom:2px">All Markets →</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">
+        <div style="background:rgba(248,247,244,.05);padding:28px 28px;border:1px solid rgba(184,130,53,.2);position:relative">
+          <div style="position:absolute;top:-3px;left:-3px;width:8px;height:8px;border-top:1.5px solid #b68235;border-left:1.5px solid #b68235"></div>
+          <div style="position:absolute;top:-3px;right:-3px;width:8px;height:8px;border-top:1.5px solid #b68235;border-right:1.5px solid #b68235"></div>
+          <div style="position:absolute;bottom:-3px;left:-3px;width:8px;height:8px;border-bottom:1.5px solid #b68235;border-left:1.5px solid #b68235"></div>
+          <div style="position:absolute;bottom:-3px;right:-3px;width:8px;height:8px;border-bottom:1.5px solid #b68235;border-right:1.5px solid #b68235"></div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;color:#f8f7f4;margin-bottom:8px">Lake Geneva</div>
+          <div style="font-size:12px;color:rgba(248,247,244,.5)">3 lakes · since 2003</div>
+        </div>
+        <div style="background:rgba(248,247,244,.05);padding:28px 28px;border:1px solid rgba(184,130,53,.2);position:relative">
+          <div style="position:absolute;top:-3px;left:-3px;width:8px;height:8px;border-top:1.5px solid #b68235;border-left:1.5px solid #b68235"></div>
+          <div style="position:absolute;top:-3px;right:-3px;width:8px;height:8px;border-top:1.5px solid #b68235;border-right:1.5px solid #b68235"></div>
+          <div style="position:absolute;bottom:-3px;left:-3px;width:8px;height:8px;border-bottom:1.5px solid #b68235;border-left:1.5px solid #b68235"></div>
+          <div style="position:absolute;bottom:-3px;right:-3px;width:8px;height:8px;border-bottom:1.5px solid #b68235;border-right:1.5px solid #b68235"></div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;color:#f8f7f4;margin-bottom:8px">Oconomowoc</div>
+          <div style="font-size:12px;color:rgba(248,247,244,.5)">4 lakes · since 2005</div>
+        </div>
+        <div style="background:rgba(248,247,244,.05);padding:28px 28px;border:1px solid rgba(184,130,53,.2);position:relative">
+          <div style="position:absolute;top:-3px;left:-3px;width:8px;height:8px;border-top:1.5px solid #b68235;border-left:1.5px solid #b68235"></div>
+          <div style="position:absolute;top:-3px;right:-3px;width:8px;height:8px;border-top:1.5px solid #b68235;border-right:1.5px solid #b68235"></div>
+          <div style="position:absolute;bottom:-3px;left:-3px;width:8px;height:8px;border-bottom:1.5px solid #b68235;border-left:1.5px solid #b68235"></div>
+          <div style="position:absolute;bottom:-3px;right:-3px;width:8px;height:8px;border-bottom:1.5px solid #b68235;border-right:1.5px solid #b68235"></div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;color:#f8f7f4;margin-bottom:8px">Madison</div>
+          <div style="font-size:12px;color:rgba(248,247,244,.5)">5 lakes · since 2004</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="background:#060f1c;padding:80px 80px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center">
+      <div>
+        <div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:16px">Get Started</div>
+        <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#f8f7f4;line-height:1.1;margin-bottom:16px">Your lakefront,<br>built right.</div>
+        <div style="font-size:16px;line-height:1.7;color:rgba(248,247,244,.6)">Every project begins with a no-obligation site consultation. We'll assess your waterfront, understand your vision, and design a system built to last a lifetime.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="padding:16px 36px;background:#b68235;font-size:13px;font-weight:700;letter-spacing:.12em;color:#060f1c;text-transform:uppercase;white-space:nowrap;text-align:center">Request Consultation</div>
+        <div style="padding:16px 36px;border:1px solid rgba(248,247,244,.25);font-size:13px;letter-spacing:.1em;color:#f8f7f4;text-transform:uppercase;text-align:center">Call Us Directly</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== 1c THE GALLERY ====== -->
+<div class="dv-opt" id="1c">
+  <div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>The Gallery — photography-first, extreme whitespace, contemporary luxury</div>
+  <div class="dv-card" style="width:1100px">
+
+    <!-- NAV — transparent over hero -->
+    <div style="background:#f8f7f4;padding:0 60px;height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:none">
+      <div style="display:flex;align-items:baseline;gap:10px">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:.04em;color:#0a1628">Summerset</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:300;letter-spacing:.1em;color:#888;text-transform:uppercase">Marine</span>
+      </div>
+      <div style="display:flex;gap:36px;align-items:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:15px;color:#3a3630;letter-spacing:.05em">Products</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:15px;color:#3a3630;letter-spacing:.05em">Markets</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:15px;color:#3a3630;letter-spacing:.05em">Projects</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:15px;color:#3a3630;letter-spacing:.05em">About</span>
+        <div style="width:1px;height:20px;background:#d4c9b8"></div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#0a1628;border-bottom:1px solid #0a1628;padding-bottom:1px">Consult</span>
+      </div>
+    </div>
+
+    <!-- HERO — near full-height image, bottom text -->
+    <div style="position:relative;height:600px;background:#0a1628;overflow:hidden">
+      <div class="img-dk" style="position:absolute;inset:0"></div>
+      <div class="ann" style="position:absolute;top:16px;right:20px;color:#b68235aa">full-bleed video / aerial photo</div>
+      <!-- bottom-left text block -->
+      <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent, rgba(6,15,28,.85) 60%);padding:60px 60px 52px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;line-height:1.05;color:#f8f7f4;max-width:620px;font-style:italic">Permanence<br>on the water.</div>
+        <div style="display:flex;gap:24px;align-items:center;margin-top:24px">
+          <div style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#f8f7f4;border-bottom:1px solid rgba(248,247,244,.5);padding-bottom:2px">Get a Consultation</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(248,247,244,.5);font-style:italic">· Wisconsin Lake Country</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTRO — extreme whitespace -->
+    <div style="background:#fff;padding:96px 160px;text-align:center">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:#b68235;margin-bottom:32px">Summerset Marine Construction</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;line-height:1.2;color:#201f1d;max-width:680px;margin:0 auto 32px">The only pier you'll<br>ever need to build.</div>
+      <div style="width:1px;height:48px;background:#d4c9b8;margin:0 auto 32px"></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.85;color:#6b6560;max-width:520px;margin:0 auto">Our permanent systems are engineered for Wisconsin's ice, engineered for decades of use, and designed for the kind of lakefront that deserves more than a seasonal dock.</div>
+    </div>
+
+    <!-- PRODUCTS — horizontal, image-dominant -->
+    <div style="background:#f8f7f4;padding:0">
+      <div style="border-top:1px solid #d4c9b8;display:grid;grid-template-columns:1fr 1fr">
+        <div class="img" style="height:360px;background-color:#b8b4ac;border-right:1px solid #d4c9b8"></div>
+        <div style="padding:56px 60px;display:flex;flex-direction:column;justify-content:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:20px">01 — Pier Systems</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;line-height:1.1;color:#201f1d;margin-bottom:24px">Permanent<br>Pier Systems</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.8;color:#6b6560;margin-bottom:32px">Four systems — All Seasons HD, All Seasons, Classic, and Minimalist — each built for Wisconsin's freeze-thaw reality.</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#0a1628;display:flex;align-items:center;gap:12px">Explore Systems <span style="font-size:18px">→</span></div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #d4c9b8;display:grid;grid-template-columns:1fr 1fr">
+        <div style="padding:56px 60px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #d4c9b8">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:20px">02 — Boat Lifts</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;line-height:1.1;color:#201f1d;margin-bottom:24px">Lift Systems<br>&amp; Hardware</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.8;color:#6b6560;margin-bottom:32px">Built-in and standalone lifts for boats and PWCs — matched to your dock and your vessel.</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#0a1628;display:flex;align-items:center;gap:12px">Explore Lifts <span style="font-size:18px">→</span></div>
+        </div>
+        <div class="img" style="height:360px;background-color:#c0bcb4"></div>
+      </div>
+    </div>
+
+    <!-- PULL QUOTE -->
+    <div style="background:#0a1628;padding:96px 160px;text-align:center">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:32px">Why Permanent</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;font-style:italic;line-height:1.25;color:#f8f7f4;max-width:720px;margin:0 auto 32px">"A pier is not a purchase.<br>It's an investment in every<br>season you spend here."</div>
+      <div style="width:48px;height:1px;background:#b68235;margin:0 auto"></div>
+    </div>
+
+    <!-- PROJECTS EDITORIAL GRID -->
+    <div style="background:#fff;padding:80px 60px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:48px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:#201f1d">Recent Work</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#888;border-bottom:1px solid #888;padding-bottom:2px">Full Portfolio</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto;gap:12px">
+        <div class="img" style="height:280px;grid-column:1/3;background-color:#b8b4ac"></div>
+        <div class="img" style="height:280px;background-color:#c4c0b8"></div>
+        <div class="img" style="height:200px;background-color:#ccc8c0"></div>
+        <div class="img" style="height:200px;background-color:#c0bcb4"></div>
+        <div class="img" style="height:200px;background-color:#b8b4ac"></div>
+      </div>
+    </div>
+
+    <!-- MARKETS — typographic only -->
+    <div style="background:#f8f7f4;padding:80px 160px">
+      <div style="text-align:center;margin-bottom:56px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#b68235;margin-bottom:16px">Where We Work</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#201f1d">Seven Lake Markets</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);text-align:center;border-top:1px solid #d4c9b8">
+        <div style="padding:32px 8px;border-right:1px solid #d4c9b8">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#201f1d;margin-bottom:8px">Lake<br>Geneva</div>
+          <div style="font-size:11px;color:#b68235;letter-spacing:.1em">→</div>
+        </div>
+        <div style="padding:32px 8px;border-right:1px solid #d4c9b8">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#201f1d;margin-bottom:8px">Ocono-<br>mowoc</div>
+          <div style="font-size:11px;color:#b68235;letter-spacing:.1em">→</div>
+        </div>
+        <div style="padding:32px 8px;border-right:1px solid #d4c9b8">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#201f1d;margin-bottom:8px">Madison</div>
+          <div style="font-size:11px;color:#b68235;letter-spacing:.1em">→</div>
+        </div>
+        <div style="padding:32px 8px;border-right:1px solid #d4c9b8">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#201f1d;margin-bottom:8px">White-<br>water</div>
+          <div style="font-size:11px;color:#b68235;letter-spacing:.1em">→</div>
+        </div>
+        <div style="padding:32px 8px;border-right:1px solid #d4c9b8">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#201f1d;margin-bottom:8px">Green<br>Lake</div>
+          <div style="font-size:11px;color:#b68235;letter-spacing:.1em">→</div>
+        </div>
+        <div style="padding:32px 8px;border-right:1px solid #d4c9b8">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#201f1d;margin-bottom:8px">Fox<br>Chain</div>
+          <div style="font-size:11px;color:#b68235;letter-spacing:.1em">→</div>
+        </div>
+        <div style="padding:32px 8px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#201f1d;margin-bottom:8px">Door<br>County</div>
+          <div style="font-size:11px;color:#b68235;letter-spacing:.1em">→</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="background:#fff;padding:96px 160px;border-top:1px solid #d4c9b8;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#b68235;margin-bottom:20px">Let's Talk</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;line-height:1.1;color:#201f1d;margin-bottom:24px">Your<br>waterfront<br>awaits.</div>
+        <div style="width:32px;height:1px;background:#b68235;margin-bottom:24px"></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.8;color:#6b6560;">Every project begins with a conversation. No obligation — just an honest assessment of your lakefront and what's possible.</div>
+      </div>
+      <div style="border:1px solid #d4c9b8;padding:48px 40px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:24px">Schedule a Consultation</div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px">
+          <div style="height:44px;border:1px solid #d4c9b8;background:#faf9f7;display:flex;align-items:center;padding:0 16px">
+            <span class="ann">Name</span>
+          </div>
+          <div style="height:44px;border:1px solid #d4c9b8;background:#faf9f7;display:flex;align-items:center;padding:0 16px">
+            <span class="ann">Email</span>
+          </div>
+          <div style="height:44px;border:1px solid #d4c9b8;background:#faf9f7;display:flex;align-items:center;padding:0 16px">
+            <span class="ann">Which lake?</span>
+          </div>
+        </div>
+        <div style="padding:14px;background:#0a1628;text-align:center;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#f8f7f4">Request Consultation</div>
+      </div>
+    </div>
+
+    <!-- FOOTER hint -->
+    <div style="background:#0a1628;padding:16px 60px;display:flex;justify-content:space-between;align-items:center">
+      <div class="ann" style="color:#b8b4ac">4-col footer: logo + nav + markets + contact</div>
+      <div class="ann" style="color:#b8b4ac">© Summerset Marine Construction</div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "develop <a class="dv-oid" href="#1a">1a</a> further with a product detail page" · "mix <a class="dv-oid" href="#1b">1b</a>'s dark nav with <a class="dv-oid" href="#1c">1c</a>'s gallery layout" · "show me a header/nav closeup for <a class="dv-oid" href="#1c">1c</a>"</p>
+</section>
+</x-dc>
+</body>
+</html>

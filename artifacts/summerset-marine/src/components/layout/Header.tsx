@@ -1,6 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import Button from "@/components/ui/Button";
 
 /* ── Navigation data ─────────────────────────────────────────────── */
 
@@ -126,8 +125,8 @@ const BUYER_GUIDE_LINKS: NavLink[] = [
 function NavTrigger({ label, open }: { label: string; open: boolean }) {
   return (
     <span
-      className={`flex cursor-pointer items-center gap-1 py-6 text-sm font-medium transition-colors ${
-        open ? "text-brand-blue" : "text-brand-navy hover:text-brand-blue"
+      className={`flex cursor-pointer items-center gap-1 py-5 text-[14px] tracking-[.06em] font-serif transition-colors ${
+        open ? "text-brand-gold" : "text-[#3a3630] hover:text-brand-gold"
       }`}
     >
       {label}
@@ -189,7 +188,7 @@ function Dropdown({
       {open ? (
         <div
           id={menuId}
-          className={`absolute top-full z-50 rounded-b-lg border border-t-0 border-brand-border bg-white shadow-xl ${
+          className={`absolute top-full z-50 rounded-b-[2px] border border-t-0 border-brand-hairline bg-brand-offwhite shadow-lg ${
             wide ? "left-1/2 -translate-x-1/2" : "left-0"
           }`}
         >
@@ -204,7 +203,7 @@ function MenuLink({ link }: { link: NavLink }) {
   return (
     <Link
       href={link.href}
-      className="block rounded px-3 py-1.5 text-sm text-brand-navy/80 transition-colors hover:bg-brand-offwhite hover:text-brand-blue"
+      className="block px-3 py-1.5 text-[14px] text-brand-navy/80 transition-colors hover:text-brand-gold font-sans"
       data-testid={`link-menu-${link.href.replace(/\//g, "-").replace(/^-/, "")}`}
     >
       {link.label}
@@ -214,7 +213,7 @@ function MenuLink({ link }: { link: NavLink }) {
 
 function MenuHeading({ children }: { children: ReactNode }) {
   return (
-    <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-widest text-brand-gray">
+    <p className="px-3 pb-2 text-[11px] uppercase tracking-[.15em] font-serif text-[#b68235]">
       {children}
     </p>
   );
@@ -231,16 +230,16 @@ function MobileAccordion({
 }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-brand-border/60">
+    <div className="border-b border-brand-hairline/60">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between py-4 text-left font-medium text-brand-navy"
+        className="flex w-full items-center justify-between py-4 text-left font-serif text-[16px] tracking-[.04em] text-brand-navy"
         aria-expanded={open}
       >
         {label}
         <svg
-          className={`h-4 w-4 text-brand-gray transition-transform ${open ? "rotate-180" : ""}`}
+          className={`h-4 w-4 text-brand-navy/60 transition-transform ${open ? "rotate-180" : ""}`}
           viewBox="0 0 20 20"
           fill="currentColor"
           aria-hidden="true"
@@ -261,7 +260,7 @@ function MobileLink({ link }: { link: NavLink }) {
   return (
     <Link
       href={link.href}
-      className="block py-1.5 text-sm text-brand-navy/75 hover:text-brand-blue"
+      className="block py-1.5 text-[14px] font-sans text-brand-navy/75 hover:text-brand-gold"
     >
       {link.label}
     </Link>
@@ -271,16 +270,8 @@ function MobileLink({ link }: { link: NavLink }) {
 /* ── Header ──────────────────────────────────────────────────────── */
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [location] = useLocation();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 4);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setDrawerOpen(false);
@@ -294,24 +285,30 @@ export default function Header() {
   }, [drawerOpen]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b border-brand-border bg-white transition-shadow ${
-        scrolled ? "shadow-md" : ""
-      }`}
-    >
-      <div className="mx-auto flex h-20 max-w-content items-center justify-between gap-6 px-6">
-        <Link href="/" className="flex shrink-0 items-center" data-testid="link-home">
-          <span className="inline-flex items-center rounded-md bg-brand-navy px-3 py-2">
+    <>
+      <div className="bg-brand-navy h-[40px] hidden md:flex items-center justify-between px-[60px]">
+        <span className="font-sans text-[11px] text-[#f8f7f4]/45 tracking-[.04em]">Serving Wisconsin Lake Country · Est. 2001</span>
+        <div className="flex items-center gap-[24px]">
+          <span className="font-sans text-[12px] text-[#f8f7f4]/60">(262) 248-8444</span>
+          <span className="block w-[1px] h-[14px] bg-[#f8f7f4]/15" />
+          <Link href="/consultation" className="font-serif text-[11px] tracking-[.18em] uppercase text-brand-gold hover:text-white transition-colors">
+            Schedule Consultation
+          </Link>
+        </div>
+      </div>
+      <header className="sticky top-0 z-50 bg-brand-offwhite border-b border-brand-hairline px-6 md:px-[60px] h-[64px] flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-[14px] no-underline" data-testid="link-home">
+          <div className="bg-brand-navy px-[16px] py-[8px] flex items-center">
             <img
               src="/images/summerset-marine-logo.png"
               alt="Summerset Marine Construction"
-              className="h-8 w-auto"
+              className="h-[28px] w-auto block brightness-0 invert"
             />
-          </span>
+          </div>
         </Link>
 
         {/* Desktop navigation */}
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Main">
+        <nav className="hidden items-center gap-[36px] md:flex" aria-label="Main">
           <Dropdown label="Products" wide>
             <div className="flex w-[560px] gap-8 p-6">
               <div className="flex-1">
@@ -319,7 +316,7 @@ export default function Header() {
                 {PRODUCTS_COL_1.map((l) => (
                   <MenuLink key={l.href} link={l} />
                 ))}
-                <div className="my-3 border-t border-brand-border/60" />
+                <div className="my-3 border-t border-brand-hairline" />
                 {PRODUCTS_COL_1_EXTRA.map((l) => (
                   <MenuLink key={l.href} link={l} />
                 ))}
@@ -329,7 +326,7 @@ export default function Header() {
                 {PRODUCTS_COL_2.map((l) => (
                   <MenuLink key={l.href} link={l} />
                 ))}
-                <div className="my-3 border-t border-brand-border/60" />
+                <div className="my-3 border-t border-brand-hairline" />
                 {PRODUCTS_COL_2_EXTRA.map((l) => (
                   <MenuLink key={l.href} link={l} />
                 ))}
@@ -351,7 +348,7 @@ export default function Header() {
                 <div key={col.heading} className="flex-1">
                   <Link
                     href={col.headingHref}
-                    className="mb-2 block px-3 text-xs font-semibold uppercase tracking-widest text-brand-blue hover:text-brand-navy"
+                    className="mb-2 block px-3 text-[11px] font-serif uppercase tracking-[.15em] text-[#b68235] hover:text-brand-navy"
                   >
                     {col.heading}
                   </Link>
@@ -368,7 +365,7 @@ export default function Header() {
               {RESOURCES_LINKS.map((l) => (
                 <MenuLink key={l.href} link={l} />
               ))}
-              <div className="my-3 border-t border-brand-border/60" />
+              <div className="my-3 border-t border-brand-hairline" />
               <MenuHeading>Buyer Guides</MenuHeading>
               {BUYER_GUIDE_LINKS.map((l) => (
                 <MenuLink key={l.href} link={l} />
@@ -378,130 +375,135 @@ export default function Header() {
 
           <Link
             href="/about"
-            className="py-6 text-sm font-medium text-brand-navy transition-colors hover:text-brand-blue"
+            className="py-5 text-[14px] tracking-[.06em] font-serif text-[#3a3630] transition-colors hover:text-brand-gold"
             data-testid="link-nav-about"
           >
             About
           </Link>
+
           <Link
             href="/locations"
-            className="py-6 text-sm font-medium text-brand-navy transition-colors hover:text-brand-blue"
+            className="py-5 text-[14px] tracking-[.06em] font-serif text-[#3a3630] transition-colors hover:text-brand-gold"
             data-testid="link-nav-locations"
           >
             Locations
           </Link>
-        </nav>
 
-        <div className="hidden shrink-0 md:block">
-          <Button href="/consultation" variant="primary">
+          <Link
+            href="/consultation"
+            className="px-[22px] py-[9px] border border-brand-navy font-serif text-[12px] tracking-[.13em] text-brand-navy uppercase transition-colors hover:bg-brand-navy hover:text-white"
+          >
             Get a Consultation
-          </Button>
-        </div>
+          </Link>
+        </nav>
 
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-md text-brand-navy md:hidden"
+          className="flex h-10 w-10 items-center justify-center text-brand-navy md:hidden"
           onClick={() => setDrawerOpen(true)}
           aria-label="Open menu"
           data-testid="button-open-menu"
         >
-          <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
             <path strokeLinecap="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-      </div>
 
-      {/* Mobile drawer */}
-      {drawerOpen ? (
-        <div className="fixed inset-0 z-50 md:hidden">
-          <div
-            className="absolute inset-0 bg-black/50"
-            onClick={() => setDrawerOpen(false)}
-            aria-hidden="true"
-          />
-          <div className="absolute right-0 top-0 flex h-full w-80 max-w-[85vw] flex-col bg-white shadow-2xl">
-            <div className="flex items-center justify-between border-b border-brand-border px-5 py-4">
-              <span className="inline-flex items-center rounded-md bg-brand-navy px-2.5 py-1.5">
-                <img
-                  src="/images/summerset-marine-logo.png"
-                  alt="Summerset Marine Construction"
-                  className="h-7 w-auto"
-                />
-              </span>
-              <button
-                type="button"
-                onClick={() => setDrawerOpen(false)}
-                className="flex h-9 w-9 items-center justify-center rounded-md text-brand-navy"
-                aria-label="Close menu"
-                data-testid="button-close-menu"
-              >
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
-                </svg>
-              </button>
-            </div>
+        {/* Mobile drawer */}
+        {drawerOpen ? (
+          <div className="fixed inset-0 z-50 md:hidden">
+            <div
+              className="absolute inset-0 bg-brand-navy/60 backdrop-blur-sm"
+              onClick={() => setDrawerOpen(false)}
+              aria-hidden="true"
+            />
+            <div className="absolute right-0 top-0 flex h-full w-80 max-w-[85vw] flex-col bg-brand-offwhite shadow-2xl">
+              <div className="flex items-center justify-between border-b border-brand-hairline px-5 py-4">
+                <div className="bg-brand-navy px-[12px] py-[6px] flex items-center">
+                  <img
+                    src="/images/summerset-marine-logo.png"
+                    alt="Summerset Marine Construction"
+                    className="h-[20px] w-auto block brightness-0 invert"
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setDrawerOpen(false)}
+                  className="flex h-9 w-9 items-center justify-center text-brand-navy"
+                  aria-label="Close menu"
+                  data-testid="button-close-menu"
+                >
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                    <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
+                  </svg>
+                </button>
+              </div>
 
-            <div className="flex-1 overflow-y-auto px-5">
-              <MobileAccordion label="Products">
-                <p className="pb-1 text-xs font-semibold uppercase tracking-widest text-brand-gray">Permanent Systems</p>
-                {[...PRODUCTS_COL_1, ...PRODUCTS_COL_1_EXTRA].map((l) => (
-                  <MobileLink key={l.href} link={l} />
-                ))}
-                <p className="pb-1 pt-3 text-xs font-semibold uppercase tracking-widest text-brand-gray">Lifts &amp; Other</p>
-                {[...PRODUCTS_COL_2, ...PRODUCTS_COL_2_EXTRA].map((l) => (
-                  <MobileLink key={l.href} link={l} />
-                ))}
-              </MobileAccordion>
+              <div className="flex-1 overflow-y-auto px-5">
+                <MobileAccordion label="Products">
+                  <p className="pb-1 text-[10px] uppercase tracking-[.15em] font-serif text-[#b68235]">Permanent Systems</p>
+                  {[...PRODUCTS_COL_1, ...PRODUCTS_COL_1_EXTRA].map((l) => (
+                    <MobileLink key={l.href} link={l} />
+                  ))}
+                  <p className="pb-1 pt-4 text-[10px] uppercase tracking-[.15em] font-serif text-[#b68235]">Lifts &amp; Other</p>
+                  {[...PRODUCTS_COL_2, ...PRODUCTS_COL_2_EXTRA].map((l) => (
+                    <MobileLink key={l.href} link={l} />
+                  ))}
+                </MobileAccordion>
 
-              <MobileAccordion label="Services">
-                {SERVICES_LINKS.map((l) => (
-                  <MobileLink key={l.href} link={l} />
-                ))}
-              </MobileAccordion>
+                <MobileAccordion label="Services">
+                  {SERVICES_LINKS.map((l) => (
+                    <MobileLink key={l.href} link={l} />
+                  ))}
+                </MobileAccordion>
 
-              <MobileAccordion label="Markets">
-                {MARKET_COLUMNS.map((col) => (
-                  <div key={col.heading} className="pb-2">
-                    <Link
-                      href={col.headingHref}
-                      className="block pb-1 pt-2 text-xs font-semibold uppercase tracking-widest text-brand-blue"
-                    >
-                      {col.heading}
-                    </Link>
-                    {col.links.map((l) => (
-                      <MobileLink key={l.href} link={l} />
-                    ))}
-                  </div>
-                ))}
-              </MobileAccordion>
+                <MobileAccordion label="Markets">
+                  {MARKET_COLUMNS.map((col) => (
+                    <div key={col.heading} className="pb-3">
+                      <Link
+                        href={col.headingHref}
+                        className="block pb-1 pt-2 text-[11px] uppercase tracking-[.15em] font-serif text-[#b68235]"
+                      >
+                        {col.heading}
+                      </Link>
+                      {col.links.map((l) => (
+                        <MobileLink key={l.href} link={l} />
+                      ))}
+                    </div>
+                  ))}
+                </MobileAccordion>
 
-              <MobileAccordion label="Resources">
-                {RESOURCES_LINKS.map((l) => (
-                  <MobileLink key={l.href} link={l} />
-                ))}
-                <p className="pb-1 pt-3 text-xs font-semibold uppercase tracking-widest text-brand-gray">Buyer Guides</p>
-                {BUYER_GUIDE_LINKS.map((l) => (
-                  <MobileLink key={l.href} link={l} />
-                ))}
-              </MobileAccordion>
+                <MobileAccordion label="Resources">
+                  {RESOURCES_LINKS.map((l) => (
+                    <MobileLink key={l.href} link={l} />
+                  ))}
+                  <p className="pb-1 pt-4 text-[10px] uppercase tracking-[.15em] font-serif text-[#b68235]">Buyer Guides</p>
+                  {BUYER_GUIDE_LINKS.map((l) => (
+                    <MobileLink key={l.href} link={l} />
+                  ))}
+                </MobileAccordion>
 
-              <Link href="/about" className="block border-b border-brand-border/60 py-4 font-medium text-brand-navy">
-                About
-              </Link>
-              <Link href="/locations" className="block border-b border-brand-border/60 py-4 font-medium text-brand-navy">
-                Locations
-              </Link>
-            </div>
+                <Link href="/about" className="block border-b border-brand-hairline py-4 font-serif text-[16px] tracking-[.04em] text-brand-navy">
+                  About
+                </Link>
+                <Link href="/locations" className="block border-b border-brand-hairline py-4 font-serif text-[16px] tracking-[.04em] text-brand-navy">
+                  Locations
+                </Link>
+              </div>
 
-            <div className="border-t border-brand-border p-5">
-              <Button href="/consultation" variant="primary" className="w-full">
-                Get a Consultation
-              </Button>
+              <div className="border-t border-brand-hairline p-5">
+                <Link
+                  href="/consultation"
+                  className="flex w-full justify-center px-[22px] py-[12px] border border-brand-navy font-serif text-[12px] tracking-[.13em] text-brand-navy uppercase transition-colors hover:bg-brand-navy hover:text-white"
+                >
+                  Get a Consultation
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      ) : null}
-    </header>
+        ) : null}
+      </header>
+    </>
   );
 }

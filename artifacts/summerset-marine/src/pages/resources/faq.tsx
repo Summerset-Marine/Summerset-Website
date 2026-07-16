@@ -33,13 +33,13 @@ function AccordionItem({
   children: React.ReactNode;
 }) {
   return (
-    <div className="border-b border-brand-border">
+    <div className="border-b border-brand-hairline">
       <button
         type="button"
         aria-expanded={isOpen}
         onClick={onToggle}
-        className={`flex w-full items-center justify-between gap-4 py-5 text-left font-semibold ${
-          isOpen ? "text-brand-blue" : "text-brand-navy"
+        className={`flex w-full items-center justify-between gap-4 py-5 text-left font-serif text-lg ${
+          isOpen ? "text-brand-gold" : "text-brand-black"
         }`}
       >
         <span>{question}</span>
@@ -91,8 +91,12 @@ export default function FaqPage() {
 
       {/* 1. Hero */}
       <section className="bg-brand-navy text-white">
-        <div className="mx-auto max-w-content px-6 py-16">
-          <h1 className="font-serif text-4xl md:text-5xl">Frequently Asked Questions</h1>
+        <div className="mx-auto max-w-content px-6 py-20">
+          <p className="font-serif text-[12px] uppercase tracking-[.22em] text-brand-gold">
+            Resources
+          </p>
+          <h1 className="mt-4 font-serif text-4xl md:text-5xl">Frequently Asked Questions</h1>
+          <div className="mt-5 h-px w-12 bg-brand-gold" />
           <p className="mt-5 max-w-2xl text-lg text-white/85">
             Everything you need to know about permanent piers, boat lifts, and working with
             Summerset Marine.
@@ -111,10 +115,10 @@ export default function FaqPage() {
                 role="tab"
                 aria-selected={category === c}
                 onClick={() => setCategory(c)}
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+                className={`border px-5 py-2 font-serif text-[12px] uppercase tracking-[.13em] transition-colors ${
                   category === c
-                    ? "border-brand-navy bg-brand-navy text-white"
-                    : "border-brand-border bg-white text-brand-navy hover:border-brand-navy"
+                    ? "border-brand-gold bg-transparent text-brand-gold"
+                    : "border-brand-hairline bg-transparent text-brand-black/70 hover:border-brand-gold hover:text-brand-gold"
                 }`}
               >
                 {c}
@@ -133,7 +137,7 @@ export default function FaqPage() {
                 isOpen={openId === f._id}
                 onToggle={() => setOpenId(openId === f._id ? null : f._id)}
               >
-                <p className="leading-relaxed text-brand-gray">{f.answer}</p>
+                <p className="leading-relaxed text-brand-black/80">{f.answer}</p>
               </AccordionItem>
             ))}
           </div>

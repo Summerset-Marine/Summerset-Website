@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
 import Layout from "@/components/layout/Layout";
 import PageMeta from "@/components/seo/PageMeta";
 import JsonLd, {
@@ -6,9 +7,7 @@ import JsonLd, {
   imageObjectSchema,
   serviceSchema,
 } from "@/components/seo/JsonLd";
-import HeroSection from "@/components/ui/HeroSection";
 import CTABlock from "@/components/ui/CTABlock";
-import Button from "@/components/ui/Button";
 import ContentPlaceholder from "@/components/ui/ContentPlaceholder";
 import {
   isSanityConfigured,
@@ -85,8 +84,6 @@ export default function BeaverLakePage() {
         setTestimonials(
           (data ?? []).filter(
             (t) =>
-              // Prefer the structured lake slug; keep testimonials with no
-              // lake data at all rather than hiding valid market content.
               t.lakeSlug === "beaver-lake" ||
               (!t.lakeSlug &&
                 (!t.lakeLabel || t.lakeLabel.toLowerCase().includes("beaver"))),
@@ -95,6 +92,8 @@ export default function BeaverLakePage() {
       )
       .catch(() => setTestimonials([]));
   }, []);
+
+  const heroImage = content?.heroImageUrl ?? "/images/smc/oconomowoc-beaver-lake-permanent-pier-001.jpg";
 
   return (
     <Layout>
@@ -134,163 +133,161 @@ export default function BeaverLakePage() {
           />
         ))}
 
-      {/* 1. Hero */}
-      <HeroSection
-          variant="full-bleed"
-          headline="Permanent Piers & Lifts on Beaver Lake"
-          subheadline={content?.historyText ?? undefined}
-          primaryCta={{
-            label: "Request a Consultation on Beaver Lake",
-            href: "/markets/oconomowoc/contact",
-          }}
-          imageSrc={content?.heroImageUrl ?? "/images/smc/oconomowoc-beaver-lake-permanent-pier-001.jpg"}
-          imageAlt={content?.heroImageAlt ?? "Permanent pier on Beaver Lake, Oconomowoc, Wisconsin — Summerset Marine Construction"}
-        />
+      {/* BREADCRUMB */}
+      <div className="bg-brand-offwhite px-6 md:px-30 py-3 border-b border-brand-border">
+        <div className="mx-auto max-w-content flex items-center gap-2">
+          <Link href="/markets" className="font-serif text-xs text-brand-black/45 hover:text-brand-gold transition-colors">Markets</Link>
+          <span className="text-[11px] text-brand-black/30">›</span>
+          <Link href="/markets/oconomowoc" className="font-serif text-xs text-brand-black/45 hover:text-brand-gold transition-colors">Oconomowoc</Link>
+          <span className="text-[11px] text-brand-black/30">›</span>
+          <span className="font-serif text-xs text-brand-black">{content?.lakeName || "Beaver Lake"}</span>
+        </div>
+      </div>
 
-      {/* 2. SMC on this water */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl text-brand-navy">
-          Summerset Marine on Beaver Lake
-        </h2>
-        <p className="mt-4 text-lg text-brand-gray">
-          <strong className="text-brand-navy">Beaver Lake, Wisconsin</strong> &mdash; Average Depth: 15 Feet
-        </p>
-        {content?.historyText ? (
-          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-brand-gray">
-            {content.historyText}
+      {/* HERO */}
+      <section className="relative h-[75vh] min-h-[540px] overflow-hidden bg-brand-navy">
+        <img 
+          src={heroImage} 
+          alt={content?.heroImageAlt ?? "Permanent pier on Beaver Lake"} 
+          className="absolute inset-0 w-full h-full object-cover object-center" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/88 via-brand-navy/30 to-brand-navy/15 pointer-events-none"></div>
+        <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-30 pb-18 pointer-events-none">
+          <div className="animate-in slide-in-from-bottom-4 fade-in duration-700 font-serif text-[12px] tracking-[.28em] text-brand-gold uppercase mb-[18px]">Primary Lake</div>
+          <h1 className="animate-in slide-in-from-bottom-4 fade-in duration-700 delay-150 font-serif text-5xl md:text-[80px] font-light leading-none text-brand-offwhite italic mb-[18px] max-w-[700px]">
+            {content?.lakeName || "Beaver Lake"}
+          </h1>
+          <div className="animate-in slide-in-from-bottom-4 fade-in duration-700 delay-300 w-10 h-px bg-brand-gold mb-5"></div>
+          <p className="animate-in slide-in-from-bottom-4 fade-in duration-700 delay-500 font-serif text-lg leading-relaxed text-brand-offwhite/65 max-w-[540px] mb-9">
+            Permanent Piers & Lifts on Beaver Lake
           </p>
-        ) : (
-          <ContentPlaceholder
-            label="years of experience, notable projects, installed base on Beaver Lake"
-            className="mt-6"
-          />
-        )}
+          <div className="animate-in slide-in-from-bottom-4 fade-in duration-700 delay-700 flex flex-wrap gap-8 items-center pointer-events-auto">
+            <Link href="/markets/oconomowoc/contact" className="inline-block px-10 py-3 border border-brand-gold font-serif text-[13px] tracking-[.16em] text-brand-gold uppercase hover:bg-brand-gold hover:text-white transition-colors">Request Consultation</Link>
+          </div>
+        </div>
       </section>
 
-      {/* 3. Water characteristics */}
-      <section className="bg-brand-offwhite">
-        <div className="mx-auto max-w-content px-6 py-16">
-          <h2 className="font-serif text-3xl text-brand-navy">
-            Building on Beaver Lake: What Property Owners Should Know
-          </h2>
+      {/* SMC ON THIS WATER */}
+      <section className="bg-brand-offwhite px-6 md:px-30 py-22">
+        <div className="mx-auto max-w-content grid md:grid-cols-[1fr_1px_1fr] gap-18 items-start">
+          <div>
+            <div className="font-serif text-[12px] tracking-[.24em] uppercase text-brand-gold mb-5">Our Experience</div>
+            <h2 className="font-serif text-[42px] font-normal leading-[1.1] text-brand-black mb-5">Summerset Marine on<br/><em className="italic">{content?.lakeName || "Beaver Lake"}.</em></h2>
+            <div className="w-8 h-px bg-brand-gold mb-6"></div>
+            {content?.historyText ? (
+              <p className="font-serif text-[17px] leading-[1.9] text-brand-black/80 mb-5 text-justify">
+                {content.historyText}
+              </p>
+            ) : (
+              <ContentPlaceholder label="years of experience, notable projects, installed base on Beaver Lake" />
+            )}
+          </div>
+          <div className="hidden md:block w-px bg-brand-border self-stretch"></div>
+          <div>
+            <div className="font-serif text-[12px] tracking-[.24em] uppercase text-brand-gold mb-7">Lake Stats</div>
+            <div className="flex flex-col">
+              <div className="flex justify-between items-baseline py-5 border-b border-brand-border">
+                <span className="font-serif text-[14px] text-brand-black/60">Average Depth</span>
+                <span className="font-serif text-[32px] font-light text-brand-navy tabular-nums">15 Feet</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LAKE CHARACTERISTICS */}
+      <section className="bg-brand-offwhite px-6 md:px-30 pb-22">
+        <div className="mx-auto max-w-[800px] text-center mb-16">
+          <div className="font-serif text-[12px] tracking-[.24em] uppercase text-brand-gold mb-5">Considerations</div>
+          <h2 className="font-serif text-[36px] font-light text-brand-black mb-6">Building on {content?.lakeName || "Beaver Lake"}</h2>
+          <div className="w-8 h-px bg-brand-gold mx-auto mb-8"></div>
           {content?.lakeCharacteristics ? (
-            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-brand-gray">
+            <p className="font-serif text-[17px] leading-[1.9] text-brand-black/80 text-justify">
               {content.lakeCharacteristics}
             </p>
           ) : (
-            <ContentPlaceholder
-              label="depth, wave exposure, ice behavior, shoreline types, relevant installation considerations for a property owner"
-              className="mt-6"
-            />
+            <ContentPlaceholder label="depth, wave exposure, ice behavior, shoreline types, relevant installation considerations for a property owner" />
           )}
         </div>
       </section>
 
-      {/* 4. Products for this water */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl text-brand-navy">
-          Recommended Systems for Beaver Lake
-        </h2>
-        <div className="mt-8 grid gap-8 md:grid-cols-3">
-          {PRODUCT_RECOMMENDATIONS.map((product) => (
-            <div
-              key={product.name}
-              className="flex flex-col rounded-lg border border-brand-border bg-white p-8 shadow-sm"
-            >
-              <h3 className="font-serif text-2xl text-brand-navy">{product.name}</h3>
-              <p className="mt-3 flex-1 leading-relaxed text-brand-gray">{product.reason}</p>
-              <div className="mt-6">
-                <Button href={product.href} variant="secondary">
-                  Learn More
-                </Button>
+      {/* RECOMMENDED SYSTEMS */}
+      <section className="bg-brand-navy px-6 md:px-30 py-22">
+        <div className="mx-auto max-w-content">
+          <div className="text-center mb-16">
+            <div className="font-serif text-[12px] tracking-[.28em] uppercase text-brand-gold mb-4">Equipment</div>
+            <h2 className="font-serif text-[46px] font-light text-brand-offwhite italic m-0">Recommended Systems</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {PRODUCT_RECOMMENDATIONS.map((product) => (
+              <div key={product.name} className="border border-brand-offwhite/10 p-8 hover:border-brand-gold transition-colors group">
+                <h3 className="font-serif text-[24px] text-brand-offwhite mb-4 group-hover:text-brand-gold transition-colors">{product.name}</h3>
+                <div className="w-8 h-px bg-brand-offwhite/20 mb-6 group-hover:bg-brand-gold transition-colors"></div>
+                <p className="font-serif text-[16px] leading-[1.7] text-brand-offwhite/60 mb-8">{product.reason}</p>
+                <Link href={product.href} className="font-serif text-[12px] tracking-[.14em] uppercase text-brand-gold border-b border-brand-gold/50 pb-0.5 hover:text-white hover:border-white transition-colors">Learn More →</Link>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 5. Project gallery */}
-      <section className="bg-brand-offwhite">
-        <div className="mx-auto max-w-content px-6 py-16">
-          <h2 className="font-serif text-3xl text-brand-navy">Beaver Lake Projects</h2>
+      {/* PROJECT GALLERY */}
+      <section className="bg-brand-offwhite px-6 md:px-30 py-22">
+        <div className="mx-auto max-w-content">
+          <div className="flex justify-between items-end mb-13">
+            <div>
+              <div className="font-serif text-[12px] tracking-[.28em] uppercase text-brand-gold mb-4">Portfolio</div>
+              <h2 className="font-serif text-[46px] font-light text-brand-black italic m-0 leading-[1.05]">{content?.lakeName || "Beaver Lake"} Projects</h2>
+            </div>
+            <Link href="/markets/oconomowoc/projects" className="font-serif text-[12px] tracking-[.14em] uppercase text-brand-navy border-b border-brand-navy/50 pb-0.5 hover:text-brand-gold hover:border-brand-gold transition-colors">All Oconomowoc Projects →</Link>
+          </div>
+          
           {projects.length > 0 ? (
-            <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map((project) => (
-                <div
-                  key={project._id}
-                  className="overflow-hidden rounded-lg border border-brand-border bg-white shadow-sm"
-                >
-                  {project.afterImageUrl ? (
-                    <img
-                      src={project.afterImageUrl}
-                      alt={project.afterImageAlt ?? project.title}
-                      className="h-56 w-full object-cover"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="flex h-56 items-center justify-center bg-brand-offwhite text-sm text-brand-gray">
-                      Photo Coming Soon
-                    </div>
-                  )}
-                  <div className="p-5">
-                    <h3 className="font-serif text-xl text-brand-navy">{project.title}</h3>
-                    <p className="mt-1 text-sm text-brand-gray">
-                      {[project.productType, project.installYear].filter(Boolean).join(" · ")}
-                    </p>
-                    {project.caption ? (
-                      <p className="mt-2 text-sm text-brand-gray">{project.caption}</p>
-                    ) : null}
+                <div key={project._id} className="group cursor-pointer">
+                  <div className="overflow-hidden border border-brand-border mb-4">
+                    {project.afterImageUrl ? (
+                      <img src={project.afterImageUrl} alt={project.afterImageAlt ?? project.title} className="block w-full h-[240px] object-cover group-hover:scale-105 transition-transform duration-500" />
+                    ) : (
+                      <div className="flex h-[240px] items-center justify-center bg-brand-offwhite text-brand-black/40 text-sm font-serif">Photo Coming Soon</div>
+                    )}
+                  </div>
+                  <div className="px-1">
+                    <div className="font-serif text-[11px] tracking-[.2em] uppercase text-brand-gold mb-2">{[project.productType, project.installYear].filter(Boolean).join(" · ")}</div>
+                    <div className="font-serif text-[22px] text-brand-black mb-1.5 group-hover:text-brand-gold transition-colors">{project.title}</div>
+                    {project.caption && <p className="font-serif text-[14px] text-brand-black/60 line-clamp-2">{project.caption}</p>}
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <ContentPlaceholder
-              label="Beaver Lake project gallery photos (from Sanity projects, lake = beaver-lake)"
-              className="mt-8"
-            />
+            <ContentPlaceholder label="Beaver Lake project gallery photos (from Sanity projects, lake = beaver-lake)" className="mt-8" />
           )}
-          <div className="mt-8">
-            <Button href="/markets/oconomowoc/projects" variant="secondary">
-              View All Oconomowoc / Lake Country Projects
-            </Button>
-            <Button href="/markets/oconomowoc" variant="secondary" className="ml-3">
-              Explore the Oconomowoc / Lake Country Market
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* 6. Testimonials */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl text-brand-navy">
-          What Beaver Lake Homeowners Say
-        </h2>
-        {testimonials.length > 0 ? (
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
-            {testimonials.map((t) => (
-              <blockquote
-                key={t._id}
-                className="rounded-lg border border-brand-border bg-white p-8 shadow-sm"
-              >
-                <p className="font-serif text-xl leading-relaxed text-brand-navy">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <footer className="mt-4 text-sm text-brand-gray">
-                  {[t.customerName, t.lakeLabel].filter(Boolean).join(" — ")}
-                </footer>
+      {/* TESTIMONIALS */}
+      <section className="bg-brand-offwhite px-6 md:px-30 py-24 border-t border-brand-border">
+        <div className="mx-auto max-w-[720px] text-center">
+          <div className="w-px h-12 bg-brand-border mx-auto mb-9"></div>
+          {testimonials.length > 0 ? (
+            <>
+              <blockquote className="font-serif text-[32px] font-light italic leading-[1.45] text-brand-black m-0 mb-8">
+                "{testimonials[0].quote}"
               </blockquote>
-            ))}
-          </div>
-        ) : (
-          <ContentPlaceholder
-            label="Beaver Lake customer testimonials (from Sanity testimonials, lake = beaver-lake)"
-            className="mt-8"
-          />
-        )}
+              <div className="w-8 h-px bg-brand-gold mx-auto mb-5"></div>
+              <div className="font-serif text-[14px] tracking-[.16em] uppercase text-brand-black/60">
+                — {[testimonials[0].customerName, testimonials[0].lakeLabel].filter(Boolean).join(" · ")}
+              </div>
+            </>
+          ) : (
+            <ContentPlaceholder label="Beaver Lake customer testimonials (from Sanity testimonials, lake = beaver-lake)" className="mx-auto" />
+          )}
+        </div>
       </section>
 
-      {/* 7. CTA */}
+      {/* CTA */}
       <CTABlock
         variant="dark"
         headline="Ready to build on Beaver Lake?"

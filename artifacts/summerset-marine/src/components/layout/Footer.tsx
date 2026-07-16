@@ -13,6 +13,10 @@ const PRODUCT_LINKS = [
 const MARKET_LINKS = [
   { label: "Lake Geneva", href: "/markets/lake-geneva" },
   { label: "Oconomowoc / Lake Country", href: "/markets/oconomowoc" },
+  { label: "Madison", href: "/markets/madison" },
+  { label: "Whitewater", href: "/markets/whitewater" },
+  { label: "Green Lake", href: "/markets/green-lake" },
+  { label: "Fox Chain", href: "/markets/fox-chain" },
   { label: "Door County", href: "/markets/door-county" },
 ];
 
@@ -46,103 +50,101 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-navy text-white">
-      <div className="mx-auto grid max-w-content gap-10 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
-        {/* Column 1 — Brand */}
-        <div>
-          <Link href="/" className="inline-block rounded bg-white px-3 py-2">
-            <img
-              src="/images/summerset-marine-logo.png"
-              alt="Summerset Marine Construction"
-              className="h-10 w-auto"
-            />
-          </Link>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
-            Engineering Wisconsin&apos;s finest waterfront systems since 1990.
-          </p>
-          <div className="mt-5 flex gap-3">
-            {SOCIAL_LINKS.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-brand-blue hover:text-white"
-              >
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  {social.icon}
-                </svg>
-              </a>
-            ))}
+    <footer className="bg-[#060f1c] text-white px-6 md:px-[120px] pt-20">
+      <div className="mx-auto max-w-[1040px]">
+        <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1.2fr] gap-14 pb-16 border-b border-white/10">
+          
+          {/* Column 1 — Brand */}
+          <div>
+            <div className="flex items-center gap-3 mb-[22px]">
+              <Link href="/">
+                <img
+                  src="/images/summerset-marine-logo.png"
+                  alt="Summerset Marine Construction"
+                  className="h-8 w-auto block brightness-0 invert"
+                />
+              </Link>
+            </div>
+            <p className="font-sans text-[13px] leading-[1.8] text-[#f8f7f4]/40 m-0 mb-[28px] text-balance">
+              Wisconsin&apos;s premier permanent pier and boat lift specialists. Serving lake country since 2001.
+            </p>
+            <div className="flex gap-[18px] items-center">
+              {SOCIAL_LINKS.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="text-white/40 transition-colors hover:text-brand-gold flex h-5 w-5 items-center justify-center"
+                >
+                  <svg className="h-full w-full" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    {social.icon}
+                  </svg>
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Column 2 — Products */}
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-widest text-white/60">Products</p>
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {PRODUCT_LINKS.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="text-white/80 transition-colors hover:text-white">
-                  {l.label}
-                </Link>
+          {/* Column 2 — Products */}
+          <div>
+            <p className="font-serif text-[11px] uppercase tracking-[.15em] text-[#f8f7f4]/30 mb-5">Products</p>
+            <ul className="space-y-[10px]">
+              {PRODUCT_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="font-sans text-[14px] text-[#f8f7f4]/70 transition-colors hover:text-brand-gold">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3 — Markets */}
+          <div>
+            <p className="font-serif text-[11px] uppercase tracking-[.15em] text-[#f8f7f4]/30 mb-5">Markets</p>
+            <ul className="space-y-[10px]">
+              {MARKET_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="font-sans text-[14px] text-[#f8f7f4]/70 transition-colors hover:text-brand-gold">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4 — Contact */}
+          <div>
+            <p className="font-serif text-[11px] uppercase tracking-[.15em] text-[#f8f7f4]/30 mb-5">Contact</p>
+            <ul className="space-y-[10px] text-[14px] font-sans text-[#f8f7f4]/70 mb-8">
+              <li>
+                <a href="tel:2622488444" className="transition-colors hover:text-brand-gold">
+                  (262) 248-8444
+                </a>
               </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Column 3 — Markets */}
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-widest text-white/60">Markets</p>
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {MARKET_LINKS.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="text-white/80 transition-colors hover:text-white">
-                  {l.label}
-                </Link>
+              <li>
+                <a href="mailto:info@summersetmarine.com" className="transition-colors hover:text-brand-gold">
+                  info@summersetmarine.com
+                </a>
               </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Column 4 — Contact */}
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-widest text-white/60">Contact</p>
-          <ul className="mt-4 space-y-2.5 text-sm text-white/80">
-            <li>
-              {/* TODO: replace with real SMC phone number */}
-              <a href="tel:[SMC_PHONE_PLACEHOLDER]" className="transition-colors hover:text-white">
-                [SMC_PHONE_PLACEHOLDER]
-              </a>
-            </li>
-            <li>
-              {/* TODO: replace with real SMC email */}
-              <a href="mailto:[SMC_EMAIL_PLACEHOLDER]" className="transition-colors hover:text-white">
-                [SMC_EMAIL_PLACEHOLDER]
-              </a>
-            </li>
-            <li className="leading-relaxed">
-              Summerset Marine Construction
-              <br />
-              Whitewater, WI
-            </li>
-          </ul>
-          <div className="mt-6">
-            <Button href="/consultation" variant="primary" className="w-full">
-              Get a Consultation
+              <li className="leading-[1.6]">
+                W8315 State Road 59<br />Whitewater, WI 53190
+              </li>
+            </ul>
+            <Button href="/consultation" variant="primary" className="!w-full border-white/20 text-white hover:border-brand-gold hover:text-brand-gold hover:bg-transparent">
+              Request Consultation
             </Button>
           </div>
         </div>
-      </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-content flex-col gap-2 px-6 py-4 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2025 Summerset Marine Construction. All rights reserved.</p>
-          <Link href="/privacy" className="transition-colors hover:text-white">
-            Privacy Policy
-          </Link>
+        {/* Bottom bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between py-8 text-[12px] font-sans text-[#f8f7f4]/30">
+          <p>© {new Date().getFullYear()} Summerset Marine Construction.</p>
+          <div className="flex items-center gap-6 mt-4 sm:mt-0">
+            <Link href="/privacy" className="transition-colors hover:text-brand-gold">Privacy</Link>
+            <a href="#" className="transition-colors hover:text-brand-gold">Terms</a>
+          </div>
         </div>
       </div>
     </footer>

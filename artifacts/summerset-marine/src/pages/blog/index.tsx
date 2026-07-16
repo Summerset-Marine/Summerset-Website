@@ -149,7 +149,7 @@ export default function BlogIndexPage() {
                   key={n}
                   className="flex h-80 items-center justify-center rounded-lg border border-brand-border bg-brand-gray-light"
                 >
-                  <span className="text-sm font-medium uppercase tracking-wide text-brand-gray">
+                  <span className="text-sm font-medium uppercase tracking-wide text-brand-black/80">
                     Posts Coming Soon
                   </span>
                 </div>
@@ -176,7 +176,7 @@ export default function BlogIndexPage() {
                     loading="lazy"
                   />
                 ) : (
-                  <div className="flex h-48 items-center justify-center bg-brand-offwhite text-sm text-brand-gray">
+                  <div className="flex h-48 items-center justify-center bg-brand-offwhite text-sm text-brand-black/80">
                     Image Coming Soon
                   </div>
                 )}
@@ -191,10 +191,10 @@ export default function BlogIndexPage() {
                     {post.title}
                   </h2>
                   {formatDate(post.publishedAt) ? (
-                    <p className="mt-1 text-sm text-brand-gray">{formatDate(post.publishedAt)}</p>
+                    <p className="mt-1 text-sm text-brand-black/80">{formatDate(post.publishedAt)}</p>
                   ) : null}
                   {post.excerpt ? (
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-brand-gray">
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-brand-black/80">
                       {post.excerpt}
                     </p>
                   ) : null}

@@ -132,7 +132,7 @@ export default function BlogPostPage() {
       ) : post === null ? (
         <section className="mx-auto max-w-content px-6 py-22">
           <h1 className="font-serif text-4xl text-brand-navy">Post Not Found</h1>
-          <p className="mt-4 text-brand-gray">
+          <p className="mt-4 text-brand-black/80">
             {isSanityConfigured
               ? "This post doesn't exist or hasn't been published yet."
               : "Blog posts will appear here once the CMS is connected."}
@@ -165,7 +165,7 @@ export default function BlogPostPage() {
             <h1 className="font-serif text-4xl leading-tight text-brand-navy md:text-5xl">
               {post.title}
             </h1>
-            <p className="mt-4 text-sm text-brand-gray">
+            <p className="mt-4 text-sm text-brand-black/80">
               {[
                 formatDate(post.publishedAt),
                 post.author,
@@ -177,7 +177,7 @@ export default function BlogPostPage() {
             </p>
 
             {/* 4–5. Body */}
-            <div className="prose-smc mt-8 space-y-5 text-lg leading-relaxed text-brand-gray [&_a]:font-medium [&_a]:text-brand-blue [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:text-brand-navy [&_h3]:mt-8 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:text-brand-navy [&_blockquote]:border-l-4 [&_blockquote]:border-brand-blue [&_blockquote]:pl-4 [&_blockquote]:italic">
+            <div className="prose-smc mt-8 space-y-5 text-lg leading-relaxed text-brand-black/80 [&_a]:font-medium [&_a]:text-brand-blue [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:text-brand-navy [&_h3]:mt-8 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:text-brand-navy [&_blockquote]:border-l-4 [&_blockquote]:border-brand-blue [&_blockquote]:pl-4 [&_blockquote]:italic">
               {post.body ? (
                 <PortableText value={post.body as never} />
               ) : (
@@ -215,7 +215,7 @@ export default function BlogPostPage() {
                         loading="lazy"
                       />
                     ) : (
-                      <div className="flex h-40 items-center justify-center bg-brand-offwhite text-sm text-brand-gray">
+                      <div className="flex h-40 items-center justify-center bg-brand-offwhite text-sm text-brand-black/80">
                         Image Coming Soon
                       </div>
                     )}

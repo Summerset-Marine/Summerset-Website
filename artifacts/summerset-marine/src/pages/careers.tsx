@@ -53,7 +53,7 @@ export default function CareersPage() {
             <Button href="#" variant="primary" size="large">
               View Open Positions
             </Button>
-            <p className="mt-3 text-sm text-brand-gray">
+            <p className="mt-3 text-sm text-brand-black/80">
               (Button links to the Rippling ATS &mdash; URL pending from SMC.)
             </p>
           </div>

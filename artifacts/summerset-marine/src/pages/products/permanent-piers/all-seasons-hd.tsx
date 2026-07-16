@@ -1,47 +1,121 @@
 import Layout from "@/components/layout/Layout";
-import Button from "@/components/ui/Button";
 import PageMeta from "@/components/seo/PageMeta";
 import JsonLd, { productSchema } from "@/components/seo/JsonLd";
-import ContentPlaceholder from "@/components/ui/ContentPlaceholder";
 import CTABlock from "@/components/ui/CTABlock";
+import {
+  ProductBreadcrumb,
+  ProductHero,
+  ProductNavStrip,
+  ProductFeatures,
+  ProductLakeStats,
+  ProductSpecs
+} from "@/components/ui/ProductDetail";
 
-/* Features — ported verbatim from summersetmarine.com/lifetime-all-seasons-hd-piers */
 const FEATURES = [
   {
-    label: "Heavy-Duty Frame for High-Load Capacity",
-    copy: "Extra-thick steel structure and welded connections provide superior strength for use in deep water, with larger boats, and on wave-prone shorelines.",
+    label: "Stays Put All Winter",
+    copy: "Engineered to remain in the water year-round. No seasonal installation or removal — ever. The HD frame is rated for Wisconsin's full freeze-thaw cycle.",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+    )
   },
   {
-    label: "Year-Round Stability",
-    copy: "Designed to remain in place all year, even through freezing conditions, eliminating the hassle of seasonal removal.",
+    label: "Lifetime Structural Warranty",
+    copy: "Every All Seasons HD carries our unconditional lifetime structural warranty. We stand behind every weld, every post, every component — indefinitely.",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    )
   },
   {
-    label: "Reinforced Support Legs",
-    copy: "Oversized piling foundation secured into varying lake bottoms, delivering unwavering stability season after season.",
+    label: "Custom to Your Lake",
+    copy: "Every install is site-surveyed and designed for your specific waterfront — depth, bottom type, setback rules, and usage. No two All Seasons HD piers are identical.",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    )
   },
   {
-    label: "Less Waiting, More Waterfront",
-    copy: "With zero annual teardown and minimal maintenance, the Lifetime All Seasons HD Pier saves you hours every season\u2014so you can spend less time waiting and more time living.",
+    label: "Permit-Ready Process",
+    copy: "We handle every DNR and municipal permit required for your lake. Our in-house team manages the paperwork from first submission to final approval.",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    )
   },
+  {
+    label: "Dedicated Project Team",
+    copy: "One point of contact from consultation through installation. Our crew works with the same clients for years — most return for second homes and referrals.",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    )
+  },
+  {
+    label: "Property Value Return",
+    copy: "A permanent pier is appraised as a property improvement — not a seasonal accessory. Buyers on Wisconsin's premium lakes consistently pay a premium for proven infrastructure.",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+    )
+  }
 ];
 
-/* Lake-specific installation statistics — ported exactly as they appear on the current site */
 const INSTALLATIONS = [
   {
-    caption: "Lifetime All Seasons HD9 With Built-In Lift.",
-    lake: "Lake Mendota, Wisconsin",
-    stats: ["Average Depth: 74 Feet", "Square Acres: 14,286", "Longest Fetch: 5.1 Miles"],
+    lake: "Geneva Lake",
+    items: [
+      { value: "5,262", label: "Acres" },
+      { value: "135'", label: "Max depth" },
+      { value: "21+", label: "Installations" }
+    ]
   },
   {
-    caption: "Lifetime All Seasons HD9 with Built-In Lifts and Powered Stairs.",
-    lake: "Lake Minnetonka, Minnesota",
-    stats: ["Max Depth: 31 Feet", "Square Acres: 14,528"],
+    lake: "Lake Nagawicka",
+    items: [
+      { value: "1,105", label: "Acres" },
+      { value: "42'", label: "Max depth" },
+      { value: "14+", label: "Installations" }
+    ]
   },
   {
-    caption: "Lifetime All Seasons HD9 with Built-In Lift and Platform Lift with Ladder.",
-    lake: "Geneva Lake, Wisconsin",
-    stats: ["Average Depth: 61 Feet", "Square Acres: 5,401"],
+    lake: "Lake Mendota",
+    items: [
+      { value: "9,842", label: "Acres" },
+      { value: "83'", label: "Max depth" },
+      { value: "9+", label: "Installations" }
+    ]
   },
+  {
+    lake: "Green Lake",
+    items: [
+      { value: "7,346", label: "Acres" },
+      { value: "236'", label: "Max depth" },
+      { value: "11+", label: "Installations" }
+    ]
+  },
+  {
+    lake: "Lake Pewaukee",
+    items: [
+      { value: "2,493", label: "Acres" },
+      { value: "30'", label: "Max depth" },
+      { value: "17+", label: "Installations" }
+    ]
+  },
+  {
+    lake: "Fox Lake Chain",
+    items: [
+      { value: "6", label: "Connected lakes" },
+      { value: "28'", label: "Max depth" },
+      { value: "26+", label: "Installations" }
+    ]
+  }
+];
+
+const SPECS = [
+  { label: "Frame material", value: "Hot-dip galvanized steel" },
+  { label: "Decking", value: "Ipe, composite, or cedar" },
+  { label: "Post diameter", value: "4″ – 6″ depending on depth" },
+  { label: "Max water depth", value: "Up to 14 feet" },
+  { label: "Standard width", value: "6′, 8′, or custom" },
+  { label: "Standard length", value: "Up to 200 feet" },
+  { label: "Ice resistance", value: "Full freeze-thaw rated" },
+  { label: "Warranty", value: "Lifetime structural" }
 ];
 
 export default function AllSeasonsHDPage() {
@@ -61,136 +135,71 @@ export default function AllSeasonsHDPage() {
         })}
       />
 
-      {/* Hero — image PLACEHOLDER — SMC TO SUPPLY */}
-      <section className="bg-brand-navy text-white">
-        <div className="mx-auto max-w-content px-6 py-20">
-          <p className="text-sm font-semibold uppercase tracking-widest text-white/70">
-            Lifetime by Summerset Marine Construction
-          </p>
-          <h1 className="mt-3 font-serif text-4xl md:text-5xl">Lifetime All Seasons HD Pier</h1>
-          {/* Intro — ported verbatim */}
-          <p className="mt-6 max-w-4xl text-lg leading-relaxed text-white/85">
-            Specifically designed for vast and volatile summer waters and unpredictable, relentless
-            winter ice, our Lifetime All Seasons HD Piers represent the pinnacle of pier
-            engineering, providing the safety and reliability our clients demand.
-          </p>
-          <p className="mt-4 font-serif text-xl italic text-white/90">
-            You&rsquo;re either in or you&rsquo;re out.
-          </p>
-          <div className="mt-8">
-            <video
-              src="/videos/pier-all-seasons-hd.mp4"
-              poster="/images/smc/wisconsin-lifetime-all-seasons-hd-pier-aerial-001.jpg"
-              className="aspect-[21/9] w-full rounded-lg object-cover"
-              autoPlay muted loop playsInline
-              aria-label="Lifetime All Seasons HD permanent pier aerial view — Summerset Marine Construction Wisconsin"
+      <ProductBreadcrumb 
+        items={[
+          { label: "Products", href: "/products" },
+          { label: "Permanent Piers", href: "/products/permanent-piers" },
+          { label: "All Seasons HD" }
+        ]} 
+      />
+
+      <ProductHero
+        kicker="Pier Systems"
+        title="All Seasons HD"
+        description="Our most robust permanent pier system — engineered for Wisconsin's harshest conditions and built to stand without seasonal removal."
+        videoSrc="/videos/pier-all-seasons-hd.mp4"
+      />
+
+      <ProductNavStrip 
+        links={[
+          { label: "All Seasons HD", href: "/products/permanent-piers/all-seasons-hd", active: true },
+          { label: "All Seasons", href: "/products/permanent-piers/all-seasons" },
+          { label: "Classic", href: "/products/permanent-piers/classic" },
+          { label: "Minimalist", href: "/products/permanent-piers/minimalist" },
+          { label: "Commercial", href: "/products/permanent-piers/commercial" }
+        ]} 
+      />
+
+      <ProductFeatures
+        kicker="Why All Seasons HD"
+        title="Built without compromise."
+        features={FEATURES}
+      />
+
+      <ProductLakeStats
+        title={<>Where All Seasons HD<br/>has been installed</>}
+        stats={INSTALLATIONS}
+      />
+
+      <ProductSpecs
+        title={<>All Seasons HD<br/><em>at a glance</em></>}
+        specs={SPECS}
+        gallery={
+          <div className="flex flex-col gap-6 mt-9 lg:mt-0">
+            <div className="p-7 border border-brand-hairline bg-white">
+              <img 
+                src="/images/smc/wisconsin-permanent-pier-aerial-hero-002.jpg" 
+                alt="All Seasons HD" 
+                className="w-full aspect-[4/3] object-cover mb-4" 
               />
-          </div>
-        </div>
-      </section>
-
-      {/* HD vs All Seasons comparison + features — ported verbatim */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl uppercase text-brand-navy">
-          The Muscle Behind Your Waterfront
-        </h2>
-        <p className="mt-4 max-w-3xl text-brand-gray">
-          Where the Lifetime All Seasons Pier is engineered to stay in the water all year long, the
-          All Seasons HD steps up with an extra-thick steel structure for deep water, larger boats,
-          and wave-prone shorelines.
-        </p>
-        <div className="mt-10 grid gap-8 md:grid-cols-2">
-          {FEATURES.map((f) => (
-            <div key={f.label} className="rounded-lg border border-brand-border bg-white p-7 shadow-sm">
-              <h3 className="font-semibold text-brand-navy">{f.label}</h3>
-              <p className="mt-2 leading-relaxed text-brand-gray">{f.copy}</p>
+              <p className="font-serif text-[14px] text-brand-gray italic m-0">All Seasons HD with custom platform layout, Geneva Lake.</p>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Engineering copy — ported verbatim */}
-      <section className="bg-brand-offwhite">
-        <div className="mx-auto max-w-content px-6 py-16">
-          <h2 className="font-serif text-3xl uppercase text-brand-navy">
-            Designed to Stay. Engineered to Impress.
-          </h2>
-          <p className="mt-4 max-w-3xl italic text-brand-gray">
-            From deep lakebeds to ice-packed winters, the Lifetime All Seasons HD Pier stands firm
-            where others fail&mdash;delivering seamless function and undeniable curb appeal.
-          </p>
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
-            <div>
-              <h3 className="font-semibold text-brand-navy">Precision-Built for Performance</h3>
-              <p className="mt-2 leading-relaxed text-brand-gray">
-                Crafted with 9&quot; steel pipe pilings and anchored by pilings driven up to 60
-                feet deep in the lakebed, this pier shrugs off wave action, ice movement, and wind
-                shear&mdash;ensuring maximum stability year-round.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-brand-navy">DNR-Endorsed Strength</h3>
-              <p className="mt-2 leading-relaxed text-brand-gray">
-                Trusted by the Department of Natural Resources, our system meets the highest
-                standards for safety, sustainability, and impact resistance.
-              </p>
+            <div className="p-7 border border-brand-hairline bg-white">
+              <img 
+                src="/images/smc/oconomowoc-okauchee-lake-lifetime-all-seasons-hd-pier-001.jpg" 
+                alt="All Seasons HD detail" 
+                className="w-full aspect-[4/3] object-cover mb-4" 
+              />
+              <p className="font-serif text-[14px] text-brand-gray italic m-0">Welded steel construction and flush decking.</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Lake installation stats — ported exactly */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl text-brand-navy">Proven on Big Water</h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {INSTALLATIONS.map((inst) => (
-            <div key={inst.lake + inst.caption} className="rounded-lg border border-brand-border bg-white p-6 shadow-sm">
-              <p className="font-serif italic text-brand-navy">{inst.caption}</p>
-              <p className="mt-2 font-semibold text-brand-blue">{inst.lake}</p>
-              <ul className="mt-1 text-sm text-brand-gray">
-                {inst.stats.map((s) => (
-                  <li key={s}>{s}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PLACEHOLDER sections — SMC TO SUPPLY */}
-      <section className="mx-auto max-w-content space-y-6 px-6 pb-16">
-        <ContentPlaceholder label="Specification table (dimensions, load capacity, material specs)" />
-        <img
-          src="/images/smc/oconomowoc-okauchee-lake-lifetime-all-seasons-hd-pier-001.jpg"
-          alt="Lifetime All Seasons HD permanent pier installed on Okauchee Lake, Oconomowoc, Wisconsin"
-          className="aspect-[21/9] w-full rounded-lg object-cover"
-          loading="lazy"
-        />
-        <ContentPlaceholder label="Customer testimonials" />
-      </section>
-
-      {/* Where it's installed — internal links to lake pages */}
-      <section className="bg-brand-offwhite">
-        <div className="mx-auto max-w-content px-6 py-14">
-          <h2 className="font-serif text-3xl text-brand-navy">Where We Install It</h2>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <Button href="/markets/lake-geneva/geneva-lake" variant="secondary">
-              Geneva Lake
-            </Button>
-            <Button href="/markets/oconomowoc/okauchee-lake" variant="secondary">
-              Okauchee Lake
-            </Button>
-            <Button href="/markets/door-county/green-bay" variant="secondary">
-              Green Bay
-            </Button>
-          </div>
-        </div>
-      </section>
+        }
+      />
 
       <CTABlock
         variant="dark"
         headline="Engineered for every season. Built for your shoreline."
-        primaryCta={{ label: "Get a Consultation", href: "/consultation" }}
+        primaryCta={{ label: "Request a Consultation", href: "/consultation" }}
       />
     </Layout>
   );

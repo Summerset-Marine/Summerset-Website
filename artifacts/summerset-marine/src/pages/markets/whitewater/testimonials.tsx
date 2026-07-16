@@ -55,12 +55,12 @@ export default function WhitewaterTestimonialsPage() {
       />
 
       {/* 1. Header */}
-      <section className="bg-brand-navy text-white">
+      <section className="bg-brand-offwhite text-brand-black border-b border-brand-hairline">
         <div className="mx-auto max-w-content px-6 py-16">
           <h1 className="font-serif text-4xl md:text-5xl">
             What Whitewater area lakes Homeowners Say
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-white/85">
+          <p className="mt-5 max-w-2xl text-lg text-brand-black/70">
             Hear from waterfront property owners across the Whitewater market who trusted
             Summerset Marine with their piers and lifts.
           </p>
@@ -74,7 +74,7 @@ export default function WhitewaterTestimonialsPage() {
             {testimonials.map((t) => (
               <blockquote
                 key={t._id}
-                className="flex flex-col rounded-lg border border-brand-border bg-white p-8 shadow-sm"
+                className="flex flex-col border border-brand-hairline bg-white p-8"
               >
                 {typeof t.starRating === "number" ? <Stars rating={t.starRating} /> : null}
                 <p className="mt-3 font-serif text-2xl leading-relaxed text-brand-navy">
@@ -96,7 +96,7 @@ export default function WhitewaterTestimonialsPage() {
               {[0, 1, 2, 3].map((n) => (
                 <div
                   key={n}
-                  className="flex h-52 items-center justify-center rounded-lg border border-brand-border bg-brand-gray-light"
+                  className="flex h-52 items-center justify-center border border-brand-hairline bg-brand-offwhite"
                 >
                   <span className="text-sm font-medium uppercase tracking-wide text-brand-gray">
                     Testimonials Coming Soon

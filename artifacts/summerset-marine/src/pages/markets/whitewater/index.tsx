@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
 import Layout from "@/components/layout/Layout";
 import PageMeta from "@/components/seo/PageMeta";
 import JsonLd, { localBusinessSchema, serviceSchema } from "@/components/seo/JsonLd";
-import HeroSection from "@/components/ui/HeroSection";
 import CTABlock from "@/components/ui/CTABlock";
-import Button from "@/components/ui/Button";
 import ContentPlaceholder from "@/components/ui/ContentPlaceholder";
 import {
   isSanityConfigured,
@@ -39,30 +38,32 @@ interface Testimonial {
 export default function WhitewaterPage() {
   const [content, setContent] = useState<MarketPageContent | null>(null);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const marketSlug = "whitewater";
 
   useEffect(() => {
     if (!isSanityConfigured) return;
-    sanityFetch<MarketPageContent | null>(MARKET_PAGE_QUERY, { marketSlug: "whitewater" })
+    sanityFetch<MarketPageContent | null>(MARKET_PAGE_QUERY, { marketSlug })
       .then((data) => setContent(data))
       .catch(() => setContent(null));
-    sanityFetch<Testimonial[]>(MARKET_TESTIMONIALS_QUERY, { market: "whitewater" })
+    sanityFetch<Testimonial[]>(MARKET_TESTIMONIALS_QUERY, { market: marketSlug })
       .then((data) => setTestimonials(data ?? []))
       .catch(() => setTestimonials([]));
   }, []);
 
   const projects = content?.featuredProjects ?? [];
+  const heroImage = content?.heroImageUrl ?? "/images/smc/summerset-marine-construction-whitewater-wi-headquarters-001.jpg";
 
   return (
     <Layout>
       <PageMeta
         title="Piers & Boat Lifts — Whitewater, WI | Summerset Marine"
         description="Summerset Marine's 75,000+ sq ft manufacturing facility and headquarters in Whitewater, WI — custom pier and lift manufacturing, design, and distribution."
-        canonical="https://summersetmarine.com/markets/whitewater"
+        canonical={`https://summersetmarine.com/markets/${marketSlug}`}
       />
       <JsonLd
         data={localBusinessSchema({
           market: "Whitewater",
-          marketSlug: "whitewater",
+          marketSlug,
           lake: "Whitewater area lakes",
           coordinates: { latitude: "42.8336", longitude: "-88.7323" },
         })}
@@ -71,177 +72,165 @@ export default function WhitewaterPage() {
         data={serviceSchema({
           name: "Permanent Pier & Boat Lift Installation",
           market: "Whitewater",
-          marketSlug: "whitewater",
+          marketSlug,
           lake: "Whitewater area lakes",
         })}
       />
 
-      {/* 1. Hero */}
-      <HeroSection
-        variant="full-bleed"
-        headline="Our Whitewater Headquarters & Manufacturing Facility"
-        subheadline={content?.introText ?? undefined}
-        primaryCta={{
-          label: "Request a Whitewater Consultation",
-          href: "/markets/whitewater/contact",
-        }}
-        imageSrc={content?.heroImageUrl ?? "/images/smc/summerset-marine-construction-whitewater-wi-headquarters-001.jpg"}
-        imageAlt={content?.heroImageAlt ?? "Summerset Marine Construction headquarters in Whitewater, Wisconsin"}
-      />
+      {/* BREADCRUMB */}
+      <div className="bg-brand-offwhite px-6 md:px-30 py-3 border-b border-brand-border">
+        <div className="mx-auto max-w-content flex items-center gap-2">
+          <Link href="/markets" className="font-serif text-xs text-brand-black/45 hover:text-brand-gold transition-colors">Markets</Link>
+          <span className="text-[11px] text-brand-black/30">›</span>
+          <span className="font-serif text-xs text-brand-black">{content?.marketName || "Whitewater"}</span>
+        </div>
+      </div>
 
-      {/* 2. SMC presence — copy ported verbatim from the live Whitewater page */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl text-brand-navy">
-          Summerset Marine in the Whitewater Market
-        </h2>
-        <p className="mt-5 max-w-3xl text-lg leading-relaxed text-brand-gray">
-          Summerset Marine Construction is proud to call our 75,000+ square foot manufacturing facility and corporate headquarters home. Located in picturesque southeastern Wisconsin, surrounded by rolling hills and sparkling lakes, we are dedicated to delivering the luxurious lakeside lifestyle you love.
-        </p>
+      {/* HERO */}
+      <section className="relative h-[75vh] min-h-[540px] overflow-hidden bg-brand-navy">
+        <img 
+          src={heroImage} 
+          alt={content?.heroImageAlt ?? "Whitewater"} 
+          className="absolute inset-0 w-full h-full object-cover object-center" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/88 via-brand-navy/30 to-brand-navy/15 pointer-events-none"></div>
+        <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-30 pb-18 pointer-events-none">
+          <div className="animate-in slide-in-from-bottom-4 fade-in duration-700 font-serif text-[12px] tracking-[.28em] text-brand-gold uppercase mb-[18px]">Wisconsin Lake Country</div>
+          <h1 className="animate-in slide-in-from-bottom-4 fade-in duration-700 delay-150 font-serif text-5xl md:text-[80px] font-light leading-none text-brand-offwhite italic mb-[18px] max-w-[700px]">
+            {content?.marketName || "Whitewater"}
+          </h1>
+          <div className="animate-in slide-in-from-bottom-4 fade-in duration-700 delay-300 w-10 h-px bg-brand-gold mb-5"></div>
+          <p className="animate-in slide-in-from-bottom-4 fade-in duration-700 delay-500 font-serif text-lg leading-relaxed text-brand-offwhite/65 max-w-[540px] mb-9">
+            {content?.introText || "Our Whitewater Headquarters & Manufacturing Facility."}
+          </p>
+          <div className="animate-in slide-in-from-bottom-4 fade-in duration-700 delay-700 flex flex-wrap gap-8 items-center pointer-events-auto">
+            <Link href={`/markets/${marketSlug}/contact`} className="inline-block px-10 py-3 border border-brand-gold font-serif text-[13px] tracking-[.16em] text-brand-gold uppercase hover:bg-brand-gold hover:text-white transition-colors">Start a Project Here</Link>
+            <Link href={`/markets/${marketSlug}/projects`} className="font-serif text-[13px] tracking-[.12em] uppercase text-brand-offwhite/50 border-b border-brand-offwhite/25 pb-0.5 hover:text-brand-offwhite transition-colors">View Projects →</Link>
+          </div>
+        </div>
       </section>
 
-      {/* 3. Market copy sections — ported verbatim */}
-      <section className="bg-brand-offwhite">
-        <div className="mx-auto max-w-content px-6 py-16">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-lg border border-brand-border bg-white p-8 shadow-sm">
-              <h3 className="font-serif text-2xl text-brand-navy">Built Here, Enjoyed Nearby</h3>
-              <p className="mt-3 leading-relaxed text-brand-gray">Our manufacturing facility produces piers, lifts, and accessories that many homeowners enjoy on nearby lakes. That’s how we know what it takes for a pier to outlast the Midwest seasons, and we’re proud of the many properties we’ve been able to enhance with our beautiful and sustainable piers.</p>
+      {/* MARKET INTRO */}
+      <section className="bg-brand-offwhite px-6 md:px-30 py-22">
+        <div className="mx-auto max-w-content grid md:grid-cols-[1fr_1px_1fr] gap-18 items-start">
+          <div>
+            <div className="font-serif text-[12px] tracking-[.24em] uppercase text-brand-gold mb-5">Our Presence Here</div>
+            <h2 className="font-serif text-[42px] font-normal leading-[1.1] text-brand-black mb-5">Building in<br/><em className="italic">{content?.marketName || "Whitewater"}.</em></h2>
+            <div className="w-8 h-px bg-brand-gold mb-6"></div>
+            {content?.introText ? (
+              <p className="font-serif text-[17px] leading-[1.9] text-brand-black/80 mb-5 text-justify">
+                {content.introText}
+              </p>
+            ) : (
+              <p className="font-serif text-[17px] leading-[1.9] text-brand-black/80 mb-5 text-justify">
+                Summerset Marine Construction is proud to call our 75,000+ square foot manufacturing facility and corporate headquarters home. Located in picturesque southeastern Wisconsin, surrounded by rolling hills and sparkling lakes, we are dedicated to delivering the luxurious lakeside lifestyle you love.
+              </p>
+            )}
+          </div>
+          <div className="hidden md:block w-px bg-brand-border self-stretch"></div>
+          <div className="flex flex-col gap-10">
+            <div>
+              <h3 className="font-serif text-2xl text-brand-navy mb-3">Built Here, Enjoyed Nearby</h3>
+              <p className="font-serif text-[15px] leading-[1.8] text-brand-black/70">Our manufacturing facility produces piers, lifts, and accessories that many homeowners enjoy on nearby lakes. That’s how we know what it takes for a pier to outlast the Midwest seasons.</p>
             </div>
-            <div className="rounded-lg border border-brand-border bg-white p-8 shadow-sm">
-              <h3 className="font-serif text-2xl text-brand-navy">Services Offered</h3>
-              <p className="mt-3 leading-relaxed text-brand-gray">Custom Pier & Lift Manufacturing — engineered for durability and designed to fit your waterfront. Product Design & Innovation — home of our patented pier systems and custom marine solutions. Supply & Distribution — providing high-quality marine products to installers and waterfront owners.</p>
+            <div>
+              <h3 className="font-serif text-2xl text-brand-navy mb-3">Services Offered</h3>
+              <p className="font-serif text-[15px] leading-[1.8] text-brand-black/70">Custom Pier & Lift Manufacturing. Product Design & Innovation — home of our patented pier systems. Supply & Distribution.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Bodies of water */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl text-brand-navy">Bodies of Water We Serve</h2>
-        <div className="mt-8 grid gap-8 md:grid-cols-2">
-          <div className="rounded-lg border border-brand-border bg-white p-8 shadow-sm">
-            <h3 className="font-serif text-2xl text-brand-navy">Delavan Lake</h3>
-            <p className="mt-3 text-brand-gray">Completed Lifetime Classic pier installations on Delavan Lake, minutes from our Whitewater headquarters.</p>
+      {/* BODIES OF WATER */}
+      <section className="bg-brand-offwhite px-6 md:px-30 pb-22 border-t border-brand-border">
+        <div className="mx-auto max-w-content">
+          <div className="py-16 text-center">
+            <div className="font-serif text-[12px] tracking-[.28em] uppercase text-brand-gold mb-4">The Lakes</div>
+            <h2 className="font-serif text-[46px] font-light text-brand-black m-0">Bodies of Water We Serve</h2>
           </div>
-          <div className="rounded-lg border border-brand-border bg-white p-8 shadow-sm">
-            <h3 className="font-serif text-2xl text-brand-navy">Lake Beulah</h3>
-            <p className="mt-3 text-brand-gray">Lifetime All Seasons, Classic, and Minimalist piers installed across Lake Beulah’s wooded shoreline.</p>
-          </div>
-          <div className="rounded-lg border border-brand-border bg-white p-8 shadow-sm">
-            <h3 className="font-serif text-2xl text-brand-navy">Brown Lake</h3>
-            <p className="mt-3 text-brand-gray">Low-profile Lifetime Minimalist piers built for Brown Lake’s quiet waterfront.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-border border border-brand-border">
+            {[
+              { name: "Delavan Lake", desc: "Completed Lifetime Classic pier installations on Delavan Lake, minutes from our Whitewater headquarters." },
+              { name: "Lake Beulah", desc: "Lifetime All Seasons, Classic, and Minimalist piers installed across Lake Beulah’s wooded shoreline." },
+              { name: "Brown Lake", desc: "Low-profile Lifetime Minimalist piers built for Brown Lake’s quiet waterfront." },
+            ].map(lake => (
+              <div key={lake.name} className="group block bg-white relative p-7">
+                <div className="font-serif text-[11px] tracking-[.2em] uppercase text-brand-gold mb-2.5">Lake</div>
+                <div className="font-serif text-[24px] font-normal text-brand-black mb-4">{lake.name}</div>
+                <p className="font-serif text-[14px] text-brand-black/60">{lake.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Featured projects */}
-      <section className="bg-brand-offwhite">
-        <div className="mx-auto max-w-content px-6 py-16">
-          <h2 className="font-serif text-3xl text-brand-navy">Featured Whitewater Projects</h2>
+      {/* FEATURED PROJECTS */}
+      <section className="bg-brand-navy px-6 md:px-30 py-22">
+        <div className="mx-auto max-w-content">
+          <div className="flex justify-between items-end mb-13">
+            <div>
+              <div className="font-serif text-[12px] tracking-[.28em] uppercase text-brand-gold mb-4">Portfolio</div>
+              <h2 className="font-serif text-[46px] font-light text-brand-offwhite italic m-0 leading-[1.05]">Featured Projects</h2>
+            </div>
+            <Link href={`/markets/${marketSlug}/projects`} className="font-serif text-[12px] tracking-[.14em] uppercase text-brand-gold border-b border-brand-gold/50 pb-0.5 hover:text-white hover:border-white transition-colors">All Projects →</Link>
+          </div>
+          
           {projects.length > 0 ? (
-            <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map((project) => (
-                <div
-                  key={project.title}
-                  className="overflow-hidden rounded-lg border border-brand-border bg-white shadow-sm"
-                >
-                  {project.imageUrl ? (
-                    <img
-                      src={project.imageUrl}
-                      alt={project.imageAlt ?? project.title}
-                      className="h-56 w-full object-cover"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="flex h-56 items-center justify-center bg-brand-offwhite text-sm text-brand-gray">
-                      Photo Coming Soon
-                    </div>
-                  )}
-                  <div className="p-5">
-                    <h3 className="font-serif text-xl text-brand-navy">{project.title}</h3>
-                    <p className="mt-1 text-sm text-brand-gray">
-                      {[project.lake, project.productType].filter(Boolean).join(" · ")}
-                    </p>
+                <div key={project.title} className="group cursor-pointer">
+                  <div className="overflow-hidden border border-brand-offwhite/10 mb-4">
+                    {project.imageUrl ? (
+                      <img src={project.imageUrl} alt={project.imageAlt || project.title} className="block w-full h-[240px] object-cover group-hover:scale-105 transition-transform duration-500" />
+                    ) : (
+                      <div className="flex h-[240px] items-center justify-center bg-brand-navy border border-brand-offwhite/20 text-brand-offwhite/50 text-sm">No Image</div>
+                    )}
+                  </div>
+                  <div className="px-1">
+                    <div className="font-serif text-[11px] tracking-[.2em] uppercase text-brand-gold mb-2">{[project.productType, project.lake].filter(Boolean).join(" · ")}</div>
+                    <div className="font-serif text-[22px] text-brand-offwhite mb-1.5 group-hover:text-brand-gold transition-colors">{project.title}</div>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <ContentPlaceholder
-              label="Featured Whitewater project photos and captions (from Sanity projects)"
-              className="mt-8"
-            />
+            <ContentPlaceholder label="Featured project photos and captions" className="mt-8" />
           )}
-          <div className="mt-8">
-            <Button href="/markets/whitewater/projects" variant="secondary">
-              View All Whitewater Projects
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* 6. Testimonials strip */}
-      <section className="mx-auto max-w-content px-6 py-16">
-        <h2 className="font-serif text-3xl text-brand-navy">
-          What Whitewater Customers Say
-        </h2>
-        {testimonials.length > 0 ? (
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
-            {testimonials.slice(0, 2).map((t) => (
-              <blockquote
-                key={t._id}
-                className="rounded-lg border border-brand-border bg-white p-8 shadow-sm"
-              >
-                <p className="font-serif text-xl leading-relaxed text-brand-navy">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <footer className="mt-4 text-sm text-brand-gray">
-                  {[t.customerName, t.lakeLabel].filter(Boolean).join(" — ")}
-                </footer>
+      {/* TESTIMONIAL */}
+      <section className="bg-brand-offwhite px-6 md:px-30 py-24 border-t border-brand-border">
+        <div className="mx-auto max-w-[720px] text-center">
+          <div className="w-px h-12 bg-brand-border mx-auto mb-9"></div>
+          {testimonials.length > 0 ? (
+            <>
+              <blockquote className="font-serif text-[32px] font-light italic leading-[1.45] text-brand-black m-0 mb-8">
+                "{testimonials[0].quote}"
               </blockquote>
-            ))}
+              <div className="w-8 h-px bg-brand-gold mx-auto mb-5"></div>
+              <div className="font-serif text-[14px] tracking-[.16em] uppercase text-brand-black/60">
+                — {[testimonials[0].customerName, testimonials[0].lakeLabel].filter(Boolean).join(" · ")}
+              </div>
+            </>
+          ) : (
+            <ContentPlaceholder label="Customer testimonials (from Sanity)" className="mx-auto" />
+          )}
+          <div className="w-px h-12 bg-brand-border mx-auto mt-8 mb-8"></div>
+          <div className="text-center">
+            <Link href={`/markets/${marketSlug}/testimonials`} className="font-serif text-[12px] tracking-[.14em] uppercase text-brand-navy border-b border-brand-navy pb-0.5 hover:text-brand-gold transition-colors">Read All Testimonials →</Link>
           </div>
-        ) : (
-          <ContentPlaceholder
-            label="Whitewater customer testimonials (from Sanity testimonials)"
-            className="mt-8"
-          />
-        )}
-        <div className="mt-8">
-          <Button href="/markets/whitewater/testimonials" variant="secondary">
-            Read All Testimonials
-          </Button>
         </div>
       </section>
 
-      {/* 7. Visit us — addresses/hours ported verbatim */}
-      <section className="bg-brand-navy text-white">
-        <div className="mx-auto max-w-content px-6 py-16">
-          <h2 className="font-serif text-3xl">Visit Us</h2>
-          <div className="mt-8 grid gap-8 md:grid-cols-1">
-            <div>
-              <h3 className="font-serif text-xl">Headquarters</h3>
-              <p className="mt-2 text-white/85">W3128 Highway 59, Whitewater, WI 53190</p>
-              <p className="mt-1 text-sm text-white/70">Monday–Friday: 8am–4pm</p>
-            </div>
-          </div>
-          <p className="mt-8 text-white/85">
-            Phone:{" "}
-            <a href="tel:+18008169698" className="font-medium text-white underline">
-              (800) 816-9698
-            </a>
-          </p>
-        </div>
-      </section>
-
-      {/* 8. CTA */}
+      {/* CTA */}
       <CTABlock
         variant="dark"
-        headline="Ready to build in the Whitewater market?"
-        subheadline="Request a consultation and our Whitewater team will walk your shoreline with you."
+        headline={`Ready to build in ${content?.marketName || "this market"}?`}
+        subheadline="Request a consultation and our team will walk your shoreline with you."
         primaryCta={{
-          label: "Request a Whitewater Consultation",
-          href: "/markets/whitewater/contact",
+          label: "Request a Consultation",
+          href: `/markets/${marketSlug}/contact`,
         }}
       />
     </Layout>

@@ -98,9 +98,9 @@ const FIELDS_BY_TYPE: Record<FormType, FieldDef[]> = {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const inputBase =
-  "w-full rounded-md border bg-white px-3.5 py-2.5 text-brand-navy outline-none transition focus:ring-2 focus:ring-brand-blue focus:border-brand-blue";
-const inputOk = "border-[#D1D5DB]";
-const inputError = "border-brand-red";
+  "w-full rounded-[2px] bg-transparent px-[10px] py-[6px] text-[14px] text-brand-navy outline-none transition focus:ring-0 focus:border-brand-gold border font-sans";
+const inputOk = "border-brand-hairline";
+const inputError = "border-red-600";
 
 function Spinner() {
   return (

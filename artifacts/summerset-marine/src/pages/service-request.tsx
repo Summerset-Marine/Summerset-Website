@@ -13,7 +13,7 @@ export default function ServiceRequestPage() {
 
       <section className="bg-brand-navy text-white">
         <div className="mx-auto max-w-content px-6 py-16">
-          <h1 className="font-serif text-4xl md:text-5xl">Request Service</h1>
+          <h1 className="font-serif text-4xl md:text-5xl text-brand-gold">Request Service</h1>
           <p className="mt-5 max-w-2xl text-lg text-white/85">
             For seasonal installation, removal, repairs, and inspections.
           </p>
@@ -25,11 +25,13 @@ export default function ServiceRequestPage() {
           <div className="max-w-2xl">
             <ContactForm formType="service-request" />
           </div>
-          <img
-            src="/images/smc/wisconsin-pier-consultation-contact-001.jpg"
-            alt="Lifetime Classic pier on Lac La Belle, Wisconsin — Summerset Marine Construction"
-            className="w-full self-start rounded-lg object-cover"
-          />
+          <div className="space-y-8">
+            <img
+              src="/images/smc/wisconsin-pier-consultation-contact-001.jpg"
+              alt="Lifetime Classic pier on Lac La Belle, Wisconsin — Summerset Marine Construction"
+              className="w-full self-start rounded-none border border-brand-hairline object-cover"
+            />
+          </div>
         </div>
       </section>
     </Layout>
