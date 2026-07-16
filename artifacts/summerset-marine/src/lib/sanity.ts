@@ -114,6 +114,7 @@ export const LAKE_PAGE_QUERY = `
     lakeSlug,
     market,
     historyText,
+    lakeStats,
     lakeCharacteristics,
     metaTitle,
     metaDescription,

@@ -20,6 +20,7 @@ import {
 interface LakePageContent {
   lakeName: string;
   historyText?: string;
+  lakeStats?: { label: string; value: string }[];
   lakeCharacteristics?: string;
   heroImageUrl?: string;
   heroImageAlt?: string;
@@ -197,7 +198,16 @@ export default function OkaucheeLakePage() {
           <div className="hidden md:block w-px bg-brand-border self-stretch"></div>
           <div>
             <div className="font-serif text-[12px] tracking-[.24em] uppercase text-brand-gold mb-7">Lake Stats</div>
-            {!content?.lakeCharacteristics && (
+            {content?.lakeStats?.length ? (
+              <div className="flex flex-col">
+                {content.lakeStats.map((s) => (
+                  <div key={s.label} className="flex justify-between items-baseline py-5 border-b border-brand-border">
+                    <span className="font-serif text-[14px] text-brand-black/60">{s.label}</span>
+                    <span className="font-serif text-[32px] font-light text-brand-navy tabular-nums">{s.value}</span>
+                  </div>
+                ))}
+              </div>
+            ) : (
               <ContentPlaceholder label="Okauchee Lake lake stats (average depth, square acres)" className="mt-4" />
             )}
           </div>

@@ -28,6 +28,20 @@ export const lakePageContent = defineType({
       fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string', validation: Rule => Rule.required() })]
     }),
     defineField({ name: 'historyText', title: 'SMC History on This Lake', type: 'text', rows: 5, description: 'Installed base, years of experience, notable projects on this lake' }),
+    defineField({
+      name: 'lakeStats',
+      title: 'Lake Stats',
+      type: 'array',
+      description: 'Shown in the "Lake Stats" column, e.g. Average Depth → 61 Feet, Square Acres → 5,401',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({ name: 'label', title: 'Label', type: 'string', validation: Rule => Rule.required() }),
+          defineField({ name: 'value', title: 'Value', type: 'string', validation: Rule => Rule.required() }),
+        ],
+        preview: { select: { title: 'label', subtitle: 'value' } },
+      }],
+    }),
     defineField({ name: 'lakeCharacteristics', title: 'Lake Characteristics', type: 'text', rows: 5, description: 'Average depth, wave exposure, ice behavior, shoreline type — written for a property owner scoping a project' }),
     defineField({
       name: 'projects',

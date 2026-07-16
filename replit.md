@@ -74,6 +74,7 @@ Prompts 1–9 of a multi-prompt build complete: foundation + SEO infrastructure 
 - The inventory cache path resolves via `process.cwd()` — the api-server workflow runs with cwd = `artifacts/api-server`.
 - robots.txt in `public/` contains the exact AI-bot allowlist from the spec; don't regenerate it.
 - `project.productType` holds **display names** ("Classic Permanent Pier", "Boat Lift"…), not slugs — the site renders the raw string and filters by lowercase substring (pier/lift/seasonal). Studio dropdowns (project + lakePageContent inline) list the display names; don't reintroduce slug values.
+- Lake pages have a `lakeStats` array field ({label,value}) in `lakePageContent` — the 14 cloned lake pages render it in the "Lake Stats" column (placeholder when empty); the original pages with verbatim live-site stats keep them hard-coded. Never invent stat values — SMC supplies them in Studio.
 - Lake-stat captions on product pages are verbatim from the live site (source captures in `/tmp/smc/*.md`); the Prompt 6 spec's example stats (Geneva 61 / Beaver 15 / Oconomowoc 32) span multiple pages — don't "correct" a page to match the spec list.
 
 ## Pointers
