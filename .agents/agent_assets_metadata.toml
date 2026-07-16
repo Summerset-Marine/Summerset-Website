@@ -6,3 +6,9 @@ id = "fhh9DHi4YMgHeyCvwwgTd"
 uri = "file://design/WIREFRAMES.md"
 type = "text"
 title = "Wireframes & Component Structure"
+
+[[outputs]]
+id = "dYl350fv61f3w-Ht8TJMh"
+uri = "file://artifacts/summerset-marine/public/videos/home.mp4"
+type = "video"
+title = "Home Hero Video"
