@@ -54,6 +54,10 @@ import OkaucheeLakePage from "@/pages/markets/oconomowoc/okauchee-lake";
 import LacLaBellePage from "@/pages/markets/oconomowoc/lac-la-belle";
 import NagawickaLakePage from "@/pages/markets/oconomowoc/nagawicka-lake";
 import BeaverLakePage from "@/pages/markets/oconomowoc/beaver-lake";
+import PewaukeeLakePage from "@/pages/markets/oconomowoc/pewaukee-lake";
+import MooseLakePage from "@/pages/markets/oconomowoc/moose-lake";
+import PineLakePage from "@/pages/markets/oconomowoc/pine-lake";
+import UpperOkaucheeLakePage from "@/pages/markets/oconomowoc/upper-okauchee-lake";
 import OconomowocProjectsPage from "@/pages/markets/oconomowoc/projects";
 import OconomowocTestimonialsPage from "@/pages/markets/oconomowoc/testimonials";
 import OconomowocContactPage from "@/pages/markets/oconomowoc/contact";
@@ -67,11 +71,15 @@ import DoorCountyTestimonialsPage from "@/pages/markets/door-county/testimonials
 import DoorCountyContactPage from "@/pages/markets/door-county/contact";
 
 import MadisonPage from "@/pages/markets/madison/index";
+import LakeMendotaPage from "@/pages/markets/madison/lake-mendota";
 import MadisonProjectsPage from "@/pages/markets/madison/projects";
 import MadisonTestimonialsPage from "@/pages/markets/madison/testimonials";
 import MadisonContactPage from "@/pages/markets/madison/contact";
 
 import WhitewaterPage from "@/pages/markets/whitewater/index";
+import LakeBeulahPage from "@/pages/markets/whitewater/lake-beulah";
+import DelavanLakePage from "@/pages/markets/whitewater/delavan-lake";
+import BrownLakePage from "@/pages/markets/whitewater/brown-lake";
 import WhitewaterProjectsPage from "@/pages/markets/whitewater/projects";
 import WhitewaterTestimonialsPage from "@/pages/markets/whitewater/testimonials";
 import WhitewaterContactPage from "@/pages/markets/whitewater/contact";
@@ -148,6 +156,10 @@ function Router() {
       <Route path="/markets/oconomowoc/lac-la-belle" component={LacLaBellePage} />
       <Route path="/markets/oconomowoc/nagawicka-lake" component={NagawickaLakePage} />
       <Route path="/markets/oconomowoc/beaver-lake" component={BeaverLakePage} />
+      <Route path="/markets/oconomowoc/pewaukee-lake" component={PewaukeeLakePage} />
+      <Route path="/markets/oconomowoc/moose-lake" component={MooseLakePage} />
+      <Route path="/markets/oconomowoc/pine-lake" component={PineLakePage} />
+      <Route path="/markets/oconomowoc/upper-okauchee-lake" component={UpperOkaucheeLakePage} />
       <Route path="/markets/oconomowoc/projects" component={OconomowocProjectsPage} />
       <Route path="/markets/oconomowoc/testimonials" component={OconomowocTestimonialsPage} />
       <Route path="/markets/oconomowoc/contact" component={OconomowocContactPage} />
@@ -161,11 +173,15 @@ function Router() {
       <Route path="/markets/door-county/contact" component={DoorCountyContactPage} />
 
       <Route path="/markets/madison" component={MadisonPage} />
+      <Route path="/markets/madison/lake-mendota" component={LakeMendotaPage} />
       <Route path="/markets/madison/projects" component={MadisonProjectsPage} />
       <Route path="/markets/madison/testimonials" component={MadisonTestimonialsPage} />
       <Route path="/markets/madison/contact" component={MadisonContactPage} />
 
       <Route path="/markets/whitewater" component={WhitewaterPage} />
+      <Route path="/markets/whitewater/lake-beulah" component={LakeBeulahPage} />
+      <Route path="/markets/whitewater/delavan-lake" component={DelavanLakePage} />
+      <Route path="/markets/whitewater/brown-lake" component={BrownLakePage} />
       <Route path="/markets/whitewater/projects" component={WhitewaterProjectsPage} />
       <Route path="/markets/whitewater/testimonials" component={WhitewaterTestimonialsPage} />
       <Route path="/markets/whitewater/contact" component={WhitewaterContactPage} />

@@ -159,6 +159,10 @@ export default function OconomowocPage() {
               { name: "Lac La Belle", slug: "lac-la-belle", desc: "Permanent piers, lifts, and waterfront systems." },
               { name: "Nagawicka Lake", slug: "nagawicka-lake", desc: "Permanent piers, lifts, and waterfront systems." },
               { name: "Beaver Lake", slug: "beaver-lake", desc: "Average Depth: 15 Feet" },
+              { name: "Pewaukee Lake", slug: "pewaukee-lake", desc: "Permanent piers, lifts, and waterfront systems." },
+              { name: "Moose Lake", slug: "moose-lake", desc: "Permanent piers, lifts, and waterfront systems." },
+              { name: "Pine Lake", slug: "pine-lake", desc: "Permanent piers, lifts, and waterfront systems." },
+              { name: "Upper Okauchee Lake", slug: "upper-okauchee-lake", desc: "Permanent piers, lifts, and waterfront systems." },
             ].map(lake => (
               <Link key={lake.slug} href={`/markets/${marketSlug}/${lake.slug}`} className="group block bg-white hover:border-brand-gold transition-colors cursor-pointer relative p-7">
                 <div className="font-serif text-[11px] tracking-[.2em] uppercase text-brand-gold mb-2.5">Lake</div>

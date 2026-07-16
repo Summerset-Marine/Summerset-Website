@@ -54,6 +54,10 @@ const MARKET_COLUMNS: { heading: string; headingHref: string; links: NavLink[] }
       { label: "Lac La Belle", href: "/markets/oconomowoc/lac-la-belle" },
       { label: "Nagawicka Lake", href: "/markets/oconomowoc/nagawicka-lake" },
       { label: "Beaver Lake", href: "/markets/oconomowoc/beaver-lake" },
+      { label: "Pewaukee Lake", href: "/markets/oconomowoc/pewaukee-lake" },
+      { label: "Moose Lake", href: "/markets/oconomowoc/moose-lake" },
+      { label: "Pine Lake", href: "/markets/oconomowoc/pine-lake" },
+      { label: "Upper Okauchee Lake", href: "/markets/oconomowoc/upper-okauchee-lake" },
       { label: "Projects", href: "/markets/oconomowoc/projects" },
       { label: "Testimonials", href: "/markets/oconomowoc/testimonials" },
       { label: "Contact", href: "/markets/oconomowoc/contact" },
@@ -63,6 +67,7 @@ const MARKET_COLUMNS: { heading: string; headingHref: string; links: NavLink[] }
     heading: "Madison",
     headingHref: "/markets/madison",
     links: [
+      { label: "Lake Mendota", href: "/markets/madison/lake-mendota" },
       { label: "Projects", href: "/markets/madison/projects" },
       { label: "Testimonials", href: "/markets/madison/testimonials" },
       { label: "Contact", href: "/markets/madison/contact" },
@@ -72,6 +77,9 @@ const MARKET_COLUMNS: { heading: string; headingHref: string; links: NavLink[] }
     heading: "Whitewater",
     headingHref: "/markets/whitewater",
     links: [
+      { label: "Lake Beulah", href: "/markets/whitewater/lake-beulah" },
+      { label: "Delavan Lake", href: "/markets/whitewater/delavan-lake" },
+      { label: "Brown Lake", href: "/markets/whitewater/brown-lake" },
       { label: "Projects", href: "/markets/whitewater/projects" },
       { label: "Testimonials", href: "/markets/whitewater/testimonials" },
       { label: "Contact", href: "/markets/whitewater/contact" },

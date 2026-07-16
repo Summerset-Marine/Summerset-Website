@@ -150,15 +150,16 @@ export default function WhitewaterPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-border border border-brand-border">
             {[
-              { name: "Delavan Lake", desc: "Completed Lifetime Classic pier installations on Delavan Lake, minutes from our Whitewater headquarters." },
-              { name: "Lake Beulah", desc: "Lifetime All Seasons, Classic, and Minimalist piers installed across Lake Beulah’s wooded shoreline." },
-              { name: "Brown Lake", desc: "Low-profile Lifetime Minimalist piers built for Brown Lake’s quiet waterfront." },
+              { name: "Delavan Lake", slug: "delavan-lake", desc: "Completed Lifetime Classic pier installations on Delavan Lake, minutes from our Whitewater headquarters." },
+              { name: "Lake Beulah", slug: "lake-beulah", desc: "Lifetime All Seasons, Classic, and Minimalist piers installed across Lake Beulah’s wooded shoreline." },
+              { name: "Brown Lake", slug: "brown-lake", desc: "Low-profile Lifetime Minimalist piers built for Brown Lake’s quiet waterfront." },
             ].map(lake => (
-              <div key={lake.name} className="group block bg-white relative p-7">
+              <Link key={lake.slug} href={`/markets/whitewater/${lake.slug}`} className="group block bg-white hover:border-brand-gold transition-colors cursor-pointer relative p-7">
                 <div className="font-serif text-[11px] tracking-[.2em] uppercase text-brand-gold mb-2.5">Lake</div>
-                <div className="font-serif text-[24px] font-normal text-brand-black mb-4">{lake.name}</div>
-                <p className="font-serif text-[14px] text-brand-black/60">{lake.desc}</p>
-              </div>
+                <div className="font-serif text-[24px] font-normal text-brand-black mb-4 group-hover:text-brand-gold transition-colors">{lake.name}</div>
+                <p className="font-serif text-[14px] text-brand-black/60 mb-6">{lake.desc}</p>
+                <span className="font-serif text-[12px] tracking-[.14em] uppercase text-brand-navy border-b border-brand-navy pb-0.5 inline-flex items-center gap-2">Explore <span>→</span></span>
+              </Link>
             ))}
           </div>
         </div>

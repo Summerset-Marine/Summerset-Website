@@ -150,14 +150,15 @@ export default function MadisonPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-border border border-brand-border">
             {[
-              { name: "Lake Mendota", desc: "Big water, long fetch, and serious ice — Lake Mendota calls for heavy-duty permanent systems like the Lifetime All Seasons HD.", stats: "Avg Depth: 74′ · Acres: 14,286" },
+              { name: "Lake Mendota", slug: "lake-mendota", desc: "Big water, long fetch, and serious ice — Lake Mendota calls for heavy-duty permanent systems like the Lifetime All Seasons HD.", stats: "Avg Depth: 74′ · Acres: 14,286" },
             ].map(lake => (
-              <div key={lake.name} className="group block bg-white relative p-7">
+              <Link key={lake.slug} href={`/markets/madison/${lake.slug}`} className="group block bg-white hover:border-brand-gold transition-colors cursor-pointer relative p-7">
                 <div className="font-serif text-[11px] tracking-[.2em] uppercase text-brand-gold mb-2.5">Primary Lake</div>
-                <div className="font-serif text-[24px] font-normal text-brand-black mb-4">{lake.name}</div>
+                <div className="font-serif text-[24px] font-normal text-brand-black mb-4 group-hover:text-brand-gold transition-colors">{lake.name}</div>
                 <div className="font-serif text-[13px] text-brand-navy mb-4 font-bold">{lake.stats}</div>
-                <p className="font-serif text-[14px] text-brand-black/60">{lake.desc}</p>
-              </div>
+                <p className="font-serif text-[14px] text-brand-black/60 mb-6">{lake.desc}</p>
+                <span className="font-serif text-[12px] tracking-[.14em] uppercase text-brand-navy border-b border-brand-navy pb-0.5 inline-flex items-center gap-2">Explore <span>→</span></span>
+              </Link>
             ))}
           </div>
         </div>
