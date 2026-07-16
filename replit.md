@@ -20,7 +20,7 @@ Markets: 7 market sections — lake-geneva, oconomowoc, door-county (with lake s
 - pnpm workspaces, Node.js 24, TypeScript 5.9
 - Frontend: React + Vite + Tailwind v4 + wouter (`artifacts/summerset-marine`)
 - API: Express 5 (`artifacts/api-server`)
-- CMS: Sanity (`@sanity/client`, project mx8e8b7p) — 35 `project` docs + 3 blogPost featured images migrated from the legacy site; testimonials intentionally empty (no legacy source copy — never fabricate). Browser CORS origins must be whitelisted by Noah at manage.sanity.io (localhost dev preview is blocked; verify the published domain is whitelisted too)
+- CMS: Sanity (`@sanity/client`, project mx8e8b7p) — 35 `project` docs + 3 blogPost featured images migrated from the legacy site; testimonials: 12 real reviews imported from the live site's Elfsight testimonials-slider widget (deterministic ids `testimonial-elfsight-*`; no star ratings in source, so starRating left unset — never fabricate). Browser CORS origins must be whitelisted by Noah at manage.sanity.io (localhost dev preview is blocked; verify the published domain is whitelisted too)
 - Forms (planned): HubSpot Forms API (@hubspot/api-client; handler arrives in Prompt 4)
 - ERP (planned): NetSuite REST API (OAuth 1.0a TBA, HMAC-SHA256)
 
