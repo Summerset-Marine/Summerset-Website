@@ -99,7 +99,7 @@
   --color-brand-blue-light: #2A8AC4;
   --color-brand-red: #C8102E;
   --color-brand-red-hover: #A50D25;
-  --color-brand-gold: #b68235;
+  --color-brand-gold: var(--brand-gold);
   --color-brand-black: #201f1d;
   --color-brand-offwhite: #f8f7f4;
   --color-brand-hairline: #d4c9b8;
@@ -113,6 +113,18 @@
   --spacing-128: 32rem;
 
   --container-content: 1280px;
+}
+
+/* Brand gold is variable-backed (see --color-brand-gold in @theme inline) so it can be
+   brightened inside dark sections for contrast against video/image backgrounds.
+   Every dark band/hero uses bg-brand-navy (footer uses bg-[#060f1c]); gold utilities
+   (text-brand-gold, border-brand-gold, bg-brand-gold dividers) pick this up automatically. */
+:root {
+  --brand-gold: #b68235;
+}
+.bg-brand-navy,
+.bg-\[\#060f1c\] {
+  --brand-gold: #d9a860;
 }
 
 /* LIGHT MODE */
