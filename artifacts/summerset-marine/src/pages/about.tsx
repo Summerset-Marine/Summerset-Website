@@ -1,10 +1,21 @@
+import { useEffect, useState } from "react";
 import Layout from "@/components/layout/Layout";
 import PageMeta from "@/components/seo/PageMeta";
 import JsonLd, { organizationSchema } from "@/components/seo/JsonLd";
 import ContentPlaceholder from "@/components/ui/ContentPlaceholder";
 import CTABlock from "@/components/ui/CTABlock";
+import { isSanityConfigured, sanityFetch, TEAM_QUERY } from "@/lib/sanity";
 
-const EXECUTIVE_TEAM = [
+interface TeamMember {
+  name: string;
+  title: string;
+  bio: string;
+  photoUrl?: string;
+  photoAlt?: string;
+}
+
+/** Static fallback — ported verbatim from the live site; Sanity `teamMember` docs mirror this list. */
+const EXECUTIVE_TEAM: TeamMember[] = [
   {
     name: "Larry Chapman",
     title: "Founder, Owner & President",
@@ -33,6 +44,19 @@ const EXECUTIVE_TEAM = [
 ];
 
 export default function AboutPage() {
+  const [team, setTeam] = useState<TeamMember[]>(EXECUTIVE_TEAM);
+
+  useEffect(() => {
+    if (!isSanityConfigured) return;
+    sanityFetch<TeamMember[]>(TEAM_QUERY)
+      .then((members) => {
+        if (members && members.length > 0) setTeam(members);
+      })
+      .catch(() => {
+        /* keep static fallback (e.g. CORS-blocked in dev) */
+      });
+  }, []);
+
   return (
     <Layout>
       <PageMeta
@@ -131,12 +155,21 @@ export default function AboutPage() {
         <div className="mx-auto max-w-content px-6 py-16">
           <h2 className="font-serif text-3xl text-brand-navy">Meet Our Executive Team</h2>
           <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {EXECUTIVE_TEAM.map((member) => (
-              <div key={member.name} className="rounded-lg bg-white p-6 shadow-sm">
-                {/* PLACEHOLDER — SMC TO SUPPLY: team member photo */}
-                <ContentPlaceholder label={`Photo of ${member.name}`} className="min-h-[180px]" />
+            {team.map((member) => (
+              <div key={member.name} className="border border-brand-hairline bg-white p-6">
+                {member.photoUrl ? (
+                  <img
+                    src={member.photoUrl}
+                    alt={member.photoAlt ?? `Photo of ${member.name}`}
+                    className="aspect-[4/3] w-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  /* PLACEHOLDER — SMC TO SUPPLY: team member photo */
+                  <ContentPlaceholder label={`Photo of ${member.name}`} className="min-h-[180px]" />
+                )}
                 <h3 className="mt-5 font-serif text-xl text-brand-navy">{member.name}</h3>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-brand-blue">
+                <p className="mt-1 text-sm uppercase tracking-wide text-brand-gold">
                   {member.title}
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-brand-black/80">{member.bio}</p>
