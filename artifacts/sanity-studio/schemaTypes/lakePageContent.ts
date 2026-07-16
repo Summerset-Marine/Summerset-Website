@@ -31,7 +31,8 @@ export const lakePageContent = defineType({
     defineField({ name: 'lakeCharacteristics', title: 'Lake Characteristics', type: 'text', rows: 5, description: 'Average depth, wave exposure, ice behavior, shoreline type — written for a property owner scoping a project' }),
     defineField({
       name: 'projects',
-      title: 'Projects on This Lake',
+      title: 'Extra Projects (inline)',
+      description: 'Optional extra project entries for this page only. Note: Projects tagged to this lake in the main Projects list appear on the website automatically — see "Projects on This Lake" one level up in the Studio menu.',
       type: 'array',
       of: [{
         type: 'object',

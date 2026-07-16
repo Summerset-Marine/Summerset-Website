@@ -17,7 +17,29 @@ export default defineConfig({
             S.listItem().title('Blog Posts').schemaType('blogPost').child(S.documentTypeList('blogPost')),
             S.divider(),
             S.listItem().title('Market Pages').schemaType('marketPage').child(S.documentTypeList('marketPage')),
-            S.listItem().title('Body of Water Pages').schemaType('lakePageContent').child(S.documentTypeList('lakePageContent')),
+            S.listItem().title('Body of Water Pages').schemaType('lakePageContent').child(
+              S.documentTypeList('lakePageContent').title('Body of Water Pages').child((docId) =>
+                S.list()
+                  .title('Body of Water')
+                  .items([
+                    S.listItem()
+                      .title('Page Content')
+                      .id('page-content')
+                      .child(S.document().documentId(docId).schemaType('lakePageContent')),
+                    S.listItem()
+                      .title('Projects on This Lake')
+                      .id('lake-projects')
+                      .child(
+                        S.documentList()
+                          .title('Projects on This Lake')
+                          .schemaType('project')
+                          .filter('_type == "project" && lake == *[_id == $docId][0].lakeSlug')
+                          .params({ docId })
+                          .initialValueTemplates([])
+                      ),
+                  ])
+              )
+            ),
             S.listItem().title('Projects').schemaType('project').child(S.documentTypeList('project')),
             S.listItem().title('Testimonials').schemaType('testimonial').child(S.documentTypeList('testimonial')),
             S.divider(),
