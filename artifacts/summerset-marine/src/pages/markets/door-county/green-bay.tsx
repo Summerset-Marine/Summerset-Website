@@ -152,10 +152,12 @@ export default function GreenBayPage() {
         <h2 className="font-serif text-3xl text-brand-navy">
           Summerset Marine on Green Bay
         </h2>
-        <ContentPlaceholder
-          label="Green Bay lake stats (average depth, square acres)"
-          className="mt-4"
-        />
+        {!content?.lakeCharacteristics && (
+          <ContentPlaceholder
+            label="Green Bay lake stats (average depth, square acres)"
+            className="mt-4"
+          />
+        )}
         {content?.historyText ? (
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-brand-gray">
             {content.historyText}

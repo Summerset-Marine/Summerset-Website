@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Layout";
 import PageMeta from "@/components/seo/PageMeta";
 import JsonLd, { localBusinessSchema, serviceSchema } from "@/components/seo/JsonLd";
 import ContactForm from "@/components/ui/ContactForm";
-import ContentPlaceholder from "@/components/ui/ContentPlaceholder";
+import ContactHighlights from "@/components/ui/ContactHighlights";
 
 export default function OconomowocContactPage() {
   return (
@@ -69,8 +69,7 @@ export default function OconomowocContactPage() {
                 </a>
               </p>
             </div>
-            <ContentPlaceholder label="featured Oconomowoc / Lake Country project photo" />
-            <ContentPlaceholder label="a single Oconomowoc / Lake Country customer testimonial" />
+            <ContactHighlights market="oconomowoc" marketLabel="Oconomowoc / Lake Country" />
           </div>
         </div>
       </section>

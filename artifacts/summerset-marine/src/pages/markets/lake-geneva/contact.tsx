@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Layout";
 import PageMeta from "@/components/seo/PageMeta";
 import JsonLd, { localBusinessSchema, serviceSchema } from "@/components/seo/JsonLd";
 import ContactForm from "@/components/ui/ContactForm";
-import ContentPlaceholder from "@/components/ui/ContentPlaceholder";
+import ContactHighlights from "@/components/ui/ContactHighlights";
 
 export default function LakeGenevaContactPage() {
   return (
@@ -69,8 +69,7 @@ export default function LakeGenevaContactPage() {
                 </a>
               </p>
             </div>
-            <ContentPlaceholder label="featured Lake Geneva project photo" />
-            <ContentPlaceholder label="a single Geneva Lake customer testimonial" />
+            <ContactHighlights market="lake-geneva" marketLabel="Lake Geneva" />
           </div>
         </div>
       </section>

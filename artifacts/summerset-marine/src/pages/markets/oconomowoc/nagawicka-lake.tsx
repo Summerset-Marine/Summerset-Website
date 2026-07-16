@@ -152,10 +152,12 @@ export default function NagawickaLakePage() {
         <h2 className="font-serif text-3xl text-brand-navy">
           Summerset Marine on Nagawicka Lake
         </h2>
-        <ContentPlaceholder
-          label="Nagawicka Lake lake stats (average depth, square acres)"
-          className="mt-4"
-        />
+        {!content?.lakeCharacteristics && (
+          <ContentPlaceholder
+            label="Nagawicka Lake lake stats (average depth, square acres)"
+            className="mt-4"
+          />
+        )}
         {content?.historyText ? (
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-brand-gray">
             {content.historyText}

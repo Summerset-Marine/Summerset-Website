@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Layout";
 import PageMeta from "@/components/seo/PageMeta";
 import JsonLd, { localBusinessSchema, serviceSchema } from "@/components/seo/JsonLd";
 import ContactForm from "@/components/ui/ContactForm";
-import ContentPlaceholder from "@/components/ui/ContentPlaceholder";
+import ContactHighlights from "@/components/ui/ContactHighlights";
 
 export default function DoorCountyContactPage() {
   return (
@@ -70,8 +70,7 @@ export default function DoorCountyContactPage() {
                 </a>
               </p>
             </div>
-            <ContentPlaceholder label="featured Door County project photo" />
-            <ContentPlaceholder label="a single Door County customer testimonial" />
+            <ContactHighlights market="door-county" marketLabel="Door County" />
           </div>
         </div>
       </section>
