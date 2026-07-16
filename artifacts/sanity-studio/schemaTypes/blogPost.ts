@@ -14,13 +14,13 @@ export const blogPost = defineType({
       name: 'market',
       title: 'Market',
       type: 'string',
-      options: { list: ['lake-geneva', 'oconomowoc', 'door-county', 'general'] }
+      options: { list: ['lake-geneva', 'oconomowoc', 'door-county', 'madison', 'whitewater', 'green-lake', 'fox-chain', 'general'] }
     }),
     defineField({
       name: 'lake',
       title: 'Body of Water',
       type: 'string',
-      options: { list: ['geneva-lake', 'okauchee-lake', 'lac-la-belle', 'nagawicka-lake', 'beaver-lake', 'green-bay', 'sturgeon-bay', 'lake-michigan', 'general'] }
+      options: { list: ['geneva-lake', 'okauchee-lake', 'lac-la-belle', 'nagawicka-lake', 'beaver-lake', 'pewaukee-lake', 'moose-lake', 'pine-lake', 'upper-okauchee-lake', 'lake-beulah', 'delavan-lake', 'brown-lake', 'lake-mendota', 'green-bay', 'sturgeon-bay', 'lake-michigan', 'general'] }
     }),
     defineField({
       name: 'productType',

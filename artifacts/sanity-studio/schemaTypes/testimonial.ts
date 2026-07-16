@@ -12,7 +12,7 @@ export const testimonial = defineType({
       name: 'market',
       title: 'Market',
       type: 'string',
-      options: { list: ['lake-geneva', 'oconomowoc', 'door-county'] },
+      options: { list: ['lake-geneva', 'oconomowoc', 'door-county', 'madison', 'whitewater', 'green-lake', 'fox-chain'] },
       validation: Rule => Rule.required()
     }),
     defineField({

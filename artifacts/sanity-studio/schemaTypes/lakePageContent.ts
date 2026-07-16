@@ -10,14 +10,14 @@ export const lakePageContent = defineType({
       name: 'lakeSlug',
       title: 'Lake Slug',
       type: 'string',
-      description: 'Must match the URL slug exactly: geneva-lake, okauchee-lake, lac-la-belle, nagawicka-lake, beaver-lake, green-bay, sturgeon-bay, lake-michigan',
+      description: 'Must match the URL slug exactly, e.g. geneva-lake, okauchee-lake, lac-la-belle, nagawicka-lake, beaver-lake, pewaukee-lake, moose-lake, pine-lake, upper-okauchee-lake, lake-beulah, delavan-lake, brown-lake, lake-mendota, green-bay, sturgeon-bay, lake-michigan',
       validation: Rule => Rule.required()
     }),
     defineField({
       name: 'market',
       title: 'Market',
       type: 'string',
-      options: { list: ['lake-geneva', 'oconomowoc', 'door-county'] },
+      options: { list: ['lake-geneva', 'oconomowoc', 'door-county', 'madison', 'whitewater', 'green-lake', 'fox-chain'] },
       validation: Rule => Rule.required()
     }),
     defineField({
