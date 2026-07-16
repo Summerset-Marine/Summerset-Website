@@ -4,6 +4,10 @@ Image assets: `public/images/smc/` holds 45 scraped Squarespace photos with SEO 
 
 Marketing website for Summerset Marine Construction (summersetmarine.com) — a luxury marine construction company in Wisconsin building permanent piers, boat lifts, and marine contracting systems.
 
+Hero videos: `public/videos/` holds 14 Squarespace hero videos (1080p, pulled via ffmpeg from HLS `playlist.m3u8` — must parse the master playlist for the highest-BANDWIDTH variant; default ffmpeg picks the lowest). Wired as inline `<video autoPlay muted loop playsInline>` (poster = prior hero image) on home/about/product/service pages and via `HeroSection variant="video-bg"` on lifts index, seasonal, accessories, and green-lake market.
+
+Markets: 7 market sections — lake-geneva, oconomowoc, door-county (with lake subpages) plus madison, whitewater, green-lake, fox-chain (index/projects/testimonials/contact only, cloned from the lake-geneva template; verbatim live copy on index pages). Sanity holds 123 `project` docs (88 migrated from 14 legacy portfolio pages, deduped via a `sourceUrl` field; markets: mendota→madison, beulah/delavan/brown→whitewater, pewaukee/pine/moose/upper-okauchee→oconomowoc, minnetonka→other). `marketPage` docs exist for all 7 markets; `featuredProjects` entries are **inline objects** (title/lake/productType/image), not references — `MARKET_PAGE_QUERY` does not dereference, so keep that shape when adding entries.
+
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)

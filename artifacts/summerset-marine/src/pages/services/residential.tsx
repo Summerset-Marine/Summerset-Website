@@ -107,11 +107,13 @@ export default function ResidentialServicesPage() {
             maintenance and support.
           </p>
           <div className="mt-8">
-            <img
-              src="/images/smc/wisconsin-residential-service-hero-001.jpg"
-              alt="Crane lifting a boat lift structure off a barge during residential installation — Summerset Marine Construction"
+            <video
+              src="/videos/residential.mp4"
+              poster="/images/smc/wisconsin-residential-service-hero-001.jpg"
               className="w-full rounded-lg object-cover"
-            />
+              autoPlay muted loop playsInline
+              aria-label="Crane lifting a boat lift structure off a barge during residential installation — Summerset Marine Construction"
+              />
           </div>
         </div>
       </section>

@@ -136,10 +136,15 @@ export default function HomePage() {
               View Our Work
             </Button>
           </div>
-          <img
-            src="/images/smc/wisconsin-permanent-pier-aerial-hero-002.jpg"
-            alt="Aerial view of a Lifetime All Seasons HD permanent pier with covered boat lift — Summerset Marine Construction"
+          <video
+            src="/videos/home.mp4"
+            poster="/images/smc/wisconsin-permanent-pier-aerial-hero-002.jpg"
             className="mt-12 aspect-[21/9] w-full rounded-lg object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-label="Aerial view of a Lifetime All Seasons HD permanent pier with covered boat lift — Summerset Marine Construction"
           />
         </div>
       </section>

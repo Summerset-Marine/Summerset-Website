@@ -65,6 +65,26 @@ import DoorCountyProjectsPage from "@/pages/markets/door-county/projects";
 import DoorCountyTestimonialsPage from "@/pages/markets/door-county/testimonials";
 import DoorCountyContactPage from "@/pages/markets/door-county/contact";
 
+import MadisonPage from "@/pages/markets/madison/index";
+import MadisonProjectsPage from "@/pages/markets/madison/projects";
+import MadisonTestimonialsPage from "@/pages/markets/madison/testimonials";
+import MadisonContactPage from "@/pages/markets/madison/contact";
+
+import WhitewaterPage from "@/pages/markets/whitewater/index";
+import WhitewaterProjectsPage from "@/pages/markets/whitewater/projects";
+import WhitewaterTestimonialsPage from "@/pages/markets/whitewater/testimonials";
+import WhitewaterContactPage from "@/pages/markets/whitewater/contact";
+
+import GreenLakePage from "@/pages/markets/green-lake/index";
+import GreenLakeProjectsPage from "@/pages/markets/green-lake/projects";
+import GreenLakeTestimonialsPage from "@/pages/markets/green-lake/testimonials";
+import GreenLakeContactPage from "@/pages/markets/green-lake/contact";
+
+import FoxChainPage from "@/pages/markets/fox-chain/index";
+import FoxChainProjectsPage from "@/pages/markets/fox-chain/projects";
+import FoxChainTestimonialsPage from "@/pages/markets/fox-chain/testimonials";
+import FoxChainContactPage from "@/pages/markets/fox-chain/contact";
+
 const queryClient = new QueryClient();
 
 function Router() {
@@ -130,6 +150,26 @@ function Router() {
       <Route path="/markets/door-county/projects" component={DoorCountyProjectsPage} />
       <Route path="/markets/door-county/testimonials" component={DoorCountyTestimonialsPage} />
       <Route path="/markets/door-county/contact" component={DoorCountyContactPage} />
+
+      <Route path="/markets/madison" component={MadisonPage} />
+      <Route path="/markets/madison/projects" component={MadisonProjectsPage} />
+      <Route path="/markets/madison/testimonials" component={MadisonTestimonialsPage} />
+      <Route path="/markets/madison/contact" component={MadisonContactPage} />
+
+      <Route path="/markets/whitewater" component={WhitewaterPage} />
+      <Route path="/markets/whitewater/projects" component={WhitewaterProjectsPage} />
+      <Route path="/markets/whitewater/testimonials" component={WhitewaterTestimonialsPage} />
+      <Route path="/markets/whitewater/contact" component={WhitewaterContactPage} />
+
+      <Route path="/markets/green-lake" component={GreenLakePage} />
+      <Route path="/markets/green-lake/projects" component={GreenLakeProjectsPage} />
+      <Route path="/markets/green-lake/testimonials" component={GreenLakeTestimonialsPage} />
+      <Route path="/markets/green-lake/contact" component={GreenLakeContactPage} />
+
+      <Route path="/markets/fox-chain" component={FoxChainPage} />
+      <Route path="/markets/fox-chain/projects" component={FoxChainProjectsPage} />
+      <Route path="/markets/fox-chain/testimonials" component={FoxChainTestimonialsPage} />
+      <Route path="/markets/fox-chain/contact" component={FoxChainContactPage} />
 
       <Route component={NotFound} />
     </Switch>

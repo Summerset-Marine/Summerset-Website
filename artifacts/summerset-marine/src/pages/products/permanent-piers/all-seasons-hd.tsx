@@ -78,11 +78,13 @@ export default function AllSeasonsHDPage() {
             You&rsquo;re either in or you&rsquo;re out.
           </p>
           <div className="mt-8">
-            <img
-              src="/images/smc/wisconsin-lifetime-all-seasons-hd-pier-aerial-001.jpg"
-              alt="Lifetime All Seasons HD permanent pier aerial view — Summerset Marine Construction Wisconsin"
+            <video
+              src="/videos/pier-all-seasons-hd.mp4"
+              poster="/images/smc/wisconsin-lifetime-all-seasons-hd-pier-aerial-001.jpg"
               className="aspect-[21/9] w-full rounded-lg object-cover"
-            />
+              autoPlay muted loop playsInline
+              aria-label="Lifetime All Seasons HD permanent pier aerial view — Summerset Marine Construction Wisconsin"
+              />
           </div>
         </div>
       </section>

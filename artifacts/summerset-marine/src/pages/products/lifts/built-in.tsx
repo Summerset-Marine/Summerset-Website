@@ -87,11 +87,13 @@ export default function BuiltInLiftsPage() {
             </Button>
           </div>
           <div className="mt-8">
-            <img
-              src="/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg"
-              alt="Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction"
+            <video
+              src="/videos/lift-built-in.mp4"
+              poster="/images/smc/wisconsin-lifetime-built-in-boat-lift-001.jpg"
               className="aspect-[21/9] w-full rounded-lg object-cover"
-            />
+              autoPlay muted loop playsInline
+              aria-label="Lifetime built-in boat lift installed on a Wisconsin lake — Summerset Marine Construction"
+              />
           </div>
         </div>
       </section>

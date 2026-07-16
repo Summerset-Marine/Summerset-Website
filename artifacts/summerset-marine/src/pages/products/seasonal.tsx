@@ -10,7 +10,8 @@ export default function SeasonalSystemsPage() {
         description="Seasonal Systems — Summerset Marine Construction, Wisconsin's builder of permanent piers, boat lifts, and marine contracting systems."
       />
       <HeroSection
-        variant="full-bleed"
+        variant="video-bg"
+        videoSrc="/videos/seasonal.mp4"
         headline="Seasonal Systems"
         imageSrc="/images/smc/wisconsin-seasonal-pier-brown-lake-001.jpg"
         imageAlt="Lifetime Minimalist pier with sun shade and boat lift at sunrise on Brown Lake, Wisconsin"

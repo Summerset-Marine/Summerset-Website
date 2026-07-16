@@ -61,6 +61,42 @@ const MARKET_COLUMNS: { heading: string; headingHref: string; links: NavLink[] }
     ],
   },
   {
+    heading: "Madison",
+    headingHref: "/markets/madison",
+    links: [
+      { label: "Projects", href: "/markets/madison/projects" },
+      { label: "Testimonials", href: "/markets/madison/testimonials" },
+      { label: "Contact", href: "/markets/madison/contact" },
+    ],
+  },
+  {
+    heading: "Whitewater",
+    headingHref: "/markets/whitewater",
+    links: [
+      { label: "Projects", href: "/markets/whitewater/projects" },
+      { label: "Testimonials", href: "/markets/whitewater/testimonials" },
+      { label: "Contact", href: "/markets/whitewater/contact" },
+    ],
+  },
+  {
+    heading: "Green Lake",
+    headingHref: "/markets/green-lake",
+    links: [
+      { label: "Projects", href: "/markets/green-lake/projects" },
+      { label: "Testimonials", href: "/markets/green-lake/testimonials" },
+      { label: "Contact", href: "/markets/green-lake/contact" },
+    ],
+  },
+  {
+    heading: "Fox Chain",
+    headingHref: "/markets/fox-chain",
+    links: [
+      { label: "Projects", href: "/markets/fox-chain/projects" },
+      { label: "Testimonials", href: "/markets/fox-chain/testimonials" },
+      { label: "Contact", href: "/markets/fox-chain/contact" },
+    ],
+  },
+  {
     heading: "Door County",
     headingHref: "/markets/door-county",
     links: [

@@ -32,11 +32,13 @@ export default function CommercialPierPage() {
             Lifetime by Summerset Marine Construction
           </p>
           <h1 className="mt-3 font-serif text-4xl md:text-5xl">Commercial Piers</h1>
-          <img
-            src="/images/smc/wisconsin-commercial-pier-baileys-harbor-aerial-001.png"
-            alt="Aerial view of the Baileys Harbor marina commercial marine construction project, Door County, Wisconsin"
+          <video
+            src="/videos/pier-commercial.mp4"
+            poster="/images/smc/wisconsin-commercial-pier-baileys-harbor-aerial-001.png"
             className="mt-8 aspect-[21/9] w-full rounded-lg object-cover"
-          />
+            autoPlay muted loop playsInline
+            aria-label="Aerial view of the Baileys Harbor marina commercial marine construction project, Door County, Wisconsin"
+            />
         </div>
       </section>
 

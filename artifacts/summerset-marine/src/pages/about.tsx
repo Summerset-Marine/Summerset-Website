@@ -61,11 +61,13 @@ export default function AboutPage() {
           <p className="mt-6 font-serif text-2xl italic">
             Family-owned. American-made. Built to last.
           </p>
-          <img
-            src="/images/smc/summerset-marine-construction-whitewater-wi-headquarters-001.jpg"
-            alt="Summerset Marine Construction headquarters in Whitewater, Wisconsin"
+          <video
+            src="/videos/about.mp4"
+            poster="/images/smc/summerset-marine-construction-whitewater-wi-headquarters-001.jpg"
             className="mt-10 aspect-[21/9] w-full rounded-lg object-cover"
-          />
+            autoPlay muted loop playsInline
+            aria-label="Summerset Marine Construction headquarters in Whitewater, Wisconsin"
+            />
         </div>
       </section>
 

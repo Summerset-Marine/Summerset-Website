@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import PageMeta from "@/components/seo/PageMeta";
+import HeroSection from "@/components/ui/HeroSection";
 
 export default function AccessoriesPage() {
   return (
@@ -8,8 +9,14 @@ export default function AccessoriesPage() {
         title="Accessories | Summerset Marine Construction"
         description="Accessories — Summerset Marine Construction, Wisconsin's builder of permanent piers, boat lifts, and marine contracting systems."
       />
+      <HeroSection
+        variant="video-bg"
+        videoSrc="/videos/accessories.mp4"
+        headline="Accessories"
+        imageSrc="/images/smc/wisconsin-pier-accessory-dock-box-001.png"
+        imageAlt="Lifetime pier accessories — Summerset Marine Construction"
+      />
       <section className="mx-auto max-w-content px-6 py-22">
-        <h1 className="font-serif text-4xl text-brand-navy">Accessories</h1>
         <p className="mt-4 text-brand-gray">Page content coming soon.</p>
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           <figure>
