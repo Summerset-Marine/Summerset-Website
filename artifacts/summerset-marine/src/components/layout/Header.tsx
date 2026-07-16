@@ -351,9 +351,9 @@ export default function Header() {
           </Dropdown>
 
           <Dropdown label="Markets" wide>
-            <div className="flex w-[720px] gap-8 p-6">
+            <div className="grid w-[760px] max-w-[calc(100vw-32px)] grid-cols-4 gap-x-8 gap-y-7 p-6">
               {MARKET_COLUMNS.map((col) => (
-                <div key={col.heading} className="flex-1">
+                <div key={col.heading}>
                   <Link
                     href={col.headingHref}
                     className="mb-2 block px-3 text-[11px] font-serif uppercase tracking-[.15em] text-[#b68235] hover:text-brand-navy"
