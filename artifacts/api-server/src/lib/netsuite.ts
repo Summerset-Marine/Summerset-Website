@@ -175,6 +175,10 @@ export function isSiteVisible(item: {
  * field IDs from the SMC NetSuite account:
  *   custitem_smc_list_on_website — boolean checkbox field ("list on website")
  *   custitem_smc_status          — text/select field ("Available"/"Pending"/"Sold")
+ *   custitem_smc_category        — text/select field holding a marketing category
+ *                                  (e.g. "Boat Lift", "PWC Lift", "Canopy", "Accessory");
+ *                                  replaces item.itemType which is a system classification
+ *                                  that cannot distinguish lift types from one another
  *   custitem_smc_brand           — text field
  *   custitem_smc_model           — text field
  *   custitem_smc_year            — number/text field
@@ -188,7 +192,7 @@ export async function fetchNetSuiteInventory(): Promise<InventoryItem[]> {
     SELECT
       CAST(item.id AS VARCHAR) AS netsuiteItemId,
       item.displayName        AS name,
-      item.itemType           AS type,
+      item.custitem_smc_category    AS type,
       item.custitem_smc_brand       AS brand,
       item.custitem_smc_model       AS model,
       item.custitem_smc_year        AS year,
