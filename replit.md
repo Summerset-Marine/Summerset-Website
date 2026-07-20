@@ -43,7 +43,7 @@ Markets: 7 market sections — lake-geneva, oconomowoc, door-county (with lake s
 - `artifacts/api-server/src/lib/hubspot.ts` — HubSpot Forms API v3 submission + CRM Deal creation for consultations (TODO-flagged smc_* custom props + pipeline stage ID)
 - `artifacts/summerset-marine/src/components/ui/ContactForm.tsx` — reusable form (consultation | contact | service-request), client validation, loading/success/error states
 - `artifacts/summerset-marine/src/components/layout/Layout.tsx` — also injects HubSpot tracking script when VITE_HUBSPOT_PORTAL_ID is set
-- `artifacts/api-server/src/routes/netsuite-webhook.ts` — POST /api/netsuite-webhook (HMAC-SHA256 of raw body in `x-netsuite-signature`) + GET /api/inventory (falls back to live SuiteQL fetch when cache empty and NetSuite configured)
+- `artifacts/api-server/src/routes/netsuite-webhook.ts` — POST /api/netsuite-webhook (HMAC-SHA256 of raw body in `x-netsuite-signature`; events: `upsert` single item or `remove` by netsuiteItemId; upsert with status≠Available or listOnWebsite=false auto-removes) + GET /api/inventory (falls back to live SuiteQL fetch when cache empty) + nightly reconciliation job (full SuiteQL pull every 24h, started in app.ts)
 - `artifacts/summerset-marine/src/lib/sanity.ts` — Sanity clients (`sanityFetch` CDN, `sanityLiveFetch` fresh) + all GROQ queries (blog, lake, market, FAQ, projects, testimonials, lift media, team)
 - `artifacts/api-server/data/inventory-cache.json` — lift inventory cache written by the webhook
 - `artifacts/summerset-marine/src/components/ui/GoogleReviews.tsx` — Elfsight Google Reviews embed on the home page; gated by `VITE_ELFSIGHT_GOOGLE_REVIEWS_ID` (section hidden in prod when unset, ContentPlaceholder in dev)
@@ -68,6 +68,7 @@ Prompts 1–9 of a multi-prompt build complete: foundation + SEO infrastructure 
 ## Gotchas
 
 - Webhook HMAC signs the **raw body bytes** — `express.json({ verify })` in `app.ts` stashes `req.rawBody`; don't remove that hook.
+- NetSuite item visibility uses **two fields**: `custitem_smc_list_on_website = T` AND `custitem_smc_status = 'Available'`. Both must be true for an item to appear on the site. Simplify to one field in `isSiteVisible()` in `netsuite.ts` + the SuiteQL WHERE clause if preferred later.
 - NetSuite SuiteQL query uses placeholder `custitem_smc_*` field IDs (TODO-flagged) — must be replaced with real field IDs from the SMC account.
 
 - `blog/[slug]` from the spec is implemented as `src/pages/blog/post.tsx` with wouter route `/blog/:slug`.

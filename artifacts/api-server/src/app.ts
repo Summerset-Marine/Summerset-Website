@@ -4,6 +4,7 @@ import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+import { startNightlyReconciliation } from "./routes/netsuite-webhook";
 
 const app: Express = express();
 
@@ -39,5 +40,9 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
+
+// Start nightly inventory reconciliation (full SuiteQL pull every 24 h).
+// Runs only when NetSuite env vars are present; safe to call unconditionally.
+startNightlyReconciliation();
 
 export default app;

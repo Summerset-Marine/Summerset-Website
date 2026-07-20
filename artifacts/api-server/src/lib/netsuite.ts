@@ -108,47 +108,115 @@ export async function netsuiteRequest<T>(
   return response.data;
 }
 
-export interface NetSuiteInventoryItem {
-  itemId: string | number;
-  productName: string;
-  productType: string;
-  model: string | null;
-  year: string | number | null;
-  condition: string | null;
-  price: string | number | null;
+/**
+ * Shape of an inventory item as stored in the cache and served to the
+ * frontend inventory page. Field names match the frontend's InventoryItem
+ * interface exactly.
+ *
+ * Visibility rule (two-field approach — see note below):
+ *   An item is shown on the website only when BOTH of the following are true:
+ *     1. listOnWebsite === true  (NetSuite field: custitem_smc_list_on_website)
+ *     2. status === "Available"  (NetSuite field: custitem_smc_status)
+ *   Items with status "Pending" or "Sold", OR with listOnWebsite false/unset,
+ *   are treated the same as a remove event — they are never stored in the cache
+ *   and never shown on the site.
+ *
+ * NOTE: This two-field approach was chosen because neither field was specified
+ * explicitly in the requirements. If you decide later that a single field is
+ * enough (e.g. only a status field, or only a "list on website" flag), the
+ * `isSiteVisible` helper and the SuiteQL WHERE clause are the two places to
+ * simplify.
+ */
+export interface InventoryItem {
+  netsuiteItemId: string;
+  name: string;
+  type?: string;
+  brand?: string;
+  model?: string;
+  year?: number | string | null;
+  condition?: string | null;
+  capacity?: string | null;
+  price?: number | null;
+  location?: string | null;
+  description?: string | null;
+}
+
+/**
+ * Raw row returned by SuiteQL before mapping. Includes the two visibility
+ * fields that determine whether the item belongs in the cache.
+ */
+interface SuiteQLRow extends InventoryItem {
+  listOnWebsite: boolean | string;
   status: string | null;
 }
 
 /**
- * Fetches lift inventory directly from NetSuite via SuiteQL. Used for manual
- * refresh or initial load when the webhook-written cache is empty.
- *
- * TODO: The field names custitem_smc_model, custitem_smc_year,
- * custitem_smc_condition, custitem_smc_status, and custitem_smc_lift_inventory
- * are placeholders. Replace them with the actual NetSuite custom field IDs
- * from the SMC NetSuite account before this query will run.
+ * Returns true when an item should appear on the website.
+ * Both conditions must be met: listed flag AND "Available" status.
  */
-export async function fetchNetSuiteInventory(): Promise<NetSuiteInventoryItem[]> {
+export function isSiteVisible(item: {
+  listOnWebsite?: boolean | string | null;
+  status?: string | null;
+}): boolean {
+  const listed =
+    item.listOnWebsite === true ||
+    item.listOnWebsite === "T" ||
+    item.listOnWebsite === "true";
+  const available = (item.status ?? "").toLowerCase() === "available";
+  return listed && available;
+}
+
+/**
+ * Fetches lift inventory directly from NetSuite via SuiteQL and returns only
+ * items that are visible on the site (listOnWebsite = T AND status = Available).
+ * Used for the initial-load fallback and the nightly reconciliation job.
+ *
+ * TODO: The custom field IDs below are placeholders — replace with the actual
+ * field IDs from the SMC NetSuite account:
+ *   custitem_smc_list_on_website — boolean checkbox field ("list on website")
+ *   custitem_smc_status          — text/select field ("Available"/"Pending"/"Sold")
+ *   custitem_smc_brand           — text field
+ *   custitem_smc_model           — text field
+ *   custitem_smc_year            — number/text field
+ *   custitem_smc_condition       — text/select field ("New"/"Used"/"Refurbished")
+ *   custitem_smc_capacity        — text field (e.g. "6,000 lb")
+ *   custitem_smc_location        — text field (e.g. "Lake Geneva showroom")
+ *   custitem_smc_description     — text area field
+ */
+export async function fetchNetSuiteInventory(): Promise<InventoryItem[]> {
   const query = `
     SELECT
-      item.id AS itemId,
-      item.displayName AS productName,
-      item.itemType AS productType,
-      item.custitem_smc_model AS model,
-      item.custitem_smc_year AS year,
-      item.custitem_smc_condition AS condition,
-      item.salesprice AS price,
-      item.custitem_smc_status AS status
+      CAST(item.id AS VARCHAR) AS netsuiteItemId,
+      item.displayName        AS name,
+      item.itemType           AS type,
+      item.custitem_smc_brand       AS brand,
+      item.custitem_smc_model       AS model,
+      item.custitem_smc_year        AS year,
+      item.custitem_smc_condition   AS condition,
+      item.salesprice               AS price,
+      item.custitem_smc_capacity    AS capacity,
+      item.custitem_smc_location    AS location,
+      item.custitem_smc_description AS description,
+      item.custitem_smc_list_on_website AS listOnWebsite,
+      item.custitem_smc_status          AS status
     FROM item
     WHERE item.isinactive = 'F'
-      AND item.custitem_smc_lift_inventory = 'T'
+      AND item.custitem_smc_list_on_website = 'T'
+      AND item.custitem_smc_status = 'Available'
     ORDER BY item.id DESC
   `;
 
-  const data = await netsuiteRequest<{ items?: NetSuiteInventoryItem[] }>(
+  const data = await netsuiteRequest<{ items?: SuiteQLRow[] }>(
     "POST",
     "/services/rest/query/v1/suiteql",
     { q: query },
   );
-  return data.items ?? [];
+
+  const rows = data.items ?? [];
+
+  // Belt-and-suspenders: filter again in application code in case the SQL
+  // driver returns non-boolean values for the checkbox field.
+  return rows
+    .filter(isSiteVisible)
+    .map(({ listOnWebsite: _lw, status: _s, ...item }) => item);
 }
